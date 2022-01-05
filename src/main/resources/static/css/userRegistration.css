@@ -14,15 +14,13 @@ label{
 }
 
 
-#floatingFirtsName{
+#floatingFirstName{
 	background-color:black;
 	border:1px solid #FFCC00;
 	color:white;
 }
 
-#floatingFirstName:active{
-	border:2px solid #FFCC00;
-}
+
 
 #floatingLastName{
 	background-color:black;	
@@ -39,6 +37,12 @@ label{
 #floatingEmail{
 	background-color:black;	
 	border:1px solid #FFCC00;
+	color:white;
+}
+
+#floatingEmail:focus, #floatingPassword:focus, #floatingEmail:focus, #floatingBirthDate:focus, #floatingLastName:focus, #floatingFirstName:focus {
+	background-color:black;	
+	border:2px solid #FFCC00;
 	color:white;
 }
 

@@ -6,44 +6,55 @@
 }
 
 #singUp{
-	color:green;
+	color:#FFCC00;
 }
 
 label{
-	color:green;
+	color:#FFCC00;
 }
+
 
 #floatingFirtsName{
 	background-color:black;
-	border:1px solid #4CAF50;
+	border:1px solid #FFCC00;
+	color:white;
+}
+
+#floatingFirstName:active{
+	border:2px solid #FFCC00;
 }
 
 #floatingLastName{
 	background-color:black;	
-	border:1px solid #4CAF50;
+	border:1px solid #FFCC00;	
+	color:white;
 }
 
 #floatingBirthDate{
 	background-color:black;	
-	border:1px solid #4CAF50;
+	border:1px solid #FFCC00;
+	color:white;
 }
 
 #floatingEmail{
 	background-color:black;	
-	border:1px solid #4CAF50;
+	border:1px solid #FFCC00;
+	color:white;
 }
 
 #floatingPassword{
 	background-color:black;	
-	border:1px solid #4CAF50;
+	border:1px solid #FFCC00;
+	color:white;
 }
 
 #inputDate{
 	background-color:black;
-	border:1px solid #4CAF50;	
+	border:1px solid #FFCC00;
+	color:white;	
 }
 
 #sendButton{
-	color:green;
-	border:1px solid #4CAF50;
+	color:#FFCC00;
+	border:1px solid #FFCC00;
 }

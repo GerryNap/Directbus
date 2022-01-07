@@ -21,26 +21,6 @@ i{
 	text-align: center;
 }
 
-#forgot-password a{
-	text-decoration: none;
-	color: #a8a8a8;
-	cursor: pointer;
-}
-
-#forgot-password:hover{
-	text-decoration: underline;
-}
-
-#register a{
-	text-decoration: none;
-	color: #a8a8a8;
-	cursor: pointer;
-}
-
-#register a:hover{
-	text-decoration: underline;
-}
-
 #FirstName, #LastName, #BirthDate, #Email, #Password, #inputDate{
 	background-color:#171717;
 	border:1px solid #FFCC00;

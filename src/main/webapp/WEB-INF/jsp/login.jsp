@@ -4,7 +4,6 @@
 <!doctype html>
 <html lang="it">
   <head>
-	<%@include file="includes/import.jsp" %>
     <link href="css/login-register.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
 	
@@ -12,7 +11,6 @@
   </head>
   
 	<body id="body">
-		<%@include file="includes/header.jsp" %>
 	    
 		<div class="container mt-5 " id="firstContainer">
 			<form action="" method="post" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">

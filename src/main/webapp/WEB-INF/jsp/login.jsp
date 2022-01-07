@@ -21,7 +21,7 @@
 	    </nav>
 	    
 		<div class="container mt-5 " id="firstContainer">
-			<form action="doLogin" method="post" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">
+			<form method="post" action="doLogin" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">
 				<center>
 					<br><br>
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign in</h1>

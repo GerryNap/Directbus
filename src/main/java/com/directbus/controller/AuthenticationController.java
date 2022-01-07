@@ -16,6 +16,16 @@ public class AuthenticationController {
 		return "login";
 	}
 	
+	@GetMapping("/registration")
+	public String registration() {
+		return "registration";
+	}
+	
+	@PostMapping("/doRegistration")
+	public String doRegistration() {
+		return "/";
+	}
+	
 	@PostMapping("/doLogin")
 	public String doLogin(HttpServletRequest req, HttpServletResponse res, String email, String pass) {
 		if (email.equalsIgnoreCase("prova123@gmail.com") && pass.equalsIgnoreCase("succhiamelo")) {
@@ -26,7 +36,7 @@ public class AuthenticationController {
 				e.printStackTrace();
 			}
 		} else
-			return "Autenticazione fallita";
+			return "login";
 		return null;
 	}
 }

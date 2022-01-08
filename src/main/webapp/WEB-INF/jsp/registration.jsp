@@ -12,11 +12,12 @@
     <title>DirectBus</title>
   </head>
 	<body id="body">
-	    <%@include file="includes/header.jsp" %>
+		<%@include file="includes/header.jsp" %>
+
+	    
 	    
 		<div class="container mt-5 " id="firstContainer">
-			
-			<form action="doRegistration" method="post" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">
+			<form action="doRegistration" method="post" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sing Up</h1>
 					<div class="image">

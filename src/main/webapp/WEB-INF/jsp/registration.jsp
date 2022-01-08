@@ -13,7 +13,9 @@
     <title>DirectBus</title>
   </head>
 	<body id="body">
-	    <%@include file="includes/header.jsp" %>
+		<%@include file="includes/header.jsp" %>
+
+	    
 	    
 		<div class="container mt-5 " id="firstContainer">
 			

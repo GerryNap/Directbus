@@ -6,7 +6,6 @@
 }
 
 #singUp{
-	white-space: nowrap;
 	color:#FFCC00;
 }
 
@@ -22,32 +21,11 @@ i{
 	text-align: center;
 }
 
-#forgot-password a{
-	text-decoration: none;
-	color: #a8a8a8;
-	cursor: pointer;
-}
-
-#forgot-password:hover{
-	text-decoration: underline;
-}
-
-#register a{
-	text-decoration: none;
-	color: #a8a8a8;
-	cursor: pointer;
-}
-
-#register a:hover{
-	text-decoration: underline;
-}
-
 #FirstName, #LastName, #BirthDate, #Email, #Password, #inputDate{
 	background-color:#171717;
 	border:1px solid #FFCC00;
 	color:white;
 	padding-left: 41px;
-	box-shadow: inset 0px 0px 0px 0px;
 }
 
 #FirstName:focus, #LastName:focus, #BirthDate:focus, #Email:focus, #Password:focus, #inputDate:focus{
@@ -55,7 +33,6 @@ i{
 }
 
 #sendButton{
-	white-space: nowrap;
 	background-color: #FFCC00;
 	color:black;
 	font-size: 115%;

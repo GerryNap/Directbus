@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!doctype html>
@@ -16,7 +17,7 @@
 	    
 		<div class="container mt-5 " id="firstContainer">
 			
-			<form action="doRegistration" method="post" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">
+			<form id="register-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-absolute top-50 start-50 translate-middle">
 				<center>
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sing Up</h1>
 					<div class="image">
@@ -34,11 +35,6 @@
 					<label for="LastName">Last name</label>
 				</div>
 				<div class="form-floating mb-3">
-				<i class="bi bi-map-fill"></i>
-				  <input class="form-control" id="BirthDate" placeholder="Birth Place">
-				  <label for="BirthDate">Birth Place</label>
-				</div>
-				<div class="form-floating mb-3">
 				  <i class="bi bi-envelope-fill"></i>
 				  <input type="email" class="form-control" id="Email" placeholder="E-mail">
 				  <label for="Email">Email</label>
@@ -47,11 +43,6 @@
 				<i class="bi bi-lock-fill"></i>
 				  <input type="password" class="form-control" id="Password" placeholder="Password">
 				  <label for="Password">Password</label>
-				</div>
-				<div class="form-floating mt-3">
-				  <i class="bi bi-calendar-event-fill"></i>
-				<input id="inputDate" type="date" class="form-control" ></input>
-				<label for="inputDate">Birth Date</label>
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">

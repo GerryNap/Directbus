@@ -6,7 +6,7 @@
   <head>
   	<%@include file="includes/import.jsp" %>
   	
-    <link href="css/userRegistration.css" rel="stylesheet" />
+    <link href="css/login-register.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
 	
     <title>DirectBus</title>

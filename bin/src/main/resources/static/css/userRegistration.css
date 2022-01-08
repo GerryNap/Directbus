@@ -1,0 +1,45 @@
+#body{
+	background-color:black;	
+}
+#firstContainer{
+	background-color:black;
+}
+
+#singUp{
+	color:#FFCC00;
+}
+
+label{
+	color:#FFCC00;
+	margin-left: 30px;
+}
+
+i{
+	padding: 17px;
+	position: absolute;
+	color: #FFCC00;
+	text-align: center;
+}
+
+#FirstName, #LastName, #BirthDate, #Email, #Password, #inputDate{
+	background-color:#171717;
+	border:1px solid #FFCC00;
+	color:white;
+	padding-left: 41px;
+}
+
+#FirstName:focus, #LastName:focus, #BirthDate:focus, #Email:focus, #Password:focus, #inputDate:focus{
+	border:2px solid #FFCC00;
+}
+
+#sendButton{
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#sendButton:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}

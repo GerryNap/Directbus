@@ -20,6 +20,10 @@ public class AuthenticationController {
 	public String registration() {
 		return "registration";
 	}
+	@GetMapping("/businessRegistration")
+	public String businessRegistration() {
+		return "businessRegistration";
+	}
 	
 	@PostMapping("/doRegistration")
 	public String doRegistration() {
@@ -32,7 +36,6 @@ public class AuthenticationController {
 			try {
 				res.sendRedirect("/");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else

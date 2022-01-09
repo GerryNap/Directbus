@@ -1,20 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!doctype html>
 <html lang="it">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<%@include file="includes/import.jsp" %>
 
     <title>DirectBus</title>
   </head>
   
   <body>
-  	<nav class="navbar navbar-dark navbar-expand bg-dark navigation-clean">
-        <div class="container"><a class="navbar-brand" href="#">DirectBus</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-dark ms-auto" role="button" href="#">Sign In</a></div>
-        </div>
-    </nav>
+  	<%@include file="includes/header.jsp" %>
+  	
     <header class="text-center text-white masthead" style="background: url(&quot;assets/img/hero-img.webp&quot;);background-size: cover;">
         <div class="overlay"></div>
         <div class="container">
@@ -54,7 +51,5 @@
             </div>
         </div>
     </header>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -25,6 +25,11 @@ public class AuthenticationController {
 		return "businessRegistration";
 	}
 	
+	@GetMapping("/chooseRegistrationType")
+	public String chooseRegistrationType() {
+		return "chooseRegistrationType";
+	}
+	
 	@PostMapping("/doRegistration")
 	public String doRegistration() {
 		return "/";

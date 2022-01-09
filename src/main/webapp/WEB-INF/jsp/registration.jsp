@@ -21,7 +21,7 @@
 			
 			<form id="register-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
-					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sing Up</h1>
+					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
 					<div class="image">
 						<img alt="" src="images/registration_logo.png">
 					</div> <br>
@@ -48,7 +48,7 @@
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
-						<button id="sendButton" type="submit" class="btn">Sing Up</button>
+						<button id="sendButton" type="submit" class="btn">Sign Up</button>
 					</div>
 				</center>
 			</div>			

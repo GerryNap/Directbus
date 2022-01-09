@@ -42,14 +42,14 @@
 			</center> <br>
 			<center>
 				<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
-					<button id="sendButton" type="submit" class="btn">Sing In</button>
+					<button id="sendButton" type="submit" class="btn">Sign In</button>
 				</div>
 			</center>
 			<br>
 			<center>
 			<div id="register">
 				<font color="white">Non hai un account?</font>
-				<a href=""> Registrati qui</a>
+				<a href="chooseRegistrationType"> Registrati qui</a>
 			</div>
 			</center>
 			</div>			

@@ -1,0 +1,55 @@
+#body{
+	background-color: black;
+}
+
+#buttons {
+	width: 450px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#btnAgency{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#btnClient{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#client{
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#agencyClient{
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#client:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+#agencyClient:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+#text{
+	width: 400px;
+	margin-top: 55px;
+}
+
+#image{
+	width: 100%;
+	position: relative;
+}

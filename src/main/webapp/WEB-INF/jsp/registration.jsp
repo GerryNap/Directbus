@@ -14,8 +14,8 @@
   </head>
 	<body id="body">
 		<%@include file="includes/header.jsp" %>
-
-	    
+		
+		<script src="/js/register.js"></script>
 	    
 		<div class="container mt-5 " id="firstContainer">
 			

@@ -27,9 +27,6 @@ public class DataBaseHandler {
 			if(conn == null || conn.isClosed())
 				return false;
 			
-	//		if(existsUser(user))
-	//			return false;
-			
 			String sql =  "INSERT INTO utenticlienti(email, nome, cognome, psw) VALUES(?, ?, ?, ?)";
 		
 			PreparedStatement p = conn.prepareStatement(sql);

@@ -18,4 +18,18 @@ public class User {
 	@Email
 	private String email;
 	private String password;
+	
+	public Integer getID() { return this.id; }
+	
+	public String getFirstName() { return this.first_name; }
+	public void setFirstName(String first_name) { this.first_name = first_name; }
+	
+	public String getLastName() { return this.last_name; }
+	public void setLastName(String last_name) { this.last_name = last_name; }
+	
+	public String getEmail() { return this.email; }
+	public void setEmail(String email) { this.email = email; }
+	
+	public String getPassword() { return this.password; }
+	public void setPasswotd(String password) { this.password = password; }
 }

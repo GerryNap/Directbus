@@ -28,12 +28,12 @@
 				</center>
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
-					<input class="form-control" id="FirstName" placeholder="First Name">
+					<input type="text" class="form-control" id="FirstName" placeholder="First Name">
 					<label for="FirstName">First name</label>
 				</div>	
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
-					<input class="form-control" id="LastName" placeholder="Last Name">
+					<input type="text" class="form-control" id="LastName" placeholder="Last Name">
 					<label for="LastName">Last name</label>
 				</div>
 				<div class="form-floating mb-3">

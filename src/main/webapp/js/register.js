@@ -13,6 +13,7 @@ $(document).ready(
 				email : $("#Email").val(),
                 password : $("#Password").val()
 			}
+			
         
 			$.ajax({
 				type : "POST",

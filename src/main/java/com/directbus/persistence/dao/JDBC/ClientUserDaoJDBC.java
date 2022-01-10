@@ -91,13 +91,8 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			//UPDATE
 			try {
 				String query = "UPDATE utenticlienti "
-<<<<<<< Updated upstream
-						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
-						+ "where p_iva = ?";
-=======
 						+ "SET nome = ?, cognome = ?, psw = ?"
 						+ "where email = ?";
->>>>>>> Stashed changes
 				PreparedStatement st = conn.prepareStatement(query);
 				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 				st.setString(4, user.getEmail());

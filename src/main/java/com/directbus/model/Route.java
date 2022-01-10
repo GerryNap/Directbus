@@ -1,5 +1,7 @@
 package com.directbus.model;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,31 +12,31 @@ import lombok.NoArgsConstructor;
 
 public class Route {
 
-	private String cod;
-	private long startS;
-	private long destinationS;
+	private long cod;
+	private String startS;
+	private String destinationS;
 	private String agency;
 	private int nBiglietti;
-	private String data;
+	private Date data;
 	
 	
 	//getters & setters
-	public String getCod() {
+	public long getCod() {
 		return cod;
 	}
-	public void setCod(String cod) {
+	public void setCod(long cod) {
 		this.cod = cod;
 	}
-	public long getStartS() {
+	public String getStartS() {
 		return startS;
 	}
-	public void setStartS(long startS) {
+	public void setStartS(String startS) {
 		this.startS = startS;
 	}
-	public long getDestinationS() {
+	public String getDestinationS() {
 		return destinationS;
 	}
-	public void setDestinationS(long destinationS) {
+	public void setDestinationS(String destinationS) {
 		this.destinationS = destinationS;
 	}
 	public String getAgency() {
@@ -49,10 +51,10 @@ public class Route {
 	public void setnBiglietti(int nBiglietti) {
 		this.nBiglietti = nBiglietti;
 	}
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}	
 }

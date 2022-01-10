@@ -50,10 +50,8 @@ public class AuthenticationController {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
-		
-		System.out.println(user.getFirstName());
-		
-		DatabaseHandler.getInstance().getStudenteDao().saveOrUpdate(user);		
+				
+		DatabaseHandler.getInstance().getClientUserDao().saveOrUpdate(user);		
 		return new ResponseEntity<String>(response, status);
 	}
 	

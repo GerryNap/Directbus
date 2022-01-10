@@ -37,7 +37,6 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 				allUsers.add(user);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -136,10 +135,32 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		return false;
+	}
+	
+	@Override
+	public boolean checkUser(User user) {
+		
+		String query = "SELECT * FROM utenticlienti WHERE email=?;";
+		
+		try {
+			PreparedStatement p = conn.prepareStatement(query);
+			p.setString(1, user.getEmail());
+			ResultSet rs = p.executeQuery();
+			boolean result = false;
+			if(rs.next()) {
+				String password = rs.getString("password");
+				result = BCrypt.checkpw(user.getPassword(), password);
+			}
+			p.close();
+			return result;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 

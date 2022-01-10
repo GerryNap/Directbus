@@ -37,23 +37,23 @@ public class DatabaseHandler {
 	}
 
 	
-	public ClientUserDao getStudenteDao() {
+	public ClientUserDao getClientUserDao() {
 		return new ClientUserDaoJDBC(conn);
 	}
 	
-	public AgencyUserDao getCorsoDiLaureaDao() {
+	public AgencyUserDao getAgencyUserDao() {
 		return new AgencyUserDaoJDBC(conn);
 	}
 	
-	public TicketDao getScuolaDao() {
+	public TicketDao getTicketDao() {
 		return new TicketDaoJDBC(conn);
 	}
 	
-	public RouteDao getDipartimentoDao() {
+	public RouteDao getRouteDao() {
 		return new RouteDaoJDBC(conn);
 	}
 	
-	public StationDao getDipartimentoDao() {
+	public StationDao getStationDao() {
 		return new StationDaoJDBC(conn);
 	}
 

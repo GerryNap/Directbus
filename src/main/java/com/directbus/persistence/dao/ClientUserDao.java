@@ -10,4 +10,6 @@ public interface ClientUserDao {
 	public User findByPrimaryKey(String pIva);
 	public boolean saveOrUpdate(User user);
 	public boolean delete(User user);
+	
+	public boolean checkUser(User user);
 }

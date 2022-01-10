@@ -38,7 +38,6 @@ public class RouteDaoJDBC implements RouteDao{
 				allRoutes.add(route);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

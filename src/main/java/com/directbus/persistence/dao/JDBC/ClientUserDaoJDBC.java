@@ -111,7 +111,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 	
 	private boolean existUser(User user) {
-		String query = "SELECT FROM utentiazienda WHERE email = ?";
+		String query = "SELECT * FROM utentiazienda WHERE email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user.getEmail());

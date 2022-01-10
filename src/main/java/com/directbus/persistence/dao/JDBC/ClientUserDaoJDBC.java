@@ -69,11 +69,11 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 
 	@Override
 	public boolean saveOrUpdate(User user) {
+		System.out.println(user.toString());
 		if (!existUser(user)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO utenticlienti "
-						+ "VALUES (?, ?, ?, ?)";
+				String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
 				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 				st.setString(1, user.getEmail());
@@ -91,14 +91,19 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			//UPDATE
 			try {
 				String query = "UPDATE utenticlienti "
+<<<<<<< Updated upstream
 						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
 						+ "where p_iva = ?";
+=======
+						+ "SET nome = ?, cognome = ?, psw = ?"
+						+ "where email = ?";
+>>>>>>> Stashed changes
 				PreparedStatement st = conn.prepareStatement(query);
 				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(1, user.getEmail());
-				st.setString(2, user.getFirstName());
-				st.setString(3, user.getLastName());
-				st.setString(4, passwordCriptata);
+				st.setString(4, user.getEmail());
+				st.setString(1, user.getFirstName());
+				st.setString(2, user.getLastName());
+				st.setString(3, passwordCriptata);
 				st.executeUpdate();
 				
 			} catch (SQLException e) {

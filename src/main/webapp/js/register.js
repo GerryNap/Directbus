@@ -8,8 +8,8 @@ $(document).ready(
 
         function ajaxRegisterPost() {
 			var userData = {
-				first_name : $("#FirstName").val(),
-				last_name : $("#LastName").val(),
+				firstName : $("#FirstName").val(),
+				lastName : $("#LastName").val(),
 				email : $("#Email").val(),
                 password : $("#Password").val()
 			}

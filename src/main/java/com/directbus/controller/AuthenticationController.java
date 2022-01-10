@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.User;
+import com.directbus.persistence.DatabaseHandler;
 
 @Controller
 public class AuthenticationController {
@@ -46,12 +47,13 @@ public class AuthenticationController {
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid User user) {
-		System.out.println("Porco dio");
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
-		System.out.println(user.getEmail());
 		
+		System.out.println(user.getFirstName());
+		
+		DatabaseHandler.getInstance().getStudenteDao().saveOrUpdate(user);		
 		return new ResponseEntity<String>(response, status);
 	}
 	

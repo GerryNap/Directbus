@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.directbus.model.AgencyUser;
 import com.directbus.persistence.dao.AgencyUserDao;
 
@@ -47,34 +49,37 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 
 	@Override
 	public boolean saveOrUpdate(AgencyUser user) {
-		if (checkUser(user)) {
+		if (!existUser(user)) {
 			//INSERT
 			try {
-				user.setId(IdBrokerScuola.getId(conn));
-				String query = "insert into scuola "
-						+ "values (?, ?, ?)";
+				String query = "INSERT INTO utentiaziende "
+						+ "VALUES (?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setLong(1, scuola.getId());
-				st.setString(2, scuola.getCodiceMeccanografico());
-				st.setString(3, scuola.getNome());
+				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+				st.setString(1, user.getpIva());
+				st.setString(2, user.getEmail());
+				st.setString(3, user.getName());
+				st.setString(4, user.getAddress());
+				st.setString(5, passwordCriptata);
 				st.executeUpdate();
-				
+				return true;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
-		}else {
+		} else {
 			//UPDATE
 			try {
-				String query = "update utentiaziende "
-						+ "set codicemeccanografico = ?, nome = ? "
-						+ "where id = ?";
+				String query = "UPDATE utentiaziende "
+						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
+						+ "where p_iva = ?";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setString(1, scuola.getCodiceMeccanografico());
-				st.setString(2, scuola.getNome());
-				st.setLong(3, scuola.getId());
-				
+				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+				st.setString(2, user.getEmail());
+				st.setString(3, user.getName());
+				st.setString(4, user.getAddress());
+				st.setString(5, passwordCriptata);
 				st.executeUpdate();
 				
 			} catch (SQLException e) {
@@ -86,8 +91,35 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 		return true;
 	}
 
+	private boolean existUser(AgencyUser user) {
+		String query = "SELECT FROM utentiazienda WHERE p_iva = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			ResultSet rs = st.executeQuery();
+			if (rs.next())
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
 	@Override
 	public boolean delete(AgencyUser user) {
+		if (existUser(user)) {
+			String query = "DELETE FORM utentiaziende WHERE p_iva = ?";
+			try {
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setString(1, user.getpIva());
+				st.executeUpdate();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 

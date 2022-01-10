@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -21,7 +23,28 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 
 	@Override
 	public List<AgencyUser> findAll() {
-		return null;
+		List<AgencyUser> allUsers = new ArrayList<AgencyUser>();
+		String query = "SELECT * FROM utentiaziende";
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				AgencyUser user = new AgencyUser();
+				user.setpIva(rs.getString("p_iva"));
+				user.setEmail(rs.getString("email"));
+				user.setName(rs.getString("nome"));
+				user.setAddress(rs.getString("indirizzo"));
+				user.setPassword(rs.getString("psw"));
+				
+				allUsers.add(user);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return allUsers;
+		
 	}
 
 	@Override
@@ -95,6 +118,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 		String query = "SELECT FROM utentiazienda WHERE p_iva = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getpIva());
 			ResultSet rs = st.executeQuery();
 			if (rs.next())
 				return true;

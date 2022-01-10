@@ -11,15 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class User {
-	private Integer id;
-
 	private String first_name;
 	private String last_name;
 	@Email
 	private String email;
 	private String password;
-	
-	public Integer getID() { return this.id; }
 	
 	public String getFirstName() { return this.first_name; }
 	public void setFirstName(String first_name) { this.first_name = first_name; }
@@ -31,5 +27,5 @@ public class User {
 	public void setEmail(String email) { this.email = email; }
 	
 	public String getPassword() { return this.password; }
-	public void setPasswotd(String password) { this.password = password; }
+	public void setPassword(String password) { this.password = password; }
 }

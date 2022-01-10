@@ -90,7 +90,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		} else {
 			//UPDATE
 			try {
-				String query = "UPDATE utentiaziende "
+				String query = "UPDATE utenticlienti "
 						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
 						+ "where p_iva = ?";
 				PreparedStatement st = conn.prepareStatement(query);
@@ -111,7 +111,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 	
 	private boolean existUser(User user) {
-		String query = "SELECT * FROM utentiazienda WHERE email = ?";
+		String query = "SELECT * FROM utenticlienti WHERE email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user.getEmail());
@@ -129,7 +129,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	@Override
 	public boolean delete(User user) {
 		if (existUser(user)) {
-			String query = "DELETE FORM utentiaziende WHERE email = ?";
+			String query = "DELETE FORM utenticlienti WHERE email = ?";
 			try {
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setString(1, user.getEmail());

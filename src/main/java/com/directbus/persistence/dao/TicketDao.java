@@ -8,7 +8,7 @@ import com.directbus.model.Ticket;
 public interface TicketDao {
 
 	public List<Ticket> findAll();
-	public Ticket findByPrimaryKey(String pIva);
+	public Ticket findByPrimaryKey(long id);
 	public boolean saveOrUpdate(Ticket user);
 	public boolean delete(Ticket user);
 	

@@ -8,9 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-
-import com.directbus.model.AgencyUser;
 import com.directbus.model.Route;
 import com.directbus.persistence.dao.RouteDao;
 
@@ -74,19 +71,19 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 
 	@Override
-	public boolean saveOrUpdate(Route user) {
-		if (!existUser(user)) {
+	public boolean saveOrUpdate(Route route) {
+		if (!existRoute(route)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO utentiaziende "
-						+ "VALUES (?, ?, ?, ?, ?)";
+				String query = "INSERT INTO tratte "
+						+ "VALUES (?, ?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(1, user.getpIva());
-				st.setString(2, user.getEmail());
-				st.setString(3, user.getName());
-				st.setString(4, user.getAddress());
-				st.setString(5, passwordCriptata);
+				st.setLong(1, route.getCod());
+				st.setString(2, route.getAgency());
+				st.setDate(3, route.getData());
+				st.setString(4, route.getDestinationS());
+				st.setString(5, route.getStartS());
+				st.setInt(6, route.getnBiglietti());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
@@ -97,15 +94,16 @@ public class RouteDaoJDBC implements RouteDao{
 		} else {
 			//UPDATE
 			try {
-				String query = "UPDATE utentiaziende "
-						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
-						+ "where p_iva = ?";
+				String query = "UPDATE tratte "
+						+ "set azienda = ?, data_ = ?, s_arrivo = ?, s_partenza = ?, n_nbiglietti = ?"
+						+ "where cod = ?";
 				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(2, user.getEmail());
-				st.setString(3, user.getName());
-				st.setString(4, user.getAddress());
-				st.setString(5, passwordCriptata);
+				st.setLong(1, route.getCod());
+				st.setString(2, route.getAgency());
+				st.setDate(3, route.getData());
+				st.setString(4, route.getDestinationS());
+				st.setString(5, route.getStartS());
+				st.setInt(6, route.getnBiglietti());
 				st.executeUpdate();
 				
 			} catch (SQLException e) {
@@ -117,7 +115,7 @@ public class RouteDaoJDBC implements RouteDao{
 		return true;
 	}
 	
-	private boolean existUser(Route route) {
+	private boolean existRoute(Route route) {
 		String query = "SELECT * FROM tratte WHERE cod = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -134,8 +132,19 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 
 	@Override
-	public boolean delete(Route user) {
-		// TODO Auto-generated method stub
+	public boolean delete(Route route) {
+		if (existRoute(route)) {
+			String query = "DELETE FORM utentiaziende WHERE cod = ?";
+			try {
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setLong(1, route.getCod());
+				st.executeUpdate();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 

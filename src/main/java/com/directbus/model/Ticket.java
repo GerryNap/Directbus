@@ -1,7 +1,5 @@
 package com.directbus.model;
 
-import javax.validation.constraints.Email;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Ticket {
 
 	private long id;
-	private String routeCod;
+	private long routeCod;
 	private String clientEmail;
 	
 	
@@ -24,10 +22,10 @@ public class Ticket {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getRouteCod() {
+	public long getRouteCod() {
 		return routeCod;
 	}
-	public void setRouteCod(String routeCod) {
+	public void setRouteCod(long routeCod) {
 		this.routeCod = routeCod;
 	}
 	public String getClientEmail() {

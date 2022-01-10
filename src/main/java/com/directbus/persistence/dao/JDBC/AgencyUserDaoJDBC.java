@@ -115,7 +115,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	}
 
 	private boolean existUser(AgencyUser user) {
-		String query = "SELECT * FROM utentiazienda WHERE p_iva = ?";
+		String query = "SELECT * FROM utentiaziende WHERE p_iva = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user.getpIva());

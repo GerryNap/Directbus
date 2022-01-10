@@ -17,7 +17,7 @@
 		<div class="container mt-5 " id="firstContainer">
 			<center>
 				<div class="col-xl-4 mx-auto position-relative">
-				<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sing Up</h1>
+				<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
 				</div>
 			</center>
 			<div class="col-md-8 col-lg-6 col-xl-5 mx-auto position-relative">
@@ -27,17 +27,12 @@
 					<label for="FirstName">Name</label>
 				</div>	
 				<div  class="form-floating mb-3">
-					<i class="bi bi-file-person-fill"></i>
-					<input class="form-control" id="LastName" placeholder="Last Name">
-					<label for="LastName">Social Ragion</label>
-				</div>
-				<div  class="form-floating mb-3">
-					<i class="bi bi-file-person-fill"></i>
+					<i class="bi bi-wallet2"></i>
 					<input class="form-control" id="LastName" placeholder="Last Name">
 					<label for="LastName">P.iva</label>
 				</div>
 				<div class="form-floating mb-3">
-				  <i class="bi bi-envelope-fill"></i>
+				  <i class="bi bi-map-fill"></i>
 				  <input type="email" class="form-control" id="Email" placeholder="E-mail">
 				  <label for="Email">Address</label>
 				</div>
@@ -53,7 +48,7 @@
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
-						<button id="sendButton" type="submit" class="btn">Sing Up</button>
+						<button id="sendButton" type="submit" class="btn">Sign Up</button>
 					</div>
 				</center>
 			</div>			

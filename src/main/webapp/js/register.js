@@ -19,7 +19,6 @@ $(document).ready(
 				contentType : "application/json",
 				url : "doRegistration",
                 data : JSON.stringify(userData),
-                headers: headers,
 				success : function (data) {
 					if (data == "success") {
                         console.log("User " + userData.email + " successfully registered.");

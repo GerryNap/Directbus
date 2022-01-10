@@ -4,10 +4,18 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.directbus.model.User;
 
 @Controller
 public class AuthenticationController {
@@ -35,9 +43,16 @@ public class AuthenticationController {
 		return "chooseRegistrationType";
 	}
 	
-	@PostMapping("/doRegistration")
-	public String doRegistration() {
-		return "/";
+	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid User user) {
+		System.out.println("Porco dio");
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		System.out.println(user.getEmail());
+		
+		return new ResponseEntity<String>(response, status);
 	}
 	
 	@PostMapping("/doLogin")

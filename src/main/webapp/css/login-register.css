@@ -42,7 +42,7 @@ i{
 	text-decoration: underline;
 }
 
-#FirstName, #LastName, #BirthDate, #Email, #Password, #inputDate{
+#FirstName, #LastName, #BirthDate, #Email, #Password, #inputDate, #PasswordCheck{
 	background-color:#171717;
 	border:1px solid #FFCC00;
 	color:white;
@@ -50,7 +50,7 @@ i{
 	box-shadow: inset 0px 0px 0px 0px;
 }
 
-#FirstName:focus, #LastName:focus, #BirthDate:focus, #Email:focus, #Password:focus, #inputDate:focus{
+#FirstName:focus, #LastName:focus, #BirthDate:focus, #Email:focus, #Password:focus, #inputDate:focus, #PasswordCheck:focus{
 	border:2px solid #FFCC00;
 }
 

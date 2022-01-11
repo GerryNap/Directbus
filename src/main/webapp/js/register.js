@@ -19,8 +19,8 @@ $(document).ready(
 				return false;
 			}
 			
-			var psw = $("#Password").val();
-			var pswc = $("#PasswordCheck").val();
+			var psw = document.getElementById("Password").value;
+			var pswc = document.getElementById("PasswordCheck").value;
 			if(psw !== pswc){
 				window.alert("Le password non coincidono");
 				return false;

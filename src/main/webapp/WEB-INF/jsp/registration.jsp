@@ -14,17 +14,16 @@
   </head>
 	<body id="body">
 		<%@include file="includes/header.jsp" %>
-		
 		<script src="/js/register.js"></script>
 	    
 		<div class="container mt-5 " id="firstContainer">
-			
 			<form id="register-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
 					<div class="image">
 						<img alt="" src="images/registration_logo.png">
-					</div> <br>
+					</div> 
+					<br>
 				</center>
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
@@ -56,8 +55,8 @@
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
 						<button id="sendButton" type="submit" class="btn">Sign Up</button>
 					</div>
-				</center>
-			</div>			
-		</form>
+				</center>	
+			</form>
+		</div>
   </body>
 </html>

@@ -46,8 +46,7 @@ $(document).ready(
         }
         
         function stringContainsNumber(str){
-		  	let matchPattern = str.match(/\d+/g);
-		  	if (matchPattern != null)
+		  	if (str.match(/\d+/g) != null)
 		  	  	return true;
 		   	else
 		  		return false;

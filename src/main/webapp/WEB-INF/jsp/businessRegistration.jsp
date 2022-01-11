@@ -34,7 +34,7 @@
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-map-fill"></i>
-				  <input type="email" class="form-control" id="Address" placeholder="Address" required>
+				  <input type="text" class="form-control" id="Address" placeholder="Address" required>
 				  <label for="Address">Address</label>
 				</div>
 				<div class="form-floating mb-3">

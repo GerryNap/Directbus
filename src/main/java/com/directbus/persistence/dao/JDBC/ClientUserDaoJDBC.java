@@ -67,44 +67,45 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 
 	@Override
-	public boolean saveOrUpdate(User user) {
-		System.out.println(user.toString());
-		if (!existUser(user)) {
-			//INSERT
-			try {
-				String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
-				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(1, user.getEmail());
-				st.setString(2, user.getFirstName());
-				st.setString(3, user.getLastName());
-				st.setString(4, passwordCriptata);
-				st.executeUpdate();
-				return true;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-		} else {
-			//UPDATE
-			try {
-				String query = "UPDATE utenticlienti "
-						+ "SET nome = ?, cognome = ?, psw = ?"
-						+ "where email = ?";
-				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(4, user.getEmail());
-				st.setString(1, user.getFirstName());
-				st.setString(2, user.getLastName());
-				st.setString(3, passwordCriptata);
-				st.executeUpdate();
-				
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-				return false;
-			}
+	public boolean save(User user) {
+		if (existUser(user))
+			return false;
+			
+		try {
+			String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			String passwordCriptata = user.getPassword();
+			st.setString(1, user.getEmail());
+			st.setString(2, user.getFirstName());
+			st.setString(3, user.getLastName());
+			st.setString(4, passwordCriptata);
+			st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public boolean update(User user) {
+		if(!existUser(user))
+			return false;
+		try {
+			String query = "UPDATE utenticlienti "
+					+ "SET nome = ?, cognome = ?, psw = ?"
+					+ "where email = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			String passwordCriptata = user.getPassword();
+			st.setString(4, user.getEmail());
+			st.setString(1, user.getFirstName());
+			st.setString(2, user.getLastName());
+			st.setString(3, passwordCriptata);
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}

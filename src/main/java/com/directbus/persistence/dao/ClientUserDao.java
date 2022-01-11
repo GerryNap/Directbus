@@ -8,7 +8,8 @@ public interface ClientUserDao {
 
 	public List<User> findAll();
 	public User findByPrimaryKey(String pIva);
-	public boolean saveOrUpdate(User user);
+	public boolean save(User user);
+	public boolean update(User user);
 	public boolean delete(User user);
 	
 	public boolean checkUser(User user);

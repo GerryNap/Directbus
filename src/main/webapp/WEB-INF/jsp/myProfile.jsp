@@ -36,6 +36,9 @@
 								<div id="nome" class="list-group-item col" style="background-color:transparent;">
 							    	<label id="buttonProfile">Nome</label>					    	
 								</div>
+								<div class="list-group-item col" style="background-color:transparent;">
+							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
+							    </div>
 							</div>
 							<div class="row">
 								<div class="list-group-item col" style="background-color:transparent;">
@@ -43,6 +46,9 @@
 							    </div>
 							    <div id="cognome" class="list-group-item col" style="background-color:transparent;">
 									<label id="buttonProfile">Cognome</label>
+							    </div>
+							    <div class="list-group-item col" style="background-color:transparent;">
+							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
 							    </div>
 						    </div>
 						    <div class="row">
@@ -52,6 +58,9 @@
 							    <div id="email" class="list-group-item col" style="background-color:transparent;">
 								    <label id="buttonProfile">Email</label>
 							    </div>
+							    <div class="list-group-item col" style="background-color:transparent;">
+							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
+							    </div>
 							</div>
 						    <div class="row">
 							    <div class="list-group-item col" style="background-color:transparent;">
@@ -59,6 +68,9 @@
 							    </div>
 							    <div id="password" class="list-group-item col" style="background-color:transparent;">
 								    <label id="buttonProfile">Password</label>
+							    </div>
+							    <div class="list-group-item col" style="background-color:transparent;">
+							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
 							    </div>
 						    </div>
 					    </div>

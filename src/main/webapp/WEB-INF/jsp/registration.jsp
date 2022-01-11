@@ -28,23 +28,29 @@
 				</center>
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
-					<input type="text" class="form-control" id="FirstName" placeholder="First Name">
+					<input type="text" class="form-control" id="FirstName" placeholder="First Name" required>
 					<label for="FirstName">First name</label>
 				</div>	
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
-					<input type="text" class="form-control" id="LastName" placeholder="Last Name">
+					<input type="text" class="form-control" id="LastName" placeholder="Last Name" required>
 					<label for="LastName">Last name</label>
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-envelope-fill"></i>
-				  <input type="email" class="form-control" id="Email" placeholder="E-mail">
+				  <input type="email" class="form-control" id="Email" placeholder="E-mail" required>
 				  <label for="Email">Email</label>
 				</div>
-				<div class="form-floating">
+				<div class="form-floating mb-3">
 				<i class="bi bi-lock-fill"></i>
-				  <input type="password" class="form-control" id="Password" placeholder="Password">
+				  <input type="password" class="form-control" id="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+				  title="Deve contenere almeno 1 numero, una lettara maiuscola ed una minuscola ed almeno 8 caratteti." required>
 				  <label for="Password">Password</label>
+				</div>
+				<div class="form-floating mb-3">
+				<i class="bi bi-lock-fill"></i>
+				  <input type="password" class="form-control" id="PasswordCheck" placeholder="Confirm Password" required>
+				  <label for="PasswordCheck">Confirm Password</label>
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">

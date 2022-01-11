@@ -26,12 +26,12 @@
 				</center>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-envelope-fill"></i>
-				  <input type="email" class="form-control" id="Email" placeholder="E-mail" name="email">
+				  <input type="email" class="form-control" id="Email" placeholder="E-mail" name="email" required>
 				  <label for="Email">Email</label>
 				</div>
 				<div class="form-floating">
 				<i class="bi bi-lock-fill"></i>
-				  <input type="password" class="form-control" id="Password" placeholder="Password" name="pass">
+				  <input type="password" class="form-control" id="Password" placeholder="Password" name="pass" required>
 				  <label for="Password">Password</label>
 				</div>
 			<br>

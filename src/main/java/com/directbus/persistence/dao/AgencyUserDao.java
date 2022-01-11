@@ -8,7 +8,8 @@ public interface AgencyUserDao {
 	
 	public List<AgencyUser> findAll();
 	public AgencyUser findByPrimaryKey(String pIva);
-	public boolean saveOrUpdate(AgencyUser user);
+	public boolean save(AgencyUser user);
+	public boolean update(AgencyUser user);
 	public boolean delete(AgencyUser user);
 
 }

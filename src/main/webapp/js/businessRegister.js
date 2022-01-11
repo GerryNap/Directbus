@@ -2,24 +2,18 @@ $(document).ready(
     function() {
         $("#register-form").on("submit", function(event) {
             event.preventDefault();
-        
             if(formValidation())
             	ajaxRegisterPost();
         });
         
         function formValidation(){
-			var firstName = document.getElementById("FirstName").value;
-			if(stringContainsNumber(firstName)){
-				window.alert("Inserisci nuovamente il tuo nome");
+			var pIva = document.getElementById("Piva").value;
+			console.log(typeof pIva);
+			if(stringContainsCharacter(pIva)){
+				window.alert("P.iva non valida");
 				return false;
 			}
-			
-			var lastName = document.getElementById("LastName").value;
-			if(stringContainsNumber(lastName)){
-				window.alert("Inserisci nuovamente il tuo cognome");
-				return false;
-			}
-			
+	
 			var psw = document.getElementById("Password").value;
 			var pswc = document.getElementById("PasswordCheck").value;
 			if(psw !== pswc){
@@ -32,8 +26,9 @@ $(document).ready(
 
         function ajaxRegisterPost() {
 			var userData = {
-				firstName : $("#FirstName").val(),
-				lastName : $("#LastName").val(),
+				name : $("#Name").val(),
+				pIva : $("#Piva").val(),
+				address : $("#Address").val(),
 				email : $("#Email").val(),
                 password : $("#Password").val()
 			}
@@ -41,15 +36,15 @@ $(document).ready(
 			$.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "doRegistration",
+				url : "doBusinessRegistration",
                 data : JSON.stringify(userData)
 			});
         }
         
-        function stringContainsNumber(str){
-		  	if (str.match(/\d+/g) != null)
-		  	  	return true;
-		   	else
+        function stringContainsCharacter(str){
+		  	if(str.match(/^[0-9]+$/) != null)
 		  		return false;
+    		else
+    			return true;
 		}
     })

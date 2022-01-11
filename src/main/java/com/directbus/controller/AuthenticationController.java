@@ -44,14 +44,23 @@ public class AuthenticationController {
 		return "chooseRegistrationType";
 	}
 	
+	@GetMapping("/publicRoute")
+	public String publicRoute() {
+		return "publicRoute";
+	}
+	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid User user) {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
-				
-		DatabaseHandler.getInstance().getClientUserDao().saveOrUpdate(user);		
+		
+		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+		}
+			
 		return new ResponseEntity<String>(response, status);
 	}
 	

@@ -71,45 +71,48 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	}
 
 	@Override
-	public boolean saveOrUpdate(AgencyUser user) {
-		if (!existUser(user)) {
-			//INSERT
-			try {
-				String query = "INSERT INTO utentiaziende "
-						+ "VALUES (?, ?, ?, ?, ?)";
-				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(1, user.getpIva());
-				st.setString(2, user.getEmail());
-				st.setString(3, user.getName());
-				st.setString(4, user.getAddress());
-				st.setString(5, passwordCriptata);
-				st.executeUpdate();
-				return true;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-		} else {
-			//UPDATE
-			try {
-				String query = "UPDATE utentiaziende "
-						+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
-						+ "where p_iva = ?";
-				PreparedStatement st = conn.prepareStatement(query);
-				String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-				st.setString(2, user.getEmail());
-				st.setString(3, user.getName());
-				st.setString(4, user.getAddress());
-				st.setString(5, passwordCriptata);
-				st.executeUpdate();
-				
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-				return false;
-			}
+	public boolean save(AgencyUser user) {
+		if (existUser(user))
+			return false;
+		
+		try {
+			String query = "INSERT INTO utentiaziende "
+					+ "VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+			st.setString(1, user.getpIva());
+			st.setString(2, user.getEmail());
+			st.setString(3, user.getName());
+			st.setString(4, user.getAddress());
+			st.setString(5, passwordCriptata);
+			st.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} 
+	}
+	
+	@Override
+	public boolean update(AgencyUser user) {
+		if(!existUser(user))
+			return false;
+		try {
+			String query = "UPDATE utentiaziende "
+					+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
+					+ "where p_iva = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+			st.setString(2, user.getEmail());
+			st.setString(3, user.getName());
+			st.setString(4, user.getAddress());
+			st.setString(5, passwordCriptata);
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}
@@ -123,7 +126,6 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			if (rs.next())
 				return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

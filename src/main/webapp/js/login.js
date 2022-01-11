@@ -14,7 +14,7 @@ $(document).ready(
 			$.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "doRegistration",
+				url : "doLogin",
                 data : JSON.stringify(userData)
 			});
         }

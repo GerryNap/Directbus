@@ -29,7 +29,7 @@ $(document).ready(
 			$.ajax({
 				type : "POST",
 				contentType : "application/json",
-				url : "doRegistration",
+				url : "doBusinessRegistration",
                 data : JSON.stringify(userData)
 			});
         }

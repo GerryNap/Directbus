@@ -3,9 +3,10 @@
 
 <div class="card" id="cardStyle" style="width: 20rem;">
 	<div class="list-group list-group-flush">
-		<img  id="circular-square" class="circular-square" src="images/icona.png" />
-		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Riepilogo dell'account</button>
-		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Gestione dell'account</button>			
+		<div id="circular-square" style="background-color:black;">
+			<img class="circular-square" src="images/icona.png" />
+		</div>
+		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Riepilogo dell'account</button>					
 		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Prenotazioni</button>
 		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Storico dei viaggi</button>
 		<button id="buttonProfile" class="btn list-group-item mt-3" type="submit">Dati per il pagamento</button>

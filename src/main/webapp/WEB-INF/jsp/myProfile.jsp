@@ -14,7 +14,7 @@
   
 	<body id="body">
 	    <%@include file="includes/header.jsp" %>
-	    <form method="get" action="myProfile" class="mx-auto position-relative">
+	    <form method="get" action="myProfile" class="position-relative">
 	    
 			<div class="container mt-5 " id="firstContainer">
 				<div class="row">						
@@ -23,12 +23,12 @@
 				    <div class="col" style="width:5; margin-top:7%;">							   	
 					<div class="list-group list-group-flush mt-5 col">
 						<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
-							<h1 id="buttonProfile">Riepilogo dell'account</h5>
+							<h1 id="buttonProfile">Riepilogo dell'account</h1>
 						</div>
 						<div id="profilo" class="list-group-item mb-3" style="background-color:transparent;">
-					    	<h2 id="buttonProfile">Profilo</h3>
+					    	<h2 id="buttonProfile">Profilo</h2>
 					    </div>					    
-					    <div>
+					    <div style="margin-left:2%;">
 						    <div class="row">
 							    <div class="list-group-item col" style="background-color:transparent; ">
 							    	<h5 id="buttonProfile">Nome</h5>					    	
@@ -37,7 +37,7 @@
 							    	<label id="buttonProfile">Nome</label>					    	
 								</div>
 								<div class="list-group-item col" style="background-color:transparent;">
-							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
+							    	<br>
 							    </div>
 							</div>
 							<div class="row">
@@ -48,7 +48,7 @@
 									<label id="buttonProfile">Cognome</label>
 							    </div>
 							    <div class="list-group-item col" style="background-color:transparent;">
-							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
+							    	<br>
 							    </div>
 						    </div>
 						    <div class="row">

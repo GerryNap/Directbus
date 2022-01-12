@@ -1,10 +1,9 @@
 $(document).ready(
     function() {
-		
 	 	$("#reservation").hide();
 		$("#paymentData").hide();
-		$("#travelHistory").hide();
-});
+		$("#travelHistory").hide();   
+})
 
 function loadSummary() {
 		$("#accountSummary").show();

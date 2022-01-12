@@ -78,11 +78,11 @@ public class RouteDaoJDBC implements RouteDao{
 						+ "VALUES (?, ?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setLong(1, route.getCod());
-				st.setString(2, route.getAgency());
-				st.setDate(3, route.getData());
+				st.setDate(2, route.getData());
+				st.setString(3, route.getStartS());
 				st.setString(4, route.getDestinationS());
-				st.setString(5, route.getStartS());
-				st.setInt(6, route.getnBiglietti());
+				st.setInt(5, route.getnBiglietti());
+				st.setString(6, route.getAgency());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {

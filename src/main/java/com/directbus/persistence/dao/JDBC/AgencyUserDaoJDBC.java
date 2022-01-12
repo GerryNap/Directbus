@@ -50,25 +50,25 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 
 	@Override
 	public AgencyUser findByPrimaryKey(String email) {
-		AgencyUser cdl = null;
+		AgencyUser usr = null;
 		String query = "select * from utentiaziende where email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, email);
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
-				cdl = new AgencyUser();
+				usr = new AgencyUser();
 				
-				cdl.setpIva(rs.getString("p_iva"));
-				cdl.setName(rs.getString("nome"));
-				cdl.setAddress(rs.getString("indirizzo"));
-				cdl.setEmail(rs.getString("email"));
+				usr.setpIva(rs.getString("p_iva"));
+				usr.setName(rs.getString("nome"));
+				usr.setAddress(rs.getString("indirizzo"));
+				usr.setEmail(rs.getString("email"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return cdl;
+		return usr;
 	}
 
 	@Override
@@ -80,12 +80,11 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			String query = "INSERT INTO utentiaziende "
 					+ "VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-			st.setString(1, user.getpIva());
-			st.setString(2, user.getEmail());
-			st.setString(3, user.getName());
-			st.setString(4, user.getAddress());
-			st.setString(5, passwordCriptata);
+			st.setString(1, user.getEmail());
+			st.setString(2, user.getName());
+			st.setString(3, user.getAddress());
+			st.setString(4, user.getPassword());
+			st.setString(5, user.getpIva());
 			st.executeUpdate();
 			return true;
 		} catch (SQLException e) {

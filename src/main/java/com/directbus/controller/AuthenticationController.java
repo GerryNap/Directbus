@@ -1,9 +1,5 @@
 package com.directbus.controller;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
+import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
 
 @Controller
@@ -61,7 +59,7 @@ public class AuthenticationController {
 	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid User user) {
+	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
@@ -76,16 +74,42 @@ public class AuthenticationController {
 		return new ResponseEntity<String>(response, status);
 	}
 	
-	@PostMapping("/doLogin")
-	public String doLogin(HttpServletRequest req, HttpServletResponse res, String email, String pass) {
-		if (email.equalsIgnoreCase("prova123@gmail.com") && pass.equalsIgnoreCase("succhiamelo")) {
-			try {
-				res.sendRedirect("/");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else
-			return "login";
-		return null;
+	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doBusinessRegistration(HttpSession session, @RequestBody @Valid AgencyUser user) {
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		if(DatabaseHandler.getInstance().getAgencyUserDao().save(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+		} else {
+			response = "existing user";
+		}
+			
+		return new ResponseEntity<String>(response, status);
+	}
+	
+	@PostMapping(value = "/doLogin", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doLogin(HttpSession session, @RequestBody @Valid User user) {
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		if(DatabaseHandler.getInstance().getClientUserDao().checkUser(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "client";
+		}
+		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
+			status = HttpStatus.ACCEPTED;
+			response = "business";
+		}
+		else {
+			response = "login error";
+		}
+		
+		return new ResponseEntity<String>(response, status);
 	}
 }

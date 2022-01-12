@@ -1,25 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<!doctype html>
-<html lang="it">
-  <head>
-  	<%@include file="includes/import.jsp" %>
-  	
-    <link href="css/login-register.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
-	
-    <title>DirectBus</title>
-  </head>
-	<body id="body">
-	    <%@include file="includes/header.jsp" %>
-	    <form method="get" action="paymentData" class="position-relative">
-	    
-			<div class="container mt-5 " id="firstContainer">
-				<div class="row">						
-					
-				    <%@include file="includes/userCard.jsp"  %>
-				    <div class="col" style="width:5; margin-top:7%;">							   	
+<div class="col" style="width:5; margin-top:7%;" id="paymentData">							   	
 					<div class="list-group list-group-flush mt-5 col">
 						<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
 							<h1 id="buttonProfile">Dati per il pagamento</h1>
@@ -41,6 +23,3 @@
 					</div>					   							  							  						  				 									
 				</div>
 			</div>	
-		</form>	
- 	</body>
- </html>

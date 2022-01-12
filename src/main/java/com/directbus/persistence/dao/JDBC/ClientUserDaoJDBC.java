@@ -8,9 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-
 import com.directbus.model.User;
+import com.directbus.model.UserClient;
 import com.directbus.persistence.dao.ClientUserDao;
 
 public class ClientUserDaoJDBC implements ClientUserDao{
@@ -22,14 +21,14 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 
 	@Override
-	public List<User> findAll() {
-		List<User> allUsers = new ArrayList<User>();
+	public List<UserClient> findAll() {
+		List<UserClient> allUsers = new ArrayList<UserClient>();
 		String query = "SELECT * FROM utenticlienti";
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()) {
-				User user = new User();
+				UserClient user = new UserClient();
 				user.setEmail(rs.getString("email"));
 				user.setFirstName(rs.getString("nome"));
 				user.setLastName(rs.getString("cognome"));
@@ -44,15 +43,15 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 
 	@Override
-	public User findByPrimaryKey(String email) {
-		User cdl = null;
+	public UserClient findByPrimaryKey(String email) {
+		UserClient cdl = null;
 		String query = "select * from utenticlienti where email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, email);
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
-				cdl = new User();
+				cdl = new UserClient();
 				
 				cdl.setEmail(rs.getString("email"));
 				cdl.setFirstName(rs.getString("nome"));
@@ -67,18 +66,17 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 
 	@Override
-	public boolean save(User user) {
+	public boolean save(UserClient user) {
 		if (existUser(user))
 			return false;
 			
 		try {
 			String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			String passwordCriptata = user.getPassword();
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getFirstName());
 			st.setString(3, user.getLastName());
-			st.setString(4, passwordCriptata);
+			st.setString(4, user.getPassword());
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,7 +86,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 	
 	@Override
-	public boolean update(User user) {
+	public boolean update(UserClient user) {
 		if(!existUser(user))
 			return false;
 		try {
@@ -110,7 +108,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		return true;
 	}
 	
-	private boolean existUser(User user) {
+	private boolean existUser(UserClient user) {
 		String query = "SELECT * FROM utenticlienti WHERE email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -119,7 +117,6 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			if (rs.next())
 				return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -127,7 +124,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	}
 
 	@Override
-	public boolean delete(User user) {
+	public boolean delete(UserClient user) {
 		if (existUser(user)) {
 			String query = "DELETE FORM utenticlienti WHERE email = ?";
 			try {
@@ -153,8 +150,8 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			ResultSet rs = p.executeQuery();
 			boolean result = false;
 			if(rs.next()) {
-				String password = rs.getString("password");
-				result = BCrypt.checkpw(user.getPassword(), password);
+				String password = rs.getString("psw");
+				result = password.equals(user.getPassword());
 			}
 			p.close();
 			return result;

@@ -10,13 +10,13 @@ $(document).ready(
         function formValidation(){
 			var firstName = document.getElementById("FirstName").value;
 			if(stringContainsNumber(firstName)){
-				window.alert("Inserisci nuovamente il tuo nome");
+				window.alert("Nome non valido");
 				return false;
 			}
 			
 			var lastName = document.getElementById("LastName").value;
 			if(stringContainsNumber(lastName)){
-				window.alert("Inserisci nuovamente il tuo cognome");
+				window.alert("Cognome non valido");
 				return false;
 			}
 			

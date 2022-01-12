@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
@@ -58,12 +59,29 @@ public class AuthenticationController {
 	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient UserClient) {
+	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
-		if(DatabaseHandler.getInstance().getClientUserDao().save(UserClient)) {
+		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+		} else {
+			response = "existing user";
+		}
+			
+		return new ResponseEntity<String>(response, status);
+	}
+	
+	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doBusinessRegistration(HttpSession session, @RequestBody @Valid AgencyUser user) {
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		if(DatabaseHandler.getInstance().getAgencyUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
 		} else {

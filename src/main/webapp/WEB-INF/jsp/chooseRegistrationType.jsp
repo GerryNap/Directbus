@@ -13,21 +13,26 @@
   
 	<body id="body">
 	    <%@include file="includes/header.jsp" %>
-	    <center id="buttons">
-	    	<img src="../../images/logo-sito.png" class="img-fluid" alt="Responsive image">
-
-			<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnAgency">
-				<button id="agencyClient" class="btn" onClick="location.href='businessRegistration'">Sono un'azienda*</button>
-			</div>
-
-			<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnClient">
-				<button id="client" class="btn" onClick="location.href='registration'">Sono un cliente</button>
-			</div>
-
-			<div id="text">
-				<font color="white">*Se hai una società di viaggi e vuoi promuovere le tue tratte devi obbligatoriamente registrarti come un'azienda</font>
-			</div>
-		</center>
+	    <div class="container mt-5">
+	    	<form id="register-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
+			    <center id="buttons">
+			    	<img src="../../images/logo-sito.png" class="img-fluid" alt="Responsive image">
+		
+					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnAgency">
+						<button id="agencyClient" class="btn" onClick="location.href='businessRegistration'">Sono un'azienda*</button>
+					</div>
+		
+					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnClient">
+						<button id="client" class="btn" onClick="location.href='registration'">Sono un cliente</button>
+					</div>
+		
+					<div id="text">
+						<font color="white">*Se hai una società di viaggi e vuoi promuovere le tue tratte devi obbligatoriamente registrarti come un'azienda</font>
+					</div>
+				</center>
+			</form>
+	    </div>
+	    
 	</body>
 </html>
 	    

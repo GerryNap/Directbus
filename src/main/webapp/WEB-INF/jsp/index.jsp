@@ -11,8 +11,8 @@
   
   <body>
   	<%@include file="includes/header.jsp" %>
-  	
-    <header class="text-center text-white masthead" style="background: url(&quot;assets/img/hero-img.webp&quot;);background-size: cover;">
+    
+	<header class="text-center text-white masthead" style="background: url(&quot;assets/img/hero-img.webp&quot;);background-size: cover;">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">

@@ -11,8 +11,6 @@ $(document).ready(
 				email : $("#Email").val(),
                 password : $("#Password").val()
 			}
-			
-			console.log(user.email);
         
 			$.ajax({
 				type : "POST",

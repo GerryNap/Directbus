@@ -46,6 +46,16 @@ public class AuthenticationController {
 		return "publicRoute";
 	}
 	
+	@GetMapping("/buyTicket")
+	public String buyTicket() {
+		return "buyTicket";
+	}
+	
+	@GetMapping("/buyTicketProva")
+	public String buyTicketProva() {
+		return "buyTicketProva";
+	}
+	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient UserClient) {

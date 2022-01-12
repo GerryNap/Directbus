@@ -16,8 +16,7 @@
 	    <form method="get" action="myProfile" class="position-relative">
 	    
 			<div class="container mt-5 " id="firstContainer">
-				<div class="row">						
-					
+				<div class="row">											
 				    <%@include file="profile/userCard.jsp"%>
 				    <%@include file="profile/accountSummary.jsp"%>	  
 				    <%@include file="profile/reservation.jsp"%>	

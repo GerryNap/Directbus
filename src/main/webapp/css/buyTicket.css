@@ -1,0 +1,47 @@
+#body{
+	background: black;
+}
+
+h5 {
+	color: white;
+	text-align: center;
+}
+
+#check{
+	color: white;
+}
+
+.col-sx {
+	width: auto;
+	height: auto;
+	/*border-style: groove;*/
+	border-radius: 10px;
+	border-color: #FFCC00;
+	border-width: 0.8px;
+	margin-right: 10px;
+}
+
+.col-dx {
+	width: auto;
+	height: auto;
+	/*border-style: groove;*/
+	border-radius: 10px;
+	border-color: #FFCC00;
+	border-width: 0.8px;
+	margin-left: 10px;
+}
+
+label {
+	color:#FFCC00;
+}
+
+#nome, #cognome, #numeroTelefono, #email, #telefono {
+	background-color:#171717;
+	border:1px solid #FFCC00;
+	color:white;
+	box-shadow: inset 0px 0px 0px 0px;
+}
+
+#nome:focus, #cognome:focus, #numeroTelefono:focus, #email:focus, #telefono:focus {
+	border:2px solid #FFCC00;
+}

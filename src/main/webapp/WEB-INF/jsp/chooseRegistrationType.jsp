@@ -19,11 +19,11 @@
 			    	<img src="../../images/logo-sito.png" class="img-fluid" alt="Responsive image">
 		
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnAgency">
-						<button id="agencyClient" class="btn" onClick="location.href='businessRegistration'">Sono un'azienda*</button>
+						<button type="button" id="agencyClient" class="btn" onClick="location.href='businessRegistration'">Sono un'azienda*</button>
 					</div>
 		
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3" id="btnClient">
-						<button id="client" class="btn" onClick="location.href='registration'">Sono un cliente</button>
+						<button type="button" id="client" class="btn" onClick="location.href='registration'">Sono un cliente</button>
 					</div>
 		
 					<div id="text">
@@ -32,7 +32,5 @@
 				</center>
 			</form>
 	    </div>
-	    
 	</body>
 </html>
-	    

@@ -20,7 +20,7 @@ $(document).ready(
 				url : "doLogin",
                 data : JSON.stringify(user),
                 success: function(data, status, xhr){
-							if(data == "success")
+							if(data == "client" || data=="business")
 								window.location.href = "/";
 						 },
 				error: function(data, status, xhr){

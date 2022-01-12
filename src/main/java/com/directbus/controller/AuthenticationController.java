@@ -100,10 +100,14 @@ public class AuthenticationController {
 		
 		if(DatabaseHandler.getInstance().getClientUserDao().checkUser(user)) {
 			status = HttpStatus.ACCEPTED;
-			response = "success";
+			response = "client";
+		}
+		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
+			status = HttpStatus.ACCEPTED;
+			response = "business";
 		}
 		else {
-			response = "loggin error";
+			response = "login error";
 		}
 		
 		return new ResponseEntity<String>(response, status);

@@ -4,17 +4,19 @@ import javax.validation.constraints.Email;
 
 
 public class User {
-	private String firstName;
-	private String lastName;
 	@Email
 	private String email;
 	private String password;
 	
-	public String getFirstName() { return this.firstName; }
-	public void setFirstName(String first_name) { this.firstName = first_name; }
+	public User() {
+		this.email = null;
+		this.password = null;
+	}
 	
-	public String getLastName() { return this.lastName; }
-	public void setLastName(String last_name) { this.lastName = last_name; }
+	public User(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
 	
 	public String getEmail() { return this.email; }
 	public void setEmail(String email) { this.email = email; }

@@ -1,9 +1,5 @@
 package com.directbus.controller;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -16,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.User;
+import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
 
 @Controller
@@ -51,12 +48,12 @@ public class AuthenticationController {
 	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid User user) {
+	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient UserClient) {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
-		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
+		if(DatabaseHandler.getInstance().getClientUserDao().save(UserClient)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
 		} else {
@@ -66,16 +63,21 @@ public class AuthenticationController {
 		return new ResponseEntity<String>(response, status);
 	}
 	
-	@PostMapping("/doLogin")
-	public String doLogin(HttpServletRequest req, HttpServletResponse res, String email, String pass) {
-		if (email.equalsIgnoreCase("prova123@gmail.com") && pass.equalsIgnoreCase("succhiamelo")) {
-			try {
-				res.sendRedirect("/");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else
-			return "login";
-		return null;
+	@PostMapping(value = "/doLogin", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doLogin(HttpSession session, @RequestBody @Valid User user) {
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		if(DatabaseHandler.getInstance().getClientUserDao().checkUser(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+		}
+		else {
+			response = "loggin error";
+		}
+		
+		return new ResponseEntity<String>(response, status);
 	}
 }

@@ -73,11 +73,10 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		try {
 			String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			String passwordCriptata = user.getPassword();
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getFirstName());
 			st.setString(3, user.getLastName());
-			st.setString(4, passwordCriptata);
+			st.setString(4, user.getPassword());
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

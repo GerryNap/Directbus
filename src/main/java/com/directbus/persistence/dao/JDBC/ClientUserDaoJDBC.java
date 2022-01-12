@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.dao.ClientUserDao;

@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.directbus.model.AgencyUser;
+import com.directbus.model.User;
 import com.directbus.persistence.dao.AgencyUserDao;
 
 public class AgencyUserDaoJDBC implements AgencyUserDao {
@@ -48,12 +49,12 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	}
 
 	@Override
-	public AgencyUser findByPrimaryKey(String pIva) {
+	public AgencyUser findByPrimaryKey(String email) {
 		AgencyUser cdl = null;
-		String query = "select * from utentiaziende where p_iva = ?";
+		String query = "select * from utentiaziende where email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, pIva);
+			st.setString(1, email);
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
 				cdl = new AgencyUser();
@@ -99,8 +100,8 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			return false;
 		try {
 			String query = "UPDATE utentiaziende "
-					+ "set email = ? , nome = ?, indirizzo = ?, psw = ?"
-					+ "where p_iva = ?";
+					+ "set p_iva = ? , nome = ?, indirizzo = ?, psw = ?"
+					+ "where email = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 			st.setString(2, user.getEmail());
@@ -135,17 +136,39 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	@Override
 	public boolean delete(AgencyUser user) {
 		if (existUser(user)) {
-			String query = "DELETE FORM utentiaziende WHERE p_iva = ?";
+			String query = "DELETE FORM utentiaziende WHERE email = ?";
 			try {
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setString(1, user.getpIva());
+				st.setString(1, user.getEmail());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		return false;
+	}
+	
+	@Override
+	public boolean checkUser(User user) {
+		
+		String query = "SELECT * FROM utentiaziende WHERE email=?;";
+		
+		try {
+			PreparedStatement p = conn.prepareStatement(query);
+			p.setString(1, user.getEmail());
+			ResultSet rs = p.executeQuery();
+			boolean result = false;
+			if(rs.next()) {
+				String password = rs.getString("psw");
+				result = password.equals(user.getPassword());
+			}
+			p.close();
+			return result;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 

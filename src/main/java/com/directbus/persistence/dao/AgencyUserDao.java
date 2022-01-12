@@ -3,6 +3,7 @@ package com.directbus.persistence.dao;
 import java.util.List;
 
 import com.directbus.model.AgencyUser;
+import com.directbus.model.User;
 
 public interface AgencyUserDao {
 	
@@ -11,5 +12,6 @@ public interface AgencyUserDao {
 	public boolean save(AgencyUser user);
 	public boolean update(AgencyUser user);
 	public boolean delete(AgencyUser user);
+	boolean checkUser(User user);
 
 }

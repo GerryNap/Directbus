@@ -7,9 +7,8 @@
   	<%@include file="includes/import.jsp" %>
   	
     <link href="css/login-register.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
 	
-    <title>DirectBus</title>
+    <title>MyProfile - DirectBus</title>
   </head>
   
 	<body id="body">
@@ -19,63 +18,8 @@
 			<div class="container mt-5 " id="firstContainer">
 				<div class="row">						
 					
-				    <%@include file="includes/userCard.jsp"  %>
-				    <div class="col" style="width:5; margin-top:7%;">							   	
-					<div class="list-group list-group-flush mt-5 col">
-						<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
-							<h1 id="buttonProfile">Riepilogo dell'account</h1>
-						</div>
-						<div id="profilo" class="list-group-item mb-3" style="background-color:transparent;">
-					    	<h2 id="buttonProfile">Profilo</h2>
-					    </div>					    
-					    <div style="margin-left:2%;">
-						    <div class="row">
-							    <div class="list-group-item col" style="background-color:transparent; ">
-							    	<h5 id="buttonProfile">Nome</h5>					    	
-								</div>
-								<div id="nome" class="list-group-item col" style="background-color:transparent;">
-							    	<label id="buttonProfile">Nome</label>					    	
-								</div>
-								<div class="list-group-item col" style="background-color:transparent;">
-							    	<br>
-							    </div>
-							</div>
-							<div class="row">
-								<div class="list-group-item col" style="background-color:transparent;">
-									<h5 id="buttonProfile">Cognome</h5>
-							    </div>
-							    <div id="cognome" class="list-group-item col" style="background-color:transparent;">
-									<label id="buttonProfile">Cognome</label>
-							    </div>
-							    <div class="list-group-item col" style="background-color:transparent;">
-							    	<br>
-							    </div>
-						    </div>
-						    <div class="row">
-							    <div	class="list-group-item col" style="background-color:transparent;">
-								    <h5 id="buttonProfile">Email</h5>
-							    </div>
-							    <div id="email" class="list-group-item col" style="background-color:transparent;">
-								    <label id="buttonProfile">Email</label>
-							    </div>
-							    <div class="list-group-item col" style="background-color:transparent;">
-							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
-							    </div>
-							</div>
-						    <div class="row">
-							    <div class="list-group-item col" style="background-color:transparent;">
-								    <h5 id="buttonProfile">Password</h5>
-							    </div>
-							    <div id="password" class="list-group-item col" style="background-color:transparent;">
-								    <label id="buttonProfile">Password</label>
-							    </div>
-							    <div class="list-group-item col" style="background-color:transparent;">
-							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
-							    </div>
-						    </div>
-					    </div>
-					</div>	
-					</div>					   							  							  						  				 									
+				    <%@include file="profile/userCard.jsp"  %>
+				    <%@include file="profile/accountSummary.jsp"  %>	  							  						  				 									
 				</div>
 			</div>	
 		</form>	

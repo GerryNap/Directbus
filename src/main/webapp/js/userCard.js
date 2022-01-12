@@ -1,0 +1,3 @@
+function loadSummary() {
+	$("#accountSummary").hide();
+}

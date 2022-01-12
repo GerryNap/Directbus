@@ -59,6 +59,8 @@ public class AuthenticationController {
 		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
+		} else {
+			response = "existing user";
 		}
 			
 		return new ResponseEntity<String>(response, status);

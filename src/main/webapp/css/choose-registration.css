@@ -2,22 +2,14 @@
 	background-color: black;
 }
 
-#buttons {
-	width: 450px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
 #btnAgency{
 	display: inline-block;
-	margin-right: 20px;
+	width: 150px;
 }
 
 #btnClient{
 	display: inline-block;
-	margin-right: 20px;
+	width: 150px;
 }
 
 #client{
@@ -45,11 +37,12 @@
 }
 
 #text{
-	width: 400px;
+	
 	margin-top: 55px;
+	
 }
 
 #image{
 	width: 100%;
-	position: relative;
+	
 }

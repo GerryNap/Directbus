@@ -18,8 +18,11 @@
 			<div class="container mt-5 " id="firstContainer">
 				<div class="row">						
 					
-				    <%@include file="profile/userCard.jsp"  %>
-				    <%@include file="profile/accountSummary.jsp"  %>	  							  						  				 									
+				    <%@include file="profile/userCard.jsp"%>
+				    <%@include file="profile/accountSummary.jsp"%>	  
+				    <%@include file="profile/reservation.jsp"%>	
+				    <%@include file="profile/paymentData.jsp"%>
+				    <%@include file="profile/travelHistory.jsp"%>				  						  				 									
 				</div>
 			</div>	
 		</form>	

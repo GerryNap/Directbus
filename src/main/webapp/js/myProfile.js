@@ -4,8 +4,9 @@ $(document).ready(
 	 	$("#reservation").hide();
 		$("#paymentData").hide();
 		$("#travelHistory").hide();
-		
-	       function loadSummary() {
+});
+
+function loadSummary() {
 		$("#accountSummary").show();
 	 	$("#reservation").hide();
 		$("#paymentData").hide();
@@ -32,4 +33,3 @@ $(document).ready(
 		$("#paymentData").hide();
 		$("#travelHistory").show();
 	}
-})

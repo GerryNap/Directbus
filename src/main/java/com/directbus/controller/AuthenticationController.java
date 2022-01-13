@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.AgencyUser;
+import com.directbus.model.Route;
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
@@ -119,6 +120,21 @@ public class AuthenticationController {
 			response = "login error";
 		}
 		
+		return new ResponseEntity<String>(response, status);
+	}
+	
+	@PostMapping(value = "/doRoute", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doRoute(HttpServletRequest req, @RequestBody @Valid Route route) {
+		System.out.println(route.getStartS());
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+
+		if (!DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+		} else
+			response = "Cannot create route";
 		return new ResponseEntity<String>(response, status);
 	}
 	

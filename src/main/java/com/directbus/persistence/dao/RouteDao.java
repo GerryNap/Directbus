@@ -10,5 +10,6 @@ public interface RouteDao {
 	public Route findByPrimaryKey(long cod);
 	public boolean saveOrUpdate(Route user);
 	public boolean delete(Route user);
+	public boolean checkRoute(Route route);
 	
 }

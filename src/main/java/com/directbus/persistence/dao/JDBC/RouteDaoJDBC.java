@@ -146,5 +146,29 @@ public class RouteDaoJDBC implements RouteDao{
 		}
 		return false;
 	}
+	
+	@Override
+	public boolean checkRoute(Route route) {
+		
+		String query = "SELECT * FROM tratte WHERE cod=?";
+		
+		try {
+			PreparedStatement p = conn.prepareStatement(query);
+			p.setLong(1, route.getCod());
+			ResultSet rs = p.executeQuery();
+			boolean result = false;
+			if(rs.next()) {
+				long cod = rs.getLong("cod");
+				if (cod == route.getCod())
+					result = true;
+			}
+			p.close();
+			return result;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	} 
 
 }

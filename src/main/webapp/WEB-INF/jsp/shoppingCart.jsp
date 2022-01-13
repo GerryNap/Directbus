@@ -11,14 +11,14 @@
     <link href="css/login-register.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
 	<script src="/js/payPalAPI.js"></script>
-	<script src="https://www.paypal.com/sdk/js?client-id=AcfPOSt-f_F7k7g1XY5IhhuCFzfSXZlB4aqFLR0dzhATegX9IgHcZHRQtZRXxlumKteQ-9XTj-UCv4C0"></script>
+	<script src="https://www.paypal.com/sdk/js?currency=EUR&client-id=AcfPOSt-f_F7k7g1XY5IhhuCFzfSXZlB4aqFLR0dzhATegX9IgHcZHRQtZRXxlumKteQ-9XTj-UCv4C0"></script>
 	
     <title>DirectBus</title>
   </head>
   <body id="body">
 	<%@include file="includes/header.jsp" %>
 	<form method="get" action="shoppingCart"  class="mt-5">
-	<div class="alert alert-success" role="alert" id="paymentAlert" >Pagamento avvenuto con successo</div>
+	
 	
 		<div class="row mx-auto position-relative">
 			<div class="col" style="margin:10%;">
@@ -31,12 +31,13 @@
 			<div class="mt-5">
 				<hr style="color:#FFCC00;">
 				<h3 style="color:#FFCC00;">Metodo di pagamento</h3>
-				<input type="text" id="payInput"/>
-				
-				<button id="sendButton" type="button" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>				
+				<input type="text" id="payInput"/>				
+				<button id="sendButton" type="button" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>								
+				<div id="transactionDone" class="alert alert-success mt-3" role="alert" style="display:none;">Pagamento avvenuto con successo!</div>
+				<div id="transactionFailed" class="alert alert-danger mt-3" role="alert" style="display:none;">L'acquisto è stato interrotto</div>
 			</div>
+			<div id="paypal-button-container" class="row mt-3"></div>
 			
-			<div id="paypal-button-container" class="row"></div>
 			</div>
 			<div class="col" style="margin-top:10%;">
 				<div class="card" style="width: 18rem;" id="cardStyle">

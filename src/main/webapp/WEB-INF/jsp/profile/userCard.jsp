@@ -9,6 +9,6 @@
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadReserveation()">Prenotazioni</button>
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadTravelHistory()">Storico dei viaggi</button>
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadPaymentData()">Dati per il pagamento</button>
-		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="exit">Esci</button>
+		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="window.location.href = '/'">Esci</button>
 	</div>	
 </div>	

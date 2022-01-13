@@ -3,6 +3,11 @@
 
 <!doctype html>
 <html lang="it">
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("user")==null)
+        response.sendRedirect("/");
+%>
   <head>
   	<%@include file="includes/import.jsp" %>
   	

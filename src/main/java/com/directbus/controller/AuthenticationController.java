@@ -1,7 +1,6 @@
 package com.directbus.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -95,7 +94,7 @@ public class AuthenticationController {
 	
 	@PostMapping(value = "/doLogin", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<String> doLogin(HttpServletRequest req, HttpServletResponse resp, @RequestBody @Valid User user) {
+	public ResponseEntity<String> doLogin(HttpServletRequest req, @RequestBody @Valid User user) {
 		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
@@ -118,5 +117,14 @@ public class AuthenticationController {
 		}
 		
 		return new ResponseEntity<String>(response, status);
+	}
+	
+	@GetMapping("logout")
+	public void logout(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		if(session != null)
+			session.invalidate();
+		
+		req.getRequestDispatcher("/");
 	}
 }

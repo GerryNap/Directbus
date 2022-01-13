@@ -2,8 +2,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
+
+
 <!doctype html>
 <html lang="it">
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("user")!=null)
+        response.sendRedirect("/");
+%>
   <head>
   	<%@include file="includes/import.jsp" %>
   	

@@ -6,6 +6,7 @@ $(document).ready(
 })
 
 function loadSummary() {
+
 	$("#accountSummary").show();
  	$("#reservation").hide();
 	$("#paymentData").hide();
@@ -32,3 +33,4 @@ function loadTravelHistory(){
 	$("#paymentData").hide();
 	$("#travelHistory").show();
 }
+

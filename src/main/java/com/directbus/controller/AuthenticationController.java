@@ -61,6 +61,11 @@ public class AuthenticationController {
 		return "buyTicketProva";
 	}
 	
+	@GetMapping("/shoppingCart")
+	public String shoppingCart() {
+		return "shoppingCart";
+	}
+	
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {

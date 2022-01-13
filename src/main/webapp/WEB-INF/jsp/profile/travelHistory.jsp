@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
+
 <div class="col" style="width:5%; margin-top:7%;" id="travelHistory">
 	<div class="list-group list-group-flush mt-5 col">
 		<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">

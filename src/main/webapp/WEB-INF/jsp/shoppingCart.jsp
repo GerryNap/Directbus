@@ -33,7 +33,7 @@
 				<h3 style="color:#FFCC00;">Metodo di pagamento</h3>
 				<input type="text" id="payInput"/>
 				
-				<button id="sendButton" type="submit" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>				
+				<button id="sendButton" type="button" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>				
 			</div>
 			
 			<div id="paypal-button-container" class="row"></div>

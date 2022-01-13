@@ -18,6 +18,8 @@
   <body id="body">
 	<%@include file="includes/header.jsp" %>
 	<form method="get" action="shoppingCart"  class="mt-5">
+	<div class="alert alert-success" role="alert" id="paymentAlert" >Pagamento avvenuto con successo</div>
+	
 		<div class="row mx-auto position-relative">
 			<div class="col" style="margin:10%;">
 			<h1 style="color:#FFCC00;">Checkout</h1>
@@ -29,8 +31,12 @@
 			<div class="mt-5">
 				<hr style="color:#FFCC00;">
 				<h3 style="color:#FFCC00;">Metodo di pagamento</h3>
-				<button id="sendButton" type="submit" class="btn mt-3" style="width:100%;">PayPal</button>
+				<input type="text" id="payInput"/>
+				
+				<button id="sendButton" type="submit" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>				
 			</div>
+			
+			<div id="paypal-button-container" class="row"></div>
 			</div>
 			<div class="col" style="margin-top:10%;">
 				<div class="card" style="width: 18rem;" id="cardStyle">
@@ -69,7 +75,5 @@
 			</div>
 		</div>
 	</form>
-	<div id="paypal-button-container"></div>
-	<div class="alert alert-success" role="alert" id="Alert">Pagamento avvenuto con successo</div>
   </body>
 </html>

@@ -1,6 +1,9 @@
 package com.directbus.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -120,11 +123,13 @@ public class AuthenticationController {
 	}
 	
 	@GetMapping("logout")
-	public void logout(HttpServletRequest req) {
+	public String logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		HttpSession session = req.getSession();
 		if(session != null)
 			session.invalidate();
 		
-		req.getRequestDispatcher("/");
+		res.sendRedirect("/");
+		
+		return null;
 	}
 }

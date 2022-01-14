@@ -27,7 +27,7 @@
 	    <div class="container mt-5 " id="firstContainer">
 			<form id="login-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
-					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
+					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign In</h1>
 					<div class="image">
 						<img alt="" src="images/login_logo.png">
 					</div> 
@@ -50,8 +50,11 @@
 					</span>
 					<br>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
-						<button id="sendButton" type="submit" class="btn">Sign Up</button>
+						<button id="sendButton" type="submit" class="btn">Sign In</button>						
 					</div>
+					
+						<button onclick="" id="sendButton" type="submit" class="btn" style="margin-top:6%; margin-left:9%;">Registrati con goole</button>
+					
 					<br><br>
 					<div id="register">
 						<font color="white">Non hai un account?</font>

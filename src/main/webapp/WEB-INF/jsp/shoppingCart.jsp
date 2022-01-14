@@ -32,7 +32,7 @@
 				<hr style="color:#FFCC00;">
 				<h3 style="color:#FFCC00;">Metodo di pagamento</h3>
 				<input type="text" id="payInput"/>				
-				<button id="sendButton" type="button" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">PayPal</button>								
+				<button id="sendButton" type="button" class="btn mt-3" style="width:100%;" onclick="generatePayment(document.getElementById('payInput').value)">Checkout</button>								
 				<div id="transactionDone" class="alert alert-success mt-3" role="alert" style="display:none;">Pagamento avvenuto con successo!</div>
 				<div id="transactionFailed" class="alert alert-danger mt-3" role="alert" style="display:none;">L'acquisto è stato interrotto</div>
 			</div>

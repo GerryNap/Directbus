@@ -86,7 +86,6 @@ public class RouteDaoJDBC implements RouteDao{
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}

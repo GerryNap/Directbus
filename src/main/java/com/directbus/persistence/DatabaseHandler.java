@@ -30,11 +30,7 @@ public class DatabaseHandler {
 	
 	private DatabaseHandler() {
 		try {
-<<<<<<< HEAD
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/directBus", "postgres", "giannimannarix99");
-=======
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/directBus", "postgres", "Capalboelio2");
->>>>>>> 23e2c2588fa01fda3a019960109b31c4bb1cfe99
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/directBus", "postgres", "postgres");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

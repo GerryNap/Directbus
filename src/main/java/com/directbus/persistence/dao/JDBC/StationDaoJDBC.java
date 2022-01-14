@@ -135,7 +135,6 @@ public class StationDaoJDBC implements StationDao{
 			if (rs.next())
 				return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

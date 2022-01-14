@@ -14,12 +14,11 @@ $(document).ready(
 	
 		function ajaxRegisterPost(){
 			var userData = {
-				cod: 1,
 				agency: $("#FirstName").val(),
-				startS: $("#LastName").val(),
+				data: $("#data").val(),
 				destinationS: $("#Email").val(),
-				nBiglietti: 1,
-				data: $("data").val()
+				startS: $("#LastName").val(),
+				nBiglietti: $("#Biglietti").val()
 			}
 			
 			$.ajax({
@@ -32,7 +31,7 @@ $(document).ready(
 						window.location.href = "/";
 				},
 				error: function(data, status, xhr){
-					window.alert("user alredy exist")
+					window.alert("cose")
 				}
 			});
 		}

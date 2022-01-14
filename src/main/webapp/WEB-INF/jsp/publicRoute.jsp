@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!doctype html>
 <html lang="it">
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("user")==null)
+        response.sendRedirect("/");
+    if(!session.getAttribute("userType").equals("Agency"))
+        response.sendRedirect("/");
+%>
   <head>
   	<%@include file="includes/import.jsp" %>
   	
@@ -36,6 +44,11 @@
 				  <i class="bi bi-map-fill"></i>
 				  <input type="text" class="form-control" id="Email" placeholder="Stazione d'arrivo">
 				  <label for="Email">Stazione d'arrivo</label>
+				</div>
+				<div class="form-floating mb-3">
+				  <i class="bi bi-map-fill"></i>
+				  <input type="number" class="form-control" id="Biglietti" min="20" max="50" placeholder="Numero biglietti">
+				  <label for="Biglietti">Numero biglietti</label>
 				</div>
 				<div class="form-floating mb-3">
 				  <input placeholder="Data" type="date" id="data" class="form-control">

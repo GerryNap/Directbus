@@ -1,6 +1,7 @@
 package com.directbus.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -131,11 +132,11 @@ public class AuthenticationController {
 	@PostMapping(value = "/doRoute", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRoute(HttpServletRequest req, @RequestBody @Valid Route route) {
-		System.out.println(route.getStartS());
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
+		
 
-		if (!DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route)) {
+		if (DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
 		} else

@@ -1,6 +1,7 @@
 package com.directbus.persistence.dao.JDBC;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +31,7 @@ public class RouteDaoJDBC implements RouteDao{
 				Route route = new Route();
 				route.setCod(rs.getLong("cod"));
 				route.setAgency(rs.getString("azienda"));
-				route.setData(rs.getDate("data_"));
+				route.setData(rs.getString("data_"));
 				route.setDestinationS(rs.getString("s_arrivo"));
 				route.setStartS(rs.getString("s_partenza"));
 				route.setnBiglietti(rs.getInt("n_nbiglietti"));
@@ -57,7 +58,7 @@ public class RouteDaoJDBC implements RouteDao{
 				
 				cdl.setCod(rs.getLong("cod"));
 				cdl.setAgency(rs.getString("azienda"));
-				cdl.setData(rs.getDate("data_"));
+				cdl.setData(rs.getString("data_"));
 				cdl.setDestinationS(rs.getString("s_arrivo"));
 				cdl.setStartS(rs.getString("s_partenza"));
 				cdl.setnBiglietti(rs.getInt("n_nbiglietti"));
@@ -74,19 +75,17 @@ public class RouteDaoJDBC implements RouteDao{
 		if (!existRoute(route)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO tratte "
-						+ "VALUES (?, ?, ?, ?, ?, ?)";
+				String query = "INSERT INTO tratte (azienda, data_, s_arrivo, s_partenza, n_nbiglietti)"
+						+ "VALUES (?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setLong(1, route.getCod());
-				st.setDate(2, route.getData());
-				st.setString(3, route.getStartS());
-				st.setString(4, route.getDestinationS());
+				st.setString(1, route.getAgency());
+				st.setString(2, route.getData());
+				st.setString(3, route.getDestinationS());
+				st.setString(4, route.getStartS());
 				st.setInt(5, route.getnBiglietti());
-				st.setString(6, route.getAgency());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
@@ -99,7 +98,7 @@ public class RouteDaoJDBC implements RouteDao{
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setLong(1, route.getCod());
 				st.setString(2, route.getAgency());
-				st.setDate(3, route.getData());
+				st.setString(3, route.getData());
 				st.setString(4, route.getDestinationS());
 				st.setString(5, route.getStartS());
 				st.setInt(6, route.getnBiglietti());
@@ -115,11 +114,14 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 	
 	private boolean existRoute(Route route) {
-		String query = "SELECT * FROM tratte WHERE cod = ?";
+		String query = "SELECT * FROM tratte WHERE azienda = ? AND data_ = ? AND s_arrivo = ? AND s_partenza = ?";
 		try {
-			PreparedStatement st = conn.prepareStatement(query);
-			st.setLong(1, route.getCod());
-			ResultSet rs = st.executeQuery();
+			PreparedStatement p = conn.prepareStatement(query);
+			p.setString(1, route.getAgency());
+			p.setString(2, route.getData());
+			p.setString(3, route.getDestinationS());
+			p.setString(4, route.getStartS());
+			ResultSet rs = p.executeQuery();
 			if (rs.next())
 				return true;
 		} catch (SQLException e) {
@@ -150,11 +152,15 @@ public class RouteDaoJDBC implements RouteDao{
 	@Override
 	public boolean checkRoute(Route route) {
 		
-		String query = "SELECT * FROM tratte WHERE cod=?";
+		String query = "SELECT * FROM tratte WHERE azienda = ? AND data_ = ? AND s_arrivo = ? AND s_partenza = ?";
 		
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
-			p.setLong(1, route.getCod());
+			p.setString(1, route.getAgency());
+			p.setString(2, route.getData());
+			p.setString(3, route.getDestinationS());
+			p.setString(4, route.getStartS());
+			
 			ResultSet rs = p.executeQuery();
 			boolean result = false;
 			if(rs.next()) {

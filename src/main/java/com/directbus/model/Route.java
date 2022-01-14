@@ -5,13 +5,29 @@ import java.sql.Date;
 public class Route {
 
 	private long cod;
-	private String startS;
-	private String destinationS;
 	private String agency;
-	private int nBiglietti;
-	private Date data;
+	private String data;
+	private String destinationS;
+	private String startS;
+	private Integer nBiglietti;
 	
+	public Route() {
+		this.data = null;
+		this.agency = null;
+		this.destinationS = null;
+		this.startS = null;
+		this.nBiglietti = null;
+	}
 	
+	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti) {
+		super();
+		this.cod = cod;
+		this.agency = agency;
+		this.data = data;
+		this.destinationS = destinationS;
+		this.startS = startS;
+		this.nBiglietti = nBiglietti;
+	}
 	//getters & setters
 	public long getCod() {
 		return cod;
@@ -37,16 +53,16 @@ public class Route {
 	public void setAgency(String agency) {
 		this.agency = agency;
 	}
-	public int getnBiglietti() {
+	public Integer getnBiglietti() {
 		return nBiglietti;
 	}
 	public void setnBiglietti(int nBiglietti) {
 		this.nBiglietti = nBiglietti;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}	
 }

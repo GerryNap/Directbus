@@ -14,4 +14,6 @@ public interface ClientUserDao {
 	public boolean delete(UserClient user);
 	
 	public boolean checkUser(User user);
+	
+	public User getUserData(String email);
 }

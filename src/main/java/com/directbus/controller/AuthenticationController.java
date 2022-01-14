@@ -112,13 +112,13 @@ public class AuthenticationController {
 		if(DatabaseHandler.getInstance().getClientUserDao().checkUser(user)) {
 			status = HttpStatus.ACCEPTED;
 			response = "client";
-			session.setAttribute("user", user.getEmail());
+			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
 		}
 		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
 			status = HttpStatus.ACCEPTED;
 			response = "business";
-			session.setAttribute("user", user.getEmail());
+			session.setAttribute("user", user);
 			session.setAttribute("userType", "Agency");
 		}
 		else {

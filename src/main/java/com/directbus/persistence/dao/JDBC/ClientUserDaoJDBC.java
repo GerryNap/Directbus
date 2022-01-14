@@ -161,5 +161,21 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		
 		return false;
 	}
-
+	
+	@Override
+	public UserClient getUserData(String email) {
+		String query = "SELECT nome, cognome FROM utenticlienti WHERE email=?;";
+		UserClient user = null;
+		try {
+			PreparedStatement p = conn.prepareStatement(query);
+			p.setString(1, email);
+			ResultSet rs = p.executeQuery();
+			if(rs.next()) {
+				user = new UserClient(email, rs.getString("nome"), rs.getString("cognome"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
 }

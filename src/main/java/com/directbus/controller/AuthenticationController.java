@@ -1,7 +1,6 @@
 package com.directbus.controller;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -119,7 +118,7 @@ public class AuthenticationController {
 		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
 			status = HttpStatus.ACCEPTED;
 			response = "business";
-			session.setAttribute("user", user);
+			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
 		}
 		else {

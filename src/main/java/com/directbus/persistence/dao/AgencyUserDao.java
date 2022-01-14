@@ -13,5 +13,5 @@ public interface AgencyUserDao {
 	public boolean update(AgencyUser user);
 	public boolean delete(AgencyUser user);
 	boolean checkUser(User user);
-
+	public User getUserData(String email);
 }

@@ -14,6 +14,14 @@ public class AgencyUser extends User{
 		this.address = null;
 	}
 	
+	//SESSION
+	public AgencyUser(String email, String name, String pIva, String address) {
+		super(email);
+		this.name = name;
+		this.pIva = pIva;
+		this.address = address;
+	}
+	
 	public AgencyUser(String name, String pIva, String address, String email, String password) {
 		super(email, password);
 		this.name = name;

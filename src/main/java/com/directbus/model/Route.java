@@ -1,6 +1,5 @@
 package com.directbus.model;
 
-import java.sql.Date;
 
 public class Route {
 

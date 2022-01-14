@@ -12,8 +12,6 @@ public interface ClientUserDao {
 	public boolean save(UserClient user);
 	public boolean update(UserClient user);
 	public boolean delete(UserClient user);
-	
 	public boolean checkUser(User user);
-	
 	public User getUserData(String email);
 }

@@ -22,19 +22,19 @@
 	    
 			<div class="container mt-5 " id="firstContainer">
 				<div class="row">
-				    <%@include file="profile/userCard.jsp"%>
-				    <%@include file="profile/travelHistory.jsp"%>
 					<c:choose>
 			        	<c:when test="${userType == 'Client'}">
-			        		<%@include file="profile/accountSummaryClient.jsp"%>
+				    		<%@include file="profile/userClientCard.jsp"%>
+			        		<%@include file="profile/accountSummaryClient.jsp"%>			
+						    <%@include file="profile/travelHistory.jsp"%>
+						    <%@include file="profile/reservation.jsp"%>	
 			        	</c:when>
 			        	<c:when test="${userType == 'Agency'}">
+				    		<%@include file="profile/userAgencyCard.jsp"%>
 			        		<%@include file="profile/accountSummaryAgency.jsp"%>
 			        	</c:when>
-		        	</c:choose>											
-				    	  
-				    <%@include file="profile/reservation.jsp"%>	
-				    <%@include file="profile/paymentData.jsp"%>				  						  				 									
+		        	</c:choose>		
+					<%@include file="profile/paymentData.jsp"%>		  						  				 									
 				</div>
 			</div>	
 		</form>	

@@ -29,6 +29,8 @@
 				<h1 id="public" class="col-xl-5 mx-auto position-relative mb-5" style="color: white;">Pubblica una tratta</h1>
 				</div>
 			</center>
+			<%String email = request.getSession().getAttribute("user").toString(); %>
+			<input type="hidden" id="session" value=<%=email%> >
 			<div class="col-md-8 col-lg-6 col-xl-5 mx-auto position-relative">
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>

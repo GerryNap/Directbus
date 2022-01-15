@@ -1,7 +1,6 @@
 package com.directbus.persistence.dao.JDBC;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -75,14 +74,14 @@ public class RouteDaoJDBC implements RouteDao{
 		if (!existRoute(route)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO tratte (azienda, data_, s_arrivo, s_partenza, n_nbiglietti)"
+				String query = "INSERT INTO tratte (data_, s_arrivo, s_partenza, n_nbiglietti, azienda)"
 						+ "VALUES (?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setString(1, route.getAgency());
-				st.setString(2, route.getData());
-				st.setString(3, route.getDestinationS());
-				st.setString(4, route.getStartS());
-				st.setInt(5, route.getnBiglietti());
+				st.setString(1, route.getData());
+				st.setString(2, route.getDestinationS());
+				st.setString(3, route.getStartS());
+				st.setInt(4, route.getnBiglietti());
+				st.setString(5, route.getAgency());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
@@ -114,13 +113,13 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 	
 	private boolean existRoute(Route route) {
-		String query = "SELECT * FROM tratte WHERE azienda = ? AND data_ = ? AND s_arrivo = ? AND s_partenza = ?";
+		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ?";
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
-			p.setString(1, route.getAgency());
-			p.setString(2, route.getData());
-			p.setString(3, route.getDestinationS());
-			p.setString(4, route.getStartS());
+			p.setString(1, route.getData());
+			p.setString(2, route.getDestinationS());
+			p.setString(3, route.getStartS());
+			p.setString(4, route.getAgency());
 			ResultSet rs = p.executeQuery();
 			if (rs.next())
 				return true;
@@ -152,7 +151,7 @@ public class RouteDaoJDBC implements RouteDao{
 	@Override
 	public boolean checkRoute(Route route) {
 		
-		String query = "SELECT * FROM tratte WHERE azienda = ? AND data_ = ? AND s_arrivo = ? AND s_partenza = ?";
+		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ?";
 		
 		try {
 			PreparedStatement p = conn.prepareStatement(query);

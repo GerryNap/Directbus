@@ -24,6 +24,8 @@ function createElements() {
 	mainColumn.appendChild(columnSx);
 	mainRow.appendChild(mainColumn);
 	document.getElementById("register-form").appendChild(mainRow);
+	
+	
 	//cognome
 	var columnInput2 = createColumnInput();
 	var input2 = createInput("cognome", "Cognome");

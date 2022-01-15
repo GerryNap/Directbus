@@ -14,11 +14,11 @@ $(document).ready(
 	
 		function ajaxRegisterPost(){
 			var userData = {
-				agency: $("#FirstName").val(),
 				data: $("#data").val(),
 				destinationS: $("#Email").val(),
 				startS: $("#LastName").val(),
-				nBiglietti: $("#Biglietti").val()
+				nBiglietti: $("#Biglietti").val(),
+				agency: document.getElementById("session").getAttribute("value"),
 			}
 			
 			$.ajax({

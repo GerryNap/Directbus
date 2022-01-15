@@ -37,7 +37,14 @@ $(document).ready(
 				type : "POST",
 				contentType : "application/json",
 				url : "doBusinessRegistration",
-                data : JSON.stringify(userData)
+                data : JSON.stringify(userData),
+                success: function(data, status, xhr){
+							if(data == "success")
+								window.location.href = "/";
+						 },
+				error: function(data, status, xhr){
+							window.alert("user alredy exist")
+						 }
 			});
         }
         

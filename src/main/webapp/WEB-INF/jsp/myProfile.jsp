@@ -32,6 +32,8 @@
 			        	<c:when test="${userType == 'Agency'}">
 				    		<%@include file="profile/userAgencyCard.jsp"%>
 			        		<%@include file="profile/accountSummaryAgency.jsp"%>
+			        		<%@include file="profile/activeRoutes.jsp"%>
+			        		<%@include file="profile/oldRoutes.jsp"%>
 			        	</c:when>
 		        	</c:choose>		
 					<%@include file="profile/paymentData.jsp"%>		  						  				 									

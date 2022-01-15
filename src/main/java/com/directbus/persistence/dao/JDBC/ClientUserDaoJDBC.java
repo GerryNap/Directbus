@@ -33,7 +33,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 				user.setFirstName(rs.getString("nome"));
 				user.setLastName(rs.getString("cognome"));
 				user.setPassword(rs.getString("psw"));
-				
+				user.setPassword(rs.getString("paypal_email"));
 				allUsers.add(user);
 			}
 		} catch (SQLException e) {
@@ -45,25 +45,26 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 
 	@Override
 	public UserClient findByPrimaryKey(String email) {
-		UserClient cdl = null;
+		UserClient usr = null;
 		String query = "select * from utenticlienti where email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, email);
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
-				cdl = new UserClient();
+				usr = new UserClient();
 				
-				cdl.setEmail(rs.getString("email"));
-				cdl.setFirstName(rs.getString("nome"));
-				cdl.setLastName(rs.getString("cognome"));
-				cdl.setPassword(rs.getString("psw"));
+				usr.setEmail(rs.getString("email"));
+				usr.setFirstName(rs.getString("nome"));
+				usr.setLastName(rs.getString("cognome"));
+				usr.setPassword(rs.getString("psw"));
+				usr.setPaypalMail(rs.getString("paypal_email"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return cdl;
+		return usr;
 	}
 
 	@Override

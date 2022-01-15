@@ -1,6 +1,5 @@
 package com.directbus.model;
 
-
 public class Route {
 
 	private long cod;
@@ -9,6 +8,7 @@ public class Route {
 	private String destinationS;
 	private String startS;
 	private Integer nBiglietti;
+	private String time;
 	
 	public Route() {
 		this.data = null;
@@ -18,7 +18,7 @@ public class Route {
 		this.nBiglietti = null;
 	}
 	
-	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti) {
+	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time) {
 		super();
 		this.cod = cod;
 		this.agency = agency;
@@ -26,6 +26,7 @@ public class Route {
 		this.destinationS = destinationS;
 		this.startS = startS;
 		this.nBiglietti = nBiglietti;
+		this.time = time;
 	}
 	//getters & setters
 	public long getCod() {
@@ -63,5 +64,13 @@ public class Route {
 	}
 	public void setData(String data) {
 		this.data = data;
-	}	
+	}
+	
+	public String getTime() {
+		return time;
+	}
+	
+	public void setTime(String time) {
+		this.time = time;
+	}
 }

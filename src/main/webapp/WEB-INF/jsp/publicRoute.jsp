@@ -29,7 +29,7 @@
 				<h1 id="public" class="col-xl-5 mx-auto position-relative mb-5" style="color: white;">Pubblica una tratta</h1>
 				</div>
 			</center>
-			<%String email = request.getSession().getAttribute("user").toString(); %>
+			<%String email = request.getSession().getAttribute("userEmail").toString(); %>
 			<input type="hidden" id="session" value=<%=email%> >
 			<div class="col-md-8 col-lg-6 col-xl-5 mx-auto position-relative">
 				<div  class="form-floating mb-3">
@@ -55,6 +55,10 @@
 				<div class="form-floating mb-3">
 				  <input placeholder="Data" type="date" id="data" class="form-control">
 				  <label for="data">Data</label>
+				</div>
+				<div class="form-floating mb-3">
+				  <input placeholder="Durata" type="text" id="time" class="form-control">
+				  <label for="time">Durata</label>
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">

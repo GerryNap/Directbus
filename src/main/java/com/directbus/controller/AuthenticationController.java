@@ -77,6 +77,8 @@ public class AuthenticationController {
 		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
+			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
+			session.setAttribute("userType", "Client");
 		} else {
 			response = "existing user";
 		}
@@ -94,6 +96,8 @@ public class AuthenticationController {
 		if(DatabaseHandler.getInstance().getAgencyUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
 			response = "success";
+			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
+			session.setAttribute("userType", "Agency");
 		} else {
 			response = "existing user";
 		}

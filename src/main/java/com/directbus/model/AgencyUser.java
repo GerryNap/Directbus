@@ -2,7 +2,6 @@ package com.directbus.model;
 
 
 public class AgencyUser extends User{
-
 	private String name;
 	private String pIva;
 	private String address;

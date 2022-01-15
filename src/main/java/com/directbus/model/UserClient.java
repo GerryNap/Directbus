@@ -23,12 +23,6 @@ public class UserClient extends User {
 		this.lastName = lastName;
 	}
 	
-	public UserClient(String firstName, String lastName, String email, String paypalMail, boolean p) {
-		super(email, paypalMail, p);
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-	
 	public String getFirstName() { return this.firstName; }
 	public void setFirstName(String firstName) { this.firstName = firstName; }
 	

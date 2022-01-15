@@ -10,6 +10,13 @@ public class UserClient extends User {
 		this.lastName = null;
 	}
 	
+	//SESSION
+	public UserClient(String email, String firstName, String lastName) {
+		super(email);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
 	public UserClient(String firstName, String lastName, String email, String password) {
 		super(email, password);
 		this.firstName = firstName;

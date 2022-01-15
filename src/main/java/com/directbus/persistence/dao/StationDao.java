@@ -2,7 +2,6 @@ package com.directbus.persistence.dao;
 
 import java.util.List;
 
-import com.directbus.model.AgencyUser;
 import com.directbus.model.Station;
 
 public interface StationDao {

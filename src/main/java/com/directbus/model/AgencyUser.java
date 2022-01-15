@@ -2,7 +2,6 @@ package com.directbus.model;
 
 
 public class AgencyUser extends User{
-
 	private String name;
 	private String pIva;
 	private String address;
@@ -12,6 +11,14 @@ public class AgencyUser extends User{
 		this.name = null;
 		this.pIva = null;
 		this.address = null;
+	}
+	
+	//SESSION
+	public AgencyUser(String email, String name, String pIva, String address) {
+		super(email);
+		this.name = name;
+		this.pIva = pIva;
+		this.address = address;
 	}
 	
 	public AgencyUser(String name, String pIva, String address, String email, String password) {

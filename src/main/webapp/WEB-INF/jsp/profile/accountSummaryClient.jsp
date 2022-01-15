@@ -15,7 +15,7 @@
 							    	<h5 id="buttonProfile">Nome</h5>					    	
 								</div>
 								<div id="nome" class="list-group-item col" style="background-color:transparent;">
-							    	<label id="buttonProfile">Nome</label>					    	
+							    	<label id="buttonProfile">${user.firstName}</label>					    	
 								</div>
 								<div class="list-group-item col" style="background-color:transparent;">
 							    	<br>
@@ -26,7 +26,7 @@
 									<h5 id="buttonProfile">Cognome</h5>
 							    </div>
 							    <div id="cognome" class="list-group-item col" style="background-color:transparent;">
-									<label id="buttonProfile">Cognome</label>
+									<label id="buttonProfile">${user.lastName}</label>
 							    </div>
 							    <div class="list-group-item col" style="background-color:transparent;">
 							    	<br>
@@ -37,7 +37,7 @@
 								    <h5 id="buttonProfile">Email</h5>
 							    </div>
 							    <div id="email" class="list-group-item col" style="background-color:transparent;">
-								    <label id="buttonProfile">Email</label>
+								    <label id="buttonProfile">${user.email}</label>
 							    </div>
 							    <div class="list-group-item col" style="background-color:transparent;">
 							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>

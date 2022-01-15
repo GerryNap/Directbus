@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<script src="/js/myProfile.js"></script>
+<script src="/js/myProfileClient.js"></script>
 <div class="card" id="cardStyle" style="width: 20rem;">
 	<div class="list-group list-group-flush">
 		<img id="circular-square" src="images/login_logo.png" />

@@ -33,6 +33,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 				user.setFirstName(rs.getString("nome"));
 				user.setLastName(rs.getString("cognome"));
 				user.setPassword(rs.getString("psw"));
+				
 				allUsers.add(user);
 			}
 		} catch (SQLException e) {

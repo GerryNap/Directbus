@@ -28,6 +28,11 @@ public class User {
 		this.paypalMail = null;
 	}
 	
+	public User(String email, String paypalMail, boolean p) {
+		this.email = email;
+		this.paypalMail = paypalMail;
+	}
+	
 	public User(String email, String password, String paypalMail) {
 		this.email = email;
 		this.password = password;

@@ -180,7 +180,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			p.setString(1, email);
 			ResultSet rs = p.executeQuery();
 			if(rs.next()) {
-				user = new AgencyUser(email, rs.getString("nome"), rs.getString("p_iva"), rs.getString("indirizzo"));
+				user = new AgencyUser(email, rs.getString("paypal_email"), rs.getString("nome"), rs.getString("p_iva"), rs.getString("indirizzo"), true);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

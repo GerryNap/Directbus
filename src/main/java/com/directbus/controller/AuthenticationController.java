@@ -108,7 +108,6 @@ public class AuthenticationController {
 	@PostMapping(value = "/doLogin", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doLogin(HttpServletRequest req, @RequestBody @Valid User user) {
-		
 		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
@@ -118,12 +117,14 @@ public class AuthenticationController {
 			response = "client";
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
+			
 		}
 		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
 			status = HttpStatus.ACCEPTED;
 			response = "business";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
+			session.setAttribute("userEmail", user.getEmail());
 		}
 		else {
 			response = "login error";

@@ -173,7 +173,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			p.setString(1, email);
 			ResultSet rs = p.executeQuery();
 			if(rs.next()) {
-				user = new UserClient(email, rs.getString("paypal_email"), rs.getString("nome"), rs.getString("cognome"), true);
+				user = new UserClient(email, rs.getString("nome"), rs.getString("cognome"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

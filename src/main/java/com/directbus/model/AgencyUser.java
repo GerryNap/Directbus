@@ -27,13 +27,6 @@ public class AgencyUser extends User{
 		this.pIva = pIva;
 		this.address = address;
 	}
-	
-	public AgencyUser(String name, String pIva, String address, String email, String paypalMail, boolean p) {
-		super(email, paypalMail, p);
-		this.name = name;
-		this.pIva = pIva;
-		this.address = address;
-	}
 
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }

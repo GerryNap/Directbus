@@ -40,7 +40,6 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 				allUsers.add(user);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -83,7 +82,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getName());
 			st.setString(3, user.getAddress());
-			st.setString(4, user.getPassword());
+			st.setString(4, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			st.setString(5, user.getpIva());
 			st.executeUpdate();
 			return true;
@@ -102,11 +101,10 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 					+ "set p_iva = ? , nome = ?, indirizzo = ?, psw = ?"
 					+ "where email = ?";
 			PreparedStatement st = conn.prepareStatement(query);
-			String passwordCriptata = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 			st.setString(2, user.getEmail());
 			st.setString(3, user.getName());
 			st.setString(4, user.getAddress());
-			st.setString(5, passwordCriptata);
+			st.setString(5, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			st.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -160,7 +158,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			boolean result = false;
 			if(rs.next()) {
 				String password = rs.getString("psw");
-				result = password.equals(user.getPassword());
+				result = password.equals(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			}
 			p.close();
 			return result;

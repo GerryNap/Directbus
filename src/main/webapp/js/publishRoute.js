@@ -2,14 +2,8 @@ $(document).ready(
 	function() {
 		$("#register-form").on("submit", function(event) {
 			event.preventDefault();
-			
-			//if(formValidation())
 				ajaxRegisterPost();
 		});
-		
-		/*function formValidation(){
-			
-		}*/
 	
 	
 		function ajaxRegisterPost(){

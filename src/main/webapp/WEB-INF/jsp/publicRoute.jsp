@@ -33,11 +33,6 @@
 			<input type="hidden" id="session" value=<%=email%> >
 			<div class="col-md-8 col-lg-6 col-xl-5 mx-auto position-relative">
 				<div  class="form-floating mb-3">
-					<i class="bi bi-file-person-fill"></i>
-					<input class="form-control" id="FirstName" placeholder="Azienda">
-					<label for="FirstName">Azienda</label>
-				</div>	
-				<div  class="form-floating mb-3">
 					<i class="bi bi-wallet2"></i>
 					<input class="form-control" id="LastName" placeholder="Stazione di partenza">
 					<label for="LastName">Stazione di partenza</label>
@@ -53,12 +48,14 @@
 				  <label for="Biglietti">Numero biglietti</label>
 				</div>
 				<div class="form-floating mb-3">
+				  <i class="bi bi-calendar-check-fill"></i>
 				  <input placeholder="Data" type="date" id="data" class="form-control">
 				  <label for="data">Data</label>
 				</div>
 				<div class="form-floating mb-3">
-				  <input placeholder="Durata" type="text" id="time" class="form-control">
-				  <label for="time">Durata</label>
+				  <i class="bi bi-clock-fill"></i>
+				  <input placeholder="Durata hh:mm" type="text" id="time" class="form-control">
+				  <label for="time">Durata hh:mm</label>
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">

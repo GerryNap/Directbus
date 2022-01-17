@@ -43,7 +43,7 @@ i{
 }
 
 #FirstName, #LastName, #BirthDate, #Email, #Password, 
-#inputDate, #PasswordCheck, #Address, #Name, #Piva{
+#inputDate, #PasswordCheck, #Address, #Name, #Piva, #data, #Biglietti, #time{
 	background-color:#171717;
 	border:1px solid #FFCC00;
 	color:white;
@@ -52,7 +52,7 @@ i{
 }
 
 #FirstName:focus, #LastName:focus, #BirthDate:focus, #Email:focus, #Password:focus, 
-#inputDate:focus, #PasswordCheck:focus, #Addres:focus, #Name:focus, #Piva:focus{
+#inputDate:focus, #PasswordCheck:focus, #Addres:focus, #Name:focus, #Piva:focus, #time:focus, #data:focus, #Biglietti:focus{
 	border:2px solid #FFCC00;
 }
 

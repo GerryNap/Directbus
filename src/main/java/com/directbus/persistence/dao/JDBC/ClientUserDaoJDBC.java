@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.dao.ClientUserDao;
@@ -78,7 +80,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getFirstName());
 			st.setString(3, user.getLastName());
-			st.setString(4, user.getPassword());
+			st.setString(4, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,11 +98,10 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 					+ "SET nome = ?, cognome = ?, psw = ?"
 					+ "where email = ?";
 			PreparedStatement st = conn.prepareStatement(query);
-			String passwordCriptata = user.getPassword();
 			st.setString(4, user.getEmail());
 			st.setString(1, user.getFirstName());
 			st.setString(2, user.getLastName());
-			st.setString(3, passwordCriptata);
+			st.setString(3, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			st.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -153,7 +154,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			boolean result = false;
 			if(rs.next()) {
 				String password = rs.getString("psw");
-				result = password.equals(user.getPassword());
+				result = password.equals(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
 			}
 			p.close();
 			return result;

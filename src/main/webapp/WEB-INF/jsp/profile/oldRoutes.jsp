@@ -17,9 +17,9 @@
 						<div class="card" style="margin-left:5%;" id="cardStyle">
 							<div style="margin:5%;">
 							<h5 class="card-title" id="buttonProfile">Codice tratta</h5>
-							<p class="card-text" id="buttonProfile">Stazione di arrivo:...</p>
-							<p class="card-text" id="buttonProfile">Stazione di partenza:...</p>
-							<p class="card-text" id="buttonProfile">Data:...</p>
+							<p class="card-text" id="buttonProfile">Stazione di arrivo:<label id="buttonProfile">...</label></p>
+							<p class="card-text" id="buttonProfile">Stazione di partenza:<label id="buttonProfile">...</label></p>
+							<p class="card-text" id="buttonProfile">Data:<label id="buttonProfile">...</label></p>
 							<p class="card-text" id="buttonProfile"><span class="badge bg-danger text-white">Terminata</span></p>
 							</div>
 						</div>

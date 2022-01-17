@@ -84,3 +84,19 @@ i{
 #circular-square{
 	border-radius:100%;
 }
+#buttonSearch{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+	margin-left:1%;
+	border-radius: 12px;
+  	padding: 5px;
+}
+
+#buttonSearch:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+	
+}

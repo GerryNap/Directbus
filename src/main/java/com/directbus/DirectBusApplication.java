@@ -11,5 +11,4 @@ public class DirectBusApplication {
 		SpringApplication.run(DirectBusApplication.class, args);
 		
 	}
-
 }

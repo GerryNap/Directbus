@@ -37,7 +37,7 @@ public class AuthenticationController {
 	public String login() {
 		return "login";
 	}
-	
+
 	@GetMapping("/registration")
 	public String registration() {
 		return "registration";

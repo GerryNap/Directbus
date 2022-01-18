@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,9 +21,13 @@ import com.directbus.model.Route;
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
+import com.directbus.service.EmailSenderService;
 
 @Controller
 public class AuthenticationController {
+	@Autowired
+	private EmailSenderService emailService;
+	
 	@GetMapping({"/", "index"})
 	public String index() {
 		return "index";
@@ -79,6 +84,7 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
+			emailService.sendSimpleEmail(user.getEmail(), "Registrazione effettuata con successo", "DirectBus Registration");
 		} else {
 			response = "existing user";
 		}

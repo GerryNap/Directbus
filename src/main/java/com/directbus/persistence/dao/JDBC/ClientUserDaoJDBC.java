@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
+import com.directbus.persistence.DatabaseHandler;
 import com.directbus.persistence.dao.ClientUserDao;
 
 public class ClientUserDaoJDBC implements ClientUserDao{
@@ -71,7 +72,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 
 	@Override
 	public boolean save(UserClient user) {
-		if (existUser(user))
+		if (existUser(user.getEmail()))
 			return false;
 			
 		try {
@@ -91,7 +92,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	
 	@Override
 	public boolean update(UserClient user) {
-		if(!existUser(user))
+		if(!existUser(user.getEmail()))
 			return false;
 		try {
 			String query = "UPDATE utenticlienti "
@@ -111,11 +112,33 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		return true;
 	}
 	
-	private boolean existUser(UserClient user) {
+	private boolean existUser(String user) {	
+		if(DatabaseHandler.getInstance().getAgencyUserDao().existUser(user, true))
+			return true;
+		
 		String query = "SELECT * FROM utenticlienti WHERE email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, user.getEmail());
+			st.setString(1, user);
+			ResultSet rs = st.executeQuery();
+			if (rs.next())
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	
+	
+	//questo existUser è duplicato serve per essere chiamato da AgencyUserDao senza creare loop
+	@Override
+	public boolean existUser(String user, boolean p) {
+		
+		String query = "SELECT * FROM utenticlienti WHERE email = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user);
 			ResultSet rs = st.executeQuery();
 			if (rs.next())
 				return true;
@@ -128,7 +151,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 
 	@Override
 	public boolean delete(UserClient user) {
-		if (existUser(user)) {
+		if (existUser(user.getEmail())) {
 			String query = "DELETE FORM utenticlienti WHERE email = ?";
 			try {
 				PreparedStatement st = conn.prepareStatement(query);

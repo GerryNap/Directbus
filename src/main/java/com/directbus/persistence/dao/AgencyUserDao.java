@@ -14,4 +14,6 @@ public interface AgencyUserDao {
 	public boolean delete(AgencyUser user);
 	boolean checkUser(User user);
 	public User getUserData(String email);
+	
+	public boolean existUser(String User, boolean p);
 }

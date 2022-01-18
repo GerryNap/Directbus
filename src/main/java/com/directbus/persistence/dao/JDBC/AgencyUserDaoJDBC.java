@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
+import com.directbus.persistence.DatabaseHandler;
 import com.directbus.persistence.dao.AgencyUserDao;
 
 public class AgencyUserDaoJDBC implements AgencyUserDao {
@@ -72,7 +73,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 
 	@Override
 	public boolean save(AgencyUser user) {
-		if (existUser(user))
+		if (existUser(user.getEmail()))
 			return false;
 		
 		try {
@@ -94,7 +95,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	
 	@Override
 	public boolean update(AgencyUser user) {
-		if(!existUser(user))
+		if(!existUser(user.getEmail()))
 			return false;
 		try {
 			String query = "UPDATE utentiaziende "
@@ -114,12 +115,32 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 		}
 		return true;
 	}
-
-	private boolean existUser(AgencyUser user) {
-		String query = "SELECT * FROM utentiaziende WHERE p_iva = ?";
+	
+	private boolean existUser(String user) {
+		if(DatabaseHandler.getInstance().getClientUserDao().existUser(user, true))
+			return true;
+		
+		String query = "SELECT * FROM utentiaziende WHERE email = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setString(1, user.getpIva());
+			st.setString(1, user);
+			ResultSet rs = st.executeQuery();
+			if (rs.next())
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
+	//questo existUser è duplicato serve per essere chiamato da AgencyUserDao senza creare loop
+	public boolean existUser(String user, boolean p) {
+		
+		String query = "SELECT * FROM utentiaziende WHERE email = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user);
 			ResultSet rs = st.executeQuery();
 			if (rs.next())
 				return true;
@@ -132,7 +153,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 
 	@Override
 	public boolean delete(AgencyUser user) {
-		if (existUser(user)) {
+		if (existUser(user.getEmail())) {
 			String query = "DELETE FORM utentiaziende WHERE email = ?";
 			try {
 				PreparedStatement st = conn.prepareStatement(query);

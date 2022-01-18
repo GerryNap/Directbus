@@ -158,7 +158,7 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			boolean result = false;
 			if(rs.next()) {
 				String password = rs.getString("psw");
-				result = password.equals(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
+				result = BCrypt.checkpw(user.getPassword(), password);
 			}
 			p.close();
 			return result;

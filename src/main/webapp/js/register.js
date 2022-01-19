@@ -59,4 +59,5 @@ $(document).ready(
 		   	else
 		  		return false;
 		}
-    })
+    }
+)

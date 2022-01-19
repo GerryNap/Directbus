@@ -17,12 +17,12 @@ $(document).ready(
 				contentType : "application/json",
 				url : "doLogin",
                 data : JSON.stringify(user),
-                success: function(data, status, xhr){
+                success: function(data){
 							if(data == "client" || data=="business")
 								window.location.href = "/";
 						 },
-				error: function(data, status, xhr){
-							window.alert("login error")
+				error: function(){
+							window.alert("user not found");
 						}
 			});
         }

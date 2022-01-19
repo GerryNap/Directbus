@@ -57,6 +57,11 @@
 				  <input placeholder="Durata hh:mm" type="text" id="time" class="form-control">
 				  <label for="time">Durata hh:mm</label>
 				</div>
+				<div class="form-floating mb-3">
+				  <i class="bi bi-clock-fill"></i>
+				  <input placeholder="Orario di partenza hh:mm" type="text" id="start" class="form-control">
+				  <label for="start">Orario di partenza hh:mm</label>
+				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
 						<button id="sendButton" type="submit" class="btn">Pubblica</button>

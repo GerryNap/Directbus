@@ -19,8 +19,8 @@
 					<div class="card mb-3" id="cardStyle">
 						<div class="card-body">
 							<h5 class="card-title" id="buttonProfile">Nome agenzia</h5>
-							<p class="card-text" id="buttonProfile">Andata:...</p>
-							<p class="card-text" id="buttonProfile">Ritorno:...</p>
+							<p class="card-text" id="buttonProfile">Andata:<label>...</label></p>
+							<p class="card-text" id="buttonProfile">Ritorno:<label>...</label></p>
 							<p class="card-text" id="buttonProfile">
 								<span class="badge bg-success text-white">Terminato</span>
 							</p>

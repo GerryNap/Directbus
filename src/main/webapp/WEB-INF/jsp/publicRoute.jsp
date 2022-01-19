@@ -54,7 +54,7 @@
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-clock-fill"></i>
-				  <input placeholder="Durata hh:mm" type="text" id="time" class="form-control">
+				  <input class="form-control" id="time" placeholder="Durata hh:mm">
 				  <label for="time">Durata hh:mm</label>
 				</div>
 				<div class="form-floating mb-3">

@@ -13,13 +13,14 @@
   </head>
   <body id="body">
     <%@include file="includes/header.jsp" %>
-    <form method="get" action="searchPage" class="mt-5 position-relative">    	
+    <form method="get" action="searchPage" class="mt-5 position-relative" id="search-form">
+    	<div id="firstContainer">
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
-		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;">
-		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;">
-		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;">
-		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;">
+		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;" id="stazionePartenza">
+		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
+		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
+		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>
 		 		</div>
 			</nav>	
@@ -37,7 +38,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
 				<div class="card mb-3 " id="cardStyle">
 				  <div class="row">

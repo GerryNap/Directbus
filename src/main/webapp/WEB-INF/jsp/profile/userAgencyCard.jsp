@@ -2,7 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <script src="/js/myProfileAgency.js"></script>
-<div class="card" id="cardStyle" style="width: 20rem;">
+<div class="card position-relative" id="cardStyle" style="width: 20rem; margin-left:5%;">
 	<div class="list-group list-group-flush">
 		<img id="circular-square" src="images/login_logo.png" />
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadSummary()">Riepilogo dell'account</button>					

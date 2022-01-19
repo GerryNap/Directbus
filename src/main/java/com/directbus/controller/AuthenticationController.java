@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,12 @@ import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
-import com.directbus.service.DirectBusMail;
+import com.directbus.service.EmailSenderService;
 
 @Controller
 public class AuthenticationController {
+	@Autowired
+	EmailSenderService sender;
 	
 	@GetMapping("/login")
 	public String login() {
@@ -33,6 +36,7 @@ public class AuthenticationController {
 	public String registration() {
 		return "registration";
 	}
+	
 	@GetMapping("/businessRegistration")
 	public String businessRegistration() {
 		return "businessRegistration";
@@ -41,26 +45,6 @@ public class AuthenticationController {
 	@GetMapping("/chooseRegistrationType")
 	public String chooseRegistrationType() {
 		return "chooseRegistrationType";
-	}
-	
-	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
-	@ResponseBody
-	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
-		
-		String response = "error";
-		HttpStatus status = HttpStatus.CONFLICT;
-		
-		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
-			status = HttpStatus.ACCEPTED;
-			response = "success";
-			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
-			session.setAttribute("userType", "Client");
-			DirectBusMail.registrationClientEmail(user);
-		} else {
-			response = "existing user";
-		}
-			
-		return new ResponseEntity<String>(response, status);
 	}
 	
 	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
@@ -75,7 +59,7 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
-			DirectBusMail.registrationBusinessEmail(user);
+			sender.registrationBusinessEmail(user);
 		} else {
 			response = "existing user";
 		}

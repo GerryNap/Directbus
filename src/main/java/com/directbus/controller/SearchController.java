@@ -2,8 +2,15 @@ package com.directbus.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.Route;
 import com.directbus.persistence.DatabaseHandler;
@@ -17,14 +24,15 @@ public class SearchController {
 	}
 	
 	@GetMapping("/searchPage")
-	public String searchPage(String andata, String ritorno, String dataAndata, String dataRitorno) {
-		
-		ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
-		
-		for(Route r: allRoute) {
-			System.out.println(r.getDestinationS());
-		}
-		
+	public String searchPage() {
 		return "searchPage";
+	}
+	
+	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<ArrayList<Route>> searchRoutes(@RequestBody @Valid Route route) {
+		HttpStatus status = HttpStatus.ACCEPTED;
+		ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
+		return new ResponseEntity<ArrayList<Route>>(allRoute, status);
 	}
 }

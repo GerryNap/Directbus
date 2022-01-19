@@ -13,14 +13,14 @@
   </head>
   <body id="body">
     <%@include file="includes/header.jsp" %>
-    <form metod="get" action="searchPage" class="mt-5 position-relative">
-    	<div id="firstContainer ">
+    <form method="get" action="searchPage" class="mt-5 position-relative" id="search-form">
+    	<div id="firstContainer">
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
-		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;">
-		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;">
-		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;">
-		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;">
+		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;" id="stazionePartenza">
+		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
+		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
+		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>
 		 		</div>
 			</nav>	
@@ -38,21 +38,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="row mt-5" style="margin-left:5%;">
+			<div class="row mt-5" style="margin-left:5%;" id="mainRow">
 				<div class="card mb-3" style="max-width: 95%; height:210px; margin:-1%;" id="cardStyle">
 				  <div class="row">
 				    <div class="col" style="margin-top:20px;">				    
 				      <div class="card-body" style="margin-top:20px;">
 				        <div class="row">
 				        <div class="col" style="margin-left:20%; margin-top:1%;">
-				        <h5 style="color:#FFCC00;">PARTENZA</h2>
+				        <h5 style="color:#FFCC00;">PARTENZA</h5>
 				        <p style="color:#FFCC00;">05:00</p>
 				        </div>
 				        <div class="col">
-				        <h5 style="color:#FFCC00; margin-top:20%">ORARIO</h2>
+				        <h5 style="color:#FFCC00; margin-top:20%">ORARIO</h5>
 				        </div>
 				        <div class="col">
-				        <h5 style="color:#FFCC00; margin-top:1%;">ARRIVO</h2>
+				        <h5 style="color:#FFCC00; margin-top:1%;">ARRIVO</h5>
 				        <p style="color:#FFCC00;">13:00</p>				        
 				        </div>
 				        </div>

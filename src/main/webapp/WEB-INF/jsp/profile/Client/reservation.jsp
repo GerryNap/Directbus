@@ -13,10 +13,7 @@
 			<div class="row">
 				<div id="cardStyle" class="card mb-3" style="max-width: 540px; margin-left:5%;">
 					<div class="row g-0">
-					    <div class="col-md-4" style="margin-top:7%;">								    	
-					      	<img id="circular-square" src="images/login_logo.png" class="img-fluid rounded-start" alt="">								      	
-						</div>
-						<div class="col-md-8">
+					    <div class="col-md-8">
 							<div class="card-body">
 						        <h5 class="card-title" id="buttonProfile">Nome agenzia</h5>
 						        <p class="card-text" id="buttonProfile">Andata: ...</p>

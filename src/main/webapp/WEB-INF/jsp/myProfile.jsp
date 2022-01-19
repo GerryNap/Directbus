@@ -22,16 +22,16 @@
 				<div class="row justify-content-center">					
 					<c:choose>
 			        	<c:when test="${userType == 'Client'}">
-				    		<%@include file="profile/userClientCard.jsp"%>
-			        		<%@include file="profile/accountSummaryClient.jsp"%>			
-						    <%@include file="profile/travelHistory.jsp"%>
-						    <%@include file="profile/reservation.jsp"%>	
+				    		<%@include file="profile/Client/userClientCard.jsp"%>
+			        		<%@include file="profile/Client/accountSummaryClient.jsp"%>			
+						    <%@include file="profile/Client/travelHistory.jsp"%>
+						    <%@include file="profile/Client/reservation.jsp"%>	
 			        	</c:when>
 			        	<c:when test="${userType == 'Agency'}">
-				    		<%@include file="profile/userAgencyCard.jsp"%>
-			        		<%@include file="profile/accountSummaryAgency.jsp"%>
-			        		<%@include file="profile/activeRoutes.jsp"%>
-			        		<%@include file="profile/oldRoutes.jsp"%>
+				    		<%@include file="profile/Business/userAgencyCard.jsp"%>
+			        		<%@include file="profile/Business/accountSummaryAgency.jsp"%>
+			        		<%@include file="profile/Business/activeRoutes.jsp"%>
+			        		<%@include file="profile/Business/oldRoutes.jsp"%>
 			        	</c:when>
 		        	</c:choose>		
 		        	<%@include file="profile/paymentData.jsp"%>													  						  				 								

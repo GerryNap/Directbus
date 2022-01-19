@@ -18,8 +18,8 @@
 	<body id="body">
 	    <%@include file="includes/header.jsp" %>
 	    <form method="get" action="myProfile" class="mx-auto">
-			<div class="container mt-5" id="firstContainer">
-				<div class="row justify-content-center">					
+			<div class="container" id="firstContainer">
+				<div class="row justify-content-center mt-5">					
 					<c:choose>
 			        	<c:when test="${userType == 'Client'}">
 				    		<%@include file="profile/Client/userClientCard.jsp"%>

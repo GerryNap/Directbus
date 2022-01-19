@@ -5,9 +5,10 @@
 <!doctype html>
 <html lang="it">
 <%
-    session=request.getSession(false);
-    if(session.getAttribute("user")==null)
-        response.sendRedirect("/");
+	session=request.getSession(false);
+	if(session.getAttribute("user")==null){
+    	response.sendRedirect("/");
+	}
     if(!session.getAttribute("userType").equals("Agency"))
         response.sendRedirect("/");
 %>

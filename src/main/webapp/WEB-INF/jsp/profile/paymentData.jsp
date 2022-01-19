@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=buttons&vault=true&intent=subscription"></script>
 
 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" style="width:5; margin-top:7%;" id="paymentData">							   	
 	<div class="list-group list-group-flush mt-5 col">

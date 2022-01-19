@@ -16,8 +16,8 @@
 					    <div class="col-md-8">
 							<div class="card-body">
 						        <h5 class="card-title" id="buttonProfile">Nome agenzia</h5>
-						        <p class="card-text" id="buttonProfile">Andata: ...</p>
-						        <p class="card-text" id="buttonProfile">Ritorno: ...</p> 
+						        <p class="card-text" id="buttonProfile">Andata: <label id="buttonProfile">...</label></p>
+						        <p class="card-text" id="buttonProfile">Ritorno: <label id="buttonProfile">...</label></p> 
 								<p class="card-text" id="buttonProfile"><span class="badge bg-warning text-dark">In corso</span></p>
 							</div>
 						</div>

@@ -9,6 +9,7 @@ public class Route {
 	private String startS;
 	private Integer nBiglietti;
 	private String time;
+	private String startTime;
 	
 	public Route() {
 		this.data = null;
@@ -16,9 +17,11 @@ public class Route {
 		this.destinationS = null;
 		this.startS = null;
 		this.nBiglietti = null;
+		this.time = null;
+		this.startTime = null;
 	}
 	
-	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time) {
+	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time, String startTime) {
 		super();
 		this.cod = cod;
 		this.agency = agency;
@@ -27,6 +30,7 @@ public class Route {
 		this.startS = startS;
 		this.nBiglietti = nBiglietti;
 		this.time = time;
+		this.startTime = startTime;
 	}
 	//getters & setters
 	public long getCod() {
@@ -72,5 +76,13 @@ public class Route {
 	
 	public void setTime(String time) {
 		this.time = time;
+	}
+	
+	public String getStartTime() {
+		return startTime;
+	}
+	
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
 	}
 }

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
-import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
 import com.directbus.service.EmailSenderService;
 

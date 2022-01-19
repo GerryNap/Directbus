@@ -13,7 +13,8 @@ $(document).ready(
 				startS: $("#LastName").val(),
 				nBiglietti: $("#Biglietti").val(),
 				agency: document.getElementById("session").getAttribute("value"),
-				time: $("time").val()
+				time: $("#time").val(),
+				startTime: $("#start").val()
 			}
 			
 			$.ajax({

@@ -11,6 +11,11 @@ import com.directbus.persistence.DatabaseHandler;
 @Controller
 public class SearchController {
 	
+	@GetMapping({"/", "index"})
+	public String index() {
+		return "index";
+	}
+	
 	@GetMapping("/searchPage")
 	public String searchPage(String andata, String ritorno, String dataAndata, String dataRitorno) {
 		

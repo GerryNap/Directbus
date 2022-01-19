@@ -15,13 +15,11 @@
 	
     <title>MyProfile - DirectBus</title>
   </head>
-  
 	<body id="body">
 	    <%@include file="includes/header.jsp" %>
-	    <form method="get" action="myProfile" class="position-relative">
-	    
-			<div class="container mt-5 " id="firstContainer">
-				<div class="row">
+	    <form method="get" action="myProfile" class="mx-auto">
+			<div class="container mt-5" id="firstContainer">
+				<div class="row justify-content-center">					
 					<c:choose>
 			        	<c:when test="${userType == 'Client'}">
 				    		<%@include file="profile/userClientCard.jsp"%>
@@ -36,7 +34,7 @@
 			        		<%@include file="profile/oldRoutes.jsp"%>
 			        	</c:when>
 		        	</c:choose>		
-					<%@include file="profile/paymentData.jsp"%>		  						  				 									
+		        	<%@include file="profile/paymentData.jsp"%>													  						  				 								
 				</div>
 			</div>	
 		</form>	

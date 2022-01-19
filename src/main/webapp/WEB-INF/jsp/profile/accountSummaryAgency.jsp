@@ -2,7 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <div class="col" id="accountSummary" style="width:5; margin-top:7%;">							   	
-					<div class="list-group list-group-flush mt-5 col">
+					<div class="list-group list-group-flush mx-auto position-relative">
 						<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
 							<h1 id="buttonProfile">Riepilogo dell'account</h1>
 						</div>
@@ -10,7 +10,7 @@
 					    	<h2 id="buttonProfile">Profilo aziendale</h2>
 					    </div>					    
 					    <div style="margin-left:2%;">
-						    <div class="row">
+						    <div class="row row row-xs-12 row-sm-10 row-md-6 row-lg-4 row-xl-3 mx-auto position-relative">
 							    <div class="list-group-item col" style="background-color:transparent; ">
 							    	<h5 id="buttonProfile">Nome</h5>					    	
 								</div>
@@ -21,7 +21,7 @@
 							    	<br>
 							    </div>
 							</div>
-							<div class="row">
+							<div class="row row row-xs-12 row-sm-10 row-md-6 row-lg-4 row-xl-3 mx-auto position-relative">
 								<div class="list-group-item col" style="background-color:transparent;">
 									<h5 id="buttonProfile">Indirizzo</h5>
 							    </div>
@@ -32,7 +32,7 @@
 							    	<br>
 							    </div>
 						    </div>
-							<div class="row">
+							<div class="row row row-xs-12 row-sm-10 row-md-6 row-lg-4 row-xl-3 mx-auto position-relative">
 								<div class="list-group-item col" style="background-color:transparent;">
 									<h5 id="buttonProfile">P.IVA</h5>
 							    </div>
@@ -43,7 +43,7 @@
 							    	<br>
 							    </div>
 						    </div>
-						    <div class="row">
+						    <div class="row row row-xs-12 row-sm-10 row-md-6 row-lg-4 row-xl-3 mx-auto position-relative">
 							    <div	class="list-group-item col" style="background-color:transparent;">
 								    <h5 id="buttonProfile">Email</h5>
 							    </div>
@@ -54,7 +54,7 @@
 							    	<button id="sendButton" type="submit" style="font-size:13px;" class="btn">Modifica</button>
 							    </div>
 							</div>
-						    <div class="row">
+						    <div class="row row row-xs-12 row-sm-10 row-md-6 row-lg-4 row-xl-3 mx-auto position-relative">
 							    <div class="list-group-item col" style="background-color:transparent;">
 								    <h5 id="buttonProfile">Password</h5>
 							    </div>

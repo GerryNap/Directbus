@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.AgencyUser;
-import com.directbus.model.Route;
 import com.directbus.model.User;
 import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
@@ -26,12 +25,7 @@ import com.directbus.service.EmailSenderService;
 @Controller
 public class AuthenticationController {
 	@Autowired
-	private EmailSenderService emailService;
-	
-	@GetMapping({"/", "index"})
-	public String index() {
-		return "index";
-	}
+	EmailSenderService sender;
 	
 	@GetMapping("/login")
 	public String login() {
@@ -42,6 +36,7 @@ public class AuthenticationController {
 	public String registration() {
 		return "registration";
 	}
+	
 	@GetMapping("/businessRegistration")
 	public String businessRegistration() {
 		return "businessRegistration";
@@ -50,46 +45,6 @@ public class AuthenticationController {
 	@GetMapping("/chooseRegistrationType")
 	public String chooseRegistrationType() {
 		return "chooseRegistrationType";
-	}
-	
-	@GetMapping("/publicRoute")
-	public String publicRoute() {
-		return "publicRoute";
-	}
-	
-	@GetMapping("/buyTicket")
-	public String buyTicket() {
-		return "buyTicket";
-	}
-	
-	@GetMapping("/buyTicketProva")
-	public String buyTicketProva() {
-		return "buyTicketProva";
-	}
-	
-	@GetMapping("/shoppingCart")
-	public String shoppingCart() {
-		return "shoppingCart";
-	}
-	
-	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
-	@ResponseBody
-	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
-		
-		String response = "error";
-		HttpStatus status = HttpStatus.CONFLICT;
-		
-		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
-			status = HttpStatus.ACCEPTED;
-			response = "success";
-			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
-			session.setAttribute("userType", "Client");
-			emailService.sendSimpleEmail(user.getEmail(), "Registrazione effettuata con successo", "DirectBus Registration");
-		} else {
-			response = "existing user";
-		}
-			
-		return new ResponseEntity<String>(response, status);
 	}
 	
 	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
@@ -104,6 +59,7 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
+			sender.registrationBusinessEmail(user);
 		} else {
 			response = "existing user";
 		}
@@ -133,24 +89,9 @@ public class AuthenticationController {
 			session.setAttribute("userEmail", user.getEmail());
 		}
 		else {
-			response = "login error";
+			response = "user not found";
 		}
 		
-		return new ResponseEntity<String>(response, status);
-	}
-	
-	@PostMapping(value = "/doRoute", consumes = {"application/json"})
-	@ResponseBody
-	public ResponseEntity<String> doRoute(HttpServletRequest req, @RequestBody @Valid Route route) {
-		String response = "error";
-		HttpStatus status = HttpStatus.CONFLICT;
-		
-
-		if (DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route)) {
-			status = HttpStatus.ACCEPTED;
-			response = "success";
-		} else
-			response = "Cannot create route";
 		return new ResponseEntity<String>(response, status);
 	}
 	

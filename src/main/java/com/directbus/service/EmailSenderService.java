@@ -12,13 +12,16 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.directbus.model.AgencyUser;
+import com.directbus.model.UserClient;
+
 @Service 
 public class EmailSenderService {
 	
 	@Autowired
 	private JavaMailSender mailSender; 
 	
-	public void sendSimpleEmail(String toEmail, String body, String subject) {
+	private void sendSimpleEmail(String toEmail, String body, String subject) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		
 		message.setFrom("info.directbus@gmail.com");
@@ -27,10 +30,11 @@ public class EmailSenderService {
 		message.setSubject(subject);
 		
 		mailSender.send(message);
-		System.out.println("Mail send...");
 	}
 	
-	public void sendEmailWithAttachment(String toEmail, String body, String subject, String attachment) throws MessagingException {
+	
+	@SuppressWarnings("unused")
+	private void sendEmailWithAttachment(String toEmail, String body, String subject, String attachment) throws MessagingException {
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 		
@@ -45,5 +49,27 @@ public class EmailSenderService {
 		
 		mailSender.send(mimeMessage);
 		System.out.println("Mail send...");
+	}
+
+	public void registrationClientEmail(UserClient user) {
+		String body = "Benvenuto " + user.getFirstName() + " " + user.getLastName();
+		sendSimpleEmail(user.getEmail(), body, "DirectBus Registration");
+	}
+	
+	public void registrationBusinessEmail(AgencyUser user) {
+		String body = user.getName() + "\nLa ringraziamo per averci scelto per la vendita dei suoi biglietti";
+		sendSimpleEmail(user.getEmail(), body, "DirectBus Registration");
+	}
+	
+	public void confirmEmail(String email) {
+		
+	}
+	
+	public void forgotPassword(String email) {
+		
+	}
+	
+	public void sendTicket(String email) {
+		
 	}
 }

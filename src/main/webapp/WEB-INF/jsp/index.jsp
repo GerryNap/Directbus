@@ -18,7 +18,7 @@
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
 		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;" id="stazionePartenza">
-		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
+		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
 		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
 		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>

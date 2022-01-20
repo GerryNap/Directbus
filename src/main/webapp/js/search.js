@@ -6,15 +6,6 @@ $(document).ready(
         });
 
         function ajaxLoginPost() {
-			/*var route = {
-				data: $("#dataAndata").val(),
-				destinationS: $("#stazioneArrivo").val(),
-				startS: $("#stazionePartenza").val(),
-				nBiglietti: null,
-				agency: null,
-				time: null,
-				startTime: null
-			}*/
 			var route = {
 				data: $("#dataAndata").val(),
 				destinationS: $("#stazioneArrivo").val(),

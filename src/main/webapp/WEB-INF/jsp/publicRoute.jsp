@@ -49,18 +49,18 @@
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-calendar-check-fill"></i>
-				  <input placeholder="Data" type="date" id="data" class="form-control">
-				  <label for="data">Data</label>
+				  <input placeholder="Data/orario di partenza" type="datetime-local" id="data" class="form-control">
+				  <label for="data">Data/orario di partenza</label>
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-clock-fill"></i>
-				  <input class="form-control" id="time" placeholder="Durata hh:mm">
-				  <label for="time">Durata hh:mm</label>
+				  <input class="form-control" id="time" placeholder="Durata" type="time">
+				  <label for="time">Durata</label>
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-clock-fill"></i>
-				  <input placeholder="Orario di partenza hh:mm" type="text" id="start" class="form-control">
-				  <label for="start">Orario di partenza hh:mm</label>
+				  <input placeholder="Orario/data di partenza" type="number" step="any" min="1" id="price" class="form-control">
+				  <label for="start">Prezzo</label>
 				</div>
 				<center>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">

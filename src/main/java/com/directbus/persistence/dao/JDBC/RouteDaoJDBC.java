@@ -35,6 +35,7 @@ public class RouteDaoJDBC implements RouteDao{
 				route.setStartS(rs.getString("s_partenza"));
 				route.setnBiglietti(rs.getInt("n_nbiglietti"));
 				route.setTime(rs.getString("durata_tratta"));
+				route.setPrice(rs.getFloat("prezzo"));
 				allRoutes.add(route);
 			}
 		} catch (SQLException e) {
@@ -62,7 +63,7 @@ public class RouteDaoJDBC implements RouteDao{
 				cdl.setStartS(rs.getString("s_partenza"));
 				cdl.setnBiglietti(rs.getInt("n_nbiglietti"));
 				cdl.setTime(rs.getString("durata_tratta"));
-				cdl.setStartTime(rs.getString("orario_partenza"));
+				cdl.setPrice(rs.getFloat("prezzo"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,7 +77,7 @@ public class RouteDaoJDBC implements RouteDao{
 		if (!existRoute(route)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO tratte (data_, s_arrivo, s_partenza, n_nbiglietti, azienda, durata_tratta, orario_partenza)"
+				String query = "INSERT INTO tratte (data_, s_arrivo, s_partenza, n_nbiglietti, azienda, durata_tratta, prezzo)"
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setString(1, route.getData());
@@ -85,7 +86,7 @@ public class RouteDaoJDBC implements RouteDao{
 				st.setInt(4, route.getnBiglietti());
 				st.setString(5, route.getAgency());
 				st.setString(6, route.getTime());
-				st.setString(7, route.getStartTime());
+				st.setFloat(7, route.getPrice());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
@@ -117,7 +118,7 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 	
 	private boolean existRoute(Route route) {
-		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND durata_tratta = ? AND orario_partenza = ?";
+		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND durata_tratta = ? AND prezzo = ?";
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
 			p.setString(1, route.getData());
@@ -125,7 +126,7 @@ public class RouteDaoJDBC implements RouteDao{
 			p.setString(3, route.getStartS());
 			p.setString(4, route.getAgency());
 			p.setString(5, route.getTime());
-			p.setString(6, route.getStartTime());
+			p.setFloat(6, route.getPrice());
 			ResultSet rs = p.executeQuery();
 			if (rs.next())
 				return true;
@@ -157,7 +158,7 @@ public class RouteDaoJDBC implements RouteDao{
 	@Override
 	public boolean checkRoute(Route route) {
 		
-		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND durata_tratta = ? AND orario_partenza = ?";
+		String query = "SELECT * FROM tratte WHERE data_ = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND durata_tratta = ? AND prezzo = ?";
 		
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
@@ -166,7 +167,7 @@ public class RouteDaoJDBC implements RouteDao{
 			p.setString(3, route.getDestinationS());
 			p.setString(4, route.getStartS());
 			p.setString(5, route.getTime());
-			p.setString(6, route.getStartTime());
+			p.setFloat(6, route.getPrice());
 			ResultSet rs = p.executeQuery();
 			boolean result = false;
 			if(rs.next()) {

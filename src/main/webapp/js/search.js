@@ -6,7 +6,7 @@ $(document).ready(
         });
 
         function ajaxLoginPost() {
-			var route = {
+			/*var route = {
 				data: $("#dataAndata").val(),
 				destinationS: $("#stazioneArrivo").val(),
 				startS: $("#stazionePartenza").val(),
@@ -14,6 +14,15 @@ $(document).ready(
 				agency: null,
 				time: null,
 				startTime: null
+			}*/
+			var route = {
+				data: $("#dataAndata").val(),
+				destinationS: $("#stazioneArrivo").val(),
+				startS: $("#stazionePartenza").val(),
+				nBiglietti: null,
+				agency: null,
+				time: null,
+				price: null
 			}
 			$.ajax({
 				type : "POST",
@@ -22,7 +31,6 @@ $(document).ready(
                 data : JSON.stringify(route),
 				success: function(data, status, xhr) {
 					var routes = data;
-					routes.forEach(element => console.log(element));
 					addElements(routes);
 				},
 				error: function(data, status, xhr) {
@@ -34,18 +42,25 @@ $(document).ready(
 )
 
 function addElements(routes) {
+	
 	for (let i = 0; i < routes.length; i++) {
 		document.getElementById("firstContainer").appendChild(createFirstElement(routes[i]));
 	}
+	
+	
 }
 
-function getTime() {
-	
+function getTime(data, tempoImpiegato) {
+	var date = new Date(data);
+	var time = tempoImpiegato.split(":", 2);
+	var hours = parseInt(time[0]);
+	var minutes = parseInt(time[1]);
+	date.setHours(date.getHours() + hours);
+	date.setMinutes(date.getMinutes() + minutes);
+	return date;
 }
 
 function createFirstElement(element) {
-	var time = getTime(element.startTime, element.time);
-	
 	var rowPrincipale = document.createElement("div");
 	var classRowPrincipale = document.createAttribute("class"); classRowPrincipale.value = "row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto";
 	rowPrincipale.setAttributeNode(classRowPrincipale);
@@ -84,8 +99,12 @@ function createFirstElement(element) {
 	stazionePartenza.innerHTML = element.startS;
 	stazionePartenza.style.color = "#FFCC00";
 	//P
+	var start = new Date(element.data);
 	var p = document.createElement("p");
-	p.innerHTML = "05:00";
+	if (start.getMinutes() == 0) {
+		p.innerHTML = start.getHours() + ":" + start.getMinutes() + "0";
+	} else
+		p.innerHTML = start.getHours() + ":" + start.getMinutes();
 	p.style.color = "#FFCC00";
 	//AGGIUNTA
 	colPortante.appendChild(h5);
@@ -110,7 +129,11 @@ function createFirstElement(element) {
 	stazioneArrivo.innerHTML = element.destinationS;
 	stazioneArrivo.style.color = "#FFCC00";
 	var p3 = document.createElement("p");
-	p3.innerHTML = "13:00";
+	var dataArrivo = getTime(element.data, element.time);
+	if (dataArrivo.getMinutes() == 0) {
+		p3.innerHTML = dataArrivo.getHours() + ":" + dataArrivo.getMinutes() + "0";
+	} else
+		p3.innerHTML = dataArrivo.getHours() + ":" + dataArrivo.getMinutes();
 	p3.style.color = "#FFCC00";
 	colPortante3.appendChild(h5_2);
 	colPortante3.appendChild(stazioneArrivo);
@@ -131,27 +154,6 @@ function createFirstElement(element) {
 	
 	return rowPrincipale;
 }
-
-
-/*
-<div class="col">				    
-  <div class="card-body">
-    <div class="mt-9 col-sm-9 col-md-9 col-lg-10 col-xl-9 mx-auto row" style="margin-top:10%;">
-    <div class="col">
-    <h5 style="color:#FFCC00;">PARTENZA</h5>
-    <p style="color:#FFCC00;">05:00</p>
-    </div>
-    <div class="col">
-    <h5 style="color:#FFCC00;">ORARIO</h5>
-    </div>
-    <div class="col">
-    <h5 style="color:#FFCC00;">ARRIVO</h5>
-    <p style="color:#FFCC00;">13:00</p>				        
-    </div>
-    </div>
-  </div>
-</div>
-*/
 
 function createSecondElement(element) {
 	var col = document.createElement("div");
@@ -175,7 +177,7 @@ function createSecondElement(element) {
 	var h2 = document.createElement("h2");
 	var classH2 = document.createAttribute("class"); classH2.value = "row";
 	h2.setAttributeNode(classH2);
-	h2.innerHTML = "20,00 EUR";
+	h2.innerHTML = element.price + " EUR";
 	h2.style.backgroundColor = "transparent"; h2.style.marginLeft = "25%";
 	var p = document.createElement("p");
 	var classP = document.createAttribute("class"); classP.value = "card-text";

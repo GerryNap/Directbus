@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
+<!--			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
 				<div class="card mb-3 " id="cardStyle">
 				  <div class="row">
 				    <div class="col">				    
@@ -72,7 +72,7 @@
 				    </div>
 				  </div>
 				</div>
-			</div>
+			</div>   -->
 		</div>			
 	</form>	
   </body>

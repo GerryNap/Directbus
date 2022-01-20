@@ -9,7 +9,7 @@ public class Route {
 	private String startS;
 	private Integer nBiglietti;
 	private String time;
-	private String startTime;
+	private Float price;
 	
 	public Route() {
 		this.data = null;
@@ -18,10 +18,10 @@ public class Route {
 		this.startS = null;
 		this.nBiglietti = null;
 		this.time = null;
-		this.startTime = null;
+		this.price = null;
 	}
 	
-	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time, String startTime) {
+	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time, Float price) {
 		super();
 		this.cod = cod;
 		this.agency = agency;
@@ -30,7 +30,7 @@ public class Route {
 		this.startS = startS;
 		this.nBiglietti = nBiglietti;
 		this.time = time;
-		this.startTime = startTime;
+		this.price = price;
 	}
 	//getters & setters
 	public long getCod() {
@@ -78,11 +78,11 @@ public class Route {
 		this.time = time;
 	}
 	
-	public String getStartTime() {
-		return startTime;
+	public Float getPrice() {
+		return price;
 	}
 	
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 }

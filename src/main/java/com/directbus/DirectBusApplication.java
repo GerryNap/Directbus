@@ -9,6 +9,5 @@ public class DirectBusApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DirectBusApplication.class, args);
-		
 	}
 }

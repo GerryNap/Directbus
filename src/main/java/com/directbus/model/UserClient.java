@@ -11,8 +11,8 @@ public class UserClient extends User {
 	}
 	
 	//SESSION
-	public UserClient(String email, String firstName, String lastName) {
-		super(email);
+	public UserClient(String email, String firstName, String lastName, boolean verified) {
+		super(email, verified);
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}

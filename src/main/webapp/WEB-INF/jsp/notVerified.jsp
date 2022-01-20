@@ -1,3 +1,4 @@
+<%@page import="com.directbus.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -6,6 +7,16 @@
 
 <!doctype html>
 <html lang="it">
+<%
+	session=request.getSession(false);
+	User user = (User)session.getAttribute("user");
+    
+    if(user == null)
+        response.sendRedirect("/login");
+    
+    if(user.isVerified())
+    	response.sendRedirect("/");	
+%>
   <head>
   	<%@include file="includes/import.jsp" %>
   	
@@ -21,8 +32,9 @@
 	    
 	    <div class="container mt-5 " id="firstContainer">
 			<center>
-				<h1 >404 Not Found</h1>
-				<a href="/"><button id="sendButton" type="submit" class="btn">Home</button></a>
+				<h1 style="color:#ffcc00;">Ti abbiamo inviato una email di conferma</h1>
+				<h3 style="color:#ffcc00;">Non hai ricevuto la email?</h3>
+				<a href="/"><button id="sendButton" type="submit" class="btn">Clicca qui</button></a>
 			<center>
 			
 		</div>	

@@ -26,11 +26,11 @@ public class DatabaseHandler {
 		return instance;
 	}
 	
-	Connection conn;
+	private Connection conn;
 	
 	private DatabaseHandler() {
 		try {
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/directBus", "postgres", "giannimannarix99");
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/directBus", "postgres", "admin");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -9,6 +9,7 @@ public class User {
 	private String password;
 	@Email
 	private String paypalMail;
+	private boolean verified;
 	
 	public User() {
 		this.email = null;
@@ -16,8 +17,9 @@ public class User {
 		this.paypalMail = null;
 	}
 	
-	public User(String email) {
+	public User(String email, boolean verified) {
 		this.email = email;
+		this.verified = verified;
 		this.password = null;
 		this.paypalMail = null;
 	}
@@ -42,4 +44,6 @@ public class User {
 	
 	public String getPaypalMail() { return this.paypalMail; }
 	public void setPaypalMail(String paypalMail) { this.paypalMail = paypalMail; }
+	
+	public boolean isVerified() { return this.verified; }
 }

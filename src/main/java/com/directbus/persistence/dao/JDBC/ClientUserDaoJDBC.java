@@ -190,18 +190,38 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 	
 	@Override
 	public UserClient getUserData(String email) {
-		String query = "SELECT nome, cognome FROM utenticlienti WHERE email=?;";
+		String query = "SELECT nome, cognome, verifiedemail FROM utenticlienti WHERE email=?;";
 		UserClient user = null;
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
 			p.setString(1, email);
 			ResultSet rs = p.executeQuery();
 			if(rs.next()) {
-				user = new UserClient(email, rs.getString("nome"), rs.getString("cognome"));
+				user = new UserClient(email, rs.getString("nome"), rs.getString("cognome"), rs.getBoolean("verifiedemail"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	@Override
+	public boolean setVerifiedEmail(User user, boolean verified) {
+		if(!existUser(user.getEmail()))
+			return false;
+		try {
+			String query = "UPDATE utenticlienti "
+					+ "SET verifiedemail = ?"
+					+ "where email = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setBoolean(1, verified);
+			st.setString(2, user.getEmail());
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 }

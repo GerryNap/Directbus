@@ -58,7 +58,6 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
-			session.setAttribute("userEmail", user.getEmail());
 			sender.registrationBusinessEmail(user);
 		} else {
 			response = "existing user";
@@ -86,7 +85,6 @@ public class AuthenticationController {
 			response = "business";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
-			session.setAttribute("userEmail", user.getEmail());
 		}
 		else {
 			response = "user not found";

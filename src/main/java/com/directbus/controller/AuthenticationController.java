@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.AgencyUser;
 import com.directbus.model.User;
+import com.directbus.model.UserClient;
 import com.directbus.persistence.DatabaseHandler;
 import com.directbus.service.EmailSenderService;
 
@@ -44,6 +45,26 @@ public class AuthenticationController {
 	@GetMapping("/chooseRegistrationType")
 	public String chooseRegistrationType() {
 		return "chooseRegistrationType";
+	}
+	
+	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
+	@ResponseBody
+	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
+		
+		String response = "error";
+		HttpStatus status = HttpStatus.CONFLICT;
+		
+		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
+			status = HttpStatus.ACCEPTED;
+			response = "success";
+			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
+			session.setAttribute("userType", "Client");
+			session.setAttribute("tokenEmail", sender.confirmEmail(user));
+		} else {
+			response = "existing user";
+		}
+			
+		return new ResponseEntity<String>(response, status);
 	}
 	
 	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})

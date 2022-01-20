@@ -43,11 +43,11 @@ $(document).ready(
 				contentType : "application/json",
 				url : "doRegistration",
                 data : JSON.stringify(userData),
-                success: function(data, status, xhr){
+                success: function(data){
 							if(data == "success")
-								window.location.href = "/";
+								window.location.href = "/notVerified";
 						 },
-				error: function(data, status, xhr){
+				error: function(){
 							window.alert("user alredy exist")
 						 }
 			});

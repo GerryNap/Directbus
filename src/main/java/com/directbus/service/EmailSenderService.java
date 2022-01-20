@@ -61,8 +61,13 @@ public class EmailSenderService {
 		sendSimpleEmail(user.getEmail(), body, "DirectBus Registration");
 	}
 	
-	public void confirmEmail(String email) {
-		
+	public String confirmEmail(UserClient user) {
+		String token = TokenGenerator.getInstance().getToken();
+		String link = "localhost:8443/verifyEmail?token=" + token;
+		String body = "Ciao " + user.getFirstName() + " " + user.getLastName() + ",\n" +
+					  "Verifica la tua email: " + link;
+		sendSimpleEmail(user.getEmail(), body, "Verifica la tua email");
+		return token;
 	}
 	
 	public void forgotPassword(String email) {

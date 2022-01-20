@@ -192,14 +192,14 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	
 	@Override
 	public AgencyUser getUserData(String email) {
-		String query = "SELECT nome, indirizzo, p_iva FROM utentiaziende WHERE email=?;";
+		String query = "SELECT nome, indirizzo, p_iva, verifiedemail FROM utentiaziende WHERE email=?;";
 		AgencyUser user = null;
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
 			p.setString(1, email);
 			ResultSet rs = p.executeQuery();
 			if(rs.next()) {
-				user = new AgencyUser(email, rs.getString("nome"), rs.getString("p_iva"), rs.getString("indirizzo"));
+				user = new AgencyUser(email, rs.getString("nome"), rs.getString("p_iva"), rs.getString("indirizzo"), rs.getBoolean("verifiedemail"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

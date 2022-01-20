@@ -14,6 +14,7 @@ public interface ClientUserDao {
 	public boolean delete(UserClient user);
 	public boolean checkUser(User user);
 	public User getUserData(String email);
+	public boolean setVerifiedEmail(User user, boolean verified);
 	
 	public boolean existUser(String user, boolean p);
 }

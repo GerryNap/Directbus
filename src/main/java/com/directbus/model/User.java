@@ -17,8 +17,9 @@ public class User {
 		this.paypalMail = null;
 	}
 	
-	public User(String email) {
+	public User(String email, boolean verified) {
 		this.email = email;
+		this.verified = verified;
 		this.password = null;
 		this.paypalMail = null;
 	}

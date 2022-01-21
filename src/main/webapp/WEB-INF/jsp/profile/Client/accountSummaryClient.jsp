@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" id="accountSummary">
@@ -70,7 +69,7 @@
 					<button id="sendButton" type="button" style="font-size: 13px;"
 						class="btn">Modifica</button>
 				</div>
-				<div class="list-group-item row"style="background-color: transparent; margin-top:2%;">
+				<div class="list-group-item row" style="background-color: transparent; margin-top:2%;">
 					<input type="text" id="oldPassword"/>
 					<input type="text" id="newPassword"/>
 				</div>

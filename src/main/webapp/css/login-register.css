@@ -98,3 +98,13 @@ i{
 	border: 1px solid #FFCC00;
 	
 }
+#oldPassword{
+	margin-top:2%;
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+	margin-left:1%;
+	border-radius: 12px;
+  	padding: 5px;
+}

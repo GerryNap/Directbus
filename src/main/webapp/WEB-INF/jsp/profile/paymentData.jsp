@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=buttons&vault=true&intent=subscription"></script>
+<script src="/js/payPalAPI.js"></script>
 
+<!DOCTYPE html>
 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" style="width:5; margin-top:7%;" id="paymentData">							   	
 	<div class="list-group list-group-flush mt-5 col">
 		<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
@@ -21,7 +22,7 @@
 							    <label id="buttonProfile">Nessun account</label>
 						    </div>
 							<div class="list-group-item col" style="background-color:transparent;">
-						    	<button id="sendButton" type="button" style="font-size:13px;" class="btn">Aggiungi il tuo account PayPal</button>
+						    	<button id="sendButton" type="button" style="font-size:13px;" class="btn" onclick="subscription()">Aggiungi il tuo account PayPal</button>
 						    </div>
 				       	</c:when>
 				       	<c:otherwise>

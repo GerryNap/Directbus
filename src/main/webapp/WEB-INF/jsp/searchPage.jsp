@@ -9,7 +9,7 @@
     
     <script src="/js/search.js"></script>
 	
-    <title>DirectBus</title>
+    <title>MyProfile - DirectBus</title>
   </head>
   <body id="body">
     <%@include file="includes/header.jsp" %>
@@ -18,7 +18,7 @@
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
 		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;" id="stazionePartenza">
-		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
+		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
 		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
 		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>
@@ -44,9 +44,10 @@
 				  <div class="row">
 				    <div class="col">				    
 				      <div class="card-body">
-				        <div class="mt-9 col-sm-9 col-md-9 col-lg-10 col-xl-9 mx-auto row" style="margin-top:10%;">
+				        <div class="mt-9 col-sm-9 col-md-9 col-lg-10 col-xl-9 mx-auto row" style="margin-top:6%;">
 				        <div class="col">
 				        <h5 style="color:#FFCC00;">PARTENZA</h5>
+				        <p style="color:#FFCC00;">Rosarno</p>
 				        <p style="color:#FFCC00;">05:00</p>
 				        </div>
 				        <div class="col">
@@ -54,6 +55,7 @@
 				        </div>
 				        <div class="col">
 				        <h5 style="color:#FFCC00;">ARRIVO</h5>
+				        <p style="color:#FFCC00;">Roma </p>	
 				        <p style="color:#FFCC00;">13:00</p>				        
 				        </div>
 				        </div>
@@ -63,14 +65,15 @@
 				      <div class="card-body">
 				      	<button type="button" class="btn row" id="buttonSearch" style=" height:190px; width:400px;">
 				      	<h6 style="margin-top:">Acquista</h6>
-				      	<h2 class="row" style="bacground-color:transparent; margin-left:25%;">20,00 EUR</h2>
+				      	<h2 class="row" style="background-color:transparent; margin-left:25%;">20,00 EUR</h2>
 				      	<p class="card-text"><small class="text-muted">Tariffa singola</small></p>				      					      	
 				      	</button>				      	 
 				      </div>
 				    </div>
 				  </div>
-				</div>-->
-			</div>	  			
+				</div>
+			</div>   -->
+		</div>			
 	</form>	
   </body>
 </html>

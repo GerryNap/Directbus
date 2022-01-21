@@ -14,7 +14,7 @@ $(document).ready(
 				nBiglietti: $("#Biglietti").val(),
 				agency: document.getElementById("session").getAttribute("value"),
 				time: $("#time").val(),
-				startTime: $("#start").val()
+				price: $("#price").val()
 			}
 			
 			$.ajax({

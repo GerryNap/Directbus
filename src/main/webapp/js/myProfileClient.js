@@ -1,5 +1,7 @@
 $(document).ready(
     function() {
+		$("#oldPassword").hide()
+		$("#newPassword").hide()
 	 	$("#reservation").hide();
 		$("#paymentData").hide();
 		$("#travelHistory").hide();   
@@ -11,6 +13,8 @@ function loadSummary() {
  	$("#reservation").hide();
 	$("#paymentData").hide();
 	$("#travelHistory").hide();
+	$("#oldPassword").hide()
+	$("#newPassword").hide()
 }
 
 function loadReserveation(){
@@ -18,6 +22,8 @@ function loadReserveation(){
  	$("#reservation").show();
 	$("#paymentData").hide();
 	$("#travelHistory").hide();
+	$("#oldPassword").hide()
+	$("#newPassword").hide()
 }
 
 function loadPaymentData(){
@@ -25,6 +31,8 @@ function loadPaymentData(){
  	$("#reservation").hide();
 	$("#paymentData").show();
 	$("#travelHistory").hide();
+	$("#oldPassword").hide()
+	$("#newPassword").hide()
 }
 
 function loadTravelHistory(){
@@ -32,5 +40,24 @@ function loadTravelHistory(){
  	$("#reservation").hide();
 	$("#paymentData").hide();
 	$("#travelHistory").show();
+	$("#oldPassword").hide()
+	$("#newPassword").hide()
 }
 
+function modifyPassword(){
+		$("#accountSummary").show();
+		$("#oldPassword").show()
+		$("#newPassword").show()
+	 	$("#reservation").hide();
+		$("#paymentData").hide();
+		$("#travelHistory").hide();
+		
+}
+function modifyEmail(){
+		$("#accountSummary").show();
+		$("#oldPassword").hide()
+		$("#newPassword").show()
+	 	$("#reservation").hide();
+		$("#paymentData").hide();
+		$("#travelHistory").hide();
+}

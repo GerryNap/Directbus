@@ -52,7 +52,7 @@
 				<div class="list-group-item col"
 					style="background-color: transparent;">
 					<button id="sendButton" type="button" style="font-size: 13px;"
-						class="btn">Modifica</button>
+						class="btn" onclick="modifyEmail()">Modifica</button>
 				</div>
 			</div>
 			<div class="row">
@@ -67,11 +67,11 @@
 				<div class="list-group-item col"
 					style="background-color: transparent;">
 					<button id="sendButton" type="button" style="font-size: 13px;"
-						class="btn">Modifica</button>
+						class="btn" onclick="modifyPassword()">Modifica</button>
 				</div>
-				<div class="list-group-item row" style="background-color: transparent; margin-top:2%;">
-					<input type="text" id="oldPassword"/>
-					<input type="text" id="newPassword"/>
+				<div class="list-group-item row" style="background-color: transparent; margin-top:2%;" >
+					<input class="card col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" type="text" id="oldPassword" placeholder="Old password"/>
+					<input class="card mt-2 col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" type="text" id="newPassword" placeholder="New password"/>
 				</div>
 			</div>
 		</div>

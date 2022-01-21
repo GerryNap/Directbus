@@ -99,12 +99,14 @@ i{
 	
 }
 #oldPassword{
-	margin-top:2%;
-	white-space: nowrap;
-	background-color: #FFCC00;
-	color:black;
-	font-size: 115%;
-	margin-left:1%;
-	border-radius: 12px;
-  	padding: 5px;
+	background-color:#171717; 
+	border:1px solid #FFCC00;
+	font-size:100%;
+  	padding:5px;
+}
+#newPassword{
+	background-color:#171717; 
+	border:1px solid #FFCC00;
+	font-size: 100%;
+  	padding:5px;
 }

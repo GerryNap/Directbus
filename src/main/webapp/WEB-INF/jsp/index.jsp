@@ -13,7 +13,7 @@
   </head>
   <body id="body">
     <%@include file="includes/header.jsp" %>
-    <form method="get" action="searchPage" class="mt-5 position-relative" id="search-form">
+    <form class="mt-5 position-relative" id="search-form">
     	<div id="firstContainer">
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
@@ -21,6 +21,7 @@
 		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
 		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
 		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
+		   			<input name="passeggeri"type="number" class="form-control" placeholder="Passeggeri" style="background-color:#171717; border:1px solid #FFCC00;" id="passeggeri">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>
 		 		</div>
 			</nav>	
@@ -38,8 +39,9 @@
 					</div>
 				</div>
 			</div>
-
-<!--			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
+	</form>
+<!-- 		<form method="get" action="/buyTicket" id="buttonSubmit">
+			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
 				<div class="card mb-3 " id="cardStyle">
 				  <div class="row">
 				    <div class="col">				    
@@ -47,7 +49,8 @@
 				        <div class="mt-9 col-sm-9 col-md-9 col-lg-10 col-xl-9 mx-auto row" style="margin-top:10%;">
 				        <div class="col">
 				        <h5 style="color:#FFCC00;">PARTENZA</h5>
-				        <p style="color:#FFCC00;">05:00</p>
+				        <input type="hidden" value="5 00" name="orario" style="color:#FFCC00;">
+				        <p>5:00 </p>
 				        </div>
 				        <div class="col">
 				        <h5 style="color:#FFCC00;">ORARIO</h5>
@@ -60,8 +63,8 @@
 				      </div>
 				    </div>
 				    <div class="col-sm-10 col-md-10 col-lg-6 col-xl-5 mx-auto">				    	
-				      <div class="card-body">
-				      	<button type="button" class="btn row" id="buttonSearch" style=" height:190px; width:400px;">
+				      <div class="card-body" > 
+				      	<button type="submit" class="btn row" id="buttonSearch" style=" height:190px; width:400px;">
 				      	<h6 style="margin-top:">Acquista</h6>
 				      	<h2 class="row" style="bacground-color:transparent; margin-left:25%;">20,00 EUR</h2>
 				      	<p class="card-text"><small class="text-muted">Tariffa singola</small></p>				      					      	
@@ -69,8 +72,8 @@
 				      </div>
 				    </div>
 				  </div>
-				</div>-->
+				</div>
 			</div>	  			
-	</form>	
+		</form>  -->
   </body>
 </html>

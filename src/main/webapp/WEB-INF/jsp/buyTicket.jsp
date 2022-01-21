@@ -30,25 +30,7 @@
 		  				<label id="check" class="form-check-label" for="flexSwitchCheckDefault">L'acquirente corrisponde al passeggero 1</label>
 					</div>
   				</div>
-		  	</div>
-	  		<br>
-	  		<!-- INSERIRE COLONNA A DESTRA (PRIMA RIGA) -->
-	  		<div class="col">
-	  			<div class="col-dx">
-	  				<h1>Il tuo viaggio</h1>
-	  				<span> </span>
-	  				Prendere le cose dinamiche
-	  			</div>
-	  			
-	  		</div>
-	  		
-	  		
-	  		<!-- FINE COLONNA DESTRA -->
-	  	</div> <br>
-	  	<div class="row"> <!-- INIZIO SECONDA RIGA -->
-	  		<div class="col">
-	  			<div class="col-sx">
-	  				<h5>Passeggero</h5>
+  				<h5>Passeggero</h5>
 		  			<div class="row">
 			  			<div class="col-md">
 			  				<div class="form-floating mb-3">
@@ -77,16 +59,58 @@
 					  		</div>
 			  			</div>
 			  		</div>
-	  			</div>
-		  		 
-	  		</div>
-	  		<div class="col"> <!-- INSERIRE COLONNA A DESTRA (SECONDA RIGA) -->
+			  		<h5>Passeggero 2</h5>
+			  		<div class="row">
+			  			<div class="col-md">
+			  				<div class="form-floating mb-3">
+				  				<input type="text" class="form-control" id="nome" placeholder="Nome" required>
+				  				<label for="nome">Nome</label>
+					  		</div>
+			  			</div>
+			  			<div class="col-md">
+			  				<div class="form-floating mb-3">
+				  				<input type="text" class="form-control" id="cognome" placeholder="Cognome" required>
+				  				<label for="cognome">Cognome</label>
+				  			</div>
+			  			</div>
+			  		</div>
+			  		<div class="row">
+			  			<div class="col-md">
+			  				<div class="form-floating mb-3">
+					  			<input type="text" class="form-control" id="numeroTelefono" placeholder="Telefono" required>
+					  			<label for="numeroTelefono">Telefono</label>
+					  		</div>
+			  			</div>
+			  			<div class="col-md">
+			  				<div class="form-floating mb-3">
+					  			<input type="text" class="form-control" id="email" placeholder="Email" required>
+					  			<label for="email">Email</label>
+					  		</div>
+			  			</div>
+			  		</div>
+  				
+  				
+  				
+		  	</div>
+	  		<br>
+	  		<!-- INSERIRE COLONNA A DESTRA (PRIMA RIGA) -->
+	  		<div class="col">
+	  			<div class="col-dx">
+	  				<h1 style="color: white;">Il tuo viaggio</h1>
+	  				<span> </span>
+	  				<div class="col"> <!-- INSERIRE COLONNA A DESTRA (SECONDA RIGA) -->
 	  			<div class="col-dx">
 	  				<h1>METTERE I COSTI DEL VIAGGIO</h1>
 	  			</div>
 	  		</div>
-	  		<!-- FINE SECONDA COLONNA -->
+	  			</div>
+	  			
+	  		</div>
+	  		
+	  		
+	  		<!-- FINE COLONNA DESTRA -->
 	  	</div> <br>
+
 	  	
 	  	
 		  	

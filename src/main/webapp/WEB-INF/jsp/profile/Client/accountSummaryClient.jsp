@@ -70,6 +70,10 @@
 					<button id="sendButton" type="button" style="font-size: 13px;"
 						class="btn">Modifica</button>
 				</div>
+				<div class="list-group-item row"style="background-color: transparent; margin-top:2%;">
+					<input type="text" id="oldPassword"/>
+					<input type="text" id="newPassword"/>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -10,7 +10,7 @@ $(document).ready(
 				data: $("#dataAndata").val(),
 				destinationS: $("#stazioneArrivo").val(),
 				startS: $("#stazionePartenza").val(),
-				nBiglietti: null,
+				nBiglietti: $("#passeggeri").val(),
 				agency: null,
 				time: null,
 				price: null
@@ -33,12 +33,8 @@ $(document).ready(
 )
 
 function addElements(routes) {
-	
-	for (let i = 0; i < routes.length; i++) {
+	for (let i = 0; i < routes.length; i++)
 		document.getElementById("firstContainer").appendChild(createFirstElement(routes[i]));
-	}
-	
-	
 }
 
 function getTime(data, tempoImpiegato) {
@@ -52,6 +48,12 @@ function getTime(data, tempoImpiegato) {
 }
 
 function createFirstElement(element) {
+	var form = document.createElement("form");
+	var methodForm = document.createAttribute("method"); methodForm.value = "get";
+	var formAction = document.createAttribute("action"); formAction.value = "/buyTicket";
+	form.setAttributeNode(methodForm);
+	form.setAttributeNode(formAction);
+	
 	var rowPrincipale = document.createElement("div");
 	var classRowPrincipale = document.createAttribute("class"); classRowPrincipale.value = "row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto";
 	rowPrincipale.setAttributeNode(classRowPrincipale);
@@ -90,17 +92,42 @@ function createFirstElement(element) {
 	stazionePartenza.innerHTML = element.startS;
 	stazionePartenza.style.color = "#FFCC00";
 	//P
-	var start = new Date(element.data);
+	var orarioPartenza = new Date(element.data);
 	var p = document.createElement("p");
-	if (start.getMinutes() == 0) {
-		p.innerHTML = start.getHours() + ":" + start.getMinutes() + "0";
+	if (orarioPartenza.getMinutes() == 0) {
+		p.innerHTML = orarioPartenza.getHours() + ":" + orarioPartenza.getMinutes() + "0";
 	} else
-		p.innerHTML = start.getHours() + ":" + start.getMinutes();
+		p.innerHTML = orarioPartenza.getHours() + ":" + orarioPartenza.getMinutes();
 	p.style.color = "#FFCC00";
+	var hiddenPartenza = document.createElement("input");
+	var orario = orarioPartenza.getHours() + "-" + orarioPartenza.getMinutes();
+	hiddenPartenza.setAttribute("type", "hidden");
+	hiddenPartenza.setAttribute("name", "orarioPartenza");
+	hiddenPartenza.setAttribute("value", orario);
+	
+	var hiddenSPartenza = document.createElement("input");
+	hiddenSPartenza.setAttribute("type", "hidden");
+	hiddenSPartenza.setAttribute("name", "stazionePartenza");
+	hiddenSPartenza.setAttribute("value", element.startS);
+	
+	var hiddenSArrivo = document.createElement("input");
+	hiddenSArrivo.setAttribute("type", "hidden");
+	hiddenSArrivo.setAttribute("name", "stazioneArrivo");
+	hiddenSArrivo.setAttribute("value", element.destinationS);
+	
+	var nPasseggeri = $("#passeggeri").val();
+	var hiddenPasseggeri = document.createElement("input");
+	hiddenPasseggeri.setAttribute("type", "hidden");
+	hiddenPasseggeri.setAttribute("name", "passeggeri");
+	hiddenPasseggeri.setAttribute("value", nPasseggeri);
 	//AGGIUNTA
 	colPortante.appendChild(h5);
 	colPortante.appendChild(stazionePartenza);
 	colPortante.appendChild(p);
+	colPortante.appendChild(hiddenPartenza);
+	colPortante.appendChild(hiddenSPartenza);
+	colPortante.appendChild(hiddenSArrivo);
+	colPortante.appendChild(hiddenPasseggeri);
 	
 	var colPortante2 = document.createElement("div");
 	var classColPortante2 = document.createAttribute("class"); classColPortante2.value = "col";
@@ -126,9 +153,15 @@ function createFirstElement(element) {
 	} else
 		p3.innerHTML = dataArrivo.getHours() + ":" + dataArrivo.getMinutes();
 	p3.style.color = "#FFCC00";
+	var hiddenArrivo = document.createElement("input");
+	var orarioArrivo = dataArrivo.getHours() + "-" + dataArrivo.getMinutes();
+	hiddenArrivo.setAttribute("type", "hidden");
+	hiddenArrivo.setAttribute("name", "orarioArrivo");
+	hiddenArrivo.setAttribute("value", orarioArrivo);
 	colPortante3.appendChild(h5_2);
 	colPortante3.appendChild(stazioneArrivo);
 	colPortante3.appendChild(p3);
+	colPortante3.appendChild(hiddenArrivo);
 	
 	row.appendChild(colPortante);
 	row.appendChild(colPortante2);
@@ -142,8 +175,9 @@ function createFirstElement(element) {
 	rowSecondaria.appendChild(secondElement);
 	cardPrincipale.appendChild(rowSecondaria);
 	rowPrincipale.appendChild(cardPrincipale);
+	form.appendChild(rowPrincipale);
 	
-	return rowPrincipale;
+	return form;
 }
 
 function createSecondElement(element) {
@@ -155,7 +189,7 @@ function createSecondElement(element) {
 	var classCard = document.createAttribute("class"); classCard.value = "card-body";
 	card.setAttributeNode(classCard);
 	var button = document.createElement("button");
-	var buttonType = document.createAttribute("type"); buttonType.value = "button";
+	var buttonType = document.createAttribute("type"); buttonType.value = "submit";
 	button.setAttributeNode(buttonType);
 	var classButton = document.createAttribute("class"); classButton.value = "btn row";
 	var idButton = document.createAttribute("id"); idButton.value = "buttonSearch";

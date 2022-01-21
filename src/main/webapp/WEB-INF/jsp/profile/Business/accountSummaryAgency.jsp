@@ -67,7 +67,7 @@
 				<div class="list-group-item col"
 					style="background-color: transparent;">
 					<button id="sendButton" type="submit" style="font-size: 13px;"
-						class="btn">Modifica</button>
+						class="btn" onclick="modifyEmail()">Modifica</button>
 				</div>
 			</div>
 			<div class="row">
@@ -82,7 +82,11 @@
 				<div class="list-group-item col"
 					style="background-color: transparent;">
 					<button id="sendButton" type="submit" style="font-size: 13px;"
-						class="btn">Modifica</button>
+						class="btn" onclick="modifyPassword()">Modifica</button>
+				</div>
+				<div class="list-group-item row" style="background-color: transparent; margin-top:2%;">
+					<input class="card" type="text" id="oldPassword" placeholder="Old password"/>
+					<input class="card mt-2" type="text" id="newPassword" placeholder="New password"/>
 				</div>
 			</div>
 		</div>

@@ -51,10 +51,7 @@
 					<br>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
 						<button id="sendButton" type="submit" class="btn">Sign In</button>						
-					</div>
-					
-						<button onclick="" id="sendButton" type="submit" class="btn" style="margin-top:6%; margin-left:9%;">Registrati con goole</button>
-					
+					</div>													
 					<br><br>
 					<div id="register">
 						<font color="white">Non hai un account?</font>

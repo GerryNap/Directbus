@@ -62,7 +62,7 @@
 				</div>
 				<div id="password" class="list-group-item col"
 					style="background-color: transparent;">
-					<label id="buttonProfile">Password</label>
+					<label id="buttonProfile">---</label>
 				</div>
 				<div class="list-group-item col"
 					style="background-color: transparent;">

@@ -138,42 +138,38 @@
 
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label>20:00</label>
+						<label style="margin-left:-30%;"><%=request.getParameter("orarioPartenza")%></label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label><%=request.getParameter("stazionePartenza")%></label>
+						<label style="margin-left:20%;"><%=request.getParameter("stazionePartenza")%></label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label>02:00</label>
+						<label style="margin-left:-30%;"><%=request.getParameter("orarioArrivo")%></label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label><%=request.getParameter("stazioneArrivo")%></label>
+						<label style="margin-left:20%;"><%=request.getParameter("stazioneArrivo")%></label>
 					</div>
 				</div>
 				<div class="row mt-3" style="margin-right: 15%">
 					<div class="badge">
-						<i
-							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
-							style="color: yellow;"><label
-							
-							>07:30<i
-								class="bi bi-people-fill"
-								style="color: yellow; margin-left: 10%"><label
-									
-									>2 <label>Passeggeri</label></label></i></label></i>
-
-
-
-
+						<i class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1" style="color: yellow;">
+						<label style="margin-left:2%;">07:30
+						<i class="bi bi-people-fill" style="color: yellow; margin-left: 10%">
+						<label style="margin-left:2%;"><%=request.getParameter("passeggeri")%>
+						<label>Passeggeri</label>
+						</label>
+						</i>
+						</label>
+						</i>
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -184,14 +180,13 @@
 							<hr style="color: #FFCC00;">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label>Cosenza</label>
+									<label><%=request.getParameter("stazionePartenza")%></label>
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-1 col-xxl-1">
-									<i class="bi bi-arrow-right"
-										style="color: yellow; margin-left: 350%"></i>
+									<i class="bi bi-arrow-right" style="color: yellow; "></i>
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label>Roma</label>
+									<label><%=request.getParameter("stazioneArrivo")%></label>
 								</div>
 							</div>
 							<div id="containerPasseggeri">

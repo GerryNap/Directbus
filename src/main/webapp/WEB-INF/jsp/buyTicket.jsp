@@ -22,113 +22,56 @@
 	<form id="register-form" class="col-6 col-6 mx-auto position-relative">
 		<div class="row">
 			<!-- INIZIO PRIMA RIGA -->
-			<div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" id="colonnaSinistra">
+			<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" id="colonnaSinistra">
 
 				<h5>Contatti acquirente</h5>
 				<div class="form-floating mb-3">
-					<input type="text" class="form-control" id="telefono"
+					<input type="hidden" id="sessionEmail" value="${user.email}">
+					<input type="hidden" id="sessionName" value="${user.firstName}">
+					<input type="hidden" id="sessionLast" value="${user.lastName}">
+					<input type="text" class="form-control" id="Telefono"
 						placeholder="Telefono" required> <label for="telefono">Telefono</label>
 				</div>
 				<div class="form-check form-switch">
 					<input id="acquirente" class="form-check-input" type="checkbox"
-						onclick="checkMe()"> <label id="check"
+						onclick="checkMe()" checked> <label id="check"
 						class="form-check-label" for="flexSwitchCheckDefault">L'acquirente
 						corrisponde al passeggero 1</label>
-				</div>
+				</div> <br>
 				<!-- INSERIRE COLONNA SINISTRA -->
-				  <h5>Passeggero</h5>
-				<div class="row">
+				<h5 id="idPasseggero">Passeggero 1</h5>
+				<div class="row" id="nascosto">
 					<div class="col-md">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="nome"
-								placeholder="Nome" required> <label for="nome">Nome</label>
+							<input type="text" class="form-control" id="Nome"
+								placeholder="Nome" required> <label for="Nome">Nome</label>
 						</div>
 					</div>
 					<div class="col-md">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="cognome"
-								placeholder="Cognome" required> <label for="cognome">Cognome</label>
+							<input type="text" class="form-control" id="Cognome"
+								placeholder="Cognome" required> <label for="Cognome">Cognome</label>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" id="nascosto2">
 					<div class="col-md">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="numeroTelefono"
+							<input type="text" class="form-control" id="Telefono"
 								placeholder="Telefono" required> <label
-								for="numeroTelefono">Telefono</label>
+								for="Telefono">Telefono</label>
 						</div>
 					</div>
 					<div class="col-md">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="email"
-								placeholder="Email" required> <label for="email">Email</label>
+							<input type="text" class="form-control" id="Email"
+								placeholder="Email" required> <label for="Email">Email</label>
 						</div>
 					</div>
 				</div>
-				<h5>Passeggero 2</h5>
-				<div class="row">
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="nome"
-								placeholder="Nome" required> <label for="nome">Nome</label>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="cognome"
-								placeholder="Cognome" required> <label for="cognome">Cognome</label>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="numeroTelefono"
-								placeholder="Telefono" required> <label
-								for="numeroTelefono">Telefono</label>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="email"
-								placeholder="Email" required> <label for="email">Email</label>
-						</div>
-					</div>
-				</div>
-				<h5>Passeggero 3</h5>
-				<div class="row">
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="nome"
-								placeholder="Nome" required> <label for="nome">Nome</label>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="cognome"
-								placeholder="Cognome" required> <label for="cognome">Cognome</label>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="numeroTelefono"
-								placeholder="Telefono" required> <label
-								for="numeroTelefono">Telefono</label>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" id="email"
-								placeholder="Email" required> <label for="email">Email</label>
-						</div>
-					</div>
-				</div>
-			</div>
+				<!-- LO FA JAVASCRIPT -->	
+			</div>  
 			<br>
-
 
 			<!-- INSERIRE COLONNA A DESTRA -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -168,10 +111,6 @@
 							>07:30<i
 								class="bi bi-people-fill"
 								style="color: yellow; margin-left: 10%"><label>2 <label>Passeggeri</label></label></i></label></i>
-
-
-
-
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -182,51 +121,15 @@
 							<hr style="color: #FFCC00;">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%></label>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-1 col-xxl-1">
-									<i class="bi bi-arrow-right"
-										style="color: yellow; margin-left: 350%"></i>
-								</div>
-								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
+									<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%>
+										<i class="bi bi-arrow-right" style="color: yellow;"></i>
+										<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
+									</label>
 								</div>
 							</div>
-							<div id="containerPasseggeri">
-								<!--  <div class="row">
-									<div class="col">
-										<label>Passeggero 1:</label>
-									</div>
-									<div class="col">
-										<label></label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">
-										<label>Passeggero 2:</label>
-									</div>
-									<div class="col">
-										<label></label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">
-										<label>Passeggero 3:</label>
-									</div>
-									<div class="col">
-										<label></label>
-									</div>
-								</div> 
-								<hr style="color: #FFCC00;">
-								<div class="row">
-									<div class="col">
-										<label>Totale:</label>
-									</div>
-									<div class="col">
-										<label id="prezzoTotale"></label>
-									</div>
-								</div> -->
-							</div>
+							 <div id="containerPasseggeri">
+								<!-- LO FA JAVASCRIPT -->
+							</div> 
 						</div>
 					</div>
 				</div>

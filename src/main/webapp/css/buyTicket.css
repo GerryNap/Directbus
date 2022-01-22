@@ -35,13 +35,13 @@ label {
 	color:#FFCC00;
 }
 
-#nome, #cognome, #numeroTelefono, #email, #telefono {
+#Nome, #Cognome, #numeroTelefono, #Email, #Telefono {
 	background-color:#171717;
 	border:1px solid #FFCC00;
 	color:white;
 	box-shadow: inset 0px 0px 0px 0px;
 }
 
-#nome:focus, #cognome:focus, #numeroTelefono:focus, #email:focus, #telefono:focus {
+#Nome:focus, #Cognome:focus, #numeroTelefono:focus, #Email:focus, #Telefono:focus {
 	border:2px solid #FFCC00;
 }

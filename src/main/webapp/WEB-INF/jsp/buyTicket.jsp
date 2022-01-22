@@ -1,3 +1,4 @@
+<%@page import="com.directbus.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -6,6 +7,21 @@
 
 <!doctype html>
 <html lang="it">
+
+<%
+	session=request.getSession(false);
+	User user = (User)session.getAttribute("user");
+    
+    if(user == null)
+        response.sendRedirect("/login");
+   
+    if(session.getAttribute("userType")!="Client")
+    	response.sendRedirect("/");
+    
+    if(user.isVerified())
+    	response.sendRedirect("/");	
+%>
+
 <head>
 <%@include file="includes/import.jsp"%>
 
@@ -22,7 +38,9 @@
 	<form id="register-form" class="col-6 col-6 mx-auto position-relative">
 		<div class="row">
 			<!-- INIZIO PRIMA RIGA -->
+
 			<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" id="colonnaSinistra">
+
 
 				<h5>Contatti acquirente</h5>
 				<div class="form-floating mb-3">
@@ -39,8 +57,10 @@
 						corrisponde al passeggero 1</label>
 				</div> <br>
 				<!-- INSERIRE COLONNA SINISTRA -->
+
 				<h5 id="idPasseggero">Passeggero 1</h5>
 				<div class="row" id="nascosto">
+
 					<div class="col-md">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control" id="Nome"
@@ -81,29 +101,30 @@
 
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label>20:00</label>
+						<label style="margin-left:-30%;"><%=request.getParameter("orarioPartenza")%></label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%></label>
+						<label style="margin-left:20%;"><%=request.getParameter("stazionePartenza")%></label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label>02:00</label>
+						<label style="margin-left:-30%;"><%=request.getParameter("orarioArrivo")%></label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
+						<label style="margin-left:20%;"><%=request.getParameter("stazioneArrivo")%></label>
 					</div>
 				</div>
 				<div class="row mt-3" style="margin-right: 15%">
 					<div class="badge">
+
 						<i
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
 							style="color: yellow;"><label
@@ -111,6 +132,7 @@
 							>07:30<i
 								class="bi bi-people-fill"
 								style="color: yellow; margin-left: 10%"><label>2 <label>Passeggeri</label></label></i></label></i>
+
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -121,11 +143,13 @@
 							<hr style="color: #FFCC00;">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
+
 									<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%>
 										<i class="bi bi-arrow-right" style="color: yellow;"></i>
 										<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
 									</label>
 								</div>
+
 							</div>
 							 <div id="containerPasseggeri">
 								<!-- LO FA JAVASCRIPT -->

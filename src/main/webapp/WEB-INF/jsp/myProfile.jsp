@@ -1,3 +1,4 @@
+<%@page import="com.directbus.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
@@ -5,8 +6,13 @@
 <html lang="it">
 <%
     session=request.getSession(false);
+	User user = (User)session.getAttribute("user");
+
     if(session.getAttribute("user")==null)
         response.sendRedirect("/");
+    
+    if(user.isVerified())
+    	response.sendRedirect("/");
 %>
   <head>
   	<%@include file="includes/import.jsp" %>
@@ -34,7 +40,6 @@
 			        		<%@include file="profile/Business/oldRoutes.jsp"%>
 			        	</c:when>
 		        	</c:choose>		
-		        	<%@include file="profile/paymentData.jsp"%>													  						  				 								
 				</div>
 			</div>	
 		</form>	

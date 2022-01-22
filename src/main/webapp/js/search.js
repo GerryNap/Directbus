@@ -33,7 +33,6 @@ $(document).ready(
 )
 
 function addElements(routes) {
-	//document.getElementById("routeContainer").innerHTML = '';
 	for (let i = 0; i < routes.length; i++)
 		document.getElementById("firstContainer").appendChild(createFirstElement(routes[i]));
 }

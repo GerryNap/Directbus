@@ -1,3 +1,57 @@
+$(document).ready(
+	function() {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		const passeggeri = urlParams.get('passeggeri');
+		const prezzoBiglietto = urlParams.get('prezzo');
+		var prezzoTotale = 0.0;
+		for (let i = 0; i < passeggeri; i++) {
+			prezzoTotale = +prezzoBiglietto + prezzoTotale;
+			//createRow("Nome", "Cognome", i);
+			//createRow("Telefono", "Email", i);
+		}
+		creaRiepilogo(passeggeri, prezzoBiglietto);
+		prezzo(prezzoTotale);
+	}
+)
+
+function creaRiepilogo(passeggeri, prezzoBiglietto) {
+	for (let i = 0; i < passeggeri; i++) {
+		//Passeggero
+		var row = document.createElement("div"); row.setAttribute("class", "row");
+		var col = document.createElement("div"); col.setAttribute("class", "col");
+		var index = i + 1;
+		var label = document.createElement("label"); label.innerHTML = "Passeggero " + index;
+		col.appendChild(label);
+		row.appendChild(col);
+		
+		//Prezzo
+		var col2 = document.createElement("div"); col2.setAttribute("class", "col");
+		var label2 = document.createElement("label"); label2.innerHTML = prezzoBiglietto + " EUR";
+		
+		col2.appendChild(label2);
+		row.appendChild(col2);
+		document.getElementById("containerPasseggeri").appendChild(row);
+	}
+}
+
+function prezzo(prezzoTotale) {
+	var hr = document.createElement("hr"); hr.style = "color: #FFCC00";
+	var row = document.createElement("div"); row.setAttribute("class", "row");
+	var col1 = document.createElement("div"); col1.setAttribute("class", "col");
+	var label1 = document.createElement("label"); label1.innerHTML = "Totale:";
+	var col2 = document.createElement("div"); col2.setAttribute("class", "col");
+	var label2 = document.createElement("label"); label2.innerHTML = prezzoTotale + " EUR";
+	
+	col1.appendChild(label1);
+	col2.appendChild(label2);
+	
+	row.appendChild(col1);
+	row.appendChild(col2);
+	document.getElementById("containerPasseggeri").appendChild(hr);
+	document.getElementById("containerPasseggeri").appendChild(row);
+	
+}
 
 function checkMe() {
 	var cb = document.getElementById("acquirente");
@@ -107,5 +161,43 @@ function createInput(id, placeholder) {
 	div.appendChild(input);
 	div.appendChild(label);
 	return div;
+}
+
+
+
+
+
+
+function createRow(campo1, campo2, index) {
+	//h5
+	index = index + 1;
+	var row = document.createElement("div"); row.setAttribute("class", "row");
+	var col1 = document.createElement("div"); col1.setAttribute("class", "col-md");
+	var form1 = document.createElement("div"); form1.setAttribute("class", "form-floating mb-3");
+	var input1 = document.createElement("input"); input1.setAttribute("class", "form-control"); input1.setAttribute("id", campo1); input1.setAttribute("placeholder", campo1);
+	if (campo1 == "Telefono") {
+		input1.setAttribute("type", "tel");
+	}
+	var label1 = document.createElement("label"); label1.setAttribute("for", campo1); label1.innerHTML = campo1;
+	var col2 = document.createElement("div"); col2.setAttribute("class", "col-md");
+	var form2 = document.createElement("div"); form2.setAttribute("class", "form-floating mb-3");
+	var input2 = document.createElement("input"); input2.setAttribute("class", "form-control"); input2.setAttribute("id", campo2); input2.setAttribute("placeholder", campo2);
+	if (campo2 == "Email") {
+		input2.setAttribute("type", "email");
+	}
+	var label2 = document.createElement("label"); label2.setAttribute("for", campo2); label2.innerHTML = campo2;
+
+	form1.appendChild(input1);
+	form1.appendChild(label1);
+	col1.appendChild(form1);
+	
+	form2.appendChild(input2);
+	form2.append(label2);
+	col2.appendChild(form2);
+	
+	row.appendChild(col1);
+	row.appendChild(col2);
+	
+	document.getElementById("colonnaSinistra").appendChild(row);
 }
 

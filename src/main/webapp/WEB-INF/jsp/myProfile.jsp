@@ -40,7 +40,6 @@
 			        		<%@include file="profile/Business/oldRoutes.jsp"%>
 			        	</c:when>
 		        	</c:choose>		
-		        	<%@include file="profile/paymentData.jsp"%>													  						  				 								
 				</div>
 			</div>	
 		</form>	

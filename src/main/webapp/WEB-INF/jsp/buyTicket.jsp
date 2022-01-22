@@ -22,7 +22,7 @@
 	<form id="register-form" class="col-6 col-6 mx-auto position-relative">
 		<div class="row">
 			<!-- INIZIO PRIMA RIGA -->
-			<div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+			<div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" id="colonnaSinistra">
 
 				<h5>Contatti acquirente</h5>
 				<div class="form-floating mb-3">
@@ -36,7 +36,7 @@
 						corrisponde al passeggero 1</label>
 				</div>
 				<!-- INSERIRE COLONNA SINISTRA -->
-				<h5>Passeggero</h5>
+				  <h5>Passeggero</h5>
 				<div class="row">
 					<div class="col-md">
 						<div class="form-floating mb-3">
@@ -144,7 +144,7 @@
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label><%=request.getParameter("stazionePartenza")%></label>
+						<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%></label>
 					</div>
 				</div>
 				<br>
@@ -156,7 +156,7 @@
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label><%=request.getParameter("stazioneArrivo")%></label>
+						<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
 					</div>
 				</div>
 				<div class="row mt-3" style="margin-right: 15%">
@@ -167,9 +167,7 @@
 							
 							>07:30<i
 								class="bi bi-people-fill"
-								style="color: yellow; margin-left: 10%"><label
-									
-									>2 <label>Passeggeri</label></label></i></label></i>
+								style="color: yellow; margin-left: 10%"><label>2 <label>Passeggeri</label></label></i></label></i>
 
 
 
@@ -184,23 +182,23 @@
 							<hr style="color: #FFCC00;">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label>Cosenza</label>
+									<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%></label>
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-1 col-xxl-1">
 									<i class="bi bi-arrow-right"
 										style="color: yellow; margin-left: 350%"></i>
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
-									<label>Roma</label>
+									<label style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
 								</div>
 							</div>
 							<div id="containerPasseggeri">
-								<div class="row">
+								<!--  <div class="row">
 									<div class="col">
 										<label>Passeggero 1:</label>
 									</div>
 									<div class="col">
-										<label>30,50 EUR</label>
+										<label></label>
 									</div>
 								</div>
 								<div class="row">
@@ -208,7 +206,7 @@
 										<label>Passeggero 2:</label>
 									</div>
 									<div class="col">
-										<label>30,50 EUR</label>
+										<label></label>
 									</div>
 								</div>
 								<div class="row">
@@ -216,18 +214,18 @@
 										<label>Passeggero 3:</label>
 									</div>
 									<div class="col">
-										<label>30,50 EUR</label>
+										<label></label>
 									</div>
-								</div>
+								</div> 
 								<hr style="color: #FFCC00;">
 								<div class="row">
 									<div class="col">
 										<label>Totale:</label>
 									</div>
 									<div class="col">
-										<label>111,00 EUR</label>
+										<label id="prezzoTotale"></label>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>

@@ -15,9 +15,5 @@ public class AccountController {
 	public String accountManagement() {
 		return "accountManagement";
 	}
-	
-	@GetMapping("/paymentData")
-	public String paymentData() {
-		return "paymentData";
-	}	
+		
 }

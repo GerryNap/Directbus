@@ -39,6 +39,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 	</form>
 <!-- 		<form method="get" action="/buyTicket" id="buttonSubmit">
 			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">

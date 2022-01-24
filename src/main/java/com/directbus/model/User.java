@@ -9,7 +9,7 @@ public class User {
 	private String password;
 	@Email
 	private String paypalMail;
-	private boolean verified;
+	private boolean verified = false;
 	
 	public User() {
 		this.email = null;

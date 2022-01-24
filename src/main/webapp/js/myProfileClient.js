@@ -36,7 +36,7 @@ function loadTravelHistory(){
 }
 
 function modifyPassword(){
-		$("#changePassword").show();
+	$("#changePassword").show();
 }
 
 function modifyEmail(){

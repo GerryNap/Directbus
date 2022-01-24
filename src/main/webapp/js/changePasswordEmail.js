@@ -1,13 +1,17 @@
 $(document).ready(
 	function(){
-		$("#changePasswordForm").on("submit", function(event){
+		$("#changePasswordForm").on("click", function(event){
 			event.preventDefault();
 			
+			console.log($("#newPassword").val());
+			console.log($("#oldPassword").val());
+			/*
 			if($("#newPassword").val() === $("#confirmPassword").val()){
 				ajaxChangePassword()
 			} else {
 				window.alert("Le password non corrispondono");
 			}
+			*/
 		});
 		
 		function getPassword(){

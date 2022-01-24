@@ -8,11 +8,8 @@
     session=request.getSession(false);
 	User user = (User)session.getAttribute("user");
 
-    if(session.getAttribute("user")==null)
+    if(session.getAttribute("user")==null || !user.isVerified())
         response.sendRedirect("/");
-    
-    if(user.isVerified())
-    	response.sendRedirect("/");
 %>
   <head>
   	<%@include file="includes/import.jsp" %>

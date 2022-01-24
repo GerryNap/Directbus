@@ -37,6 +37,7 @@ public class AccountController {
     public ResponseEntity<String> doChangePassword(HttpSession session, @RequestBody JSONObject content) {
     	String oldPassword = content.getAsString("oldPassword");
     	String newPassword = content.getAsString("newPassword");
+    	System.out.println(oldPassword + " " + newPassword);
     	if(oldPassword != null && newPassword != null
     			&& DatabaseHandler.getInstance().getClientUserDao().changePassword(session, oldPassword, newPassword)) {
     		return new ResponseEntity<String>("success", HttpStatus.OK);

@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.directbus.model.User;
@@ -211,8 +213,8 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			return false;
 		try {
 			String query = "UPDATE utenticlienti "
-					+ "SET verifiedemail = ?"
-					+ "where email = ?";
+					+ "SET verifiedemail = ? "
+					+ "WHERE email = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setBoolean(1, verified);
 			st.setString(2, user.getEmail());
@@ -223,5 +225,27 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public boolean changePassword(HttpSession session, String oldPassword, String newPassword) {
+		UserClient user = (UserClient) session.getAttribute("user");
+		user.setPassword(oldPassword);
+		if(user != null && checkUser(user)) {
+			try {
+				String query = "UPDATE utenticlienti "
+						+ "SET password = ? "
+						+ "WHERE email = ?";
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setString(1, user.getEmail());
+				st.setString(2, BCrypt.hashpw(newPassword, BCrypt.gensalt(12)));
+				st.executeUpdate();
+				return true;
+			} catch(SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
 	}
 }

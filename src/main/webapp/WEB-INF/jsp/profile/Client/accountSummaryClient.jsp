@@ -69,9 +69,8 @@
 					<button id="sendButton" type="button" style="font-size: 13px;"
 						class="btn" onclick="modifyPassword()">Modifica</button>
 				</div>
-				<div class="list-group-item row" style="background-color: transparent; margin-top:2%;" >
-					<input class="card col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" type="text" id="oldPassword" placeholder="Old password"/>
-					<input class="card mt-2 col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" type="text" id="newPassword" placeholder="New password"/>
+				<div id="changePassword">
+					<%@include file="../changePassword.jsp" %>
 				</div>
 			</div>
 		</div>

@@ -3,15 +3,15 @@
 
 
 <script src="/js/changePasswordEmail.js"></script>
-<form method="get" action="changePasswordForm" class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" id="change-password">
+<form class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" id="changePasswordForm">
 	<div class="list-group list-group-flush mt-5 col">		
 		<div>
-			<div class="row">
+			<div class="row">   
 				<div class="col-md-12">
 					<input type="password" id="oldPassword" name = "newPassword" placeholder="Old Password" required/>
 					<input type="password" id="newPassword" name = "oldPassword" placeholder="New Password" required/>
 					<input type="password" id="confirmPassword" placeholder="Confirm New Password" required/>
-					<button type="button">Cambia</button>
+					<button id="madonnabastarda" type="button">Cambia</button>
 				</div>
 			</div>
 		</div>

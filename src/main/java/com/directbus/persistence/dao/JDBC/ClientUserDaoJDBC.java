@@ -234,11 +234,11 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		if(user != null && checkUser(user)) {
 			try {
 				String query = "UPDATE utenticlienti "
-						+ "SET password = ? "
+						+ "SET psw = ? "
 						+ "WHERE email = ?";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setString(1, user.getEmail());
-				st.setString(2, BCrypt.hashpw(newPassword, BCrypt.gensalt(12)));
+				st.setString(1, BCrypt.hashpw(newPassword, BCrypt.gensalt(12)));
+				st.setString(2, user.getEmail());
 				st.executeUpdate();
 				return true;
 			} catch(SQLException e) {

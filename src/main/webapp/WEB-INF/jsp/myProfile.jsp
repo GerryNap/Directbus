@@ -11,6 +11,8 @@
     if(session.getAttribute("user")==null || !user.isVerified())
         response.sendRedirect("/");
 %>
+
+
   <head>
   	<%@include file="includes/import.jsp" %>
   	

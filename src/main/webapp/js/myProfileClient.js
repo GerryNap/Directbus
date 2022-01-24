@@ -4,7 +4,8 @@ $(document).ready(
 	 	$("#reservation").hide();
 		$("#paymentData").hide();
 		$("#travelHistory").hide();  
-})
+	}
+)
 
 function loadSummary() {
 

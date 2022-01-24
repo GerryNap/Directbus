@@ -22,22 +22,11 @@ public class AccountController {
 		return "myProfile";
 	}
 	
-	@GetMapping("/accountManagement")
-	public String accountManagement() {
-		return "accountManagement";
-	}
-	
-	@GetMapping("/paymentData")
-	public String paymentData() {
-		return "paymentData";
-	}	
-	
     @PostMapping(value = "/changePassword", consumes = { "application/json" })
     @ResponseBody
-    public ResponseEntity<String> doChangePassword(HttpSession session, @RequestBody JSONObject content) {
+    public ResponseEntity<String> changePassword(HttpSession session, @RequestBody JSONObject content) {
     	String oldPassword = content.getAsString("oldPassword");
     	String newPassword = content.getAsString("newPassword");
-    	System.out.println(oldPassword + " " + newPassword);
     	if(oldPassword != null && newPassword != null
     			&& DatabaseHandler.getInstance().getClientUserDao().changePassword(session, oldPassword, newPassword)) {
     		return new ResponseEntity<String>("success", HttpStatus.OK);

@@ -7,16 +7,15 @@ $(document).ready(
 		const urlParams = new URLSearchParams(queryString);
 		const passeggeri = urlParams.get('passeggeri');
 		const prezzoBiglietto = urlParams.get('prezzo');
-		var prezzoTotale = 0.0;
+		
 		for (let i = 1; i < passeggeri; i++) {
-			prezzoTotale = +prezzoBiglietto + prezzoTotale;
 			var h5 = document.createElement("h5"); h5.innerHTML = "Passeggero " +(i+1);
 			document.getElementById("colonnaSinistra").appendChild(h5);
 			createRow("Nome", "Cognome");
 			createRow("Telefono", "Email");
 		}
 		creaRiepilogo(passeggeri, prezzoBiglietto);
-		prezzo(prezzoTotale);
+		prezzo(prezzoBiglietto, passeggeri);
 	}
 )
 
@@ -40,7 +39,12 @@ function creaRiepilogo(passeggeri, prezzoBiglietto) {
 	}
 }
 
-function prezzo(prezzoTotale) {
+function prezzo(prezzoBiglietto, passeggeri) {
+	var prezzoTotale = 0.0;
+	for (let i = 0; i < passeggeri; i++) {
+		prezzoTotale += +prezzoBiglietto;
+	}
+	
 	var hr = document.createElement("hr"); hr.style = "color: #FFCC00";
 	var row = document.createElement("div"); row.setAttribute("class", "row");
 	var col1 = document.createElement("div"); col1.setAttribute("class", "col");

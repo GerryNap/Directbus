@@ -12,14 +12,20 @@
 	session=request.getSession(false);
 	User user = (User)session.getAttribute("user");
     
-    if(user == null)
-        response.sendRedirect("/login");
-   
-    if(session.getAttribute("userType")!="Client")
-    	response.sendRedirect("/");
+    if(user == null) {
+    	System.out.println("user nullo");
+    	response.sendRedirect("/login");
+    }
     
-    if(user.isVerified())
-    	response.sendRedirect("/");	
+    else if(!user.isVerified()) {
+    	System.out.println("user verificato");
+    	response.sendRedirect("/index");
+    }
+    
+    else if(!((String) session.getAttribute("userType")).equals("Client")) {
+    	System.out.println("user è diverso a client");
+    	response.sendRedirect("/index");
+    }	
 %>
 
 <head>
@@ -57,7 +63,9 @@
 						corrisponde al passeggero 1</label>
 				</div> <br>
 				<!-- INSERIRE COLONNA SINISTRA -->
-
+<!--			<c:forEach var = "i" begin = "0" end = "5">
+					<label>Ciao gerardo</label>
+				</c:forEach>   -->
 				<h5 id="idPasseggero">Passeggero 1</h5>
 				<div class="row" id="nascosto">
 
@@ -101,25 +109,25 @@
 
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left:-30%;"><%=request.getParameter("orarioPartenza")%></label>
+						<label style="margin-left:-30%;">${param.orarioPartenza}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left:20%;"><%=request.getParameter("stazionePartenza")%></label>
+						<label style="margin-left:20%;">${param.stazionePartenza}</label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left:-30%;"><%=request.getParameter("orarioArrivo")%></label>
+						<label style="margin-left:-30%;">${param.orarioArrivo}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left:20%;"><%=request.getParameter("stazioneArrivo")%></label>
+						<label style="margin-left:20%;">${param.stazioneArrivo}</label>
 					</div>
 				</div>
 				<div class="row mt-3" style="margin-right: 15%">
@@ -131,7 +139,7 @@
 							
 							>07:30<i
 								class="bi bi-people-fill"
-								style="color: yellow; margin-left: 10%"><label>2 <label>Passeggeri</label></label></i></label></i>
+								style="color: yellow; margin-left: 10%"> <label> ${param.passeggeri} <label> Passeggeri</label></label></i></label></i>
 
 					</div>
 				</div>

@@ -1,24 +1,22 @@
-<%@page import="com.directbus.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!doctype html>
 <html lang="it">
-<%
-	session=request.getSession(false);
-	User user = (User)session.getAttribute("user");
-	
-	if(user == null)
-	    response.sendRedirect("/login");
-	
-	if(session.getAttribute("userType")!="Agency")
-		response.sendRedirect("/");
-	
-	if(user.isVerified())
-		response.sendRedirect("/");
-%>
   <head>
+  	<c:choose>
+  		<c:when test="${user == null}">
+  			<c:redirect url="/login" />
+  		</c:when>
+  		<c:when test="${userType != 'Agency'}">
+  			<c:redirect url="/" />
+  		</c:when>
+  		<c:when test="${user.verified != true}">
+  			<c:redirect url="/myProfile" />
+  		</c:when>
+  	</c:choose>
+  	
   	<%@include file="includes/import.jsp" %>
   	
     <link href="css/login-register.css" rel="stylesheet" />

@@ -4,12 +4,10 @@
 
 <!doctype html>
 <html lang="it">
-<%
-    session=request.getSession(false);
-    if(session.getAttribute("user")!=null)
-        response.sendRedirect("/");
-%>
   <head>
+  	<c:if test="${user != null}">
+  		<c:redirect url = "/myProfile"/>
+  	</c:if>
   	<%@include file="includes/import.jsp" %>
   	
     <link href="css/login-register.css" rel="stylesheet" />

@@ -15,7 +15,7 @@
 	<c:when test="${userType != 'Client'}">
 		<c:redirect url = "/myProfile"/>
 	</c:when>
-	<c:when test="${userType.verified}">
+	<c:when test="${user.verified != true}">
 		<c:redirect url = "/myProfile"/>
 	</c:when>
 </c:choose>
@@ -138,9 +138,9 @@
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
 
-									<label style="white-space: nowrap;"><%=request.getParameter("stazionePartenza")%>
+									<label style="white-space: nowrap;">${param.stazionePartenza}
 										<i class="bi bi-arrow-right" style="color: yellow;"></i> <label
-										style="white-space: nowrap;"><%=request.getParameter("stazioneArrivo")%></label>
+										style="white-space: nowrap;">${param.stazioneArrivo}</label>
 									</label>
 								</div>
 

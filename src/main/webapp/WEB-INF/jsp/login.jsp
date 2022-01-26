@@ -8,7 +8,7 @@
 <html lang="it">
   <head>
   	<c:if test="${user != null}">
-  		<c:redirect url = "/"/>
+  		<c:redirect url = "/myProfile"/>
   	</c:if>
   	
   

@@ -16,18 +16,18 @@ $(document).ready(
 		}
 		creaRiepilogo(passeggeri, prezzoBiglietto);
 		var p = prezzo(prezzoBiglietto, passeggeri);
-		generatePayment(p);
+		generatePayment(p, urlParams);
 	}
 )
 
 
-function generatePayment(value) {
+function generatePayment(value, url) {
 	paypal.Buttons({
 		style: {
 			layout: 'horizontal',
 			color: 'blue'
 		},
-		createOrder: function(data, actions) {
+		createOrder: function(actions) {
 			return actions.order.create({
 				purchase_units: [{
 					amount: {
@@ -35,16 +35,27 @@ function generatePayment(value) {
 					}
 				}]
 			});
-		}, onApprove: function(data, actions) {
+		}, onApprove: function() {
+			addTicket(url);
 			window.alert("Pagamento avvenuto con successo");
-		}, onCancel: function(data, actions) {
+		}, onCancel: function() {
 			window.alert("Pagamento rifiutato");
 		}
 	}).render('#paypal-button-container');
 }
 
-function buy(){
-	
+function addTicket(url){
+	var ticket = {
+		routeCode : url.get("codice"),
+		clientEmail : $("#sessionEmail").val()
+	};
+        
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "addTicket",
+        data : JSON.stringify(ticket)
+	});
 }
 
 function creaRiepilogo(passeggeri, prezzoBiglietto) {

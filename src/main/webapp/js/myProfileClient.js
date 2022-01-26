@@ -2,42 +2,53 @@ $(document).ready(
     function() {
 		$("#changePassword").hide();
 	 	$("#reservation").hide();
-		$("#paymentData").hide();
 		$("#travelHistory").hide();  
 	}
 )
 
 function loadSummary() {
-	$("#accountSummary").show();
  	$("#reservation").hide();
-	$("#paymentData").hide();
 	$("#travelHistory").hide();
+	$("#accountSummary").show();
 }
 
 function loadReserveation(){
+	$("#travelHistory").hide();
 	$("#accountSummary").hide();
  	$("#reservation").show();
-	$("#paymentData").hide();
-	$("#travelHistory").hide();
-}
-
-function loadPaymentData(){
-	$("#accountSummary").hide();
- 	$("#reservation").hide();
-	$("#paymentData").show();
-	$("#travelHistory").hide();
 }
 
 function loadTravelHistory(){
 	$("#accountSummary").hide();
  	$("#reservation").hide();
-	$("#paymentData").hide();
 	$("#travelHistory").show();
 }
 
+var activePsw = false;
+var activeEmail = false;
+
 function modifyPassword(){
-	$("#changePassword").show();
+	if(!activePsw){
+		$("#changeEmail").hide();
+		$("#changePassword").show();
+	}
+	else{
+		$("#changeEmail").hide();
+		$("#changePassword").hide();
+	}
+	activeEmail = false;
+	activePsw = !activePsw;
 }
 
 function modifyEmail(){
+	if(!activeEmail){
+		$("#changePassword").hide();
+		$("#changeEmail").show();
+	}
+	else{
+		$("#changePassword").hide();
+		$("#changeEmail").hide();
+	}
+	activePsw = false;
+	activeEmail = !activeEmail;	
 }

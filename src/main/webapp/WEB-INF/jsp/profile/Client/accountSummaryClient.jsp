@@ -72,6 +72,9 @@
 				<div id="changePassword">
 					<%@include file="../changePassword.jsp" %>
 				</div>
+				<div id="changeEmail">
+					<%@include file="../changeEmail.jsp" %>
+				</div>
 			</div>
 		</div>
 	</div>

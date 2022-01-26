@@ -19,4 +19,5 @@ public interface AgencyUserDao {
 	
 	public boolean existUser(String User, boolean p);
 	public boolean changePassword(HttpSession session, String oldPassword, String newPassword);
+	public boolean changeEmail(HttpSession session, String password, String newEmail);
 }

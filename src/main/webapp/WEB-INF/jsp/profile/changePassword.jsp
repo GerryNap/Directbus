@@ -11,7 +11,7 @@
 					<input type="password" id="oldPassword" name = "newPassword" placeholder="Old Password" required/>
 					<input type="password" id="newPassword" name = "oldPassword" placeholder="New Password" required/>
 					<input type="password" id="confirmPassword" placeholder="Confirm New Password" required/>
-					<button id="madonnabastarda" type="button">Cambia</button>
+					<button id="changebutton" type="button">Cambia</button>
 				</div>
 			</div>
 		</div>

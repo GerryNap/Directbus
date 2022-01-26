@@ -1,9 +1,9 @@
 $(document).ready(
 	function(){
-		$("#madonnabastarda").on("click", function(event){
+		$("#changebutton").on("click", function(event){
 			event.preventDefault();
 			if($("#newPassword").val() === $("#confirmPassword").val()){
-				if($("#oldPassword").val() === $("#newPassword")){
+				if($("#oldPassword").val() === $("#newPassword").val()){
 					window.alert("La vecchia password e la nuova password non possono essere uguali");
 				} else {		
 					ajaxChangePassword();
@@ -27,11 +27,9 @@ $(document).ready(
 				contentType : "application/json; charset=utf-8",
                 data : JSON.stringify(getPassword()),
                 success : function(data) {
-                    		window.location.href = "/myProfile";
                     		window.alert(data);
                     	  },
                 error: function(data) {
-							window.location.href = "/myProfile";
 							window.alert(data);
 					   }
 			});

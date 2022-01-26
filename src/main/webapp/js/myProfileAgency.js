@@ -1,41 +1,54 @@
 $(document).ready(
     function() {  
-		$("#oldPassword").hide()
-		$("#newPassword").hide()
-		$("#paymentData").hide();
+		$("#changeEmail").hide();
+		$("#changePassword").hide();
 		$("#activeRoutes").hide();
 		$("#oldRoutes").hide();
 })
 
 function loadSummary() {
-	$("#paymentData").hide();
-	$("#accountSummary").show();
 	$("#activeRoutes").hide();
 	$("#oldRoutes").hide();
+	$("#accountSummary").show();
 }
 
 function loadActiveTrip(){
 	$("#accountSummary").hide();
-	$("#paymentData").hide();
-	$("#activeRoutes").show();
 	$("#oldRoutes").hide();
+	$("#activeRoutes").show();
 }
 
 function loadOldTrip(){
 	$("#accountSummary").hide();
-	$("#paymentData").hide();
 	$("#activeRoutes").hide();
 	$("#oldRoutes").show();
 }
 
-function loadPaymentData(){
-	$("#accountSummary").hide();
-	$("#paymentData").show();
-	$("#activeRoutes").hide();
-	$("#oldRoutes").hide();	
-}
+var activePsw = false;
+var activeEmail = false;
+
 function modifyPassword(){
-	$("#changePassword").show();
+	if(!activePsw){
+		$("#changeEmail").hide();
+		$("#changePassword").show();
+	}
+	else{
+		$("#changeEmail").hide();
+		$("#changePassword").hide();
+	}
+	activeEmail = false;
+	activePsw = !activePsw;
 }
+
 function modifyEmail(){
+	if(!activeEmail){
+		$("#changePassword").hide();
+		$("#changeEmail").show();
+	}
+	else{
+		$("#changePassword").hide();
+		$("#changeEmail").hide();
+	}
+	activePsw = false;
+	activeEmail = !activeEmail;	
 }

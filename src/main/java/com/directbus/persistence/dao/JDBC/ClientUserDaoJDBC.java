@@ -248,4 +248,26 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean changeEmail(HttpSession session, String password, String newEmail) {
+		UserClient user = (UserClient) session.getAttribute("user");
+		user.setPassword(password);
+		if(user != null && checkUser(user)) {
+			String query = "UPDATE utenticlienti "
+					+ "SET email = ? "
+					+ "WHERE email = ?";
+			try {
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setString(1, newEmail);
+				st.setString(2, user.getEmail());
+				st.executeUpdate();
+				return true;
+			}catch(SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
+	}
 }

@@ -1,5 +1,6 @@
 $(document).ready(
     function() {
+		$("#changeEmail").hide();
 		$("#changePassword").hide();
 	 	$("#reservation").hide();
 		$("#travelHistory").hide();  

@@ -125,6 +125,11 @@ function createFirstElement(element) {
 	hiddenPrezzo.setAttribute("type", "hidden");
 	hiddenPrezzo.setAttribute("name", "prezzo");
 	hiddenPrezzo.setAttribute("value", element.price);
+	
+	var hiddenCodTratta = document.createElement("input");
+	hiddenCodTratta.setAttribute("type", "hidden");
+	hiddenCodTratta.setAttribute("name", "codice");
+	hiddenCodTratta.setAttribute("value", element.cod);
 	//AGGIUNTA
 	colPortante.appendChild(h5);
 	colPortante.appendChild(stazionePartenza);
@@ -134,6 +139,7 @@ function createFirstElement(element) {
 	colPortante.appendChild(hiddenSArrivo);
 	colPortante.appendChild(hiddenPasseggeri);
 	colPortante.appendChild(hiddenPrezzo);
+	colPortante.appendChild(hiddenCodTratta);
 	
 	var colPortante2 = document.createElement("div");
 	var classColPortante2 = document.createAttribute("class"); classColPortante2.value = "col";

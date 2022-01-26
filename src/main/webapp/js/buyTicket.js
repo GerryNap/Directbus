@@ -37,6 +37,7 @@ function generatePayment(value) {
 			});
 		}, onApprove: function(data, actions) {
 			window.alert("Pagamento accettato con successo");
+			
 		}, onCancel: function(data, actions) {
 			window.alert("Pagamento rifiutato");
 		}

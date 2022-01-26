@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.directbus.model.AgencyUser;
@@ -205,5 +207,27 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	@Override
+	public boolean changePassword(HttpSession session, String oldPassword, String newPassword) {
+		AgencyUser user = (AgencyUser) session.getAttribute("user");
+		user.setPassword(oldPassword);
+		if(user != null && checkUser(user)) {
+			try {
+				String query = "UPDATE utentiaziende "
+						+ "SET psw = ? "
+						+ "WHERE email = ?";
+				PreparedStatement st = conn.prepareStatement(query);
+				st.setString(1, BCrypt.hashpw(newPassword, BCrypt.gensalt(12)));
+				st.setString(2, user.getEmail());
+				st.executeUpdate();
+				return true;
+			} catch(SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return false;
 	}
 }

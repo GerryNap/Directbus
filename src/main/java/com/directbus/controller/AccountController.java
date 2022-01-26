@@ -27,10 +27,21 @@ public class AccountController {
     public ResponseEntity<String> changePassword(HttpSession session, @RequestBody JSONObject content) {
     	String oldPassword = content.getAsString("oldPassword");
     	String newPassword = content.getAsString("newPassword");
-    	if(oldPassword != null && newPassword != null
-    			&& DatabaseHandler.getInstance().getClientUserDao().changePassword(session, oldPassword, newPassword)) {
-    		return new ResponseEntity<String>("success", HttpStatus.OK);
+    	if(oldPassword == null || newPassword == null) {
+        	return new ResponseEntity<String>("Error 500", HttpStatus.INTERNAL_SERVER_ERROR);
     	}
-    	return new ResponseEntity<String>("error", HttpStatus.INTERNAL_SERVER_ERROR);
+    	
+    	boolean changed;
+    	if(((String)session.getAttribute("userType")).equals("Client")) {
+    		changed = DatabaseHandler.getInstance().getClientUserDao().changePassword(session, oldPassword, newPassword);
+    	} else {
+    		changed = DatabaseHandler.getInstance().getAgencyUserDao().changePassword(session, oldPassword, newPassword);
+    	}
+
+    	if(changed) {
+    		return new ResponseEntity<String>("Password cambiata con successo", HttpStatus.OK);
+    	} else {
+        	return new ResponseEntity<String>("Vecchia password errata", HttpStatus.CONFLICT);
+    	}
     }
 }

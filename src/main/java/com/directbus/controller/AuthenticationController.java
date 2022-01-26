@@ -69,6 +69,7 @@ public class AuthenticationController {
 		return new ResponseEntity<String>(response, status);
 	}
 	
+	
 	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doBusinessRegistration(HttpSession session, @RequestBody @Valid AgencyUser user) {
@@ -81,7 +82,7 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
-			sender.registrationBusinessEmail(user);
+			session.setAttribute("tokenEmail", sender.confirmEmail(user));
 		} else {
 			response = "existing user";
 		}

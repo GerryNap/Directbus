@@ -50,16 +50,6 @@ public class EmailSenderService {
 		mailSender.send(mimeMessage);
 		System.out.println("Mail send...");
 	}
-
-	public void registrationClientEmail(UserClient user) {
-		String body = "Benvenuto " + user.getFirstName() + " " + user.getLastName();
-		sendSimpleEmail(user.getEmail(), body, "DirectBus Registration");
-	}
-	
-	public void registrationBusinessEmail(AgencyUser user) {
-		String body = user.getName() + "\nLa ringraziamo per averci scelto per la vendita dei suoi biglietti";
-		sendSimpleEmail(user.getEmail(), body, "DirectBus Registration");
-	}
 	
 	public String confirmEmail(UserClient user) {
 		String token = TokenGenerator.getInstance().getToken();
@@ -70,11 +60,12 @@ public class EmailSenderService {
 		return token;
 	}
 	
-	public void forgotPassword(String email) {
-		
-	}
-	
-	public void sendTicket(String email) {
-		
+	public String confirmEmail(AgencyUser user) {
+		String token = TokenGenerator.getInstance().getToken();
+		String link = "localhost:8443/verifyEmail?token=" + token;
+		String body = "Ciao " + user.getName() + ",\n" +
+					  "Verifica la tua email: " + link;
+		sendSimpleEmail(user.getEmail(), body, "Verifica la tua email");
+		return token;
 	}
 }

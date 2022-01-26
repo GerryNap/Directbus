@@ -35,18 +35,7 @@ function loadPaymentData(){
 	$("#oldRoutes").hide();	
 }
 function modifyPassword(){
-		$("#accountSummary").hide();
-		$("#oldPassword").show()
-		$("#newPassword").show()
-	 	$("#reservation").hide();
-		$("#paymentData").hide();
-		$("#travelHistory").hide();
+	$("#changePassword").show();
 }
 function modifyEmail(){
-		$("#accountSummary").hide();
-		$("#oldPassword").hide()
-		$("#newPassword").show()
-	 	$("#reservation").hide();
-		$("#paymentData").hide();
-		$("#travelHistory").hide();
 }

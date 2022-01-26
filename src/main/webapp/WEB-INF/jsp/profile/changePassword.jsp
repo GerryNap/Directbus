@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<script src="/js/changePasswordEmail.js"></script>
+<script src="/js/changePassword.js"></script>
 <form class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" id="changePasswordForm">
 	<div class="list-group list-group-flush mt-5 col">		
 		<div>

@@ -8,7 +8,6 @@ $(document).ready(
 )
 
 function loadSummary() {
-
 	$("#accountSummary").show();
  	$("#reservation").hide();
 	$("#paymentData").hide();

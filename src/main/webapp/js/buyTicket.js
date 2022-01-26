@@ -36,11 +36,15 @@ function generatePayment(value) {
 				}]
 			});
 		}, onApprove: function(data, actions) {
-			window.alert("Pagamento accettato con successo");
+			window.alert("Pagamento avvenuto con successo");
 		}, onCancel: function(data, actions) {
 			window.alert("Pagamento rifiutato");
 		}
 	}).render('#paypal-button-container');
+}
+
+function buy(){
+	
 }
 
 function creaRiepilogo(passeggeri, prezzoBiglietto) {

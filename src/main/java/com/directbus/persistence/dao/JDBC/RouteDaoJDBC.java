@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.directbus.model.Route;
 import com.directbus.persistence.dao.RouteDao;
 
@@ -47,29 +49,29 @@ public class RouteDaoJDBC implements RouteDao{
 	
 	@Override
 	public Route findByPrimaryKey(long cod) {
-		Route cdl = null;
+		Route rt = null;
 		String query = "select * from tratte where cod = ?";
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, cod);
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
-				cdl = new Route();
+				rt = new Route();
 				
-				cdl.setCod(rs.getLong("cod"));
-				cdl.setAgency(rs.getString("azienda"));
-				cdl.setData(rs.getString("data_"));
-				cdl.setDestinationS(rs.getString("s_arrivo"));
-				cdl.setStartS(rs.getString("s_partenza"));
-				cdl.setnBiglietti(rs.getInt("n_nbiglietti"));
-				cdl.setTime(rs.getString("durata_tratta"));
-				cdl.setPrice(rs.getFloat("prezzo"));
+				rt.setCod(rs.getLong("cod"));
+				rt.setAgency(rs.getString("azienda"));
+				rt.setData(rs.getString("data_"));
+				rt.setDestinationS(rs.getString("s_arrivo"));
+				rt.setStartS(rs.getString("s_partenza"));
+				rt.setnBiglietti(rs.getInt("n_nbiglietti"));
+				rt.setTime(rs.getString("durata_tratta"));
+				rt.setPrice(rs.getFloat("prezzo"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return cdl;
+		return rt;
 	}
 
 	@Override
@@ -182,6 +184,39 @@ public class RouteDaoJDBC implements RouteDao{
 		}
 		
 		return false;
+	}
+
+	@Override
+	public ArrayList<Route> search(@Valid Route route) {
+		
+		ArrayList<Route> rts = new ArrayList<Route>();
+		String query = "select * from tratte where s_partenza = ? AND s_arrivo = ? OR data_ = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			
+				st.setString(1, route.getStartS());
+				st.setString(2, route.getDestinationS());
+				st.setString(3, route.getData());
+				
+				
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				Route rt = new Route();
+				rt.setCod(rs.getLong("cod"));
+				rt.setAgency(rs.getString("azienda"));
+				rt.setData(rs.getString("data_"));
+				rt.setDestinationS(rs.getString("s_arrivo"));
+				rt.setStartS(rs.getString("s_partenza"));
+				rt.setnBiglietti(rs.getInt("n_nbiglietti"));
+				rt.setTime(rs.getString("durata_tratta"));
+				rt.setPrice(rs.getFloat("prezzo"));
+				rts.add(rt);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rts;
 	}
 
 }

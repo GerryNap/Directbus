@@ -68,6 +68,7 @@ public class StationDaoJDBC implements StationDao{
 
 	@Override
 	public boolean saveOrUpdate(Station station) {
+		station.setName(station.getName().toLowerCase());
 		if (!existStation(station)) {
 			//INSERT
 			try {
@@ -87,6 +88,7 @@ public class StationDaoJDBC implements StationDao{
 				return false;
 			}
 		} else {
+			station.setName(station.getName().toLowerCase());
 			//UPDATE
 			try {
 				String query = "UPDATE stazioni "
@@ -139,6 +141,23 @@ public class StationDaoJDBC implements StationDao{
 		}
 		return false;
 		
+	}
+
+	@Override
+	public ArrayList<String> getStationsList(String text) {
+		ArrayList<String> stations = new ArrayList<String>();
+		text.toLowerCase();
+		
+		String query = "SELECT nome FROM stazioni WHERE nome LIKE '"+ text +"%'";
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			if (rs.next()) 
+				stations.add(rs.getString("nome"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return stations;
 	}
 
 }

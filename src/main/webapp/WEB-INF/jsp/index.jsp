@@ -16,17 +16,26 @@
     <form class="mt-5 position-relative" id="search-form">
     	<div id="firstContainer">
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
-				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">
-		    		<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color:#171717; border:1px solid #FFCC00; color:white;" id="stazionePartenza">
-		    		<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" style="background-color:#171717; border:1px solid #FFCC00;" id="stazioneArrivo">
+				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">					
+		    		<div class="form-control" style="background-color:#171717; border:1px solid #FFCC00;">
+		    			<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" 
+		    			style="background-color: transparent; border: transparent; color:white; width:100%;" id="stazionePartenza">
+		    			<div id="livesearchA"></div>
+		    		</div>
+		    		<div class="form-control" style="background-color:#171717; border:1px solid #FFCC00;">
+		    			<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" 
+		    			style="background-color: transparent; border: transparent; color:white; width:100%;" id="stazioneArrivo">
+		    			<div id="livesearchR" style="position: absolute;"></div>
+		    		</div>
 		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
 		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">
 		   			<input name="passeggeri"type="number" class="form-control" placeholder="Passeggeri" style="background-color:#171717; border:1px solid #FFCC00;" id="passeggeri">
 		   			<button type="submit" class="form-control" id="sendButton">Cerca</button>
 		 		</div>
-			</nav>	
+			</nav>
+			
 			<div class="col-8 col-sm-8 col-md-8 col-lg-5 col-xl-7 col-xxl-12 mx-auto position-relative row">
-			<h1 style="color:white">Prenota il tuo viaggio da<label style="color:white">Napoli</label> a<label style="color:white">Badolato</label></h1>
+			<h1 style="color:white">Prenota il tuo viaggio</h1>
 			</div>
 			<div class="container mt-5">
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">

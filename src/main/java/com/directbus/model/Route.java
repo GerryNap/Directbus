@@ -5,6 +5,7 @@ public class Route {
 	private long cod;
 	private String agency;
 	private String data;
+	private String departureTime;
 	private String destinationS;
 	private String startS;
 	private Integer nBiglietti;
@@ -19,13 +20,18 @@ public class Route {
 		this.nBiglietti = null;
 		this.time = null;
 		this.price = null;
+		this.departureTime = null;
 	}
 	
 	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time, Float price) {
 		super();
 		this.cod = cod;
 		this.agency = agency;
-		this.data = data;
+		
+		String[] parts = data.split("T");
+		this.data = parts[0];
+		this.departureTime = parts[1];
+		
 		this.destinationS = destinationS;
 		this.startS = startS;
 		this.nBiglietti = nBiglietti;
@@ -84,5 +90,13 @@ public class Route {
 	
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+
+	public String getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
 	}
 }

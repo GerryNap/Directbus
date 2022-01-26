@@ -1,5 +1,54 @@
+/*function getStation() {
+	
+	console.log("osucgdsc");
+	let text = $("#stazionePartenza").val();
+	
+	$.ajax({
+		type : "GET",
+		contentType : "application/json",
+		url : "getStation",
+        data : text,
+        success: function(data) {
+			console.log(data);
+		}
+	});
+}*/
+
+
+
+
 $(document).ready(
     function() {
+		$("#stazionePartenza").on("keyup", function(event) {
+			let text = $("#stazionePartenza").val();
+				
+			$.ajax({
+				type : "GET",
+				//contentType : "application/json",
+				url : "getStation",
+		        data : {"text":text},
+		        success: function(data) {
+					var stations = data;
+					liveSearchA(stations);
+				}
+			})
+		})
+		
+		$("#stazioneArrivo").on("keyup", function(event) {
+			let text = $("#stazioneArrivo").val();
+				
+			$.ajax({
+				type : "GET",
+				//contentType : "application/json",
+				url : "getStation",
+		        data : {"text":text},
+		        success: function(data) {
+					var stations = data;
+					liveSearchR(stations);
+				}
+			})
+		})
+	
         $("#search-form").on("submit", function(event) {
             event.preventDefault();
             ajaxLoginPost();
@@ -31,6 +80,33 @@ $(document).ready(
         }
     }
 )
+
+//livesearch
+function liveSearchA(stations) {
+	var livesearch = document.getElementById("livesearchA");
+	livesearch.innerHTML = '';
+	for(let i=0; i < stations.length; i++) {
+		var st = document.createElement("button");
+		st.innerHTML = stations[i];
+				
+		livesearch.appendChild(st);
+	}
+}
+
+function liveSearchR(stations) {
+	var livesearch = document.getElementById("livesearchR");
+	livesearch.innerHTML = '';
+	for(let i=0; i < stations.length; i++) {
+		var st = document.createElement("button");
+		st.innerHTML = stations[i];
+				
+		livesearch.appendChild(st);
+	}
+}
+
+
+
+
 
 function addElements(routes) {
 	for (let i = 0; i < routes.length; i++)

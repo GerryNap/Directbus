@@ -122,3 +122,21 @@ i{
 	border: 1px solid #FFCC00;
 	max-width:20%;
 }
+
+#newPassword{
+	background-color:#171717; 
+	border:1px solid #FFCC00;
+	font-size: 100%;
+  	padding:5px;
+}
+
+#livesearchA {
+	position: absolute;
+	background-color:#171717;
+}
+
+#livesearchR {
+	position: absolute;
+	background-color:#171717;
+
+}

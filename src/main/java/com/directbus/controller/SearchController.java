@@ -27,7 +27,21 @@ public class SearchController {
 	@ResponseBody
 	public ResponseEntity<ArrayList<Route>> searchRoutes(@RequestBody @Valid Route route) {
 		HttpStatus status = HttpStatus.ACCEPTED;
-		ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
-		return new ResponseEntity<ArrayList<Route>>(allRoute, status);
+		
+		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
+		
+		//ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
+		return new ResponseEntity<ArrayList<Route>>(routes, status);
+	}
+	
+	@GetMapping("/getStation")
+	public ResponseEntity<ArrayList<String>> getStation(String text) {
+		
+		ArrayList<String> stations = null;
+		if(text.length()>0)
+			stations = DatabaseHandler.getInstance().getStationDao().getStationsList(text);
+	
+		
+		return new ResponseEntity<ArrayList<String>>(stations, HttpStatus.OK);
 	}
 }

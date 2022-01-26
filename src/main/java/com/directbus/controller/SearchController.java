@@ -23,11 +23,6 @@ public class SearchController {
 		return "index";
 	}
 	
-	@GetMapping("/searchPage")
-	public String searchPage() {
-		return "searchPage";
-	}
-	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<ArrayList<Route>> searchRoutes(@RequestBody @Valid Route route) {

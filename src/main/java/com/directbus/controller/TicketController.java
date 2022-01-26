@@ -10,14 +10,4 @@ public class TicketController {
 	public String buyTicket() {
 		return "buyTicket";
 	}
-	
-	@GetMapping("/buyTicketProva")
-	public String buyTicketProva() {
-		return "buyTicketProva";
-	}
-	
-	@GetMapping("/shoppingCart")
-	public String shoppingCart() {
-		return "shoppingCart";
-	}
 }

@@ -8,18 +8,20 @@
 <html lang="it">
 
 <head>
+
 <c:choose>
 	<c:when test="${user == null}">
-		<c:redirect url = "/login"/>
+		<c:redirect url="/login" />
 	</c:when>
 	<c:when test="${userType != 'Client'}">
-		<c:redirect url = "/myProfile"/>
+		<c:redirect url="/myProfile" />
 	</c:when>
 	<c:when test="${user.verified != true}">
-		<c:redirect url = "/myProfile"/>
+		<c:redirect url="/myProfile" />
 	</c:when>
 </c:choose>
-
+<script
+	src="https://www.paypal.com/sdk/js?currency=EUR&client-id=AfxAGKB_Ow-Q8U96Xgxr84cKesG9xM-sd6J3uBJdGjx1D9kBQXwCPXNdV8IxPtjro7R8LOTGzAI4nlIm"></script>
 <%@include file="includes/import.jsp"%>
 
 <link href="css/buyTicket.css" rel="stylesheet" />
@@ -97,25 +99,25 @@
 
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left:-30%;">${param.orarioPartenza}</label>
+						<label style="margin-left: -30%;">${param.orarioPartenza}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left:20%;">${param.stazionePartenza}</label>
+						<label style="margin-left: 20%;">${param.stazionePartenza}</label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left:-30%;">${param.orarioArrivo}</label>
+						<label style="margin-left: -30%;">${param.orarioArrivo}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left:20%;">${param.stazioneArrivo}</label>
+						<label style="margin-left: 20%;">${param.stazioneArrivo}</label>
 					</div>
 				</div>
 				<div class="row mt-3" style="margin-right: 15%">
@@ -125,7 +127,9 @@
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
 							style="color: yellow;"><label>07:30<i
 								class="bi bi-people-fill"
-								style="color: yellow; margin-left: 10%"> <label> ${param.passeggeri} <label> Passeggeri</label></label></i></label></i>
+								style="color: yellow; margin-left: 10%"> <label>
+										${param.passeggeri} <label> Passeggeri</label>
+								</label></i></label></i>
 
 					</div>
 				</div>
@@ -148,12 +152,16 @@
 							<div id="containerPasseggeri">
 								<!-- LO FA JAVASCRIPT -->
 							</div>
+							<div id="pagamento">
+								<hr style="color: #FFCC00;">
+								<h3 style="color: #FFCC00;">Checkout</h3>
+								<div id="paypal-button-container" class="row mt-3"></div>
+							</div>
 						</div>
 					</div>
+
 				</div>
-
 			</div>
-
 		</div>
 	</form>
 </body>

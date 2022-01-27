@@ -36,11 +36,9 @@
 	<script src="/js/buyTicket.js"></script>
 	<form id="register-form" class="col-6 col-6 mx-auto position-relative">
 		<div class="row">
-			<!-- INIZIO PRIMA RIGA -->
-
 			<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
 				id="colonnaSinistra">
-
+			<!-- COLONNA SINISTRA -->
 
 				<h5>Contatti acquirente</h5>
 				<div class="form-floating mb-3">
@@ -88,8 +86,8 @@
 					</div>
 				</div>
 				<!-- LO FA JAVASCRIPT -->
-			</div>
-			<br>
+			</div> <!-- FINE COLONNA SINISTRA -->
+			
 
 			<!-- INSERIRE COLONNA A DESTRA -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -99,42 +97,42 @@
 
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left: -30%;">${param.orarioPartenza}</label>
+						<label style="white-space: nowrap;">${param.orarioPartenza}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left: 20%;">${param.stazionePartenza}</label>
+						<label style="white-space: nowrap;">${param.stazionePartenza}</label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="margin-left: -30%;">${param.orarioArrivo}</label>
+						<label style="white-space: nowrap;">${param.orarioArrivo}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="margin-left: 20%;">${param.stazioneArrivo}</label>
+						<label style="white-space: nowrap;">${param.stazioneArrivo}</label>
 					</div>
 				</div>
-				<div class="row mt-3" style="margin-right: 15%">
+				<div class="row mt-3">
 					<div class="badge">
 
 						<i
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
 							style="color: yellow;"><label>07:30<i
 								class="bi bi-people-fill"
-								style="color: yellow; margin-left: 10%"> <label>
+								style="color: yellow;"> <label>
 										${param.passeggeri} <label> Passeggeri</label>
 								</label></i></label></i>
 
 					</div>
 				</div>
 				<div class="row justify-content-center">
-					<div class="col" style="margin-left: 20%;">
+					<div class="col">
 						<div class="mt-5">
 
 							<h3 style="color: #FFCC00;">Riepilogo ordine</h3>

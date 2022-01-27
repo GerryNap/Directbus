@@ -27,15 +27,15 @@ function generatePayment(value, url) {
 			layout: 'horizontal',
 			color: 'blue'
 		},
-		createOrder: function(actions) {
-			return actions.order.create({
-				purchase_units: [{
-					amount: {
-						value: value
-					}
-				}]
-			});
-		}, onApprove: function() {
+		createOrder: function(data, actions) {
+	      return actions.order.create({
+	        purchase_units: [{
+	          amount: {
+	            value: value
+	          }
+	        }]
+	      });
+	    }, onApprove: function() {
 			addTicket(url);
 			window.alert("Pagamento avvenuto con successo");
 		}, onCancel: function() {
@@ -43,6 +43,9 @@ function generatePayment(value, url) {
 		}
 	}).render('#paypal-button-container');
 }
+    
+
+
 
 function addTicket(url){
 	var ticket = {

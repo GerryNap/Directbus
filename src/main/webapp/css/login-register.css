@@ -140,3 +140,31 @@ i{
 	background-color:#171717;
 
 }
+#buttonlivesearch{
+	background-color:transparent; 
+	border:1px solid transparent; 
+	border-top-style:none;
+	border-radius:1px; 	
+	color:white; 
+	width:100%;  
+	font-size:80%;
+}
+#buttonlivesearch:hover{	
+	background-color: #141414; 	
+	color:white;
+	border-radius:0px 0px 15px 15px; 
+}
+#livesearchA{
+	border-radius:0px 0px 10px 10px;
+	border:1px solid #FFCC00;
+	border-top:none;
+	margin-left:-2%;
+	width:79%;	
+}
+#livesearchR{
+	border-radius:0px 0px 10px 10px;
+	border:1px solid #FFCC00;
+	border-top:none;
+	width:79%;
+	margin-left:-2%;
+}

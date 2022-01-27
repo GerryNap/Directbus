@@ -86,9 +86,9 @@ function liveSearchA(stations) {
 	var livesearch = document.getElementById("livesearchA");
 	livesearch.innerHTML = '';
 	for(let i=0; i < stations.length; i++) {
-		var st = document.createElement("button");
+		var st = document.createElement("button");		
 		st.innerHTML = stations[i];
-				
+		st.setAttribute("id","buttonlivesearch");		
 		livesearch.appendChild(st);
 	}
 }
@@ -99,7 +99,7 @@ function liveSearchR(stations) {
 	for(let i=0; i < stations.length; i++) {
 		var st = document.createElement("button");
 		st.innerHTML = stations[i];
-				
+		st.setAttribute("id","buttonlivesearch");
 		livesearch.appendChild(st);
 	}
 }

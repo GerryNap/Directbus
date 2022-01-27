@@ -152,11 +152,13 @@ public class StationDaoJDBC implements StationDao{
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
-			if (rs.next()) 
+			while (rs.next()) 
 				stations.add(rs.getString("nome"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println(stations.size());
 		return stations;
 	}
 

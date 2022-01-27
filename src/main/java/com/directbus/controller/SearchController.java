@@ -30,6 +30,7 @@ public class SearchController {
 		
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
 		
+		
 		//ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
 		return new ResponseEntity<ArrayList<Route>>(routes, status);
 	}
@@ -39,8 +40,7 @@ public class SearchController {
 		
 		ArrayList<String> stations = null;
 		if(text.length()>0)
-			stations = DatabaseHandler.getInstance().getStationDao().getStationsList(text);
-	
+			stations = DatabaseHandler.getInstance().getStationDao().getStationsList(text);	
 		
 		return new ResponseEntity<ArrayList<String>>(stations, HttpStatus.OK);
 	}

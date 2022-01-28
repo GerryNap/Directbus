@@ -81,27 +81,22 @@ $(document).ready(
     }
 )
 
+
 //livesearch
 function liveSearchA(stations) {
-	var livesearch = document.getElementById("livesearchA");
-	livesearch.innerHTML = '';
-	for(let i=0; i < stations.length; i++) {
-		var st = document.createElement("button");		
-		st.innerHTML = stations[i];
-		st.setAttribute("id","buttonlivesearch");		
-		livesearch.appendChild(st);
-	}
+	$(function() {
+		$("#stazionePartenza").autocomplete({
+			source: stations
+		});
+	});
 }
 
 function liveSearchR(stations) {
-	var livesearch = document.getElementById("livesearchR");
-	livesearch.innerHTML = '';
-	for(let i=0; i < stations.length; i++) {
-		var st = document.createElement("button");
-		st.innerHTML = stations[i];
-		st.setAttribute("id","buttonlivesearch");
-		livesearch.appendChild(st);
-	}
+	$(function() {
+		$("#stazioneArrivo").autocomplete({
+			source: stations
+		});
+	});
 }
 
 

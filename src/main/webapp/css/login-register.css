@@ -130,16 +130,6 @@ i{
   	padding:5px;
 }
 
-#livesearchA {
-	position: absolute;
-	background-color:#171717;
-}
-
-#livesearchR {
-	position: absolute;
-	background-color:#171717;
-
-}
 #buttonlivesearch{
 	background-color:transparent; 
 	border:1px solid transparent; 
@@ -154,17 +144,34 @@ i{
 	color:white;
 	border-radius:0px 0px 15px 15px; 
 }
-#livesearchA{
+
+.ui-widget-content{
 	border-radius:0px 0px 10px 10px;
 	border:1px solid #FFCC00;
-	border-top:none;
-	margin-left:-2%;
-	width:79%;	
+	background-color: #171717;
+	border-color: yellow;
+	color: white;
+	width: auto;
 }
-#livesearchR{
-	border-radius:0px 0px 10px 10px;
-	border:1px solid #FFCC00;
-	border-top:none;
-	width:79%;
-	margin-left:-2%;
+
+.ui-widget-content:hover{
+	background-color: #141414; 	
+	color:white;
+	border-radius:0px 0px 15px 15px;
 }
+
+.ui-menu-item { /*Nome stazione*/
+	font-size: 90%;
+	border-color: #FFCC00;
+}
+
+.ui-menu-item-wrapper:hover{
+	background-color: #141414;
+	border-color: #FFCC00;
+	border:2px solid #FFCC00;
+}
+
+.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
+	border-color: #FFCC00;
+}
+

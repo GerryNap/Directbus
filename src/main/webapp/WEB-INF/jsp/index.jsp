@@ -17,13 +17,11 @@
     	<div id="firstContainer">
 		    <nav class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row">    	
 				<div class="input-group position-relative input-group-lg mb-5" style="background-color:transparent;">					
-		    		<div class="form-control" style="background-color:#171717; border:1px solid #FFCC00;">
+		    		<div class="form-control ui-widget col-md-10 col-lg-8 col-xl-7 mx-auto position-relative row" style="background-color:#171717; border:1px solid #FFCC00;">
 		    			<input name="andata" type="text" class="form-control" placeholder="Stazione di andata" style="background-color: transparent; border: transparent; color:white; width:100%;" id="stazionePartenza" autocomplete="off">
-		    			<div style="background-color:#171717;" id="livesearchA"></div>
 		    		</div>
-		    		<div class="form-control" style="background-color:#171717; border:1px solid #FFCC00;">
+		    		<div class="form-control ui-widget" style="background-color:#171717; border:1px solid #FFCC00;">
 		    			<input name="ritorno" type="text" class="form-control" placeholder="Stazione di arrivo" style="background-color: transparent; border: transparent; color:white; width:100%;" id="stazioneArrivo" autocomplete="off">
-		    			<div id="livesearchR" style="position: absolute;"></div>
 		    		</div>
 		    		<input name="dataAndata" type="date" class="form-control" placeholder="Andata" style="background-color:#171717; border:1px solid #FFCC00;" id="dataAndata">
 		   			<input name="dataRitorno"type="date" class="form-control" placeholder="Ritorno" style="background-color:#171717; border:1px solid #FFCC00;" id="dataRitorno">

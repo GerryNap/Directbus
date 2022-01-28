@@ -157,8 +157,6 @@ public class StationDaoJDBC implements StationDao{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(stations.size());
 		return stations;
 	}
 

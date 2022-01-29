@@ -190,17 +190,26 @@ public class RouteDaoJDBC implements RouteDao{
 	public ArrayList<Route> search(@Valid Route route) {
 		
 		ArrayList<Route> rts = new ArrayList<Route>();
-		String query = "select * from tratte where s_partenza = ? AND s_arrivo = ? OR data_ = ?";
+		
+		String query;
+		if(route.getData().equals(""))
+			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? order by data_";
+		else
+			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? AND data_ >= ? AND data_ <= ? order by data_";
+			
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			
 				st.setString(1, route.getStartS());
 				st.setString(2, route.getDestinationS());
-				st.setString(3, route.getData());
+				if(!route.getData().equals("")) {
+					st.setString(3, route.getData()+"T00:00");
+					st.setString(4, route.getData()+"T23:59");
+				}
 				
 				
 			ResultSet rs = st.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				Route rt = new Route();
 				rt.setCod(rs.getLong("cod"));
 				rt.setAgency(rs.getString("azienda"));

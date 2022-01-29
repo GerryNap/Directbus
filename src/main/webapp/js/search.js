@@ -16,8 +16,12 @@
 
 
 
+var routes;
+var orderedRoutes;
 
 $(document).ready(
+	
+	
     function() {
 		$("#stazionePartenza").on("keyup", function(event) {
 			let text = $("#stazionePartenza").val();
@@ -27,7 +31,7 @@ $(document).ready(
 				//contentType : "application/json",
 				url : "getStation",
 		        data : {"text":text},
-		        success: function(data) {
+		        success : function(data) {
 					var stations = data;
 					liveSearchA(stations);
 				}
@@ -52,6 +56,22 @@ $(document).ready(
         $("#search-form").on("submit", function(event) {
             event.preventDefault();
             ajaxLoginPost();
+            
+            
+            
+            var price = document.getElementsByName("price");
+            var data = document.getElementsByName("data");
+            var duration = document.getElementsByName("duration");
+            var start = document.getElementsByName("start");
+            
+            price[0].disabled = false;
+            data[0].disabled = false;
+            duration[0].disabled = false;
+            start[0].disabled = false;
+            
+            var start = document.getElementsByName("start");
+            if($("#dataAndata").val()==="")
+            	start[0].disabled = true;
         });
 
         function ajaxLoginPost() {
@@ -70,7 +90,8 @@ $(document).ready(
 				url : "searchRoutes",
                 data : JSON.stringify(route),
 				success: function(data, status, xhr) {
-					var routes = data;
+					routes = data;
+					orderedRoutes = data;
 					addElements(routes);
 				},
 				error: function(data, status, xhr) {
@@ -100,13 +121,12 @@ function liveSearchR(stations) {
 }
 
 
-
-
-
 function addElements(routes) {
+	document.getElementById("routeContainer").innerHTML = '';
 	for (let i = 0; i < routes.length; i++)
-		document.getElementById("firstContainer").appendChild(createFirstElement(routes[i]));
+		document.getElementById("routeContainer").appendChild(createFirstElement(routes[i]));
 }
+
 
 function getTime(data, tempoImpiegato) {
 	var date = new Date(data);
@@ -303,4 +323,58 @@ function createSecondElement(element) {
 	col.appendChild(card);
 	
 	return col;
+}
+
+function sortPrice() {
+	document.getElementById("routeContainer").innerHTML = '';
+	routes.sort(function(a, b) {
+		return a.price - b.price;
+	});
+
+	
+	for (let i = 0; i < routes.length; i++)
+		document.getElementById("routeContainer").appendChild(createFirstElement(routes[i]));
+}
+
+function sortData() {
+	document.getElementById("routeContainer").innerHTML = '';
+	for (let i = 0; i < routes.length; i++)
+		document.getElementById("routeContainer").appendChild(createFirstElement(orderedRoutes[i]));
+}
+
+function sortDuration() {
+	document.getElementById("routeContainer").innerHTML = '';
+	routes.sort(function(a, b) {
+		if(a.time > b.time)
+			return 1;
+		if(a.time < b.time)
+			return -1;
+		return 0;
+	});
+
+	
+	for (let i = 0; i < routes.length; i++)
+		document.getElementById("routeContainer").appendChild(createFirstElement(routes[i]));
+}
+
+function sortStart() {
+	console.log("lsdjhdscosdcscm");
+	
+	document.getElementById("routeContainer").innerHTML = '';
+	
+	var rts = routes;
+	for(let i = 0; i < rts.length; i++) {
+		rts[i].data = routes[i].data.split("T", 2);
+	}
+	
+	rts.sort(function(a, b) {
+		if(a.data[1] > b.data[1])
+			return 1;
+		if(a.data[1] < b.data[1])
+			return -1;
+		return 0;
+	});
+	
+	for (let i = 0; i < rts.length; i++)
+		document.getElementById("routeContainer").appendChild(createFirstElement(rts[i]));
 }

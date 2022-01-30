@@ -2,6 +2,7 @@ package com.directbus.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -25,11 +26,11 @@ public class SearchController {
 	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<ArrayList<Route>> searchRoutes(@RequestBody @Valid Route route) {
+	public ResponseEntity<ArrayList<Route>> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
 		HttpStatus status = HttpStatus.ACCEPTED;
 		
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
-		
+		session.setAttribute("routes", routes);
 		
 		//ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
 		return new ResponseEntity<ArrayList<Route>>(routes, status);

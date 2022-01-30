@@ -27,7 +27,7 @@
 						<input name="andata" type="text" class="form-control"
 							placeholder="Stazione di partenza"
 							style="background-color: transparent; border: transparent; color: white; width: 90%; margin-left: 10%;"
-							id="stazionePartenza" autocomplete="off">
+							id="stazionePartenza" autocomplete="off" required>
 					</div>
 					<div
 						class="ui-widget col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 position-relative mt-3"
@@ -35,7 +35,7 @@
 						<input name="ritorno" type="text" class="form-control"
 							placeholder="Stazione di arrivo"
 							style="background-color: transparent; border: transparent; color: white; width: 100%;"
-							id="stazioneArrivo" autocomplete="off">
+							id="stazioneArrivo" autocomplete="off" required>
 					</div>
 					<div
 						class="ui-widget col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 position-relative mt-3"
@@ -43,14 +43,6 @@
 						<input name="dataAndata" type="date" class="ui-widget"
 							style="background-color: transparent; border: transparent; color: white; margin-left: 31%; margin-top: 2%;"
 							placeholder="Andata" id="dataAndata">
-					</div>
-					<div
-						class="ui-widget col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 position-relative mt-3"
-						style="background-color: #171717; border: 1px solid #FFCC00;">
-						<input name="dataRitorno" type="date" class="ui-widget"
-							placeholder="Ritorno"
-							style="background-color: transparent; border: transparent; color: white; margin-left: 31%; margin-top: 2%;"
-							placeholder="Andata" id="dataAndata" id="dataRitorno">
 					</div>
 					<div
 						class="ui-widget col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 position-relative mt-3"
@@ -73,18 +65,15 @@
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
 				<div style="margin-left: 5%;">
-					<button type="button" class="btn btn-lg col mt-2" id="buttonSearch">Prezzo</button>
-					<button type="button" class="btn btn-lg col mt-2" id="buttonSearch">Data</button>
-					<button type="button" class="btn btn-lg col mt-2" id="buttonSearch">Durata
-						viaggio</button>
-					<button type="button" class="btn btn-lg col mt-2" id="buttonSearch">Orario
-						di partenza</button>
-					<button type="button" class="btn btn-lg col mt-2" id="buttonSearch">Orario
-						di arrivo</button>
+					<button type="button" class="btn btn-lg col mt-2" onclick="sortPrice()" name ="price" id="buttonSearch" disabled>Prezzo</button>
+					<button type="button" class="btn btn-lg col mt-2" onclick="sortData()" name ="data" id="buttonSearch" disabled>Data</button>
+					<button type="button" class="btn btn-lg col mt-2" onclick="sortDuration()" name ="duration" id="buttonSearch" disabled>Durata viaggio</button>
+					<button type="button" class="btn btn-lg col mt-2" onclick="sortStart()" name ="start" id="buttonSearch" disabled>Orario di partenza</button>
 				</div>
 			</div>
 		</div>
 	</form>
+	<div id="routeContainer"></div>
 	<!-- 		<form method="get" action="/buyTicket" id="buttonSubmit">
 			<div class="row mt-5 col-sm-11 col-md-11 col-lg11 col-xl-11 mx-auto">
 				<div class="card mb-3 " id="cardStyle">

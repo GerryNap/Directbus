@@ -8,6 +8,7 @@
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadSummary()">Riepilogo dell'account</button>					
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadActiveTrip()">Tratte attive</button>
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="loadOldTrip()">Vecchie tratte</button>
+		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="window.location.href = '/publicRoute'">Aggiungi Tratta</button>
 		<button type="button" id="buttonProfile" class="btn list-group-item mt-3" onclick="window.location.href = '/logout'">Esci</button>
 	</div>	
 </div>	

@@ -82,8 +82,12 @@ function creaRiepilogo(passeggeri, prezzoBiglietto) {
 }
 
 function prezzo(prezzoBiglietto, passeggeri) {
+	passeggeri = passeggeri*1;
+	prezzoBiglietto = prezzoBiglietto*1;
+	
 	var prezzoTotale = 0.0;
-	for (let i = 0; i <= passeggeri; i++) {
+	prezzoTotale = prezzoTotale;
+	for (let i = 0; i < passeggeri; i++) {
 		prezzoTotale += prezzoBiglietto;
 	}
 
@@ -102,7 +106,8 @@ function prezzo(prezzoBiglietto, passeggeri) {
 	document.getElementById("containerPasseggeri").appendChild(hr);
 	document.getElementById("containerPasseggeri").appendChild(row);
 	
-	console.log(prezzoTotale)
+	if(passeggeri === 0)
+		return prezzoBiglietto;
 	return prezzoTotale;
 }
 

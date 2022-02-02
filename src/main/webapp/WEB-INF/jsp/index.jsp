@@ -50,7 +50,7 @@
 						<input name="passeggeri" type="number" class="ui-widget"
 							placeholder="Numero passeggeri"
 							style="background-color: transparent; border: transparent; color: white; width: 50%; margin-left: 20%; margin-top: 2%;"
-							id="passeggeri">
+							id="passeggeri" required>
 					</div>
 					<button type="submit"
 						class="ui-widget col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 position-relative mt-3"

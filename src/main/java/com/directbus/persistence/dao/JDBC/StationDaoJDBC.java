@@ -146,7 +146,7 @@ public class StationDaoJDBC implements StationDao{
 	@Override
 	public ArrayList<String> getStationsList(String text) {
 		ArrayList<String> stations = new ArrayList<String>();
-		text.toLowerCase();
+		text.toUpperCase();
 		
 		String query = "SELECT nome FROM stazioni WHERE nome LIKE '"+ text +"%'";
 		try {

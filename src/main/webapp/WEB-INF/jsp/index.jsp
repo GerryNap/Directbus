@@ -15,7 +15,7 @@
 <body id="body">
 	<%@include file="includes/header.jsp"%>
 	<form class="mt-5 position-relative" id="search-form">
-		<div id="firstContainer">
+		<div id="firstContainer" style="margin-left:10%;">
 			<nav class="row mx-auto position-relative">
 
 				<div
@@ -60,7 +60,7 @@
 			</nav>
 			<div
 				class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 col-xxl-12 position-relative mx-auto mt-3">
-				<h1 style="color: white; margin-left: 25%;">Prenota il tuo
+				<h1 style="color: white; margin-left: 15%;">Prenota il tuo
 					viaggio.</h1>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">

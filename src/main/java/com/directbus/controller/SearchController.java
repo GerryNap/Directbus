@@ -24,16 +24,20 @@ public class SearchController {
 		return "index";
 	}
 	
+	@GetMapping("/printTicket")
+	public String printTicket() {
+		return "printTicket";
+	}
+	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<ArrayList<Route>> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
+	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
 		HttpStatus status = HttpStatus.ACCEPTED;
 		
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
 		session.setAttribute("routes", routes);
 		
-		//ArrayList<Route> allRoute = (ArrayList<Route>) DatabaseHandler.getInstance().getRouteDao().findAll();
-		return new ResponseEntity<ArrayList<Route>>(routes, status);
+		return new ResponseEntity<String>("Lista", status);
 	}
 	
 	@GetMapping("/getStation")

@@ -23,7 +23,7 @@ $(document).ready(
                 data : JSON.stringify(route),
 				success: function(data) {
 					console.log(data);
-					$('#cardTicket').load("search/printTicket.jsp");
+					window.location.reload(true);
 				},
 				error: function(data) {
 					console.log(data);

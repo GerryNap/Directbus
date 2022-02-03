@@ -23,7 +23,9 @@ $(document).ready(
                 data : JSON.stringify(route),
 				success: function(data) {
 					console.log(data);
+					getArrivalTime();
 					window.location.reload(true);
+					
 				},
 				error: function(data) {
 					console.log(data);
@@ -32,3 +34,9 @@ $(document).ready(
 		}
 	}
 )
+
+function getArrivalTime() {
+	var prova = '<%=Session["routes"]%>';
+	console.log(prova);
+	console.log("suca gerardo");
+}

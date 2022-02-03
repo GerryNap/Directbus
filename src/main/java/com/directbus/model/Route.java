@@ -4,23 +4,25 @@ public class Route {
 
 	private long cod;
 	private String agency;
-	private String data;
+	private String dataPartenza;
 	private String departureTime;
 	private String destinationS;
 	private String startS;
 	private Integer nBiglietti;
-	private String time;
+	private String dataArrivo;
 	private Float price;
+	private String arrivalTime;
 	
 	public Route() {
-		this.data = null;
+		this.dataPartenza = null;
 		this.agency = null;
 		this.destinationS = null;
 		this.startS = null;
 		this.nBiglietti = null;
-		this.time = null;
+		this.dataArrivo = null;
 		this.price = null;
 		this.departureTime = null;
+		this.arrivalTime = null;
 	}
 	
 	public Route(long cod, String agency,String data, String destinationS, String startS, int nBiglietti, String time, Float price) {
@@ -29,13 +31,13 @@ public class Route {
 		this.agency = agency;
 		
 		String[] parts = data.split("T");
-		this.data = parts[0];
+		this.dataPartenza = parts[0];
 		this.departureTime = parts[1];
 		
 		this.destinationS = destinationS;
 		this.startS = startS;
 		this.nBiglietti = nBiglietti;
-		this.time = time;
+		this.dataArrivo = time;
 		this.price = price;
 	}
 	//getters & setters
@@ -69,19 +71,19 @@ public class Route {
 	public void setnBiglietti(int nBiglietti) {
 		this.nBiglietti = nBiglietti;
 	}
-	public String getData() {
-		return data;
+	public String getDataPartenza() {
+		return dataPartenza;
 	}
-	public void setData(String data) {
-		this.data = data;
-	}
-	
-	public String getTime() {
-		return time;
+	public void setDataPartenza(String data) {
+		this.dataPartenza = data;
 	}
 	
-	public void setTime(String time) {
-		this.time = time;
+	public String getDataArrivo() {
+		return dataArrivo;
+	}
+	
+	public void setDataArrivo(String time) {
+		this.dataArrivo = time;
 	}
 	
 	public Float getPrice() {
@@ -98,5 +100,13 @@ public class Route {
 
 	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
+	}
+	
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+	
+	public String getArrivalTime() {
+		return arrivalTime;
 	}
 }

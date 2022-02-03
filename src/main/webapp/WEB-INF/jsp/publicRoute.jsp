@@ -58,8 +58,8 @@
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-clock-fill"></i>
-				  <input class="form-control" id="time" placeholder="Durata" type="time">
-				  <label for="time">Durata</label>
+				  <input class="form-control" id="time" placeholder="Data/orario di arrivo" type="datetime-local">
+				  <label for="time">Data/orario di arrivo</label>
 				</div>
 				<div class="form-floating mb-3">
 				  <i class="bi bi-clock-fill"></i>

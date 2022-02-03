@@ -24,11 +24,6 @@ public class SearchController {
 		return "index";
 	}
 	
-	@GetMapping("/printTicket")
-	public String printTicket() {
-		return "printTicket";
-	}
-	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {

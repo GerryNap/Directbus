@@ -72,10 +72,11 @@
 					<div class="card me-5 mt-3" style="width: 18rem;">
 						<div class="card-body">
 							<h5 class="card-title">${route.agency}</h5>
-							<p class="card-text">${route.data}</p>
-							<p class="card-text">stazione partenza - orario</p>
-							<p class="card-text">stazione arrivo - orario</p>
-							<a href="#" class="rounded-pill btn btn-primary">acquista</a>
+							<p class="card-text">Partenza: ${route.dataPartenza}</p>
+							<p class="card-text">${route.startS} - ${route.departureTime}</p>
+							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
+							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
+							<a href="buyTicket" class="rounded-pill btn btn-primary">Acquista</a>
 						</div>
 					</div>
 				</c:forEach>

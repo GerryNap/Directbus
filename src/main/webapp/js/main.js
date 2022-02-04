@@ -1,11 +1,25 @@
 $(document).ready(
 	function(){
-		$("#search").on("click", function(event){
+		setMinDate();
+		
+		$("#searchForm").on("submit", function(event){
 			event.preventDefault();
 
 			if(checkStation())
 				ajaxSearch();
 		});
+		
+		function setMinDate(){
+			let date = new Date();
+			let year = date.getFullYear();
+			let correctMonth = date.getMonth()+1
+			if(correctMonth < 10)
+				var month = '0'+correctMonth;
+			if(date.getDate() < 10)
+				var day = '0'+date.getDate();
+			let today = year + '-' + month + '-' + day;
+			document.getElementById("date").setAttribute("min", today);
+		}
 					
 		function alert(message, type) {
 			var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
@@ -39,13 +53,11 @@ $(document).ready(
 				contentType : "application/json",
 				url : "searchRoutes",
                 data : JSON.stringify(route),
-				success: function(data) {
-					console.log(data);
-					window.location.reload(true);
-					
+				success: function() {
+					window.location.reload(true);	
 				},
-				error: function(data) {
-					console.log(data);
+				error: function() {
+					$("#cardTicket").hide();
 					alert("Destinazione non trovata", "primary")
 				}
 			});

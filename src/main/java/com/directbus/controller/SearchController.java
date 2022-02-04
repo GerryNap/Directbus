@@ -27,11 +27,13 @@ public class SearchController {
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
-		
-		HttpStatus status = HttpStatus.OK;
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
-		session.setAttribute("routes", routes);
-		return new ResponseEntity<String>("Lista", status);
+		if(routes.size() == 0) {
+			return new ResponseEntity<String>("No routes found", HttpStatus.CONFLICT);
+		} else {
+			session.setAttribute("routes", routes);
+			return new ResponseEntity<String>("Found " + routes.size() + " routes", HttpStatus.OK);
+		}
 	}
 	
 	@GetMapping("/getStation")

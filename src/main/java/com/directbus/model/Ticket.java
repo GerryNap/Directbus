@@ -12,8 +12,7 @@ public class Ticket {
 		this.clientEmail = null;
 	}
 	
-	public Ticket(long id, long routeCode, String clientEmail, long numBig) {
-		this.id = id;
+	public Ticket(long routeCode, String clientEmail, long numBig) {
 		this.routeCod = routeCode;
 		this.clientEmail = clientEmail;
 		this.numBig = numBig;

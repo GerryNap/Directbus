@@ -25,7 +25,6 @@ public class TicketController {
 	public ResponseEntity<String> addTicket(@RequestBody @Valid Ticket ticket){
 		System.out.println(ticket.getClientEmail());
 		System.out.println(ticket.getRouteCod());
-		System.out.println(ticket.getId());
 		return new ResponseEntity<String>("Ciao", HttpStatus.OK);
 	}
 }

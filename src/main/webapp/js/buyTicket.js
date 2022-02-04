@@ -52,6 +52,7 @@ function addTicket(url){
 		routeCode : url.get("codice"),
 		clientEmail : $("#sessionEmail").val()
 	};
+	console.log(ticket.routeCode);
         
 	$.ajax({
 		type : "POST",

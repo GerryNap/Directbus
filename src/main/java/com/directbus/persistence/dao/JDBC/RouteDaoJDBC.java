@@ -193,7 +193,7 @@ public class RouteDaoJDBC implements RouteDao{
 		
 		String query;
 		if(route.getDataPartenza().equals(""))
-			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? order by data_partenza";
+			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? order by data_partenza";
 		else
 			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
 			
@@ -212,7 +212,7 @@ public class RouteDaoJDBC implements RouteDao{
 			while (rs.next()) {
 				Route rt = new Route();
 				rt.setCod(rs.getLong("cod"));
-				rt.setAgency(rs.getString("azienda"));
+				rt.setAgency(rs.getString("nome"));
 				String[] dataPartenza = rs.getString("data_partenza").split("T");
 				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				rt.setDataPartenza(dataPartenza[0]);

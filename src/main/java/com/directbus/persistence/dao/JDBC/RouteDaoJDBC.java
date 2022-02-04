@@ -195,7 +195,7 @@ public class RouteDaoJDBC implements RouteDao{
 		if(route.getDataPartenza().equals(""))
 			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? order by data_partenza";
 		else
-			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
+			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
 			
 		try {
 			PreparedStatement st = conn.prepareStatement(query);

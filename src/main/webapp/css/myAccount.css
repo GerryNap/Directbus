@@ -1,0 +1,14 @@
+button{
+	background:none;
+	color: black;
+	border:none;
+	font-size:350%;
+	margin-left:40%;
+}
+p{
+	color:black;
+	margin-left:35%;
+}
+button:hover{
+	color:#FFCC00;
+}

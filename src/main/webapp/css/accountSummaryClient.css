@@ -1,0 +1,33 @@
+h1{
+	margin-left:45%;
+	margin-top:10%;
+	margin-bottom:5%;
+}
+h5{
+	font-size:200%;
+}
+label{
+	font-size:150%;
+}
+#summary-col{
+	margin-left:10%;
+}
+#oldPassword,#newPassword,#confirmPassword,#oldEmail,#newEmail{
+	background-color:white;
+	border:1px solid #171717;
+	font-size:100%;
+  	padding:5px;
+  	border-radius:5px;
+  	white-space: nowrap;
+}
+#changebutton{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size:13px;
+}
+#changebutton:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}

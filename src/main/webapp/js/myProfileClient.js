@@ -3,26 +3,29 @@ $(document).ready(
 		$("#changeEmail").hide();
 		$("#changePassword").hide();
 	 	$("#reservation").hide();
-		$("#travelHistory").hide();  
+		$("#travel-history").hide();  
 	}
 )
 
 function loadSummary() {
  	$("#reservation").hide();
-	$("#travelHistory").hide();
-	$("#accountSummary").show();
+	$("#travel-history").hide();
+	$("#account-summary").show();
+	window.location.href='#account-summary'
 }
 
 function loadReserveation(){
-	$("#travelHistory").hide();
-	$("#accountSummary").hide();
+	$("#travel-history").hide();
+	$("#account-summary").hide();
  	$("#reservation").show();
+	window.location.href='#reservation'
 }
 
 function loadTravelHistory(){
-	$("#accountSummary").hide();
+	$("#account-summary").hide();
  	$("#reservation").hide();
-	$("#travelHistory").show();
+	$("#travel-history").show();
+	window.location.href='#travel-history'
 }
 
 var activePsw = false;

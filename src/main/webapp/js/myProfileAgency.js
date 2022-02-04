@@ -10,18 +10,21 @@ function loadSummary() {
 	$("#activeRoutes").hide();
 	$("#oldRoutes").hide();
 	$("#accountSummary").show();
+	window.location.href='#accountSummary'
 }
 
 function loadActiveTrip(){
 	$("#accountSummary").hide();
 	$("#oldRoutes").hide();
 	$("#activeRoutes").show();
+	window.location.href='#activeRoutes'
 }
 
 function loadOldTrip(){
 	$("#accountSummary").hide();
 	$("#activeRoutes").hide();
 	$("#oldRoutes").show();
+	window.location.href='#oldRoutes'
 }
 
 var activePsw = false;

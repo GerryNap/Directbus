@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navcol-1">
         	<c:choose>
 	        	<c:when test="${user == null}">
-	        		<a class="btn btn-dark ms-auto" role="button" href="../login">Sign In</a>
+	        		<a class="btn btn-dark ms-auto" role="button" href="../login" style="background-color:transparent; border:none">Sign In</a>
 	        	</c:when>
 	        	<c:otherwise>
-	        		<a class="btn btn-dark ms-auto" role="button" href="../myProfile">Account</a>
+	        		<a class="btn btn-dark ms-auto" role="button" href="../myProfile" style="background-color:transparent; border:none">Account</a>
 	        	</c:otherwise>
         	</c:choose>
         </div>

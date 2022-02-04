@@ -1,29 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<link href="css/reservation.css" rel="stylesheet"/>
 
-<div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-9" id="reservation">							   	
-	<div class="list-group list-group-flush mt-5 col">
-		<div id="gestioneAccount" class="list-group-item mt-3" style="background-color:transparent;">						
-			<h1 id="buttonProfile">Prenotazioni</h1>
-		</div>
-			<div id="profilo" class="list-group-item mb-3" style="background-color:transparent;">
-				<h2 id="buttonProfile">Le mie prenotazioni</h2>
-			</div>					    
-		<div>
-			<div class="row">
-				<div id="cardStyle" class="card mb-3" style="max-width: 540px; margin-left:5%;">
-					<div class="row g-0">
-					    <div class="col-md-8">
-							<div class="card-body">
-						        <h5 class="card-title" id="buttonProfile">Nome agenzia</h5>
-						        <p class="card-text" id="buttonProfile">Andata: <label id="buttonProfile">...</label></p>
-						        <p class="card-text" id="buttonProfile">Ritorno: <label id="buttonProfile">...</label></p> 
-								<p class="card-text" id="buttonProfile"><span class="badge bg-warning text-dark">In corso</span></p>
-							</div>
+<section id="reservation" class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+	<h1>LE MIE PRENOTAZIONI</h1>
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<!--<c:forEach var="route" items="${routes}">
+					<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
+						<div class="card-body">
+							<h5 class="card-title">${route.agency}</h5>
+							<p class="card-text">Partenza: ${route.dataPartenza}</p>
+							<p class="card-text">${route.startS} - ${route.departureTime}</p>
+							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
+							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
+							<span class="badge bg-success">IN CORSO</span>
 						</div>
 					</div>
-				</div>
-			</div>							
-		</div>	
-	</div>					   							  							  						  				 									
-</div>
+				</c:forEach>
+				<c:remove var="routes" scope="session"></c:remove> -->
+				<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
+						<div class="card-body">
+							<h5 class="card-title">AGENZIA</h5>
+							<p class="card-text">Partenza: ---</p>
+							<p class="card-text">H P - H A</p>
+							<p class="card-text">Arrivo: ---</p>
+							<p class="card-text">DESTINAZIONE - TEMPO D'ARRIVO</p>
+							<span class="badge bg-success">IN CORSO</span>
+						</div>
+					</div>
+			</div>
+		</div>
+</section>

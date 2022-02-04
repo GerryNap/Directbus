@@ -1,0 +1,20 @@
+label{
+	margin-left:2%;
+}
+#sendButton{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#sendButton:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+h1{
+	margin-left:30%;
+	margin-top:5%;
+	margin-bottom:5%;
+}

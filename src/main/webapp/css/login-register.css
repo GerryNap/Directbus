@@ -1,20 +1,14 @@
 #body{
-	background-color:black;	
+	background-color:white;	
 }
 #firstContainer{
-	background-color:black;
+	background-color: white;
 }
 
 #singUp{
 	white-space: nowrap;
 	color:#FFCC00;
 }
-
-label{
-	color:#FFCC00;
-	margin-left: 30px;
-}
-
 i{
 	padding: 17px;
 	position: absolute;
@@ -97,37 +91,6 @@ i{
 	color:  #FFCC00;
 	border: 1px solid #FFCC00;
 	
-}
-#oldPassword,#newPassword,#confirmPassword,#oldEmail,#newEmail{
-	background-color:#171717; 
-	border:1px solid #FFCC00;
-	font-size:100%;
-  	padding:5px;
-  	border-radius:5px;
-  	white-space: nowrap;
-  	max-width:40%;
-  	color:white;
-}
-
-#changebutton{
-	white-space: nowrap;
-	background-color: #FFCC00;
-	color:black;
-	font-size: 15px;
-	max-width:20%;
-}
-#changebutton:hover{
-	background-color: #171717;
-	color:  #FFCC00;
-	border: 1px solid #FFCC00;
-	max-width:20%;
-}
-
-#newPassword{
-	background-color:#171717; 
-	border:1px solid #FFCC00;
-	font-size: 100%;
-  	padding:5px;
 }
 
 #buttonlivesearch{

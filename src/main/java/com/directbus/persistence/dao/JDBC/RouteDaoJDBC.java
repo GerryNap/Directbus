@@ -193,9 +193,9 @@ public class RouteDaoJDBC implements RouteDao{
 		
 		String query;
 		if(route.getDataPartenza().equals(""))
-			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? order by dataPartenza";
+			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? order by data_partenza";
 		else
-			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? AND dataPartenza >= ? AND dataPartenza <= ? order by dataPartenza";
+			query = "select * from tratte where s_partenza = ? AND s_arrivo = ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
 			
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -213,8 +213,8 @@ public class RouteDaoJDBC implements RouteDao{
 				Route rt = new Route();
 				rt.setCod(rs.getLong("cod"));
 				rt.setAgency(rs.getString("azienda"));
-				String[] dataPartenza = rs.getString("dataPartenza").split("T");
-				String[] dataArrivo = rs.getString("dataArrivo").split("T");
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				rt.setDataPartenza(dataPartenza[0]);
 				rt.setDepartureTime(dataPartenza[1]);
 				rt.setDestinationS(rs.getString("s_arrivo"));

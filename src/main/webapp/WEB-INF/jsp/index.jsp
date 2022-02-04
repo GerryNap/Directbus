@@ -4,11 +4,12 @@
 
 <!doctype html>
 <html lang="it">
-<head>
-<%@include file="includes/import.jsp"%>
-<script src="/js/main.js"></script>
-<title>Directbus</title>
-</head>
+	<head>
+		<%@include file="includes/import.jsp"%>
+		
+		<script src="/js/main.js"></script>
+		<title>Directbus</title>
+	</head>
 
 <body>
 	<%@include file="includes/navbar.jsp"%>
@@ -40,6 +41,9 @@
 					id="search">Cerca</button>
 			</div>
 		</form>
+		<div class="container mt-3">
+			<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
+		</div>
 	</section>
 
 	<hr>

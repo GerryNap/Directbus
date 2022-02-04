@@ -27,11 +27,10 @@ public class SearchController {
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
-		HttpStatus status = HttpStatus.ACCEPTED;
 		
+		HttpStatus status = HttpStatus.OK;
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
 		session.setAttribute("routes", routes);
-		
 		return new ResponseEntity<String>("Lista", status);
 	}
 	

@@ -1,0 +1,83 @@
+#search{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+#search:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+#orderByPrice{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#orderByPrice:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+#orderByData{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#orderByData:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+#orderByDuration{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#orderByDuration:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+#orderByTime{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#orderByTime:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+
+
+#buyButton{
+	width: 100%;
+	border-radius: 0;
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+	font-size: 115%;
+}
+
+#buyButton:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
+}
+
+#card{
+	width: 18rem;
+	border: 2px solid black;
+}

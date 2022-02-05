@@ -9,6 +9,7 @@
 		
 		<script src="/js/main.js"></script>
 		<title>Directbus</title>
+		<link href="css/index.css" rel="stylesheet" />
 	</head>
 
 <body>
@@ -74,7 +75,7 @@
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
 				<c:forEach var="route" items="${routes}">
-					<form method="get" action="buyTicket" class="card me-5 mt-3" style="width: 18rem;">
+					<form method="get" action="buyTicket" class="card me-5 mt-3" id="card">
 						<div class="card-body">
 							<input type="hidden" name="agency" value="${route.agency}">
 							<h5 class="card-title">${route.agency}</h5>
@@ -95,7 +96,7 @@
 							
 							<div>
 								<input type="hidden" name="price" value="${route.price}">
-								<p class="card-text">${route.price}€<span><button type="submit" class="rounded-pill btn btn-primary">Acquista</button></span></p>
+								<button type="submit" class="btn" id="buyButton">Acquista<p class="card-text">${route.price}€</p></button>
 							</div>
 							
 							<input type="hidden" name="passengers" value="${route.nBiglietti}">

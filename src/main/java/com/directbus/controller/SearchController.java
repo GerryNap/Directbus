@@ -26,6 +26,7 @@ public class SearchController {
 	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
+<<<<<<< Updated upstream
 	public ResponseEntity<ArrayList<Route>> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
 		if(routes.size() == 0) {
@@ -33,6 +34,15 @@ public class SearchController {
 		} else {
 			session.setAttribute("routes", routes);
 			return new ResponseEntity<ArrayList<Route>>(routes, HttpStatus.OK);
+=======
+	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
+		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
+		if(routes.size() == 0) {
+			return new ResponseEntity<String>("No routes found", HttpStatus.CONFLICT);
+		} else {
+			session.setAttribute("routes", routes);
+			return new ResponseEntity<String>("Found " + routes.size() + " routes", HttpStatus.OK);
+>>>>>>> Stashed changes
 		}
 	}
 	

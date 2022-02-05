@@ -1,21 +1,3 @@
-/*function getStation() {
-	
-	console.log("osucgdsc");
-	let text = $("#stazionePartenza").val();
-	
-	$.ajax({
-		type : "GET",
-		contentType : "application/json",
-		url : "getStation",
-        data : text,
-        success: function(data) {
-			console.log(data);
-		}
-	});
-}*/
-
-
-
 var routes;
 var orderedRoutes;
 
@@ -56,8 +38,6 @@ $(document).ready(
         $("#search-form").on("submit", function(event) {
             event.preventDefault();
             ajaxLoginPost();
-            
-            
             
             var price = document.getElementsByName("price");
             var data = document.getElementsByName("data");

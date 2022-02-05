@@ -193,18 +193,19 @@ public class RouteDaoJDBC implements RouteDao{
 		
 		String query;
 		if(route.getDataPartenza().equals(""))
-			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? order by data_partenza";
+			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? AND n_nbiglietti >= ? order by data_partenza";
 		else
-			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
+			query = "select * from tratte t, utentiaziende u where t.azienda = u.email AND s_partenza = ? AND s_arrivo = ? AND n_nbiglietti >= ? AND data_partenza >= ? AND data_partenza <= ? order by data_partenza";
 			
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
 			
 				st.setString(1, route.getStartS());
 				st.setString(2, route.getDestinationS());
+				st.setInt(3, route.getnBiglietti());
 				if(!route.getDataPartenza().equals("")) {
-					st.setString(3, route.getDataPartenza()+"T00:00");
-					st.setString(4, route.getDataPartenza()+"T23:59");
+					st.setString(4, route.getDataPartenza()+"T00:00");
+					st.setString(5, route.getDataPartenza()+"T23:59");
 				}
 				
 				
@@ -219,7 +220,7 @@ public class RouteDaoJDBC implements RouteDao{
 				rt.setDepartureTime(dataPartenza[1]);
 				rt.setDestinationS(rs.getString("s_arrivo"));
 				rt.setStartS(rs.getString("s_partenza"));
-				rt.setnBiglietti(rs.getInt("n_nbiglietti"));
+				rt.setnBiglietti(route.getnBiglietti());
 				rt.setDataArrivo(dataArrivo[0]);
 				rt.setArrivalTime(dataArrivo[1]);
 				rt.setPrice(rs.getFloat("prezzo"));

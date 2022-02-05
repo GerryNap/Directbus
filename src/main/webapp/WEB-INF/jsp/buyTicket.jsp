@@ -32,7 +32,7 @@
 <title>DirectBus</title>
 </head>
 <body id="body">
-	<%@include file="includes/header.jsp"%>
+	<%@include file="includes/navbar.jsp"%>
 	<script src="/js/buyTicket.js"></script>
 	<form id="register-form" class="col-6 col-6 mx-auto position-relative">
 		<div class="row">
@@ -85,8 +85,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- LO FA JAVASCRIPT -->
-				<c:forEach begin="2" end="3" varStatus="loop">
+				<c:forEach begin="2" end="${param.passengers}" varStatus="loop">
 					<br>
 					<h5 id="passeggero${loop.index}"></h5>
 					<div class="row">
@@ -126,25 +125,25 @@
 				<h1 style="color: white; text-align: center;">Il tuo viaggio</h1>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="white-space: nowrap;">${param.orarioPartenza}</label>
+						<label style="white-space: nowrap;">${param.departureTime}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="white-space: nowrap;">${param.stazionePartenza}</label>
+						<label style="white-space: nowrap;">${param.startStation}</label>
 					</div>
 				</div>
 				<br>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-						<label style="white-space: nowrap;">${param.orarioArrivo}</label>
+						<label style="white-space: nowrap;">${param.arrivalTime}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
 						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-						<label style="white-space: nowrap;">${param.stazioneArrivo}</label>
+						<label style="white-space: nowrap;">${param.destinationStation}</label>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -152,10 +151,10 @@
 
 						<i
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
-							style="color: yellow;"><label>07:30<i
+							style="color: yellow;"><label>${param.departureTime} <i
 								class="bi bi-people-fill"
 								style="color: yellow;"> <label>
-										${param.passeggeri} <label> Passeggeri</label>
+										${param.passengers} <label> Passeggeri</label>
 								</label></i></label></i>
 
 					</div>
@@ -169,22 +168,21 @@
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
 
-									<label style="white-space: nowrap;">${param.stazionePartenza}
+									<label style="white-space: nowrap;">${param.startStation}
 										<i class="bi bi-arrow-right" style="color: yellow;"></i> <label
-										style="white-space: nowrap;">${param.stazioneArrivo}</label>
+										style="white-space: nowrap;">${param.destinationStation}</label>
 									</label>
 								</div>
 
 							</div>
 							<div id="containerPasseggeri">
-								<!-- LO FA JAVASCRIPT -->
-								<c:forEach begin="1" end="3" varStatus="loop">
+								<c:forEach begin="1" end="${param.passengers}" varStatus="loop">
 									<div class="row">
 										<div class="col">
 											<label id="Passeggero${loop.index}"></label>
 										</div>
 										<div class="col">
-											<label id="Prezzo${loop.index}"></label>
+											<label id="Prezzo${loop.index}">${param.price} EUR</label>
 										</div>
 									</div>
 								</c:forEach>
@@ -194,7 +192,7 @@
 										<label>Totale:</label>
 									</div>
 									<div class="col">
-										<label>150,00 EUR</label>
+										<label id="prezzoTotale"></label>
 									</div>
 								</div>
 							</div>

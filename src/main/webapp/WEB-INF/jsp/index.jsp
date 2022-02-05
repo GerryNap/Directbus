@@ -26,14 +26,15 @@
 			<div class="row justify-content-center align-items-center">
 				<input type="text" placeholder="Partenza"
 					class="col-12 col-sm-12 col-md-5 me-3 mt-2 rounded-pill"
-					id="startStation" required> <input type="text"
+					id="startStation"  autocomplete="off" required> 
+				<input type="text"
 					placeholder="Arrivo"
-					class="col-12 col-sm-12 col-md-5 mt-2 rounded-pill" id="endStation"
+					class="col-12 col-sm-12 col-md-5 mt-2 rounded-pill" id="endStation" autocomplete="off"
 					required> 
-				<input type="date" class="col-12 col-sm-12 col-md-4 me-2 mt-2 rounded-pill" id="date">
+				<input type="date" class="col-12 col-sm-12 col-md-4 me-2 mt-2 rounded-pill" id="date" autocomplete="off">
 				<input type="number" min="1" placeholder="Biglietti"
 					class="col-12 col-sm-12 col-md-2 me-2 mt-2 rounded-pill"
-					id="passengers" required>
+					id="passengers" autocomplete="off" required>
 				<button type="submit"
 					class="btn btn-warning col-12 col-sm-12 col-md-4 mt-2 rounded-pill"
 					id="search">Cerca</button>
@@ -50,16 +51,16 @@
 	<section id="filters">
 		<div class="container mt-3">
 			<div class="row justify-content-center align-items-center">
-				<button type="button"
+				<button type="button" id="orderByPrice" onclick="sortByPrice()"
 					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
 					disabled>Prezzo</button>
-				<button type="button"
+				<button type="button" id="orderByData" onclick="sortByDate()"
 					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
 					disabled>Data</button>
-				<button type="button"
+				<button type="button" id="orderByDuration" onclick="sortByDuration()"
 					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
 					disabled>Durata</button>
-				<button type="button"
+				<button type="button" id="orderByTime" onclick="sortByTime()"
 					class="btn btn-warning col-12 col-sm-12 col-md-2 rounded-pill"
 					disabled>Orario partenza</button>
 			</div>
@@ -71,16 +72,33 @@
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
 				<c:forEach var="route" items="${routes}">
-					<div class="card me-5 mt-3" style="width: 18rem;">
+					<form method="get" action="buyTicket" class="card me-5 mt-3" style="width: 18rem;">
 						<div class="card-body">
+							<input type="hidden" name="agency" value="${route.agency}">
 							<h5 class="card-title">${route.agency}</h5>
+							
+							<input type="hidden" name="startDate" value="${route.dataPartenza}">
 							<p class="card-text">Partenza: ${route.dataPartenza}</p>
+							
+							<input type="hidden" name="startStation" value="${route.startS}">
+							<input type="hidden" name="departureTime" value="${route.departureTime}">
 							<p class="card-text">${route.startS} - ${route.departureTime}</p>
+							
+							<input type="hidden" name="arrivalDate" value="${route.dataArrivo}">
 							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
+							
+							<input type="hidden" name="destinationStation" value="${route.destinationS}">
+							<input type="hidden" name="arrivalTime" value="${route.arrivalTime}">
 							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
-							<p class="card-text">${route.price}  <span><a href="buyTicket" class="rounded-pill btn btn-primary">Acquista</a></span></p>
+							
+							<div>
+								<input type="hidden" name="price" value="${route.price}">
+								<p class="card-text">${route.price}€<span><button type="submit" class="rounded-pill btn btn-primary">Acquista</button></span></p>
+							</div>
+							
+							<input type="hidden" name="passengers" value="${route.nBiglietti}">
 						</div>
-					</div>
+					</form>
 				</c:forEach>
 				<c:remove var="routes" scope="session"></c:remove>
 			</div>

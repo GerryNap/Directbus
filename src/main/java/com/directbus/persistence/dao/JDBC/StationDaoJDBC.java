@@ -146,13 +146,14 @@ public class StationDaoJDBC implements StationDao{
 	@Override
 	public ArrayList<String> getStationsList(String text) {
 		ArrayList<String> stations = new ArrayList<String>();
-		text.toUpperCase();
+		text = text.toUpperCase();
 		
-		String query = "SELECT nome FROM stazioni WHERE nome LIKE '"+ text +"%'";
+		String query = "SELECT nome FROM stazioni WHERE nome LIKE ?";
 		try {
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery(query);
-			while (rs.next()) 
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, text+'%');
+			ResultSet rs = st.executeQuery();
+			while (rs.next())
 				stations.add(rs.getString("nome"));
 		} catch (SQLException e) {
 			e.printStackTrace();

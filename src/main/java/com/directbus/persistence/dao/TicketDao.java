@@ -1,8 +1,11 @@
 package com.directbus.persistence.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.directbus.model.Route;
 import com.directbus.model.Ticket;
+import com.directbus.model.User;
 
 public interface TicketDao {
 
@@ -10,5 +13,6 @@ public interface TicketDao {
 	public Ticket findByPrimaryKey(long id);
 	public boolean saveOrUpdate(Ticket user);
 	public boolean delete(Ticket user);
+	public ArrayList<Route> getReservaetion(User attribute);
 	
 }

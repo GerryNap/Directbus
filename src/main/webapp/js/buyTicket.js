@@ -38,7 +38,7 @@ function generatePayment(value, url) {
 	paypal.Buttons({
 		style: {
 			layout: 'horizontal',
-			color: 'blue'
+			color: 'gold'
 		},
 		createOrder: function(data, actions) {
 	      return actions.order.create({

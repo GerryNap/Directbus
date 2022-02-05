@@ -27,7 +27,6 @@ label {
 
 #Nome, #Cognome, #numeroTelefono, #Email, #Telefono {
 	border:1px solid black;
-	color:white;
 	box-shadow: inset 0px 0px 0px 0px;
 }
 

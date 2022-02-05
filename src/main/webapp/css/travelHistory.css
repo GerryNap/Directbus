@@ -1,5 +1,20 @@
 #card-travel-history{
-	
 	border:1px solid black;
 	border-radius:10px;
+}
+
+.card-text{
+	margin: 0px 0px 16px 0px;
+}
+
+#recensione{
+	white-space: nowrap;
+	background-color: #FFCC00;
+	color:black;
+}
+
+#recensione:hover{
+	background-color: #171717;
+	color:  #FFCC00;
+	border: 1px solid #FFCC00;
 }

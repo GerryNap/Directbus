@@ -14,5 +14,6 @@ public interface TicketDao {
 	public boolean saveOrUpdate(Ticket user);
 	public boolean delete(Ticket user);
 	public ArrayList<Route> getReservaetion(User attribute);
+	ArrayList<Route> getTravelHistory(User user);
 	
 }

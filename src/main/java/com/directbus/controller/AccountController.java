@@ -79,9 +79,16 @@ public class AccountController {
     	activeRoutes = DatabaseHandler.getInstance().getTicketDao().getReservaetion((User)session.getAttribute("user"));
     	session.setAttribute("activeTicket", activeRoutes);
     	
-    	for(int i=0; i<activeRoutes.size(); ++i) {
-    		System.out.println(activeRoutes.get(i));
-    	}
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
+    }
+    
+    @PostMapping("/getTravelHistory")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> getTravelHistory(HttpSession session) {
+    	ArrayList<Route> th;
+    	
+    	th = DatabaseHandler.getInstance().getTicketDao().getTravelHistory((User)session.getAttribute("user"));
+    	session.setAttribute("travelHistory", th);
     	
     	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
     }

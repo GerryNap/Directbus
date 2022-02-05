@@ -70,8 +70,8 @@ public class TicketDaoJDBC implements TicketDao{
 			try {
 				String query = "INSERT INTO biglietti (tratta, cliente) VALUES (?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setLong(2, ticket.getRouteCod());
-				st.setString(3, ticket.getClientEmail());
+				st.setLong(1, ticket.getRouteCod());
+				st.setString(2, ticket.getClientEmail());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.directbus.model.Ticket;
+import com.directbus.persistence.DatabaseHandler;
 
 @Controller
 public class TicketController {
@@ -23,8 +24,8 @@ public class TicketController {
 	@PostMapping(value = "/addTicket", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> addTicket(@RequestBody @Valid Ticket ticket){
-		System.out.println(ticket.getClientEmail());
-		System.out.println(ticket.getRouteCod());
+		
+		DatabaseHandler.getInstance().getTicketDao().saveOrUpdate(ticket);
 		
 		return new ResponseEntity<String>("Ciao", HttpStatus.OK);
 	}

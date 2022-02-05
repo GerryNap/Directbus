@@ -24,9 +24,11 @@
 		</section>
 		<section id="first-destination">
 		<div class="row">
-			 <div class="first-container col-md-6">
-			 	<div class="text">
-				<h4 class="mb-3">Badolato</h4>
+				<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+					 <img src="images/badolato.jpg" alt="badolato" id="image">
+				</div>
+			 	<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12" id="text">
+				<h4>Badolato</h4>
 				<p>La<strong> città degli innamorati</strong>, questo l’epiteto con cui è conosciuta in tutto il mondo 
 				Badolato, sorge sulle rive dell’Adige, nel punto in cui il fiume incontra la Pianura
 				Padana. Inserita nel <strong>World Heritage List dell’UNESCO</strong>, la città di Badolato ha alle 
@@ -38,32 +40,6 @@
 				<p><br></p>
 				<p>Sei pronto per andare alla scoperta di <strong>cosa vedere a Badolato</strong>?</p>
 				</div>
-				<div class="col-md-6">
-					 <img src="images/badolato.jpg" alt="badolato">
-				</div>
-			</div>
 		</div>
-		</section>
-		<section id="second-destination">
-			
-		</section>
-		<section id="third-destination">
-			
-		</section>
-		<section id="fourth-destination">
-			
-		</section>
-		<section id="fifth-destination">
-			
-		</section>
-		<section id="sixth-destination">
-			
-		</section>
-		<section id="seventh-destination">
-			
-		</section>
-		<section id="octave-destination">
-			
-		</section>
   </body>
 </html>

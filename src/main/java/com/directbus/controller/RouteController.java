@@ -21,10 +21,6 @@ public class RouteController {
 	public String publicRoute() {
 		return "publicRoute";
 	}
-	@GetMapping("/discover")
-	public String discover() {
-		return "discover";
-	}
 	@PostMapping(value = "/doRoute", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRoute(HttpServletRequest req, @RequestBody @Valid Route route) {

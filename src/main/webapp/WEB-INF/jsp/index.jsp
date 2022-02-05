@@ -31,12 +31,12 @@
 					id="startStation" required> <input type="text"
 					placeholder="Arrivo"
 					class="col-12 col-sm-12 col-md-5 mt-2 rounded-pill" id="endStation"
-					required> <input type="date" placeholder="Data"
-					class="col-12 col-sm-12 col-md-4 me-2 mt-2 rounded-pill" id="date">
+					required> 
+				<input type="date" class="col-12 col-sm-12 col-md-4 me-2 mt-2 rounded-pill" id="date">
 				<input type="number" min="1" placeholder="Biglietti"
 					class="col-12 col-sm-12 col-md-2 me-2 mt-2 rounded-pill"
 					id="passengers" required>
-				<button type="button"
+				<button type="submit"
 					class="btn btn-warning col-12 col-sm-12 col-md-4 mt-2 rounded-pill"
 					id="search">Cerca</button>
 			</div>
@@ -80,7 +80,7 @@
 							<p class="card-text">${route.startS} - ${route.departureTime}</p>
 							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
 							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
-							<a href="buyTicket" class="rounded-pill btn btn-primary">Acquista</a>
+							<p class="card-text">${route.price}  <span><a href="buyTicket" class="rounded-pill btn btn-primary">Acquista</a></span></p>
 						</div>
 					</div>
 				</c:forEach>

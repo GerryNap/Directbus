@@ -54,7 +54,7 @@
 					</div>													
 					<br><br>
 					<div id="register">
-						<font color="white">Non hai un account?</font>
+						<font>Non hai un account?</font>
 						<a href="chooseRegistrationType"> Registrati qui</a>
 					</div>
 				</center>	

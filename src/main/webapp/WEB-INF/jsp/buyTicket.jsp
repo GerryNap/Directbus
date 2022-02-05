@@ -44,7 +44,7 @@
 				<div class="form-floating mb-3">
 					<input type="hidden" id="sessionEmail" value="${user.email}">
 					<input type="hidden" id="sessionName" value="${user.firstName}">
-					<input type="hidden" id="sessionLast" value="${user.lastName}">
+					<input type="hidden" id="sessionLastName" value="${user.lastName}">
 					<input type="text" class="form-control" id="Telefono"
 						placeholder="Telefono" required> <label for="telefono">Telefono</label>
 				</div>
@@ -86,15 +86,44 @@
 					</div>
 				</div>
 				<!-- LO FA JAVASCRIPT -->
+				<c:forEach begin="2" end="3" varStatus="loop">
+					<br>
+					<h5 id="passeggero${loop.index}"></h5>
+					<div class="row">
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="Nome"
+									placeholder="Nome" required> <label for="Nome">Nome</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="Cognome"
+									placeholder="Cognome" required> <label for="Cognome">Cognome</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="Telefono"
+									placeholder="Telefono" required> <label for="Telefono">Telefono</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="Email"
+									placeholder="Email" required> <label for="Email">Email</label>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
 			</div> <!-- FINE COLONNA SINISTRA -->
 			
 
 			<!-- INSERIRE COLONNA A DESTRA -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-				<center>
-					<h1 style="color: white;">Il tuo viaggio</h1>
-				</center>
-
+				<h1 style="color: white; text-align: center;">Il tuo viaggio</h1>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
 						<label style="white-space: nowrap;">${param.orarioPartenza}</label>
@@ -149,6 +178,25 @@
 							</div>
 							<div id="containerPasseggeri">
 								<!-- LO FA JAVASCRIPT -->
+								<c:forEach begin="1" end="3" varStatus="loop">
+									<div class="row">
+										<div class="col">
+											<label id="Passeggero${loop.index}"></label>
+										</div>
+										<div class="col">
+											<label id="Prezzo${loop.index}"></label>
+										</div>
+									</div>
+								</c:forEach>
+								<hr style="color: #FFCC00">
+								<div class="row">
+									<div class="col">
+										<label>Totale:</label>
+									</div>
+									<div class="col">
+										<label>150,00 EUR</label>
+									</div>
+								</div>
 							</div>
 							<div id="pagamento">
 								<hr style="color: #FFCC00;">

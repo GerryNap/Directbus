@@ -8,7 +8,7 @@ $(document).ready(
 		const passeggeri = urlParams.get('passeggeri');
 		const prezzoBiglietto = urlParams.get('prezzo');
 
-		for (let i = 1; i < passeggeri; i++) {
+		/*for (let i = 1; i < passeggeri; i++) {
 			var h5 = document.createElement("h5"); h5.innerHTML = "Passeggero " + (i + 1);
 			document.getElementById("colonnaSinistra").appendChild(h5);
 			createRow("Nome", "Cognome");
@@ -16,7 +16,18 @@ $(document).ready(
 		}
 		creaRiepilogo(passeggeri, prezzoBiglietto);
 		var p = prezzo(prezzoBiglietto, passeggeri);
-		generatePayment(p, urlParams);
+		generatePayment(150, urlParams);*/
+		for (let i = 2; i <= 3; i++) {
+			var h5 = document.getElementById("passeggero"+i);
+			h5.innerHTML = "Passeggero " + i;
+		}
+		
+		for(let i = 1; i<=3; i++) {
+			var passeggero = document.getElementById("Passeggero"+i);
+			passeggero.innerHTML = "Passeggero " + i;
+			var prezzo = document.getElementById("Prezzo"+i);
+			prezzo.innerHTML = "50,00 EUR";
+		}
 	}
 )
 
@@ -114,12 +125,8 @@ function prezzo(prezzoBiglietto, passeggeri) {
 
 function checkMe() {
 	var cb = document.getElementById("acquirente");
-	var email = document.getElementById("sessionEmail");
-	var nome = document.getElementById("sessionName");
-	var cognome = document.getElementById("sessionCognome");
+
 	if (cb.checked == false) {
-		//createRow("Nome", "Cognome");
-		//createRow("Telefono", "Email");
 		$("#nascosto").show();
 		$("#nascosto2").show();
 		$("#idPasseggero").show();
@@ -130,7 +137,7 @@ function checkMe() {
 	}
 }
 
-function createRow(placeholder1, placeholder2) {
+/*function createRow(placeholder1, placeholder2) {
 	var row = document.createElement("div"); row.setAttribute("class", "row");
 	var col1 = document.createElement("div"); col1.setAttribute("class", "col-md");
 	var form1 = document.createElement("div"); form1.setAttribute("class", "form-floating mb-3");
@@ -160,5 +167,5 @@ function createRow(placeholder1, placeholder2) {
 	row.appendChild(col2);
 
 	document.getElementById("colonnaSinistra").appendChild(row);
-}
+}*/
 

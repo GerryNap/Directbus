@@ -17,7 +17,7 @@
     <title>DirectBus</title>
   </head>
 	<body id="body">
-		<%@include file="includes/header.jsp" %>
+		<%@include file="includes/navbar.jsp" %>
 		<script src="/js/businessRegister.js"></script>
 	    
 		<div class="container mt-5 " id="firstContainer">

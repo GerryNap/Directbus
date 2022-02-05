@@ -50,7 +50,7 @@
 			</ul>	
 			<c:choose>
 	        	<c:when test="${user == null}">
-	        		<a class="btn btn-dark ms-auto" role="button" href="../login">Sin In</a>
+	        		<a class="btn btn-dark ms-auto" role="button" href="../login">Sign In</a>
 	        	</c:when>
 	        	<c:otherwise>
 	        		<a class="btn btn-dark ms-auto" role="button" href="../myProfile">ACCOUNT</a>

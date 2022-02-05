@@ -97,6 +97,7 @@
 								<button type="submit" class="btn" id="buyButton">Acquista<p class="card-text">${route.price}€</p></button>
 							</div>
 							
+							<input type="hidden" name="codice" value="${route.cod}">
 							<input type="hidden" name="passengers" value="${route.nBiglietti}">
 						</div>
 					</form>

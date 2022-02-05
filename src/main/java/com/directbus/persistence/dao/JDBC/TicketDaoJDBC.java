@@ -68,38 +68,18 @@ public class TicketDaoJDBC implements TicketDao{
 		if (!existTicket(ticket)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO biglietti "
-						+ "VALUES (?, ?, ?)";
+				String query = "INSERT INTO biglietti (tratta, cliente) VALUES (?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
-				st.setLong(1, ticket.getId());
 				st.setLong(2, ticket.getRouteCod());
 				st.setString(3, ticket.getClientEmail());
 				st.executeUpdate();
 				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-		} else {
-			//UPDATE
-			try {
-				String query = "UPDATE biglietti "
-						+ "set tratta = ?, cliente = ?"
-						+ "where id = ?";
-				PreparedStatement st = conn.prepareStatement(query);
-				st.setLong(1, ticket.getId());
-				st.setLong(2, ticket.getRouteCod());
-				st.setString(3, ticket.getClientEmail());
-				st.executeUpdate();
-				
-			} catch (SQLException e) {
-				
 				e.printStackTrace();
 				return false;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override

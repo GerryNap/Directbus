@@ -1,5 +1,7 @@
 package com.directbus.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.directbus.model.Route;
+import com.directbus.model.User;
 import com.directbus.persistence.DatabaseHandler;
 
 import net.minidev.json.JSONObject;
@@ -65,5 +69,27 @@ public class AccountController {
     	} else {
         	return new ResponseEntity<String>("Password errata", HttpStatus.CONFLICT);
     	}
+    }
+    
+    @PostMapping("/getReserveation")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> getReserveation(HttpSession session) {
+    	ArrayList<Route> activeRoutes;
+    	
+    	activeRoutes = DatabaseHandler.getInstance().getTicketDao().getReservaetion((User)session.getAttribute("user"));
+    	session.setAttribute("activeTicket", activeRoutes);
+    	
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
+    }
+    
+    @PostMapping("/getTravelHistory")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> getTravelHistory(HttpSession session) {
+    	ArrayList<Route> th;
+    	
+    	th = DatabaseHandler.getInstance().getTicketDao().getTravelHistory((User)session.getAttribute("user"));
+    	session.setAttribute("travelHistory", th);
+    	
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
     }
 }

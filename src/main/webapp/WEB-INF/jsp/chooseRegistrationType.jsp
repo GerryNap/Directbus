@@ -16,7 +16,7 @@
 </head>
 
 <body id="body">
-	<%@include file="includes/header.jsp"%>
+	<%@include file="includes/navbar.jsp"%>
 	<div class="container mt-5">
 		<form id="register-form"
 			class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">

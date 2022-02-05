@@ -6,29 +6,20 @@
 	<h1>LE MIE PRENOTAZIONI</h1>
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
-				<!--<c:forEach var="route" items="${routes}">
+				<c:forEach var="at" items="${activeTicket}">
 					<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
 						<div class="card-body">
-							<h5 class="card-title">${route.agency}</h5>
-							<p class="card-text">Partenza: ${route.dataPartenza}</p>
-							<p class="card-text">${route.startS} - ${route.departureTime}</p>
-							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
-							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
+							<h5 class="card-title">Destinazione: ${at.destinationS}</h5>
+							<p class="card-text">Stazione di partenza: ${at.startS}</p>
+							<p class="card-text">Partenza: ${at.dataPartenza}</p>
+							<p class="card-text">${at.startS} - ${at.departureTime}</p>
+							<p class="card-text">Arrivo: ${at.dataArrivo}</p>
+							<p class="card-text">${at.destinationS} - ${at.arrivalTime}</p>
 							<span class="badge bg-success">IN CORSO</span>
 						</div>
 					</div>
 				</c:forEach>
-				<c:remove var="routes" scope="session"></c:remove> -->
-				<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
-						<div class="card-body">
-							<h5 class="card-title">AGENZIA</h5>
-							<p class="card-text">Partenza: ---</p>
-							<p class="card-text">H P - H A</p>
-							<p class="card-text">Arrivo: ---</p>
-							<p class="card-text">DESTINAZIONE - TEMPO D'ARRIVO</p>
-							<span class="badge bg-success">IN CORSO</span>
-						</div>
-					</div>
+				<c:remove var="activeTicket" scope="session"></c:remove>
 			</div>
 		</div>
 </section>

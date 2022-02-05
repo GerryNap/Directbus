@@ -8,31 +8,20 @@
 	<h1 style="margin-left:50%;">STORICO PRENOTAZIONI</h1>
 	<div class="container">
 		<div class="row justify-content-center align-items-center">
-			<!--<c:forEach var="route" items="${routes}">
-					<div class="card me-5 mt-3" style="width: 18rem;" id="card-travel-history">
+				<c:forEach var="th" items="${travelHistory}">
+					<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
 						<div class="card-body">
-							<h5 class="card-title">${route.agency}</h5>
-							<p class="card-text">Partenza: ${route.dataPartenza}</p>
-							<p class="card-text">${route.startS} - ${route.departureTime}</p>
-							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
-							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
+							<h5 class="card-title">Destinazione: ${th.destinationS}</h5>
+							<p class="card-text">Stazione di partenza: ${th.startS}</p>
+							<p class="card-text">Partenza: ${th.dataPartenza}</p>
+							<p class="card-text">${th.startS} - ${th.departureTime}</p>
+							<p class="card-text">Arrivo: ${th.dataArrivo}</p>
+							<p class="card-text">${th.destinationS} - ${th.arrivalTime}</p>
 							<span class="badge bg-danger">TERMINATO</span>
 						</div>
 					</div>
 				</c:forEach>
-				<c:remove var="routes" scope="session"></c:remove> -->
-			<div class="card me-5 mt-3" style="width: 18rem;"
-				id="card-travel-history">
-				<div class="card-body">
-					<h5 class="card-title">AGENZIA</h5>
-					<p class="card-text">Partenza: ---</p>
-					<p class="card-text">H P - H A</p>
-					<p class="card-text">Arrivo: ---</p>
-					<p class="card-text">DESTINAZIONE - TEMPO D'ARRIVO</p>
-					<span class="badge bg-danger">TERMINATO</span>
-				</div>
+				<c:remove var="travelHistory" scope="session"></c:remove>
 			</div>
-
-		</div>
 	</div>
 </section>

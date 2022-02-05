@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.directbus.model.Route;
 import com.directbus.model.Ticket;
+import com.directbus.model.User;
 import com.directbus.persistence.dao.TicketDao;
 
 public class TicketDaoJDBC implements TicketDao{
@@ -129,7 +131,88 @@ public class TicketDaoJDBC implements TicketDao{
 			e.printStackTrace();
 		}
 		return false;
-		
 	}
+
+	@Override
+	public ArrayList<Route> getReservaetion(User user) {
+		
+		LocalDate now = LocalDate.now();
+		String month = "" + now.getMonthValue();
+		String day = "" + now.getMonthValue();
+		
+		if(now.getMonthValue()<10)
+			month = "0" + now.getMonthValue();
+		if(now.getDayOfMonth()<10)
+			day = "0" + now.getDayOfMonth();
+		
+		String date = now.getYear() + "-" + month + "-" + day;
+		
+		
+		String query = "SELECT * FROM biglietti b, tratte t where b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo >= ?";
+		ArrayList<Route> rts = new ArrayList<Route>();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getEmail());
+			st.setString(2, date+"%");
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Route r = new Route();
+				r.setDestinationS(rs.getString("s_partenza"));
+				r.setStartS(rs.getString("s_arrivo"));
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				r.setDataPartenza(dataPartenza[0]);
+				r.setDepartureTime(dataPartenza[1]);
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
+				r.setDataArrivo(dataArrivo[0]);
+				r.setArrivalTime(dataArrivo[1]);
+				rts.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rts;
+	}
+	
+	@Override
+	public ArrayList<Route> getTravelHistory(User user) {
+		
+		LocalDate now = LocalDate.now();
+		String month = "" + now.getMonthValue();
+		String day = "" + now.getMonthValue();
+		
+		if(now.getMonthValue()<10)
+			month = "0" + now.getMonthValue();
+		if(now.getDayOfMonth()<10)
+			day = "0" + now.getDayOfMonth();
+		
+		String date = now.getYear() + "-" + month + "-" + day;
+		
+		
+		String query = "SELECT * FROM biglietti b, tratte t where b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo < ?";
+		ArrayList<Route> rts = new ArrayList<Route>();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getEmail());
+			st.setString(2, date+"%");
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Route r = new Route();
+				r.setDestinationS(rs.getString("s_partenza"));
+				r.setStartS(rs.getString("s_arrivo"));
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				r.setDataPartenza(dataPartenza[0]);
+				r.setDepartureTime(dataPartenza[1]);
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
+				r.setDataArrivo(dataArrivo[0]);
+				r.setArrivalTime(dataArrivo[1]);
+				rts.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rts;
+	}
+	
+	
 
 }

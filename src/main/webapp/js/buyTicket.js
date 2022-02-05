@@ -5,32 +5,34 @@ $(document).ready(
 		$("#idPasseggero").hide();
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
-		const passeggeri = urlParams.get('passeggeri');
-		const prezzoBiglietto = urlParams.get('prezzo');
+		const passeggeri = urlParams.get('passengers');
+		const prezzoBiglietto = urlParams.get('price');
 
-		/*for (let i = 1; i < passeggeri; i++) {
-			var h5 = document.createElement("h5"); h5.innerHTML = "Passeggero " + (i + 1);
-			document.getElementById("colonnaSinistra").appendChild(h5);
-			createRow("Nome", "Cognome");
-			createRow("Telefono", "Email");
-		}
-		creaRiepilogo(passeggeri, prezzoBiglietto);
-		var p = prezzo(prezzoBiglietto, passeggeri);
-		generatePayment(150, urlParams);*/
-		for (let i = 2; i <= 3; i++) {
+		
+		var prezzo = prezzoTotale(passeggeri, prezzoBiglietto);
+		generatePayment(prezzo, urlParams);
+		for (let i = 2; i <= passeggeri; i++) {
 			var h5 = document.getElementById("passeggero"+i);
 			h5.innerHTML = "Passeggero " + i;
 		}
 		
-		for(let i = 1; i<=3; i++) {
-			var passeggero = document.getElementById("Passeggero"+i);
-			passeggero.innerHTML = "Passeggero " + i;
-			var prezzo = document.getElementById("Prezzo"+i);
-			prezzo.innerHTML = "50,00 EUR";
+		//RIEPILOGO ORDINE
+		for (let i = 1; i <=passeggeri; i++) {
+			var label = document.getElementById("Passeggero" + i);
+			label.innerHTML = "Passeggero " + i;
 		}
 	}
 )
 
+function prezzoTotale(passeggeri, prezzoBiglietto) {
+	var prezzoTotale = 0.0;
+	for (let i = 0; i < passeggeri; i++) {
+		prezzoTotale = (+prezzoTotale + +prezzoBiglietto);
+	}
+	
+	document.getElementById("prezzoTotale").innerHTML = prezzoTotale + " EUR";
+	return prezzoTotale;
+}
 
 function generatePayment(value, url) {
 	paypal.Buttons({
@@ -73,7 +75,7 @@ function addTicket(url){
 	});
 }
 
-function creaRiepilogo(passeggeri, prezzoBiglietto) {
+/*function creaRiepilogo(passeggeri, prezzoBiglietto) {
 	for (let i = 0; i < passeggeri; i++) {
 		//Passeggero
 		var row = document.createElement("div"); row.setAttribute("class", "row");
@@ -91,9 +93,9 @@ function creaRiepilogo(passeggeri, prezzoBiglietto) {
 		row.appendChild(col2);
 		document.getElementById("containerPasseggeri").appendChild(row);
 	}
-}
+}*/
 
-function prezzo(prezzoBiglietto, passeggeri) {
+/*function prezzo(prezzoBiglietto, passeggeri) {
 	passeggeri = passeggeri*1;
 	prezzoBiglietto = prezzoBiglietto*1;
 	
@@ -121,7 +123,7 @@ function prezzo(prezzoBiglietto, passeggeri) {
 	if(passeggeri === 0)
 		return prezzoBiglietto;
 	return prezzoTotale;
-}
+}*/
 
 function checkMe() {
 	var cb = document.getElementById("acquirente");

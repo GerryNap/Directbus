@@ -122,13 +122,13 @@
 
 			<!-- INSERIRE COLONNA A DESTRA -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-				<h1 style="color: white; text-align: center;">Il tuo viaggio</h1>
+				<h1 style="color: black; text-align: center;">Il tuo viaggio</h1>
 				<div class="row justify-content-center">
 					<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
 						<label style="white-space: nowrap;">${param.departureTime}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-						<i class="bi bi-geo-fill" style="color: Yellow"></i>
+						<i class="bi bi-geo-fill" style="color: black"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
 						<label style="white-space: nowrap;">${param.startStation}</label>
@@ -140,7 +140,7 @@
 						<label style="white-space: nowrap;">${param.arrivalTime}</label>
 					</div>
 					<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-						<i class="bi bi-geo-alt-fill" style="color: Yellow"></i>
+						<i class="bi bi-geo-alt-fill" style="color: black"></i>
 					</div>
 					<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
 						<label style="white-space: nowrap;">${param.destinationStation}</label>
@@ -151,9 +151,9 @@
 
 						<i
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
-							style="color: yellow;"><label>${param.departureTime} <i
+							style="color: black;"><label>${param.departureTime} <i
 								class="bi bi-people-fill"
-								style="color: yellow;"> <label>
+								style="color: black;"> <label>
 										${param.passengers} <label> Passeggeri</label>
 								</label></i></label></i>
 
@@ -163,13 +163,13 @@
 					<div class="col">
 						<div class="mt-5">
 
-							<h3 style="color: #FFCC00;">Riepilogo ordine</h3>
-							<hr style="color: #FFCC00;">
+							<h3 style="color: #black;">Riepilogo ordine</h3>
+							<hr style="color: #black;">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-8 col-xl-2 col-xxl-2">
 
 									<label style="white-space: nowrap;">${param.startStation}
-										<i class="bi bi-arrow-right" style="color: yellow;"></i> <label
+										<i class="bi bi-arrow-right" style="color: black;"></i> <label
 										style="white-space: nowrap;">${param.destinationStation}</label>
 									</label>
 								</div>
@@ -186,7 +186,7 @@
 										</div>
 									</div>
 								</c:forEach>
-								<hr style="color: #FFCC00">
+								<hr style="color: #black">
 								<div class="row">
 									<div class="col">
 										<label>Totale:</label>
@@ -197,8 +197,8 @@
 								</div>
 							</div>
 							<div id="pagamento">
-								<hr style="color: #FFCC00;">
-								<h3 style="color: #FFCC00;">Checkout</h3>
+								<hr style="color: #black;">
+								<h3 style="color: #black;">Checkout</h3>
 								<div id="paypal-button-container" class="row mt-3"></div>
 							</div>
 						</div>

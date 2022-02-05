@@ -17,9 +17,7 @@
 			<div>
 				<ul>
 					<h6 class="bi bi-phone " style="font-size:20px;">I NOSTRI CONTATTI:</h6>
-					<li>Per info :</li>
-					<a style="font-size: 13px;" href="mailto:info.directbus@gmail.com"><strong>info.directbus@gmail.com</strong></a>
-					<li>Per assistenza :</li>
+					<li>Per info e assistenza:</li>
 					<a style="font-size: 13px;" href="mailto:info.directbus@gmail.com"><strong>info.directbus@gmail.com</strong></a>
 					<li>I nostri social :</li>
 					<a class="bi bi-instagram" style="font-size: 13px;"

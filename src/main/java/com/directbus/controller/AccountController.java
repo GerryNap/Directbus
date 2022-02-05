@@ -92,4 +92,26 @@ public class AccountController {
     	
     	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
     }
+    
+    @PostMapping("/getActiveRoutes")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> getActiveRoutes(HttpSession session) {
+    	ArrayList<Route> activeRoutes;
+    	
+    	activeRoutes = DatabaseHandler.getInstance().getTicketDao().getActiveRoutes((User)session.getAttribute("user"));
+    	session.setAttribute("activeRoutes", activeRoutes);
+    	
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
+    }
+    
+    @PostMapping("/getOldRoutes")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> getOldRoutes(HttpSession session) {
+    	ArrayList<Route> th;
+    	
+    	th = DatabaseHandler.getInstance().getTicketDao().getOldRoutes((User)session.getAttribute("user"));
+    	session.setAttribute("oldRoutes", th);
+    	
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
+    }
 }

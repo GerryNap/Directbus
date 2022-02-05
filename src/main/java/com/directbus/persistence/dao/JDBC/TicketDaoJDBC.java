@@ -214,5 +214,85 @@ public class TicketDaoJDBC implements TicketDao{
 	}
 	
 	
-
+	@Override
+	public ArrayList<Route> getActiveRoutes(User user) {
+		
+		LocalDate now = LocalDate.now();
+		String month = "" + now.getMonthValue();
+		String day = "" + now.getMonthValue();
+		
+		if(now.getMonthValue()<10)
+			month = "0" + now.getMonthValue();
+		if(now.getDayOfMonth()<10)
+			day = "0" + now.getDayOfMonth();
+		
+		String date = now.getYear() + "-" + month + "-" + day;
+		
+		
+		String query = "SELECT * FROM tratte where azienda = ? AND data_arrivo >= ?";
+		ArrayList<Route> rts = new ArrayList<Route>();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getEmail());
+			st.setString(2, date+"%");
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Route r = new Route();
+				r.setDestinationS(rs.getString("s_partenza"));
+				r.setStartS(rs.getString("s_arrivo"));
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				r.setDataPartenza(dataPartenza[0]);
+				r.setDepartureTime(dataPartenza[1]);
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
+				r.setDataArrivo(dataArrivo[0]);
+				r.setArrivalTime(dataArrivo[1]);
+				r.setAgency(rs.getString("azienda"));
+				rts.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rts;
+	}
+	
+	@Override
+	public ArrayList<Route> getOldRoutes(User user) {
+		
+		LocalDate now = LocalDate.now();
+		String month = "" + now.getMonthValue();
+		String day = "" + now.getMonthValue();
+		
+		if(now.getMonthValue()<10)
+			month = "0" + now.getMonthValue();
+		if(now.getDayOfMonth()<10)
+			day = "0" + now.getDayOfMonth();
+		
+		String date = now.getYear() + "-" + month + "-" + day;
+		
+		
+		String query = "SELECT * FROM tratte where azienda = ? AND data_arrivo < ?";
+		ArrayList<Route> rts = new ArrayList<Route>();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getEmail());
+			st.setString(2, date+"%");
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Route r = new Route();
+				r.setDestinationS(rs.getString("s_partenza"));
+				r.setStartS(rs.getString("s_arrivo"));
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				r.setDataPartenza(dataPartenza[0]);
+				r.setDepartureTime(dataPartenza[1]);
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
+				r.setDataArrivo(dataArrivo[0]);
+				r.setArrivalTime(dataArrivo[1]);
+				r.setAgency(rs.getString("azienda"));
+				rts.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rts;
+	}
 }

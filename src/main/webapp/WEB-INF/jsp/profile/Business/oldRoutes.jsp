@@ -6,7 +6,7 @@
 	<h1 style="margin-left:50%;">TRATTE TERMINATE</h1>
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
-				<!--<c:forEach var="route" items="${routes}">
+				<c:forEach var="route" items="${oldRoutes}">
 					<div class="card me-5 mt-3" style="width: 18rem;" id="card-old-routes">
 						<div class="card-body">
 							<h5 class="card-title">${route.agency}</h5>
@@ -18,17 +18,7 @@
 						</div>
 					</div>
 				</c:forEach>
-				<c:remove var="routes" scope="session"></c:remove> -->
-				<div class="card me-5 mt-3" style="width: 18rem;" id="card-old-routes">
-						<div class="card-body">
-							<h5 class="card-title">AGENZIA</h5>
-							<p class="card-text">Partenza: ---</p>
-							<p class="card-text">H P - H A</p>
-							<p class="card-text">Arrivo: ---</p>
-							<p class="card-text">DESTINAZIONE - TEMPO D'ARRIVO</p>
-							<span class="badge bg-danger">TERMINATO</span>
-						</div>
-					</div>
+				<c:remove var="routes" scope="session"></c:remove>
 					
 			</div>
 		</div>

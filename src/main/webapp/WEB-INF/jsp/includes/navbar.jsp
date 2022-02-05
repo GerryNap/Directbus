@@ -14,8 +14,7 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link" href="../discover">Scopri</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Partner</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Contatti</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="../aboutUs">About Us</a></li>
 			</ul>
 			<c:choose>
 	        	<c:when test="${user == null}">

@@ -19,6 +19,17 @@ function loadReserveation(){
 	$("#account-summary").hide();
  	$("#reservation").show();
 	window.location.href='#reservation'
+	
+	$.ajax({
+		type: "POST",
+		url: "getReserveation",
+		success: function() {
+			$("#reservation").load(document.URL+'  #reservation');
+		},
+		error: function() {
+			alert("Nessun biglietto attivo trovato", "primary")
+		}
+	});
 }
 
 function loadTravelHistory(){

@@ -8,7 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.joda.time.LocalDate;
+
+import com.directbus.model.Route;
 import com.directbus.model.Ticket;
+import com.directbus.model.User;
 import com.directbus.persistence.dao.TicketDao;
 
 public class TicketDaoJDBC implements TicketDao{
@@ -129,7 +133,33 @@ public class TicketDaoJDBC implements TicketDao{
 			e.printStackTrace();
 		}
 		return false;
-		
 	}
+
+	@Override
+	public ArrayList<Route> getReservaetion(User user) {
+		
+		LocalDate now = new LocalDate();
+		System.out.println(now);
+		
+		String query = "SELECT * FROM biglietti b, tratte t where b.tratta = t.cod AND b.cliente = ?";
+		ArrayList<Route> rts = new ArrayList<Route>();
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, user.getEmail());
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Route r = new Route();
+				r.setDestinationS(rs.getString("s_partenza"));
+				r.setStartS(rs.getString("s_arrivo"));
+				System.out.println(r.getDestinationS());
+				rts.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rts;
+	}
+	
+	
 
 }

@@ -6,14 +6,12 @@
 <html lang="it">
 	<head>
 		<%@include file="includes/import.jsp"%>
-		
 		<script src="/js/main.js"></script>
 		<title>Directbus</title>
 	</head>
 
 <body>
 	<%@include file="includes/navbar.jsp"%>
-
 	<!-- NEW HEADER -->
 	<header>
 		<h1 style="text-align: center" class="mt-5">PRENOTA IL TUO

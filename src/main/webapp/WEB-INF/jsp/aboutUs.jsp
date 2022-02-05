@@ -5,7 +5,6 @@
 <html lang="it">
 	<head>
 		<%@include file="includes/import.jsp"%>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
 		<link href="css/aboutUs.css" rel="stylesheet" />
 		<script src="/js/main.js"></script>
 		<title>Directbus</title>
@@ -88,7 +87,7 @@
 			<h2>DirectBus Partner Solutions: le nostre soluzioni per le imprese</h2>
 			<p>DirectBus Partner Solutions offre alle aziende, ai rivenditori di servizi di viaggio una piattaforma agile e scalabile</p>
 			<p> per incoraggiare i viaggiatori di tutto il mondo a scegliere i pullman.</p>
-			<a href="/businessRegistration"><strong>Diventa anche tu un nostro partner...</strong></a>
+			<a href="/businessRegistration"><strong>Diventa anche tu un nostro partner.</strong></a>
 		</div>
 	</section>
 </body>

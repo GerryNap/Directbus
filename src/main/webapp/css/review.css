@@ -15,3 +15,11 @@ p{
 	font-size:20px;
 	margin-top:5%;
 }
+#star-1,#star-2,#star-3,#star-4,#star-5{
+	font-size:25px;
+}
+
+#star-1:hover,#star-2:hover,#star-3:hover,#star-4:hover,#star-5:hover{
+	font-size:20px;
+	color:#FFCC00;
+}

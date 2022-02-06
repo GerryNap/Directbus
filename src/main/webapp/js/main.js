@@ -1,6 +1,7 @@
 $(document).ready(
 	function(){
 		setMinDate();
+		disableButtons();
 		$("cardTicket").hide();
 		
 		$("#startStation").on("keyup", function(event) {
@@ -102,8 +103,8 @@ function disableButtons(){
 }
 
 function reload(){
-	$("#cardTicket").show();
 	$("#cardTicket").load(document.URL+"  #cardTicket");
+	$("#cardTicket").show();
 }
 		
 function ajaxSearch(){

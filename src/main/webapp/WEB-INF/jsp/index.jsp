@@ -53,17 +53,13 @@
 		<div class="container mt-3">
 			<div class="row justify-content-center align-items-center">
 				<button type="button" id="orderByPrice" onclick="sort('sortByPrice')"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Prezzo</button>
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Prezzo</button>
 				<button type="button" id="orderByData" onclick="sort('sortByDate')"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Data</button>
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Data</button>
 				<button type="button" id="orderByDuration" onclick="sort('sortByDuration')"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Durata</button>
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Durata</button>
 				<button type="button" id="orderByTime" onclick="sort('sortByTime')"
-					class="btn btn-warning col-12 col-sm-12 col-md-2 rounded-pill"
-					disabled>Orario partenza</button>
+					class="btn btn-warning col-12 col-sm-12 col-md-2 rounded-pill">Orario partenza</button>
 			</div>
 		</div>
 	</section>

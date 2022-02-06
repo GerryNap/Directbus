@@ -34,9 +34,6 @@
 				<%@include file="profile/Business/oldRoutes.jsp"%>
 			</c:when>
 		</c:choose>
-		<section id="logout"style="margin-top:5%;margin-left:10%;margin-bottom:5%;">
-				<button type ="button" style="font-size:100%;" onclick="window.location.href = '/logout'">ESCI</button>
-		</section>
 	</form>
 </body>
 </html>

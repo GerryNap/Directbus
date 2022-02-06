@@ -6,30 +6,12 @@ $(document).ready(
 		
 		$("#startStation").on("keyup", function(event) {
 			event.preventDefault();
-			let text = $("#startStation").val();
-				
-			$.ajax({
-				type : "GET",
-				url : "getStation",
-		        data : {"text":text},
-		        success : function(data) {
-					liveSearchA(data);
-				}
-			})
+			liveSearch("#startStation");
 		})
 		
 		$("#endStation").on("keyup", function(event) {
 			event.preventDefault();
-			let text = $("#endStation").val();
-				
-			$.ajax({
-				type : "GET",
-				url : "getStation",
-		        data : {"text":text},
-		        success: function(data) {
-					liveSearchR(data);
-				}
-			})
+			liveSearch("#endStation");
 		})
 		
 		$("#searchForm").on("submit", function(event){
@@ -60,20 +42,20 @@ function alert(message, type) {
 	alertPlaceholder.append(wrapper);
 }
 
-function liveSearchA(stations) {
-	$("#startStation").autocomplete({
-		delay: 0,
-		autoFocus: true,
-		source: stations
-	});
-}
-
-function liveSearchR(stations) {
-	$("#endStation").autocomplete({
-		delay: 0,
-		autoFocus: true,
-		source: stations
-	});
+function liveSearch(id){	
+	let text = $(id).val();	
+	$.ajax({
+		type : "GET",
+		url : "getStation",
+        data : {"text":text},
+        success : function(data) {
+			$(id).autocomplete({
+				delay: 0,
+				autoFocus: true,
+				source: data
+			});
+		}
+	})
 }
 
 function checkStation(){

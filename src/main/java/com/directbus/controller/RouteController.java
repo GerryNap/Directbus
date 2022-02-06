@@ -1,6 +1,5 @@
 package com.directbus.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -21,18 +20,13 @@ public class RouteController {
 	public String publicRoute() {
 		return "publicRoute";
 	}
+	
 	@PostMapping(value = "/doRoute", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<String> doRoute(HttpServletRequest req, @RequestBody @Valid Route route) {
-		String response = "error";
-		HttpStatus status = HttpStatus.CONFLICT;
-		
-
-		if (DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route)) {
-			status = HttpStatus.ACCEPTED;
-			response = "success";
-		} else
-			response = "Cannot create route";
-		return new ResponseEntity<String>(response, status);
+	public ResponseEntity<String> doRoute(@RequestBody @Valid Route route) {
+		if (DatabaseHandler.getInstance().getRouteDao().saveOrUpdate(route))
+			return new ResponseEntity<String>(HttpStatus.OK);
+		else
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
 	}
 }

@@ -28,42 +28,45 @@
 		<%@include file="includes/navbar.jsp"%>
 	    <script src="/js/publishRoute.js"></script>
 		<section class="container" id="firstContainer">
-			<form id="register-form">
+		<div class="container mt-3">
+			<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
+		</div>
 			
-				<header class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
-				<h1>PUBBLICA UNA TRATTA</h1>
-				</header>
+		<header class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+			<h1>PUBBLICA UNA TRATTA</h1>
+		</header>
+			<form id="register-form">
 			
 			<input type="hidden" id="session" value="${user.email}">
 			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
 				<div  class="form-floating">
 					<i class="bi bi-pin-map"> STAZIONE DI PARTENZA</i>
-					<input class="form-control" id="LastName" placeholder="Stazione di partenza"></input>
+					<input class="form-control" id="startStation" placeholder="Stazione di partenza" autocomplete="off" required></input>
 					<label for="LastName" class="mt-4">Scegli una stazione</label>
 				</div>
 				<div class="form-floating mt-3">
 				  <i class="bi bi-pin-map"> STAZIONE DI ARRIVO</i>
-				  <input type="text" class="form-control" id="Email" placeholder="Stazione d'arrivo">
+				  <input type="text" class="form-control" id="endStation" placeholder="Stazione d'arrivo" autocomplete="off" required>
 				  <label for="Email" class="mt-4">Scegli una stazione</label>
 				</div>
 				<div class="form-floating mt-3">
 				  <i class="bi bi-ticket-perforated"> BIGLIETTI</i>
-				  <input type="number" class="form-control" id="Biglietti" min="20" max="50" placeholder="Numero biglietti">
+				  <input type="number" class="form-control" id="Biglietti" min="1" placeholder="Numero biglietti" required>
 				  <label for="Biglietti" class="mt-4">Scegli la quantità dei biglietti</label>
 				</div>
 				<div class="form-floating mt-3">
 				  <i class="bi bi-calendar-date"> / <i class="bi bi-alarm"> PARTENZA</i></i>
-				  <input placeholder="Data/orario di partenza" type="datetime-local" id="data" class="form-control">
+				  <input placeholder="Data/orario di partenza" type="datetime-local" id="startDate" class="form-control" required>
 				  <label for="data" class="mt-4">Scegli data e ora di partenza</label>
 				</div>
 				<div class="form-floating mt-3">
 				  <i class="bi bi-calendar-date"> / <i class="bi bi-alarm"> ARRIVO</i></i>
-				  <input class="form-control" id="time" placeholder="Data/orario di arrivo" type="datetime-local">
+				  <input class="form-control" id="arrivalDate" placeholder="Data/orario di arrivo" type="datetime-local" required>
 				  <label for="time" class="mt-4">Scegli data e ora di partenza</label>
 				</div>
 				<div class="form-floating mt-3">
 				  <i class="bi bi-cash-coin"> PREZZO</i>
-				  <input placeholder="Orario/data di partenza" type="number" step="any" min="1" id="price" class="form-control">
+				  <input placeholder="Orario/data di partenza" type="number" step="any" min="1" id="price" class="form-control" required>
 				  <label for="start" class="mt-4">Prezzo del biglietto</label>
 				</div>
 				<div class="btn-group col-md-12 col-lg-12 col-xl-12 mt-5 mb-5">

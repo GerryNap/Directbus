@@ -2,7 +2,7 @@ $(document).ready(
 	function(){
 		setMinDate();
 		disableButtons();
-		$("cardTicket").hide();
+		$("#cardTicket").hide();
 		
 		$("#startStation").on("keyup", function(event) {
 			event.preventDefault();
@@ -84,9 +84,6 @@ function checkStation(){
 	return true;
 }
 
-var routes;
-var orderedRoutes;
-
 function enableButtons(){
 	document.getElementById("orderByPrice").disabled = false;
 	document.getElementById("orderByData").disabled = false;
@@ -96,10 +93,10 @@ function enableButtons(){
 }
 
 function disableButtons(){
-	document.getElementsById("orderByPrice").disable = true;
-	document.getElementById("orderByData").disable = true;
-	document.getElementById("orderByDuration").disable = true;
-	document.getElementById("orderByTime").disable = true;
+	document.getElementById("orderByPrice").disabled = true;
+	document.getElementById("orderByData").disabled = true;
+	document.getElementById("orderByDuration").disabled = true;
+	document.getElementById("orderByTime").disabled = true;
 }
 
 function reload(){

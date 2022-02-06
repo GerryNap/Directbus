@@ -17,8 +17,8 @@
 <body id="body">
 	<%@include file="includes/navbar.jsp"%>
 	<form method="get" action="myProfile" class="mx-auto">
-	<header class="col-9 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-	<h1>IL TUO ACCOUNT</h1>
+	<header>
+	<h1 style="margin: 112.5px 0px 0px 0px; text-align: center;">IL TUO ACCOUNT</h1>
 	</header>
 		<c:choose>
 			<c:when test="${userType == 'Client'}">

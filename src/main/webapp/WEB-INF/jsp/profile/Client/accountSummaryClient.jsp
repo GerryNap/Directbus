@@ -3,9 +3,9 @@
 <script src="/js/myProfileClient.js"></script>
 <link href="css/accountSummaryClient.css" rel="stylesheet" />
 
-<section  id="account-summary" class="col-9 col-sm-10 col-md-10 col-lg-10 col-xl-10" >
-	<h1 style="margin-left:50%;">I MIEI DATI</h1>
-	<div class="col" id="summary-col">
+<section  id="account-summary">
+	<h1 style="margin: 70px 0px 0px 0px; text-align: center;">I MIEI DATI</h1>
+	<div class="col" id="summary-col" style="margin-top: 50px;">
 		<div class="row">
 			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-9">
 				<h5>NOME</h5>

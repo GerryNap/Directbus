@@ -141,8 +141,8 @@ public class TicketDaoJDBC implements TicketDao{
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				Route r = new Route();
-				r.setDestinationS(rs.getString("s_partenza"));
-				r.setStartS(rs.getString("s_arrivo"));
+				r.setDestinationS(rs.getString("s_arrivo"));
+				r.setStartS(rs.getString("s_partenza"));
 				String[] dataPartenza = rs.getString("data_partenza").split("T");
 				r.setDataPartenza(dataPartenza[0]);
 				r.setDepartureTime(dataPartenza[1]);
@@ -182,8 +182,8 @@ public class TicketDaoJDBC implements TicketDao{
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				Route r = new Route();
-				r.setDestinationS(rs.getString("s_partenza"));
-				r.setStartS(rs.getString("s_arrivo"));
+				r.setDestinationS(rs.getString("s_arrivo"));
+				r.setStartS(rs.getString("s_partenza"));
 				String[] dataPartenza = rs.getString("data_partenza").split("T");
 				r.setDataPartenza(dataPartenza[0]);
 				r.setDepartureTime(dataPartenza[1]);
@@ -224,8 +224,8 @@ public class TicketDaoJDBC implements TicketDao{
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				Route r = new Route();
-				r.setDestinationS(rs.getString("s_partenza"));
-				r.setStartS(rs.getString("s_arrivo"));
+				r.setDestinationS(rs.getString("s_arrivo"));
+				r.setStartS(rs.getString("s_partenza"));
 				String[] dataPartenza = rs.getString("data_partenza").split("T");
 				r.setDataPartenza(dataPartenza[0]);
 				r.setDepartureTime(dataPartenza[1]);
@@ -266,8 +266,8 @@ public class TicketDaoJDBC implements TicketDao{
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				Route r = new Route();
-				r.setDestinationS(rs.getString("s_partenza"));
-				r.setStartS(rs.getString("s_arrivo"));
+				r.setDestinationS(rs.getString("s_arrivo"));
+				r.setStartS(rs.getString("s_partenza"));
 				String[] dataPartenza = rs.getString("data_partenza").split("T");
 				r.setDataPartenza(dataPartenza[0]);
 				r.setDepartureTime(dataPartenza[1]);

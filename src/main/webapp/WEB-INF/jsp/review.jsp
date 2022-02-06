@@ -18,11 +18,11 @@
 					<h1 id="recensione" class="col-xl-5 mx-auto position-relative mt-5">Recensione</h1>
 					<br>
 				</center>
-				<p><strong>Azienda:</strong><c:out value="${sessionScope.route}"></c:out></p>
-				<p><strong>Stazione di Partenza:</strong></p>
-				<p><strong>Stazione di Arrivo:</strong></p>
-				<p><strong>Data/ora di Partenza:</strong></p>
-				<p><strong>Data/ora di Arrivo:</strong></p>
+				<p><strong>Azienda: </strong>${param.agency}</p>
+				<p><strong>Stazione di Partenza: </strong>${param.stazionePartenza}</p>
+				<p><strong>Stazione di Arrivo: </strong>${param.stazioneArrivo}</p>
+				<p><strong>Data/ora di Partenza: </strong>${param.dataPartenza} - ${param.orarioPartenza}</p>
+				<p><strong>Data/ora di Arrivo: </strong>${param.dataArrivo} - ${param.orarioArrivo}</p>
 				<p><strong>Recensisci:</strong></p>
 				<div class="input-group">
 				  <textarea class="form-control"placeholder="Lascia qui una recensione."></textarea>

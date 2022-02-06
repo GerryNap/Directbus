@@ -1,6 +1,8 @@
 $(document).ready(
 	function(){
 		setMinDate();
+		disableButtons();
+		$("#cardTicket").hide();
 		
 		$("#startStation").on("keyup", function(event) {
 			event.preventDefault();
@@ -82,15 +84,24 @@ function checkStation(){
 	return true;
 }
 
-var routes;
-var orderedRoutes;
-
 function enableButtons(){
 	document.getElementById("orderByPrice").disabled = false;
 	document.getElementById("orderByData").disabled = false;
 	document.getElementById("orderByDuration").disabled = false;
 	if($("#date").val() !== "")
 		document.getElementById("orderByTime").disabled = false;
+}
+
+function disableButtons(){
+	document.getElementById("orderByPrice").disabled = true;
+	document.getElementById("orderByData").disabled = true;
+	document.getElementById("orderByDuration").disabled = true;
+	document.getElementById("orderByTime").disabled = true;
+}
+
+function reload(){
+	$("#cardTicket").load(document.URL+"  #cardTicket");
+	$("#cardTicket").show();
 }
 		
 function ajaxSearch(){
@@ -110,19 +121,36 @@ function ajaxSearch(){
 		contentType : "application/json",
 		url : "searchRoutes",
         data : JSON.stringify(route),
-		success: function(data) {
-			routes = data;
-			orderedRoutes = data;
-			$("#cardTicket").show();
-			$("#cardTicket").load(document.URL+'  #cardTicket');
+		success: function() {
+			reload();
 			enableButtons();
 		},
 		error: function() {
 			$("#cardTicket").hide();
+			disableButtons();
 			alert("Destinazione non trovata", "primary")
 		}
 	});
 }
+
+function sort(sortUrl){
+	$.ajax({
+		type: "POST",
+		url: sortUrl,
+		success: function(){
+			reload();
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -22,24 +22,80 @@
 			  </div>
 			</div>
 		</section>
-		<section id="first-destination">
-		<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-					 <img src="images/badolato.jpg" alt="badolato" id="image">
+		
+		<section id="city">
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
 				</div>
-			 	<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12" id="text">
-				<h4>Badolato</h4>
-				<p>La<strong> città degli innamorati</strong>, questo l’epiteto con cui è conosciuta in tutto il mondo 
-				Badolato, sorge sulle rive dell’Adige, nel punto in cui il fiume incontra la Pianura
-				Padana. Inserita nel <strong>World Heritage List dell’UNESCO</strong>, la città di Badolato ha alle 
-				spalle una storia una grandiosa, iniziata nel I secolo a.C.</p>
-				<p><br></p>
-				<p>La caratteristica Piazza delle Erbe rappresenta il fulcro del commercio della città, che vanta poi 
-				numerosi altri monumenti di rilievo, oltre a splendidi scorci paesaggistici che hanno fatto innamorare 
-				i visitatori di ogni parte del mondo.</p> 
-				<p><br></p>
-				<p>Sei pronto per andare alla scoperta di <strong>cosa vedere a Badolato</strong>?</p>
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
 				</div>
+			</div>
 		</div>
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
+				</div>
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
+				</div>
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
+				</div>
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
+				</div>
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="ctnr">
+			<div class="row">
+				<div class="col-4">
+					<h3>Milano</h3>
+					<p>“Viaggiare è come innamorarsi: il mondo si fa nuovo”</p>
+					<button>Scopri</button>
+				</div>
+				<div class="col-8">
+					<img id="city" src="images/milano.jpeg" class="img-fluid">
+				</div>
+			</div>
+		</div>		
+		</section>
   </body>
 </html>

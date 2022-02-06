@@ -1,3 +1,7 @@
+body {
+	background-color: #f5f5f5;
+}
+
 p.card-text{
 	color:white;
 	font-size:70px;
@@ -8,7 +12,22 @@ div.card{
 	border:none;
 }
 
-#image{
-	margin-top:15%;
-	margin-left:5%;
+#city{
+	height: auto;
+	max-width: 100%;
+	border-radius: 8px;
+}
+
+#ctnr {
+	padding: 20px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	max-width: 90%;
+	background-color: #fff;
+	border-radius: 8px;
+	
+	box-shadow:  5px  5px 5px #dadada,
+              -5px -5px 5px #dadada,
+               5px -5px 5px #dadada,
+              -5px  5px 5px #dadada;
 }

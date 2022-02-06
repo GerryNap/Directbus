@@ -59,7 +59,7 @@ function generatePayment(value, url) {
 
 function addTicket(url){
 	var ticket = {
-		routeCode : url.get("codice"),
+		routeCod : url.get("codice"),
 		clientEmail : $("#sessionEmail").val()
 	};
 	console.log(ticket.routeCode);

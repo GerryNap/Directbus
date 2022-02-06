@@ -52,18 +52,14 @@
 	<section id="filters">
 		<div class="container mt-3">
 			<div class="row justify-content-center align-items-center">
-				<button type="button" id="orderByPrice" onclick="sortByPrice()"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Prezzo</button>
-				<button type="button" id="orderByData" onclick="sortByDate()"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Data</button>
-				<button type="button" id="orderByDuration" onclick="sortByDuration()"
-					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill"
-					disabled>Durata</button>
-				<button type="button" id="orderByTime" onclick="sortByTime()"
-					class="btn btn-warning col-12 col-sm-12 col-md-2 rounded-pill"
-					disabled>Orario partenza</button>
+				<button type="button" id="orderByPrice" onclick="sort('sortByPrice')"
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Prezzo</button>
+				<button type="button" id="orderByData" onclick="sort('sortByDate')"
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Data</button>
+				<button type="button" id="orderByDuration" onclick="sort('sortByDuration')"
+					class="btn btn-warning col-12 col-sm-12 col-md-1 me-1 rounded-pill">Durata</button>
+				<button type="button" id="orderByTime" onclick="sort('sortByTime')"
+					class="btn btn-warning col-12 col-sm-12 col-md-2 rounded-pill">Orario partenza</button>
 			</div>
 		</div>
 	</section>
@@ -97,11 +93,11 @@
 								<button type="submit" class="btn" id="buyButton">Acquista<p class="card-text">${route.price}€</p></button>
 							</div>
 							
+							<input type="hidden" name="codice" value="${route.cod}">
 							<input type="hidden" name="passengers" value="${route.nBiglietti}">
 						</div>
 					</form>
 				</c:forEach>
-				<c:remove var="routes" scope="session"></c:remove>
 			</div>
 		</div>
 	</section>

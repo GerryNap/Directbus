@@ -51,7 +51,7 @@
 	        		<a class="btn btn-dark ms-auto" role="button" href="../login">Sign In</a>
 	        	</c:when>
 	        	<c:otherwise>
-	        		<a class="btn btn-dark ms-auto" role="button" href="../myProfile">ACCOUNT</a>
+	        		<a class="btn btn-dark ms-auto" role="button" href="../myProfile">Account</a>
 	        	</c:otherwise>
         	</c:choose>
 		</div>

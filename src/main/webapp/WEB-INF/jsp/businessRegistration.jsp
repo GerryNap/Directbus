@@ -20,7 +20,7 @@
 		<%@include file="includes/navbar.jsp" %>
 		<script src="/js/businessRegister.js"></script>
 	    
-		<div class="container mt-5 " id="firstContainer">
+		<section class="container mt-5 " id="firstContainer">
 			<form id="register-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
@@ -63,6 +63,6 @@
 					</div>
 				</center>	
 			</form>
-		</div>	
+		</section>	
   </body>
 </html>

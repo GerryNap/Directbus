@@ -8,6 +8,10 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
+
+import com.directbus.model.EmailTicket;
 import com.directbus.model.Route;
 import com.directbus.model.Ticket;
 import com.directbus.model.User;
@@ -278,5 +282,40 @@ public class TicketDaoJDBC implements TicketDao{
 			e.printStackTrace();
 		}
 		return rts;
+	}
+
+	@Override
+	public EmailTicket getEmailTicket(@Valid Ticket ticket) {
+		EmailTicket et = null;
+		
+		String query = "SELECT * FROM tratte t, utenticlienti u, biglietti b where b.cliente = u.email AND b.tratta = t.cod AND b.tratta = ? AND b.cliente = ?";
+
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, ticket.getRouteCod());
+			st.setString(2, ticket.getClientEmail());
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				et = new EmailTicket();
+				et.setDestinationS(rs.getString("s_partenza"));
+				et.setStartS(rs.getString("s_arrivo"));
+				String[] dataPartenza = rs.getString("data_partenza").split("T");
+				et.setDataPartenza(dataPartenza[0]);
+				et.setDepartureTime(dataPartenza[1]);
+				String[] dataArrivo = rs.getString("data_arrivo").split("T");
+				et.setDataArrivo(dataArrivo[0]);
+				et.setArrivalTime(dataArrivo[1]);
+				et.setAgency(rs.getString("azienda"));
+				et.setCod(rs.getLong("cod"));
+				et.setEmail(rs.getString("email"));
+				et.setFirstName(rs.getString("nome"));
+				et.setLastName(rs.getString("cognome"));
+			}
+			return et;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return et;
 	}
 }

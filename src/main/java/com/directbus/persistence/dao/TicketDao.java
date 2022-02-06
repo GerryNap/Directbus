@@ -3,6 +3,9 @@ package com.directbus.persistence.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import com.directbus.model.EmailTicket;
 import com.directbus.model.Route;
 import com.directbus.model.Ticket;
 import com.directbus.model.User;
@@ -17,5 +20,6 @@ public interface TicketDao {
 	ArrayList<Route> getTravelHistory(User user);
 	public ArrayList<Route> getActiveRoutes(User attribute);
 	public ArrayList<Route> getOldRoutes(User attribute);
+	public EmailTicket getEmailTicket(@Valid Ticket ticket);
 	
 }

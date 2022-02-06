@@ -13,7 +13,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.directbus.model.AgencyUser;
+import com.directbus.model.EmailTicket;
 import com.directbus.model.UserClient;
+import com.directbus.service.pdf.PdfGenerator;
 
 @Service 
 public class EmailSenderService {
@@ -33,22 +35,21 @@ public class EmailSenderService {
 	}
 	
 	
-	@SuppressWarnings("unused")
-	private void sendEmailWithAttachment(String toEmail, String body, String subject, String attachment) throws MessagingException {
+	public void sendEmailWithAttachment(EmailTicket et) throws MessagingException {
+		PdfGenerator.getInstance().sendTicket(et);
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 		
 		mimeMessageHelper.setFrom("info.directbus@gmail.com");
-		mimeMessageHelper.setTo(toEmail);
-		mimeMessageHelper.setText(body);
-		mimeMessageHelper.setSubject(subject);
+		mimeMessageHelper.setTo(et.getEmail());
+		mimeMessageHelper.setText("ptorf");
+		mimeMessageHelper.setSubject("Biglietto");
 		
-		FileSystemResource fileSystem = new FileSystemResource(new File(attachment));
+		FileSystemResource fileSystem = new FileSystemResource(new File("ticket.pdf"));
 		
 		mimeMessageHelper.addAttachment(fileSystem.getFilename(), fileSystem);
 		
 		mailSender.send(mimeMessage);
-		System.out.println("Mail send...");
 	}
 	
 	public String confirmEmail(UserClient user) {

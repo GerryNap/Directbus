@@ -59,8 +59,7 @@ public class AuthenticationController {
 			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
-			session.setAttribute("tokenEmail", sender.confirmEmail(user));
-			
+			session.setAttribute("tokenEmail", sender.confirmEmail(user));			
 			
 		} else {
 			response = "existing user";

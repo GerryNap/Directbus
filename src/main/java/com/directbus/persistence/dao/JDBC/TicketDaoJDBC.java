@@ -145,6 +145,7 @@ public class TicketDaoJDBC implements TicketDao{
 				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
+				r.setAgency(rs.getString("azienda"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {
@@ -185,6 +186,7 @@ public class TicketDaoJDBC implements TicketDao{
 				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
+				r.setAgency(rs.getString("azienda"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {

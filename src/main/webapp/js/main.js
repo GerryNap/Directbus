@@ -100,6 +100,11 @@ function disableButtons(){
 	document.getElementById("orderByDuration").disable = true;
 	document.getElementById("orderByTime").disable = true;
 }
+
+function reload(){
+	$("#cardTicket").show();
+	$("#cardTicket").load(document.URL+"  #cardTicket");
+}
 		
 function ajaxSearch(){
 	var route = {
@@ -119,8 +124,7 @@ function ajaxSearch(){
 		url : "searchRoutes",
         data : JSON.stringify(route),
 		success: function() {
-			$("#cardTicket").show();
-			$("#cardTicket").load(document.URL+'  #cardTicket');
+			reload();
 			enableButtons();
 		},
 		error: function() {
@@ -131,12 +135,24 @@ function ajaxSearch(){
 	});
 }
 
-function sortByPrice(){
+function sort(sortUrl){
 	$.ajax({
 		type: "POST",
-		url: "sortByPrice"
+		url: sortUrl,
+		success: function(){
+			reload();
+		}
 	});
 }
+
+
+
+
+
+
+
+
+
 
 
 

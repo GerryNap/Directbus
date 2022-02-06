@@ -29,7 +29,7 @@ public class SearchController {
 	@ResponseBody
 	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
-		if(routes.size() == 0) {
+		if(routes.isEmpty()) {
 			return new ResponseEntity<String>(HttpStatus.CONFLICT);
 		} else {
 			session.setAttribute("routes", routes);
@@ -38,15 +38,18 @@ public class SearchController {
 	}
 	
 	@PostMapping("/sortByPrice")
-	public void sortByPrice(HttpSession session){
+	@ResponseBody
+	public ResponseEntity<String> sortByPrice(HttpSession session){
 		@SuppressWarnings("unchecked")
 		ArrayList<Route> routes = (ArrayList<Route>) session.getAttribute("routes");
+		
+		if(routes.isEmpty())
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
 		
 		routes.sort(new Comparator<Route>() {
 			@Override
 			public int compare(Route r1, Route r2) {
-				Float diff = r1.getPrice() - r2.getPrice();
-				if(diff == 0)
+				if(r1.getPrice() == r2.getPrice())
 					return 0;
 				if(r1.getPrice() > r2.getPrice())
 					return 1;
@@ -54,7 +57,81 @@ public class SearchController {
 			}
 		});
 		
-		session.setAttribute("routes", routes);
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@PostMapping("/sortByDate")
+	@ResponseBody
+	public ResponseEntity<String> sortByDate(HttpSession session){
+		@SuppressWarnings("unchecked")
+		ArrayList<Route> routes = (ArrayList<Route>) session.getAttribute("routes");
+		
+		if(routes.isEmpty())
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
+		
+		routes.sort(new Comparator<Route>() {
+			@Override
+			public int compare(Route r1, Route r2) {
+				return r1.getDataPartenza().compareTo(r2.getDataPartenza());
+			}
+		});
+		
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@PostMapping("/sortByDuration")
+	@ResponseBody
+	public ResponseEntity<String> sortByDuration(HttpSession session){
+		@SuppressWarnings("unchecked")
+		ArrayList<Route> routes = (ArrayList<Route>) session.getAttribute("routes");
+		
+		if(routes.isEmpty())
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
+		
+		routes.sort(new Comparator<Route>() {
+			@Override
+			public int compare(Route r1, Route r2) {
+				String[] splitted = r1.getDepartureTime().split(":");
+				int minutes1 = (Integer.parseInt(splitted[0])*60) + Integer.parseInt(splitted[1]);
+				splitted = r1.getArrivalTime().split(":");
+				int minutes2 = (Integer.parseInt(splitted[0])*60) + Integer.parseInt(splitted[1]);
+				if(minutes1 > minutes2)
+					minutes2 += 1440;
+				int diff1 = minutes2 - minutes1;
+				
+				splitted = r2.getDepartureTime().split(":");
+				minutes1 = (Integer.parseInt(splitted[0])*60) + Integer.parseInt(splitted[1]);
+				splitted = r2.getArrivalTime().split(":");
+				minutes2 = (Integer.parseInt(splitted[0])*60) + Integer.parseInt(splitted[1]);
+				if(minutes1 > minutes2)
+					minutes2 += 1440;
+				
+				int diff2 = minutes2 - minutes1;
+				
+				return diff1 - diff2;
+			}
+		});
+		
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@PostMapping("/sortByTime")
+	@ResponseBody
+	public ResponseEntity<String> sortByTime(HttpSession session){
+		@SuppressWarnings("unchecked")
+		ArrayList<Route> routes = (ArrayList<Route>) session.getAttribute("routes");
+		
+		if(routes.isEmpty())
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
+		
+		routes.sort(new Comparator<Route>() {
+			@Override
+			public int compare(Route r1, Route r2) {
+				return r1.getDepartureTime().compareTo(r2.getDepartureTime());
+			}
+			
+		});
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
 	@GetMapping("/getStation")

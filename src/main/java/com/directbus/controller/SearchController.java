@@ -1,6 +1,7 @@
 package com.directbus.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -26,14 +27,34 @@ public class SearchController {
 	
 	@PostMapping(value = "/searchRoutes", consumes = {"application/json"})
 	@ResponseBody
-	public ResponseEntity<ArrayList<Route>> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
+	public ResponseEntity<String> searchRoutes(HttpSession session, @RequestBody @Valid Route route) {
 		ArrayList<Route> routes = DatabaseHandler.getInstance().getRouteDao().search(route);
 		if(routes.size() == 0) {
-			return new ResponseEntity<ArrayList<Route>>(HttpStatus.CONFLICT);
+			return new ResponseEntity<String>(HttpStatus.CONFLICT);
 		} else {
 			session.setAttribute("routes", routes);
-			return new ResponseEntity<ArrayList<Route>>(routes, HttpStatus.OK);
+			return new ResponseEntity<String>(HttpStatus.OK);
 		}
+	}
+	
+	@PostMapping("/sortByPrice")
+	public void sortByPrice(HttpSession session){
+		@SuppressWarnings("unchecked")
+		ArrayList<Route> routes = (ArrayList<Route>) session.getAttribute("routes");
+		
+		routes.sort(new Comparator<Route>() {
+			@Override
+			public int compare(Route r1, Route r2) {
+				Float diff = r1.getPrice() - r2.getPrice();
+				if(diff == 0)
+					return 0;
+				if(r1.getPrice() > r2.getPrice())
+					return 1;
+				return -1;
+			}
+		});
+		
+		session.setAttribute("routes", routes);
 	}
 	
 	@GetMapping("/getStation")

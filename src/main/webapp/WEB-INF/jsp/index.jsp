@@ -102,7 +102,6 @@
 						</div>
 					</form>
 				</c:forEach>
-				<c:remove var="routes" scope="session"></c:remove>
 			</div>
 		</div>
 	</section>

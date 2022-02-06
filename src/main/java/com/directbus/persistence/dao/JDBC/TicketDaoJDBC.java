@@ -128,7 +128,7 @@ public class TicketDaoJDBC implements TicketDao{
 		String date = now.getYear() + "-" + month + "-" + day;
 		
 		
-		String query = "SELECT * FROM biglietti b, tratte t where b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo >= ?";
+		String query = "SELECT * FROM biglietti b, tratte t, utentiaziende u where t.azienda = u.email AND b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo >= ?";
 		ArrayList<Route> rts = new ArrayList<Route>();
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -145,7 +145,7 @@ public class TicketDaoJDBC implements TicketDao{
 				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
-				r.setAgency(rs.getString("azienda"));
+				r.setAgency(rs.getString("nome"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {
@@ -169,7 +169,7 @@ public class TicketDaoJDBC implements TicketDao{
 		String date = now.getYear() + "-" + month + "-" + day;
 		
 		
-		String query = "SELECT * FROM biglietti b, tratte t where b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo < ?";
+		String query = "SELECT * FROM biglietti b, tratte t, utentiaziende u where t.azienda = u.email AND b.tratta = t.cod AND b.cliente = ? AND t.data_arrivo < ?";
 		ArrayList<Route> rts = new ArrayList<Route>();
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -186,7 +186,7 @@ public class TicketDaoJDBC implements TicketDao{
 				String[] dataArrivo = rs.getString("data_arrivo").split("T");
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
-				r.setAgency(rs.getString("azienda"));
+				r.setAgency(rs.getString("nome"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {
@@ -229,6 +229,7 @@ public class TicketDaoJDBC implements TicketDao{
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
 				r.setAgency(rs.getString("azienda"));
+				r.setCod(rs.getLong("cod"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {
@@ -270,6 +271,7 @@ public class TicketDaoJDBC implements TicketDao{
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
 				r.setAgency(rs.getString("azienda"));
+				r.setCod(rs.getLong("cod"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {

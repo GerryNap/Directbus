@@ -12,7 +12,7 @@
 				<div class="card me-5 mt-3" style="width: 18rem;"
 					id="card-reservation">
 					<div class="card-body">
-						<h5 class="card-title">Destinazione: ${th.destinationS}</h5>
+						<h5 class="card-title">Agenzia: ${th.agency}</h5>
 						<p class="card-text">Stazione di partenza: ${th.startS}</p>
 						<p class="card-text">Partenza: ${th.dataPartenza}</p>
 						<p class="card-text">${th.startS}- ${th.departureTime}</p>

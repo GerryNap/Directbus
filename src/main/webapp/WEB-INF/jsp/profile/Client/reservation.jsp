@@ -9,7 +9,7 @@
 				<c:forEach var="at" items="${activeTicket}">
 					<div class="card me-5 mt-3" style="width: 18rem;" id="card-reservation">
 						<div class="card-body">
-							<h5 class="card-title">Destinazione: ${at.destinationS}</h5>
+							<h5 class="card-title">Agenzia: ${at.agency}</h5>
 							<p class="card-text">Stazione di partenza: ${at.startS}</p>
 							<p class="card-text">Partenza: ${at.dataPartenza}</p>
 							<p class="card-text">${at.startS} - ${at.departureTime}</p>

@@ -9,7 +9,7 @@
 				<c:forEach var="route" items="${oldRoutes}">
 					<div class="card me-5 mt-3" style="width: 18rem;" id="card-old-routes">
 						<div class="card-body">
-							<h5 class="card-title">${route.agency}</h5>
+							<h5 class="card-title">Cod: ${route.cod}</h5>
 							<p class="card-text">Partenza: ${route.dataPartenza}</p>
 							<p class="card-text">${route.startS} - ${route.departureTime}</p>
 							<p class="card-text">Arrivo: ${route.dataArrivo}</p>

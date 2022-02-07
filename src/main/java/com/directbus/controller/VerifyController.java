@@ -23,7 +23,10 @@ public class VerifyController {
 		if(token.equals(session.getAttribute("tokenEmail"))) {
 			DatabaseHandler.getInstance().getClientUserDao().setVerifiedEmail((User)session.getAttribute("user"), true);
 			session.removeAttribute("tokenEmail");
-			return "/index";
+			User user = (User)session.getAttribute("user");
+			user.setVerified(true);
+			session.setAttribute("user", user);
+			return "/index";			
 		}
 		else
 			return "/notVerified";

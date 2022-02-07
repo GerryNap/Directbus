@@ -28,6 +28,10 @@
 							
 							<input type="hidden" name="stazioneArrivo" value="${th.destinationS}">
 							<input type="hidden" name="orarioArrivo" value="${th.arrivalTime}">
+							<input type="hidden" name="cod" value="${th.cod}">
+							<input type="hidden" name="email" value="${user.email}">
+
+							
 							<p class="card-text">${th.destinationS} - ${th.arrivalTime}</p>
 							
 							<div class="row">

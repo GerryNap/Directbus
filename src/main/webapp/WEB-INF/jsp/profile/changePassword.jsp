@@ -16,7 +16,7 @@
 					<input type="password" id="confirmPassword" placeholder="Confirm New Password" required/>
 				</div>
 				<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 mt-3" style=" margin-left:6%;">
-					<button id="changebutton" type="button" class="btn">Cambia</button>					
+					<button id="change-button-password" type="button" class="btn">Cambia</button>					
 				</div>
 			</div>
 		</div>

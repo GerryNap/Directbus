@@ -30,7 +30,7 @@
 				<label>${user.email}</label>
 			</div>
 			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-				<button id="sendButton" type="button"
+				<button id="change-button-email" type="button"
 					style="font-size: 13px; margin-top: 10%; margin-left: 0%;"
 					class="btn" onclick="modifyEmail()">MODIFICA</button>
 			</div>
@@ -43,7 +43,7 @@
 				<label>---</label>
 			</div>
 			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-				<button id="sendButton" type="button"
+				<button id="change-button-password" type="button"
 					style="font-size: 13px; margin-top: 10%; margin-left: 0%;"
 					class="btn" onclick="modifyPassword()">MODIFICA</button>
 			</div>

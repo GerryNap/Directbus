@@ -1,6 +1,6 @@
 $(document).ready(
 	function(){
-		$("#changebutton").on("click", function(event){
+		$("#change-button-email").on("click", function(event){
 			event.preventDefault();
 			if($("#oldEmail").val() === $("#newEmail").val()){
 				window.alert("La vecchia email e la nuova email non possono essere uguali");

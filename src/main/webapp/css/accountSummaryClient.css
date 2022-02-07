@@ -20,13 +20,13 @@ label{
   	border-radius:5px;
   	white-space: nowrap;
 }
-#changebutton{
+#change-button-password,#change-button-email{
 	white-space: nowrap;
 	background-color: #FFCC00;
 	color:black;
 	font-size:13px;
 }
-#changebutton:hover{
+#change-button-password:hover,#change-button-email:hover{
 	background-color: #171717;
 	color:  #FFCC00;
 	border: 1px solid #FFCC00;

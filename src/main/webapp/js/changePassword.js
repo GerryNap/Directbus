@@ -1,6 +1,6 @@
 $(document).ready(
 	function(){
-		$("#changebutton").on("click", function(event){
+		$("#change-button-password").on("click", function(event){
 			event.preventDefault();
 			if($("#newPassword").val() === $("#confirmPassword").val()){
 				if($("#oldPassword").val() === $("#newPassword").val()){

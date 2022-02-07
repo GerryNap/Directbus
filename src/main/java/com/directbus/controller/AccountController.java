@@ -51,29 +51,6 @@ public class AccountController {
     	}
     }
     
-    @PostMapping(value = "/changeEmail", consumes = {"application/json"})
-    @ResponseBody
-    public ResponseEntity<String> changeEmail(HttpSession session, @RequestBody JSONObject content){
-    	String password = content.getAsString("password");
-    	String newEmail = content.getAsString("newEmail");
-    	if(password == null || newEmail == null) {
-    		return new ResponseEntity<String>("Error 500", HttpStatus.INTERNAL_SERVER_ERROR);
-    	}
-    	
-    	boolean changed;
-    	if(((String)session.getAttribute("userType")).equals("Client")){
-    		changed = DatabaseHandler.getInstance().getClientUserDao().changeEmail(session, password, newEmail);
-    	} else {
-    		changed = DatabaseHandler.getInstance().getAgencyUserDao().changeEmail(session, password, newEmail);
-    	}
-
-    	if(changed) {
-    		return new ResponseEntity<String>("Email cambiata con successo", HttpStatus.OK);
-    	} else {
-        	return new ResponseEntity<String>("Password errata", HttpStatus.CONFLICT);
-    	}
-    }
-    
     @PostMapping("/getReserveation")
     @ResponseBody
     public ResponseEntity<ArrayList<Route>> getReserveation(HttpSession session) {

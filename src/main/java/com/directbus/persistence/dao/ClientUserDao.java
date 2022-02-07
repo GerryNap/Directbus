@@ -20,5 +20,4 @@ public interface ClientUserDao {
 	
 	public boolean existUser(String user, boolean p);
 	public boolean changePassword(HttpSession session, String oldPassword, String newPassword);
-	public boolean changeEmail(HttpSession session, String password, String newEmail);
 }

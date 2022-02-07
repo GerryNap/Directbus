@@ -3,7 +3,6 @@ package com.directbus.persistence.dao;
 import java.util.List;
 
 import com.directbus.model.Review;
-import com.directbus.model.UserClient;
 
 public interface ReviewDao {
 	

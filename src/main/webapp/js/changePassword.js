@@ -1,6 +1,6 @@
 $(document).ready(
 	function(){
-		$("#change-button-password").on("click", function(event){
+		$("#changebuttonPassword").on("click", function(event){
 			event.preventDefault();
 			if($("#newPassword").val() === $("#confirmPassword").val()){
 				if($("#oldPassword").val() === $("#newPassword").val()){
@@ -18,7 +18,7 @@ $(document).ready(
 function alert(message) {
 	var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 	var wrapper = document.createElement('div');
-	wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+	wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" style="font-size:50%" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	alertPlaceholder.append(wrapper);
 	
 	$(".alert-dismissible").fadeTo(10000, 500).slideUp(500, function(){

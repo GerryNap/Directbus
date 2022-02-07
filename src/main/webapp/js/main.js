@@ -2,7 +2,6 @@ $(document).ready(
 	function(){
 		setMinDate();
 		disableButtons();
-		//hideTicket();
 		
 		$("#startStation").on("keyup", function(event) {
 			event.preventDefault();

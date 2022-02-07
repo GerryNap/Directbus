@@ -8,6 +8,10 @@
 		<%@include file="includes/import.jsp"%>
 		<title>Directbus</title>
 		<link href="css/review.css" rel="stylesheet" />
+
+		<c:if test="${user == null}">
+			<c:redirect url="/login" />
+		</c:if>
 	</head>
 
 <body>
@@ -19,6 +23,8 @@
 					<h1 id="recensione" class="col-xl-5 mx-auto position-relative mt-5">Recensione</h1>
 					<br>
 				</center>
+				<input type="hidden" name="cod" value="${param.cod}">
+				<input type="hidden" name="email" value="${param.email}">
 				<p><strong>Azienda: </strong>${param.agency}</p>
 				<p><strong>Stazione di Partenza: </strong>${param.stazionePartenza}</p>
 				<p><strong>Stazione di Arrivo: </strong>${param.stazioneArrivo}</p>

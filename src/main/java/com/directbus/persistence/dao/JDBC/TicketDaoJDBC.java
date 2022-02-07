@@ -191,6 +191,7 @@ public class TicketDaoJDBC implements TicketDao{
 				r.setDataArrivo(dataArrivo[0]);
 				r.setArrivalTime(dataArrivo[1]);
 				r.setAgency(rs.getString("nome"));
+				r.setCod(rs.getLong("cod"));
 				rts.add(r);
 			}
 		} catch (SQLException e) {

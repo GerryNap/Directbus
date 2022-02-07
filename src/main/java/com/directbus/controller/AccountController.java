@@ -3,6 +3,7 @@ package com.directbus.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.directbus.model.Review;
 import com.directbus.model.Route;
 import com.directbus.model.User;
 import com.directbus.persistence.DatabaseHandler;
@@ -111,6 +113,16 @@ public class AccountController {
     	
     	th = DatabaseHandler.getInstance().getTicketDao().getOldRoutes((User)session.getAttribute("user"));
     	session.setAttribute("oldRoutes", th);
+    	
+    	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
+    }
+    
+    @PostMapping("/doReview")
+    @ResponseBody
+    public ResponseEntity<ArrayList<Route>> doReview(HttpSession session, @RequestBody @Valid Review review) { 
+    	
+    	if(!DatabaseHandler.getInstance().getReviewDao().save(review))
+    		return new ResponseEntity<ArrayList<Route>>(HttpStatus.CONFLICT);
     	
     	return new ResponseEntity<ArrayList<Route>>(HttpStatus.OK);
     }

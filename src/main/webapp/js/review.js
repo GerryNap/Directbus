@@ -1,25 +1,30 @@
 
-var star = 3;
+var star;
 
 $(document).ready(
+	
     function() {
         $("#send-review").on("click", function(event) {
             event.preventDefault();
-            ajaxLoginPost();
+            const queryString = window.location.search;
+			const url = new URLSearchParams(queryString);
+            ajaxLoginPost(url);
         });
     }
 )
 
-function ajaxLoginPost() {
+function ajaxLoginPost(url) {
 	var review = {
 		text : $("#text").val(),
-        starNumber : star
+        starNumber : star,
+        tratta: url.get("cod"),
+        cliente: url.get("email")
 	}
 
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "doLogin",
+		url : "doReview",
         data : JSON.stringify(review),
         success: function(){
 					window.location.href = '/myProfile';
@@ -29,7 +34,6 @@ function ajaxLoginPost() {
 				}
 	});
 }
-
 
 function insertStar(s) {
 	star = s;		

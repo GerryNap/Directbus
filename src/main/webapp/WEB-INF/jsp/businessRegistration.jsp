@@ -26,6 +26,9 @@
 					<h1 id="singUp" class="col-xl-5 mx-auto position-relative mb-5">Sign Up</h1>
 					<br>
 				</center>
+				<div class="container mt-3">
+					<div id="liveAlertPlaceholder" class="col-md-8 mx-auto"></div>
+				</div>
 				<div  class="form-floating mb-3">
 					<i class="bi bi-file-person-fill"></i>
 					<input type="text" class="form-control" id="Name" placeholder="Name" required>

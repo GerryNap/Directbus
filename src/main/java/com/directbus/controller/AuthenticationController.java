@@ -50,70 +50,54 @@ public class AuthenticationController {
 	@PostMapping(value = "/doRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doRegistration(HttpSession session, @RequestBody @Valid UserClient user) {
-		
-		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
 		if(DatabaseHandler.getInstance().getClientUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
-			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
 			session.setAttribute("tokenEmail", sender.confirmEmail(user));			
 			
-		} else {
-			response = "existing user";
 		}
 			
-		return new ResponseEntity<String>(response, status);
+		return new ResponseEntity<String>(status);
 	}
 	
 	
 	@PostMapping(value = "/doBusinessRegistration", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doBusinessRegistration(HttpSession session, @RequestBody @Valid AgencyUser user) {
-		
-		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
 		if(DatabaseHandler.getInstance().getAgencyUserDao().save(user)) {
 			status = HttpStatus.ACCEPTED;
-			response = "success";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
 			session.setAttribute("tokenEmail", sender.confirmEmail(user));
-		} else {
-			response = "existing user";
 		}
 			
-		return new ResponseEntity<String>(response, status);
+		return new ResponseEntity<String>(status);
 	}
 	
 	@PostMapping(value = "/doLogin", consumes = {"application/json"})
 	@ResponseBody
 	public ResponseEntity<String> doLogin(HttpServletRequest req, @RequestBody @Valid User user) {
-		String response = "error";
 		HttpStatus status = HttpStatus.CONFLICT;
 		
 		HttpSession session = req.getSession(true);
 		if(DatabaseHandler.getInstance().getClientUserDao().checkUser(user)) {
 			status = HttpStatus.ACCEPTED;
-			response = "client";
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
 			
 		}
 		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
 			status = HttpStatus.ACCEPTED;
-			response = "business";
 			session.setAttribute("user", DatabaseHandler.getInstance().getAgencyUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Agency");
 		}
-		else {
-			response = "user not found";
-		}
 		
-		return new ResponseEntity<String>(response, status);
+		return new ResponseEntity<String>(status);
 	}
 	
 	@GetMapping("logout")

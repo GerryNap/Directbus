@@ -39,8 +39,9 @@
   top: 0;
   right: 25px;
   font-size: 36px;
-  margin-left: 50px;
-}
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+ }
 .sidenav hr{
 	  margin-left:20px;
 	  size:1;
@@ -60,4 +61,14 @@
 
 #exit{
 	background-color:grey;
+}
+
+#servizioClienti{
+	cursor: pointer;
+}
+
+#navbarDropdownMenuLink{
+	color: white;
+	padding: 0px 0px 0px 0px;
+	display: inline-block;
 }

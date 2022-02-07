@@ -13,7 +13,7 @@
 		</button>
 		
 		<div id="mySidenav" class="sidenav">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-square" style="font-size:20px;"></i></a>
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-square" style="font-size:20px; padding: 0px 0px 0px 0px;"></i></a>
 			<div>
 				<ul>
 					<h6 class="bi bi-phone " style="font-size:20px;">I NOSTRI CONTATTI:</h6>
@@ -44,14 +44,14 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link" href="../discover">Discover</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Partner</a></li>
-				<li class="nav-item"><span class="nav-link" onclick="openNav()">Servizio Clienti</span></li>
+				<li class="nav-item"><span class="nav-link" onclick="openNav()" id="servizioClienti">Servizio Clienti</span></li>
 			</ul>	
 			<c:choose>
 	        	<c:when test="${user == null}">
 	        		<a class="btn btn-dark ms-auto" role="button" href="../login">Sign In</a>
 	        	</c:when>
 	        	<c:otherwise>
-	        		<li class="nav-item dropdown">
+	        		<li class="nav-item dropdown" id="prova">
 			          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			            Account
 			          </a>

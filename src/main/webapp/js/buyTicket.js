@@ -24,6 +24,17 @@ $(document).ready(
 	}
 )
 
+function alert(message) {
+	var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+	var wrapper = document.createElement('div');
+	wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+	alertPlaceholder.append(wrapper);
+	
+	$(".alert-dismissible").fadeTo(10000, 500).slideUp(500, function(){
+		$(".alert-dismissible").alert("close");
+	})
+}
+
 function prezzoTotale(passeggeri, prezzoBiglietto) {
 	var prezzoTotale = 0.0;
 	for (let i = 0; i < passeggeri; i++) {
@@ -40,7 +51,7 @@ function generatePayment(value, url) {
 			layout: 'horizontal',
 			color: 'gold'
 		},
-		createOrder: function(data, actions) {
+		createOrder: function(actions) {
 	      return actions.order.create({
 	        purchase_units: [{
 	          amount: {
@@ -50,9 +61,9 @@ function generatePayment(value, url) {
 	      });
 	    }, onApprove: function() {
 			addTicket(url);
-			window.alert("Pagamento avvenuto con successo");
+			alert("Pagamento avvenuto con successo");
 		}, onCancel: function() {
-			window.alert("Pagamento rifiutato");
+			alert("Pagamento rifiutato");
 		}
 	}).render('#paypal-button-container');
 }
@@ -62,7 +73,6 @@ function addTicket(url){
 		routeCod : url.get("codice"),
 		clientEmail : $("#sessionEmail").val()
 	};
-	console.log(ticket.routeCode);
         
 	$.ajax({
 		type : "POST",

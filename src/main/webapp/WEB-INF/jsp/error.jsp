@@ -22,7 +22,7 @@
 	    <div class="container mt-5 " id="firstContainer">
 			<center>
 				<h1 >404 Not Found</h1>
-				<a href="/"><button id="sendButton" type="submit" class="btn">Home</button></a>
+				<a href="/"><button type="submit" class="btn">Home</button></a>
 			<center>
 			
 		</div>	

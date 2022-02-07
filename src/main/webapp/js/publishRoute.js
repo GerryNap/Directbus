@@ -32,7 +32,6 @@ function setMinDate(){
 	if(tomorrow.getDate() < 10)
 		var day = '0'+ tomorrow.getDate();
 	let minDate = year + '-' + month + '-' + day ;
-	console.log(minDate+"T00:00:00");
 	document.getElementById("startDate").setAttribute("min", minDate + "T00:00:00");
 	document.getElementById("arrivalDate").setAttribute("min", minDate + "T00:00:00")
 }
@@ -42,6 +41,10 @@ function alert(message, type) {
 	var wrapper = document.createElement('div');
 	wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	alertPlaceholder.append(wrapper);
+	
+	$(".alert-dismissible").fadeTo(10000, 500).slideUp(500, function(){
+		$(".alert-dismissible").alert("close");
+	})
 }
 
 function checkStation(){

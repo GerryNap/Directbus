@@ -2,7 +2,7 @@ $(document).ready(
 	function(){
 		setMinDate();
 		disableButtons();
-		$("#cardTicket").hide();
+		hideTicket();
 		
 		$("#startStation").on("keyup", function(event) {
 			event.preventDefault();
@@ -40,6 +40,10 @@ function alert(message, type) {
 	var wrapper = document.createElement('div');
 	wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	alertPlaceholder.append(wrapper);
+	
+	$(".alert-dismissible").fadeTo(10000, 500).slideUp(500, function(){
+		$(".alert-dismissible").alert("close");
+	})
 }
 
 function liveSearch(id){	
@@ -83,7 +87,6 @@ function disableButtons(){
 
 function reload(){
 	$("#cardTicket").load(document.URL+"  #cardTicket");
-	$("#cardTicket").show();
 }
 		
 function ajaxSearch(){
@@ -108,7 +111,6 @@ function ajaxSearch(){
 			enableButtons();
 		},
 		error: function() {
-			$("#cardTicket").hide();
 			disableButtons();
 			alert("Destinazione non trovata", "primary")
 		}

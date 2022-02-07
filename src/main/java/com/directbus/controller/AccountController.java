@@ -25,6 +25,7 @@ public class AccountController {
 	public String myProfile() {
 		return "myProfile";
 	}
+	
     @PostMapping(value = "/changePassword", consumes = { "application/json" })
     @ResponseBody
     public ResponseEntity<String> changePassword(HttpSession session, @RequestBody JSONObject content) {

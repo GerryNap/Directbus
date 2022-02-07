@@ -4,6 +4,9 @@
 
 <script src="/js/changeEmail.js"></script>
 <form id="changeEmailForm">
+	<div class="container mt-3">
+		<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
+	</div>
 	<div class="list-group list-group-flush col">
 		<div class="row mt-5">
 			<input type="hidden" id="oldEmail" name="oldEmail" value="${user.email}" />
@@ -15,7 +18,7 @@
 					style="border: 1px solid #171717; font-size: 100%; padding: 5px; border-radius: 5px;" />
 			</div>
 			<div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1 mt-3" style=" margin-left:6%;">
-				<button id="change-button-email" type="button" class="btn"
+				<button id="changebuttonEmail" type="button" class="btn"
 					style="font-size: 13px;">Cambia</button>
 			</div>
 		</div>

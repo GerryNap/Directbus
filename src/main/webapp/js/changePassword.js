@@ -4,36 +4,46 @@ $(document).ready(
 			event.preventDefault();
 			if($("#newPassword").val() === $("#confirmPassword").val()){
 				if($("#oldPassword").val() === $("#newPassword").val()){
-					window.alert("La vecchia password e la nuova password non possono essere uguali");
+					alert("La vecchia password e la nuova password non possono essere uguali");
 				} else {		
 					ajaxChangePassword();
 				}
 			} else {
-				window.alert("Le password non corrispondono");
+				alert("Le password non corrispondono");
 			}
 		});
-		
-		function getPassword(){
-			return {
-				oldPassword : $("#oldPassword").val(),
-				newPassword : $("#newPassword").val()
-			};
-		}
-		
-		function ajaxChangePassword(){
-			$.ajax({
-				type: "POST",
-				url: "changePassword",
-				contentType : "application/json; charset=utf-8",
-                data : JSON.stringify(getPassword()),
-                success : function(data) {
-                    		window.alert(data);
-                    	  },
-                error: function(data) {
-							window.alert(data);
-					   }
-			});
-		}
-		
 	}
 )
+
+function alert(message) {
+	var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+	var wrapper = document.createElement('div');
+	wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+	alertPlaceholder.append(wrapper);
+	
+	$(".alert-dismissible").fadeTo(10000, 500).slideUp(500, function(){
+		$(".alert-dismissible").alert("close");
+	})
+}
+		
+function getPassword(){
+	return {
+		oldPassword : $("#oldPassword").val(),
+		newPassword : $("#newPassword").val()
+	};
+}
+
+function ajaxChangePassword(){
+	$.ajax({
+		type: "POST",
+		url: "changePassword",
+		contentType : "application/json; charset=utf-8",
+        data : JSON.stringify(getPassword()),
+        success : function(data) {
+            		alert(data);
+            	  },
+        error: function(data) {
+					alert(data);
+			   }
+	});
+}

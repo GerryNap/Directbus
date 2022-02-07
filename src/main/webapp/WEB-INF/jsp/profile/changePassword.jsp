@@ -4,6 +4,9 @@
 
 <script src="/js/changePassword.js"></script>
 <form id="changePasswordForm">
+	<div class="container mt-3">
+		<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
+	</div>
 	<div class="list-group list-group-flush col">				
 			<div class="row">   
 				<div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3">				
@@ -16,7 +19,7 @@
 					<input type="password" id="confirmPassword" placeholder="Confirm New Password" required/>
 				</div>
 				<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 mt-3" style=" margin-left:6%;">
-					<button id="change-button-password" type="button" class="btn">Cambia</button>					
+					<button id="changebuttonPassword" type="button" class="btn">Cambia</button>					
 				</div>
 			</div>
 		</div>

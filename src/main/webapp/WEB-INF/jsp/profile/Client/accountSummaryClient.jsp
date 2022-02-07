@@ -29,11 +29,6 @@
 			<div id="email" class="col-xl-5 col-lg-5 col-md-9 col-sm-9 col-9">
 				<label>${user.email}</label>
 			</div>
-			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-				<button id="change-button-email" type="button"
-					style="font-size: 13px; margin-top: 10%; margin-left: 0%;"
-					class="btn" onclick="modifyEmail()">MODIFICA</button>
-			</div>
 		</div>
 		<div class="row mt-5">
 			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-9">
@@ -49,9 +44,6 @@
 			</div>
 			<div id="changePassword">
 				<%@include file="../changePassword.jsp"%>
-			</div>
-			<div id="changeEmail">
-				<%@include file="../changeEmail.jsp"%>
 			</div>
 		</div>
 	</div>

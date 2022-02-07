@@ -1,6 +1,5 @@
 $(document).ready(
     function() {
-		$("#changeEmail").hide();
 		$("#changePassword").hide();
 	 	$("#reservation").hide();
 		$("#travel-history").hide();  
@@ -51,30 +50,13 @@ function loadTravelHistory(){
 }
 
 var activePsw = false;
-var activeEmail = false;
 
 function modifyPassword(){
 	if(!activePsw){
-		$("#changeEmail").hide();
 		$("#changePassword").show();
 	}
 	else{
-		$("#changeEmail").hide();
 		$("#changePassword").hide();
 	}
-	activeEmail = false;
 	activePsw = !activePsw;
-}
-
-function modifyEmail(){
-	if(!activeEmail){
-		$("#changePassword").hide();
-		$("#changeEmail").show();
-	}
-	else{
-		$("#changePassword").hide();
-		$("#changeEmail").hide();
-	}
-	activePsw = false;
-	activeEmail = !activeEmail;	
 }

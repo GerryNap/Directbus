@@ -21,7 +21,7 @@
 	</c:when>
 </c:choose>
 <script
-	src="https://www.paypal.com/sdk/js?currency=EUR&client-id=AfxAGKB_Ow-Q8U96Xgxr84cKesG9xM-sd6J3uBJdGjx1D9kBQXwCPXNdV8IxPtjro7R8LOTGzAI4nlIm "></script>
+	src="https://www.paypal.com/sdk/js?currency=EUR&client-id=AfxAGKB_Ow-Q8U96Xgxr84cKesG9xM-sd6J3uBJdGjx1D9kBQXwCPXNdV8IxPtjro7R8LOTGzAI4nlIm"></script>
 <%@include file="includes/import.jsp"%>
 
 <link href="css/buyTicket.css" rel="stylesheet" />

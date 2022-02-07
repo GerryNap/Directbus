@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
 				id="colonnaSinistra">
-			<!-- COLONNA SINISTRA -->
+				<!-- COLONNA SINISTRA -->
 
 				<h5>Contatti acquirente</h5>
 				<div class="form-floating mb-3">
@@ -117,8 +117,9 @@
 						</div>
 					</div>
 				</c:forEach>
-			</div> <!-- FINE COLONNA SINISTRA -->
-			
+			</div>
+			<!-- FINE COLONNA SINISTRA -->
+
 
 			<!-- INSERIRE COLONNA A DESTRA -->
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -152,8 +153,7 @@
 						<i
 							class="bi bi-clock-fill col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1"
 							style="color: black;"><label>${param.departureTime} <i
-								class="bi bi-people-fill"
-								style="color: black;"> <label>
+								class="bi bi-people-fill" style="color: black;"> <label>
 										${param.passengers} <label> Passeggeri</label>
 								</label></i></label></i>
 
@@ -200,6 +200,9 @@
 								<hr style="color: #black;">
 								<h3 style="color: #black;">Checkout</h3>
 								<div id="paypal-button-container" class="row mt-3"></div>
+							</div>
+							<div class="container mt-3">
+								<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
 							</div>
 						</div>
 					</div>

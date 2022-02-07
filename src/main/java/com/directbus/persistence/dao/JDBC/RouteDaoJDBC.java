@@ -32,11 +32,11 @@ public class RouteDaoJDBC implements RouteDao{
 				Route route = new Route();
 				route.setCod(rs.getLong("cod"));
 				route.setAgency(rs.getString("azienda"));
-				route.setDataPartenza(rs.getString("dataPartenza"));
+				route.setDataPartenza(rs.getString("data_partenza"));
 				route.setDestinationS(rs.getString("s_arrivo"));
 				route.setStartS(rs.getString("s_partenza"));
 				route.setnBiglietti(rs.getInt("n_nbiglietti"));
-				route.setDataArrivo(rs.getString("dataArrivo"));
+				route.setDataArrivo(rs.getString("data_arrivo"));
 				route.setPrice(rs.getFloat("prezzo"));
 				allRoutes.add(route);
 			}
@@ -60,11 +60,11 @@ public class RouteDaoJDBC implements RouteDao{
 				
 				rt.setCod(rs.getLong("cod"));
 				rt.setAgency(rs.getString("azienda"));
-				rt.setDataPartenza(rs.getString("dataPartenza"));
+				rt.setDataPartenza(rs.getString("data_partenza"));
 				rt.setDestinationS(rs.getString("s_arrivo"));
 				rt.setStartS(rs.getString("s_partenza"));
 				rt.setnBiglietti(rs.getInt("n_nbiglietti"));
-				rt.setDataArrivo(rs.getString("dataArrivo"));
+				rt.setDataArrivo(rs.getString("data_arrivo"));
 				rt.setPrice(rs.getFloat("prezzo"));
 			}
 		} catch (SQLException e) {
@@ -79,7 +79,7 @@ public class RouteDaoJDBC implements RouteDao{
 		if (!existRoute(route)) {
 			//INSERT
 			try {
-				String query = "INSERT INTO tratte (dataPartenza, s_arrivo, s_partenza, n_nbiglietti, azienda, dataArrivo, prezzo)"
+				String query = "INSERT INTO tratte (data_partenza, s_arrivo, s_partenza, n_nbiglietti, azienda, data_arrivo, prezzo)"
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setString(1, route.getDataPartenza());
@@ -99,7 +99,7 @@ public class RouteDaoJDBC implements RouteDao{
 			//UPDATE
 			try {
 				String query = "UPDATE tratte "
-						+ "set azienda = ?, dataPartenza = ?, s_arrivo = ?, s_partenza = ?, n_nbiglietti = ?"
+						+ "set azienda = ?, data_partenza = ?, s_arrivo = ?, s_partenza = ?, n_nbiglietti = ?"
 						+ "where cod = ?";
 				PreparedStatement st = conn.prepareStatement(query);
 				st.setLong(1, route.getCod());
@@ -120,7 +120,7 @@ public class RouteDaoJDBC implements RouteDao{
 	}
 	
 	private boolean existRoute(Route route) {
-		String query = "SELECT * FROM tratte WHERE dataPartenza = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND dataArrivo = ? AND prezzo = ?";
+		String query = "SELECT * FROM tratte WHERE data_partenza = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND data_arrivo = ? AND prezzo = ?";
 		try {
 			PreparedStatement p = conn.prepareStatement(query);
 			p.setString(1, route.getDataPartenza());
@@ -160,7 +160,7 @@ public class RouteDaoJDBC implements RouteDao{
 	@Override
 	public boolean checkRoute(Route route) {
 		
-		String query = "SELECT * FROM tratte WHERE dataPartenza = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND dataArrivo = ? AND prezzo = ?";
+		String query = "SELECT * FROM tratte WHERE data_partenza = ? AND s_arrivo = ? AND s_partenza = ? AND azienda = ? AND data_arrivo = ? AND prezzo = ?";
 		
 		try {
 			PreparedStatement p = conn.prepareStatement(query);

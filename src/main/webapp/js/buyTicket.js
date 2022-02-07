@@ -27,6 +27,8 @@ $(document).ready(
 function alert(message) {
 	var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 	var wrapper = document.createElement('div');
+	
+	console.log(alertPlaceholder);
 	wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	alertPlaceholder.append(wrapper);
 	

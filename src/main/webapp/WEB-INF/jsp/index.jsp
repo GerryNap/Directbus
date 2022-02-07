@@ -98,6 +98,7 @@
 						</div>
 					</form>
 				</c:forEach>
+				 
 			</div>
 		</div>
 	</section>

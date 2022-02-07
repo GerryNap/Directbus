@@ -36,6 +36,8 @@ public class User {
 		this.paypalMail = paypalMail;
 	}
 	
+	public void setVerified(boolean b) {verified = b;}
+	
 	public String getEmail() { return this.email; }
 	public void setEmail(String email) { this.email = email; }
 	

@@ -42,8 +42,8 @@ public class EmailSenderService {
 		
 		mimeMessageHelper.setFrom("info.directbus@gmail.com");
 		mimeMessageHelper.setTo(et.getEmail());
-		mimeMessageHelper.setText("ptorf");
-		mimeMessageHelper.setSubject("Biglietto");
+		mimeMessageHelper.setText("Ciao da Direct Bus, ecco il tuo biglietto:");
+		mimeMessageHelper.setSubject("Biglietto-Direct Bus");
 		
 		FileSystemResource fileSystem = new FileSystemResource(new File("ticket.pdf"));
 		

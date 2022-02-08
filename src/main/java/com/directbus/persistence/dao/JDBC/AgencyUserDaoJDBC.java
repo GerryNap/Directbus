@@ -76,11 +76,10 @@ public class AgencyUserDaoJDBC implements AgencyUserDao {
 	@Override
 	public boolean save(AgencyUser user) {
 		if (existUser(user.getEmail()))
-			return false;
-		
+			return false;		
 		try {
 			String query = "INSERT INTO utentiaziende "
-					+ "VALUES (?, ?, ?, ?, ?)";
+					+ "VALUES (?, ?, ?, ?, ?, true)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getName());

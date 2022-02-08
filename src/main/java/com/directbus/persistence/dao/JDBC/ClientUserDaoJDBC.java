@@ -78,7 +78,7 @@ public class ClientUserDaoJDBC implements ClientUserDao{
 			return false;
 			
 		try {
-			String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?)";
+			String query = "INSERT INTO utenticlienti VALUES (?, ?, ?, ?, true)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, user.getEmail());
 			st.setString(2, user.getFirstName());

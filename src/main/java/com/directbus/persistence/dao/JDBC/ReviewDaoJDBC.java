@@ -115,4 +115,27 @@ public class ReviewDaoJDBC implements ReviewDao{
 		return false;
 	}
 
+	@Override
+	public ArrayList<Review> getPartnerReviews(String email) {
+		ArrayList<Review> reviews = new ArrayList<Review>();
+		String query = "SELECT * FROM recensioni r, tratte t, utentiaziende u where t.azienda = u.email AND r.tratta = t.cod AND u.email = ?";
+		try {
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				Review r = new Review();
+				r.setStarNumber(rs.getInt("numero_stelle"));
+				r.setText(rs.getString("commento"));
+				r.setTratta(rs.getLong("tratta"));
+				r.setCliente(rs.getString("cliente"));
+				reviews.add(r);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return reviews;
+	}
+
 }

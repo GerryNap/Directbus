@@ -59,7 +59,7 @@
 					<br><br>
 					<div id="register">
 						<font>Non hai un account?</font>
-						<a href="chooseRegistrationType mt"> Registrati qui</a>
+						<a href="chooseRegistrationType"> Registrati qui</a>
 					</div>
 				</center>	
 			</form>

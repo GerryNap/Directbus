@@ -32,3 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 src/main/java/com/directbus/persistence/DatabaseHandler.java
+ticket.pdf
+src/main/java/com/directbus/persistence/DatabaseHandler.java

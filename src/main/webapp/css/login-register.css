@@ -134,6 +134,23 @@ label {
 }
 
 .ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
+	border:none;
 	border-color: #FFCC00;
 }
+.g-signin2{
+	margin-top:3%;
+	margin-left:4%;
+}
+.abcRioButton.abcRioButtonLightBlue{
+	border-radius: 5px 5px 5px 5px;
+}
+.abcRioButtonContentWrapper{
+	color:black;
+	border:1px solid black;
+	border-radius: 5px 5px 5px 5px;
+}
 
+.abcRioButtonContentWrapper:hover{
+	border:2px solid black;
+	background-color:#FFCC00;
+}

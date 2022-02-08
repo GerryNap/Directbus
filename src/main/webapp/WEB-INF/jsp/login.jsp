@@ -16,14 +16,14 @@
   	
     <link href="css/login-register.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet"/>
-	
+	<meta name="google-signin-client_id" content="740332698922-69ebhi3vkb36s42686vnockvh1bmq8c4.apps.googleusercontent.com">
     <title>DirectBus</title>
   </head>
   
 	<body id="body">
 	    <%@include file="includes/navbar.jsp" %>
 	    <script src="/js/login.js"></script>
-	    
+	    <script src="https://apis.google.com/js/platform.js" async defer></script>
 	    <div class="container mt-5 " id="firstContainer">
 			<form id="login-form" class="col-xs-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto position-relative">
 				<center>
@@ -54,11 +54,12 @@
 					<br>
 					<div class="btn-group col-md-4 col-lg-3 col-xl-3 mt-3">
 						<button id="sendButton" type="submit" class="btn">Sign In</button>						
-					</div>													
+					</div>	
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>												
 					<br><br>
 					<div id="register">
 						<font>Non hai un account?</font>
-						<a href="chooseRegistrationType"> Registrati qui</a>
+						<a href="chooseRegistrationType mt"> Registrati qui</a>
 					</div>
 				</center>	
 			</form>

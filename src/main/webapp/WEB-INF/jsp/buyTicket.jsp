@@ -202,7 +202,7 @@
 								<div id="paypal-button-container" class="row mt-3"></div>
 							</div>
 							<div class="container mt-3">
-								<div id="liveAlertPlaceholder" class="col-md-6 mx-auto"></div>
+								<div id="liveAlertPlaceholder" class="col-md-8 mx-auto"></div>
 							</div>
 						</div>
 					</div>

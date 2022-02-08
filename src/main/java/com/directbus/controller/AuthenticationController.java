@@ -89,7 +89,6 @@ public class AuthenticationController {
 			status = HttpStatus.ACCEPTED;
 			session.setAttribute("user", DatabaseHandler.getInstance().getClientUserDao().getUserData(user.getEmail()));
 			session.setAttribute("userType", "Client");
-			
 		}
 		else if(DatabaseHandler.getInstance().getAgencyUserDao().checkUser(user)){
 			status = HttpStatus.ACCEPTED;

@@ -33,7 +33,7 @@ function ajaxLoginPost() {
 					window.location.href = "/";
 				 },
 		error: function(){
-					alert("user not found");
+					alert("Password o email errata");
 				}
 	});
 }

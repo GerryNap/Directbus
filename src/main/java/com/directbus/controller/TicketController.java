@@ -40,10 +40,9 @@ public class TicketController {
 			try {
 				emailSender.sendEmailWithAttachment(et);
 			} catch (MessagingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
-		return new ResponseEntity<String>("Ciao", HttpStatus.OK);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 }

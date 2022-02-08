@@ -80,7 +80,10 @@ function addTicket(url){
 		type : "POST",
 		contentType : "application/json",
 		url : "addTicket",
-        data : JSON.stringify(ticket)
+        data : JSON.stringify(ticket),
+        success: function(){
+					window.location.href = "/myProfile#reservation";
+				}
 	});
 }
 

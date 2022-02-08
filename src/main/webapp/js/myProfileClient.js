@@ -1,8 +1,16 @@
 $(document).ready(
     function() {
-		$("#changePassword").hide();
-	 	$("#reservation").hide();
-		$("#travel-history").hide();  
+		let url = window.location.href.split("#");
+		console.log(url[1]);
+		if(url[1] === "reservation"){
+			$("#changePassword").hide();
+		 	$("#account-summary").hide();
+			$("#travel-history").hide();
+		} else {
+			$("#changePassword").hide();
+		 	$("#reservation").hide();
+			$("#travel-history").hide();  
+		}
 	}
 )
 

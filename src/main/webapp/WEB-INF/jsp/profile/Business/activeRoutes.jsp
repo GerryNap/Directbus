@@ -2,8 +2,8 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <link href="css/activeRoutes.css" rel="stylesheet"/>
 
-<section id="activeRoutes" class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-	<h1 style="margin-left:50%;">TRATTE ATTIVE</h1>
+<section id="activeRoutes">
+	<h1 id="tratteAttive">TRATTE ATTIVE</h1>
 		<div class="container">
 			<div class="row justify-content-center align-items-center">
 				<c:forEach var="route" items="${activeRoutes}">
@@ -12,6 +12,7 @@
 							<h5 class="card-title">Cod: ${route.cod}</h5>
 							<p class="card-text">Partenza: ${route.dataPartenza}</p>
 							<p class="card-text">${route.startS} - ${route.departureTime}</p>
+							<hr style="color: black;">
 							<p class="card-text">Arrivo: ${route.dataArrivo}</p>
 							<p class="card-text">${route.destinationS} - ${route.arrivalTime}</p>
 							<span class="badge bg-success">IN CORSO</span>

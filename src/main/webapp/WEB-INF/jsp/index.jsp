@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="it">
 	<head>
-	<c:if test="${userType == 'Client'}">
+	<c:if test="${userType == 'Agency'}">
 		<c:redirect url="/myProfile" />
 	</c:if>
 		<%@include file="includes/import.jsp"%>
